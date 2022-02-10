@@ -7,12 +7,16 @@ import Footer from '../src/Components/Home/Footer/Footer';
 import Navbar from '../src/Components/Home/Navbar/Navbar';
 import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
 import Reviews from '../src/Components/Home/Reviews/Reviews';
+import Login from '../src/Components/Login/Login/Login';
+import AuthProvider from '../src/context/AuthProvider/AuthProvider';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <>
       <div>
+        
+        <AuthProvider>
         <Navbar></Navbar>
         <Banner></Banner>
         <Categories></Categories>
@@ -20,6 +24,8 @@ export default function Home() {
         <BestSells></BestSells>
         <Reviews></Reviews>
         <Footer></Footer>
+        <Login></Login>
+        </AuthProvider>
       </div>
       <div className={styles.container}>
       
