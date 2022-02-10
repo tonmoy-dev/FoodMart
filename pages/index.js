@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Banner from '../src/Components/Home/Banner/Banner';
 import BestSells from '../src/Components/Home/BestSells/BestSells';
 import Categories from '../src/Components/Home/Categories/Categories';
-import DealsOfDay from '../src/Components/Home/DealsOfDay/DealsOfDay';
 import DeliverySteps from '../src/Components/Home/DeliverySteps/DeliverySteps';
 import Footer from '../src/Components/Home/Footer/Footer';
 import Navbar from '../src/Components/Home/Navbar/Navbar';
@@ -19,7 +18,6 @@ export default function Home() {
         <Banner></Banner>
         <Categories></Categories>
         <PopularProducts></PopularProducts>
-        <DealsOfDay></DealsOfDay>
         <BestSells></BestSells>
         <DeliverySteps></DeliverySteps>
         <Reviews></Reviews>
