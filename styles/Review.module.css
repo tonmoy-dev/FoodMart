@@ -1,0 +1,150 @@
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
+.rerr {
+  color: blueviolet;
+}
+
+.testimonialcont {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+section .heading {
+  display: inline-block;
+  position: relative;
+  color: rgb(66, 214, 66);
+  font-size: 4vw;
+  padding: 60px;
+  width: 100%;
+  text-align: center;
+  font-weight: 800;
+}
+section .heading::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 3px;
+  background-color: rgb(66, 214, 66);
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0% {
+    width: 200px;
+  }
+  50% {
+    width: 400px;
+  }
+  100% {
+    width: 200px;
+  }
+}
+section .heading b {
+  color: rgb(0, 0, 0);
+}
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.wrapper .containers {
+  position: relative;
+  width: 350px;
+  color: white;
+  background-color: rgba(236, 236, 236, 0.794);
+  border: 2px solid black;
+  margin: 40px 10px;
+  padding: 30px 20px;
+  border-radius: 3px;
+  transition: 0.3s ease;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+  /* border-radius: 0% 100% 0% 100% / 0% 39% 61% 100%; */
+}
+.wrapper .containers:hover {
+  /* border-radius: 95% 5% 92% 8% / 4% 94% 6% 96%; */
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+}
+.wrapper .containers .profile {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -10%;
+  width: 100%;
+  display: block;
+}
+.wrapper .containers .profile .imgBox {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  margin: auto;
+  border: 8px solid rgb(66, 214, 66);
+  border-radius: 50%;
+  overflow: hidden;
+}
+.wrapper .containers .profile .imgBox .avator {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: 0.3s ease;
+}
+.wrapper .containers .profile .imgBox .avator:hover {
+  filter: saturate(140%);
+  transform: scale(0.95);
+}
+.wrapper .containers .profile h2 {
+  padding: 5px 0;
+  margin-top: 10px;
+  text-transform: capitalize;
+  color: rgb(0, 0, 0);
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  /* font-size: 300px; */
+}
+.wrapper .containers p {
+  margin-top: 50px;
+  color: rgb(0, 0, 0);
+  font-weight: 700;
+  padding: 0 8px;
+  font-size: 15px;
+  opacity: 0.8;
+}
+.wrapper .containers .qoute {
+  font-size: 50px;
+  display: block;
+  text-align: left;
+  color: rgb(0, 0, 0);
+}
+.wrapper .containers .qoute1 {
+  font-size: 50px;
+  display: block;
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+.wrapper .containers .social {
+  width: 100%;
+}
+/* .icons {
+  font-size: 10px;
+  color: #fff;
+  padding: 8px;
+  display: flex;
+  background-color: red;
+  border-radius: 4px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+}
+.wrapper .containers .social .icons:hover {
+  background-color: rgb(95, 230, 95);
+} */
