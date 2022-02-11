@@ -1,9 +1,9 @@
 const firebaseConfig = {
-    apiKey: process.env.REACT_APP_API_KEY,
-    authDomain:process.env.REACT_APP_AUTH_DOMAIN,
-    projectId:process.env.REACT_APP_PROJECT_ID,
-    storageBucket:process.env.REACT_APP_STORAGE_BUCKET,
-    messagingSenderId:process.env.REACT_APP_MESSAGING_SENDER_ID,
-    appId:process.env.REACT_APP_APP_ID
-  };
-  export default firebaseConfig
+  apiKey: "AIzaSyChRGC3rbinFTF1-ddmQgQav8mjk-XHfyo",
+  authDomain: "food-mart-98c75.firebaseapp.com",
+  projectId: "food-mart-98c75",
+  storageBucket: "food-mart-98c75.appspot.com",
+  messagingSenderId: "802716529276",
+  appId: "1:802716529276:web:f1556a48c9fca6f4bd8ff9"
+};
+export default firebaseConfig;
