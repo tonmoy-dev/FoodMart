@@ -4,7 +4,7 @@ import apple from "./Images/apple.png"
 
 
 
-const BestSells = ( {products}) => {
+const BestSells = ({ products }) => {
     <style jsx>
         {`
         .dbs-style{
@@ -32,6 +32,22 @@ const BestSells = ( {products}) => {
 
 
             <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
+                <div>
+                    <div style={{ backgroundImage: `url('https://i.ibb.co/cc0jgvk/banner-4.png')`, height: "30rem" }} className="dbs-style   max-w-sm   rounded-lg border-1  ">
+                        <div className="py-10 px-10  ">
+                            <p className="text-3xl font-semibold text-gray-700">Bring nature <span><br /></span> into your <span><br /></span> home</p>
+                        </div>
+                        <div className=" px-10  ">
+                            <button className="bg-green-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+                                Button
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 pr-2 inline-block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
                 {
                     products.map(product => {
                         const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
@@ -100,6 +116,7 @@ const BestSells = ( {products}) => {
                 }
 
                 <div>
+                    {/* <div>
                     <div style={{ backgroundImage: `url('https://i.ibb.co/cc0jgvk/banner-4.png')`, height: "30rem" }} className="dbs-style   max-w-sm   rounded-lg border-1  ">
                         <div className="py-10 px-10  ">
                             <p className="text-3xl font-semibold text-gray-700">Bring nature <span><br /></span> into your <span><br /></span> home</p>
@@ -508,9 +525,9 @@ const BestSells = ( {products}) => {
                             </div>
                         </div>
                     </div>
+                </div> */}
+
                 </div>
-
-
             </div>
 
 
