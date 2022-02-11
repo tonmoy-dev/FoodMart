@@ -4,6 +4,10 @@
   color: blueviolet;
 }
 
+.slidecontain {
+  background-color: #f8f8f8;
+}
+
 .testimonialcont {
   position: relative;
   min-height: 100vh;
@@ -16,7 +20,7 @@ section .heading {
   display: inline-block;
   position: relative;
   color: rgb(66, 214, 66);
-  font-size: 4vw;
+  /* font-size: 4vw; */
   padding: 60px;
   width: 100%;
   text-align: center;
@@ -58,21 +62,19 @@ section .heading b {
   position: relative;
   width: 350px;
   color: white;
-  background-color: rgba(236, 236, 236, 0.794);
+  background-color: rgba(255, 0, 0, 0.794);
   border: 2px solid black;
   margin: 40px 10px;
   padding: 30px 20px;
   border-radius: 3px;
   transition: 0.3s ease;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
-  /* border-radius: 0% 100% 0% 100% / 0% 39% 61% 100%; */
 }
 .wrapper .containers:hover {
-  /* border-radius: 95% 5% 92% 8% / 4% 94% 6% 96%; */
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
   background-color: rgb(255, 255, 255);
 }
-.wrapper .containers .profile {
+.profile {
   position: absolute;
   left: 50%;
   transform: translate(-50%);
@@ -80,16 +82,16 @@ section .heading b {
   width: 100%;
   display: block;
 }
-.wrapper .containers .profile .imgBox {
+.profile .imgBox {
   position: relative;
   height: 100px;
   width: 100px;
   margin: auto;
-  border: 8px solid rgb(66, 214, 66);
+  border: 8px solid #22c55e;
   border-radius: 50%;
   overflow: hidden;
 }
-.wrapper .containers .profile .imgBox .avator {
+.profile .imgBox .avator {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -99,11 +101,11 @@ section .heading b {
   object-fit: cover;
   transition: 0.3s ease;
 }
-.wrapper .containers .profile .imgBox .avator:hover {
+.profile .imgBox .avator:hover {
   filter: saturate(140%);
   transform: scale(0.95);
 }
-.wrapper .containers .profile h2 {
+.profile h2 {
   padding: 5px 0;
   margin-top: 10px;
   text-transform: capitalize;
@@ -114,38 +116,57 @@ section .heading b {
   text-align: center;
   /* font-size: 300px; */
 }
-.wrapper .containers p {
+.reviewdetails {
   margin-top: 50px;
   color: rgb(0, 0, 0);
   font-weight: 700;
-  padding: 0 8px;
+  padding: 20px;
   font-size: 15px;
   opacity: 0.8;
 }
-.wrapper .containers .qoute {
+.qoute {
   font-size: 50px;
   display: block;
   text-align: left;
   color: rgb(0, 0, 0);
 }
-.wrapper .containers .qoute1 {
+.qoute1 {
   font-size: 50px;
   display: block;
   text-align: right;
   color: rgb(0, 0, 0);
 }
-.wrapper .containers .social {
+
+#app {
+  height: 100%;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiperslide {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 10px 10px rgba(185, 181, 181, 0.561);
+  background-position: center;
+  /* border: 1px solid rgb(136, 132, 132); */
+  background-size: cover;
+  border-radius: 8px;
+  width: 400px;
+  height: 400px;
+}
+.swiperslide:hover {
+  background-color: rgba(222, 220, 220, 0.831);
+  box-shadow: 10px 10px 10px rgba(194, 194, 194, 0.904);
+}
+
+.swiperslideimg {
+  display: block;
   width: 100%;
 }
-/* .icons {
-  font-size: 10px;
-  color: #fff;
-  padding: 8px;
-  display: flex;
-  background-color: red;
-  border-radius: 4px;
-  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
-}
-.wrapper .containers .social .icons:hover {
-  background-color: rgb(95, 230, 95);
+
+/* .ddd {
+  background-color: blueviolet;
 } */
