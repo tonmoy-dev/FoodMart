@@ -6,19 +6,23 @@ import DeliverySteps from '../src/Components/Home/DeliverySteps/DeliverySteps';
 import Footer from '../src/Components/Home/Footer/Footer';
 import Navbar from '../src/Components/Home/Navbar/Navbar';
 import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
+import ProductOffer from '../src/Components/Home/ProductOffer/ProductOffer';
 import Reviews from '../src/Components/Home/Reviews/Reviews';
+
 
 export default function Home({reviews, products,blogs}) {
   return (
       <div>
         <Navbar></Navbar>
         <Banner></Banner>
-        <Categories></Categories>
+      <Categories></Categories>
+      <ProductOffer></ProductOffer>
         <PopularProducts products={products}></PopularProducts>
         <BestSells products={products}></BestSells>
         <Blogs blogs={blogs}></Blogs>
+      <DeliverySteps></DeliverySteps>
         <Reviews reviews={reviews}></Reviews>
-        <DeliverySteps></DeliverySteps>
+      
         <Footer></Footer>
       </div>
   );
