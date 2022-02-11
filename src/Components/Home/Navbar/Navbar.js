@@ -70,10 +70,10 @@ export default function Example() {
                                     </div>
                                     <div className="hidden w-full sm:block sm:ml-6 items-center md:flex grow">
                                         {/* search bar */}
-                                        <div class="w-full ml-5 relative mx-auto text-gray-600">
-                                            <input class="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                                        <div className="w-full ml-5 relative mx-auto text-gray-600">
+                                            <input className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
                                                 type="search" name="search" placeholder="Search your food" />
-                                            <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                                            <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
                                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                                                 </svg>
@@ -192,88 +192,88 @@ export default function Example() {
 
                                     {/* <!--Hoverable Mega Menu--> */}
                                     <div className="hoverable">
-                                        <a href="#" class="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-semibold">Menu</a>
+                                        <a href="#" className="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-semibold">Menu</a>
 
                                         <div className="megaMenu px-5 bg-white mb-16 rounded-lg shadow-md">
-                                            <div class="container w-full flex flex-wrap justify-between sm:mb-0 bg-white ">
-                                                <div class="w-full text-green-500 mb-2">
-                                                    <h2 class=" hidden font-semibold text-3xl">FoodMart Mega Menu</h2>
+                                            <div className="container w-full flex flex-wrap justify-between sm:mb-0 bg-white ">
+                                                <div className="w-full text-green-500 mb-2">
+                                                    <h2 className=" hidden font-semibold text-3xl">FoodMart Mega Menu</h2>
                                                 </div>
-                                                <ul class="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
-                                                    <div class="flex items-center">
-                                                        <h3 class="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Fruit & Vegetables</h3>
+                                                <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
+                                                    <div className="flex items-center">
+                                                        <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Fruit & Vegetables</h3>
                                                     </div>
-                                                    <div class="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
+                                                    <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Meat & Poultry</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Meat & Poultry</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Fresh Vegetables</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Fresh Vegetables</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Herbs & Seasonings</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Herbs & Seasonings</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Cuts & Sprouts</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Cuts & Sprouts</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Exotic Fruits & Veggies</a>
-                                                        </div>
-                                                    </div>
-                                                </ul>
-                                                <ul class="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
-                                                    <div class="flex items-center">
-                                                        <h3 class="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Breakfast & Dairy</h3>
-                                                    </div>
-                                                    <div class="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
-                                                        <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Milk & Flavoured Milk</a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Butter and Margarine</a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Eggs Substitutes</a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Marmalades</a>
-                                                        </div>
-                                                        <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Sour Cream</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Exotic Fruits & Veggies</a>
                                                         </div>
                                                     </div>
                                                 </ul>
-                                                <ul class="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
-                                                    <div class="flex items-center">
-                                                        <h3 class="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Meat & Seafood</h3>
+                                                <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
+                                                    <div className="flex items-center">
+                                                        <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Breakfast & Dairy</h3>
                                                     </div>
-                                                    <div class="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
+                                                    <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Breakfast Sausage</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Milk & Flavoured Milk</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Dinner Sausage</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Butter and Margarine</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Chicken</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Eggs Substitutes</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Sliced Deli Meat</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Marmalades</a>
                                                         </div>
                                                         <div>
-                                                            <a href="#" class="text-gray-500 hover:text-green-500">Wild Caught Fillets</a>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Sour Cream</a>
                                                         </div>
                                                     </div>
                                                 </ul>
-                                                <ul class=" flex items-center px-4 sm:w-1/2 lg:w-auto pb-6 pt-6 lg:pt-3">
+                                                <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
+                                                    <div className="flex items-center">
+                                                        <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">Meat & Seafood</h3>
+                                                    </div>
+                                                    <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
+                                                        <div>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Breakfast Sausage</a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Dinner Sausage</a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Chicken</a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Sliced Deli Meat</a>
+                                                        </div>
+                                                        <div>
+                                                            <a href="#" className="text-gray-500 hover:text-green-500">Wild Caught Fillets</a>
+                                                        </div>
+                                                    </div>
+                                                </ul>
+                                                <ul className=" flex items-center px-4 sm:w-1/2 lg:w-auto pb-6 pt-6 lg:pt-3">
                                                     <div className="w-full relative">
                                                         <div className="deals z-10 absolute top-0 left-0 p-6 w-full">
                                                             <div className="flex items-center justify-between w-full">
                                                                 <h2 className="deals-text text-2xl font-semibold text-green-500 ">Hot Deals</h2>
                                                                 <div className="text-lg text-white  w-20 h-20 mx-4 rounded-full flex items-center justify-center font-semibold bg-orange-500">70% <br /> Off</div>
                                                             </div>
-                                                            <p className="w-32 text-2xl text-gray-600 font-semibold mb-5">Don't miss trending</p>
-                                                            <button class="deals-button bg-green-500 hover:bg-orange-500 text-white font-semibold text-xl rounded-lg px-4 py-2 ">
+                                                            <p className="w-32 text-2xl text-gray-600 font-semibold mb-5">Dont miss trending</p>
+                                                            <button className="deals-button bg-green-500 hover:bg-orange-500 text-white font-semibold text-xl rounded-lg px-4 py-2 ">
                                                                 Shop Now
                                                             </button>
                                                         </div>
