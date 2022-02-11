@@ -2,9 +2,11 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Banner from '../src/Components/Home/Banner/Banner';
 import BestSells from '../src/Components/Home/BestSells/BestSells';
+import Brands from '../src/Components/Home/Brands/Brands';
 import Categories from '../src/Components/Home/Categories/Categories';
 import Footer from '../src/Components/Home/Footer/Footer';
 import Navbar from '../src/Components/Home/Navbar/Navbar';
+import NewsLetter from '../src/Components/Home/NewsLetter/NewsLetter';
 import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
 import Reviews from '../src/Components/Home/Reviews/Reviews';
 import styles from '../styles/Home.module.css';
@@ -19,6 +21,10 @@ export default function Home() {
         <PopularProducts></PopularProducts>
         <BestSells></BestSells>
         <Reviews></Reviews>
+        <Brands></Brands>
+  
+        <NewsLetter></NewsLetter>
+        
         <Footer></Footer>
       </div>
       <div className={styles.container}>
