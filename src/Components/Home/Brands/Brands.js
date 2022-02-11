@@ -8,10 +8,10 @@ import brand5 from '../../../../src/assets/brandsImg/8.png';
 import brand3 from '../../../../src/assets/brandsImg/9.jpg';
 const Brands = () => {
     return (
-        <div className='py-10'>
+        <div className='py-12'>
         <div>
             <div>
-             <h1 className='text-black  text-4xl font-bold text-center'>Our Brands Partner</h1>
+             <h1 className='text-black  text-3xl font-bold text-center'>Our Brands Partner</h1>
              </div>
         </div>
         <br/>

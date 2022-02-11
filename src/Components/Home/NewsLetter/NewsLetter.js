@@ -2,8 +2,8 @@ import React from 'react';
 
 const NewsLetter = () => {
     return (
-        <div >
-        <div className='bg-green-200 pt-3'>
+        <div>
+        <div className='bg-green-200 my-5 pt-3'>
              <div>
             <div>
              <h1 className='text-black mt-4  text-4xl font-semibold text-center'>Sign up for the NewsLetter</h1>

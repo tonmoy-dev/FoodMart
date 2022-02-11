@@ -7,7 +7,6 @@ import "swiper/components/pagination/pagination.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-// import reviewStyle from "/styles/Review.module.css";
 import reviewStyle from "../../../style/Review.module.css";
 
 SwiperCore.use([EffectCoverflow, Navigation, Pagination]);
@@ -15,7 +14,7 @@ const Reviews = () => {
     return (
         <>
        <section className={reviewStyle.slidecontain}>
-       <div className={reviewStyle.heading}><h2 className="text-black text-4xl">Customer Reviews</h2></div>
+       <div className={reviewStyle.heading}><h2 className="text-black text-3xl">Customer Reviews</h2></div>
        
        <Swiper
         navigation={false}

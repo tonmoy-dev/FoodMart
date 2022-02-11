@@ -1,0 +1,92 @@
+[
+    {
+        "_id": "62056b0651bf759ee9a55b71",
+        "product_badge": "Hot",
+        "product_title": "Seeds of Change Organic Quinoa, Brown, & Red Rice",
+        "product_category": "Snack",
+        "product_imageUrl": "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+        "product_price": "25.50",
+        "vendor_name": "NestFood",
+        "user_rating": "4"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b72",
+        "product_badge": "Sale",
+        "product_title": "All Natural Italian-Style Chicken Meatballs",
+        "product_category": "Hodo Foods",
+        "product_imageUrl": "https://i.ibb.co/2WdSM6X/product-2-1.jpg",
+        "product_price": "50",
+        "vendor_name": "Stouffer",
+        "user_rating": "3"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b73",
+        "product_badge": "New",
+        "product_title": "Angie’s Boomchickapop Sweet & Salty Kettle Corn",
+        "product_category": "Snack",
+        "product_imageUrl": "https://i.ibb.co/bd11P15/product-3-1.jpg",
+        "product_price": "50",
+        "vendor_name": "NestFood",
+        "user_rating": "4"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b74",
+        "product_badge": "Sale",
+        "product_title": "Foster Farms Takeout Crispy Classic Buffalo Wings",
+        "product_category": "Vegetables",
+        "product_imageUrl": "https://i.ibb.co/LZtNfZ9/product-4-1.jpg",
+        "product_price": "20",
+        "vendor_name": "Stouffer",
+        "user_rating": "4"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b75",
+        "product_badge": "Sale",
+        "product_title": "Blue Diamond Almonds Lightly Salted Vegetables",
+        "product_category": "Pet Foods",
+        "product_imageUrl": "https://i.ibb.co/f87fpf6/product-5-1.jpg",
+        "product_price": "22.30",
+        "vendor_name": "NestFood",
+        "user_rating": "5"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b76",
+        "product_badge": "Hot",
+        "product_title": "Seeds of Change Organic Quinoa, Brown, & Red Rice",
+        "product_category": "Organic Foods",
+        "product_imageUrl": "https://i.ibb.co/r7BQDP4/banner-5.png",
+        "product_price": "30.30",
+        "vendor_name": "NestFood",
+        "user_rating": "4"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b77",
+        "product_badge": "Hot",
+        "product_title": "Perdue Simply Smart Organics Gluten Free",
+        "product_category": "Organic Foods",
+        "product_imageUrl": "https://i.ibb.co/ZH2b6DV/banner-6.png",
+        "product_price": "20.30",
+        "vendor_name": "NestFood",
+        "user_rating": "5"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b78",
+        "product_badge": "Hot",
+        "product_title": "Signature Wood-Fired Mushroom and Caramelized",
+        "product_category": "Organic Foods",
+        "product_imageUrl": "https://i.ibb.co/yshFp8z/banner-7.png",
+        "product_price": "35.30",
+        "vendor_name": "NestFood",
+        "user_rating": "3"
+    },
+    {
+        "_id": "62056b0651bf759ee9a55b79",
+        "product_badge": "Hot",
+        "product_title": "Simply Lemonade with Raspberry Juice",
+        "product_category": "Organic Foods",
+        "product_imageUrl": "https://i.ibb.co/QPQRgVT/banner-8.png",
+        "product_price": "50.30",
+        "vendor_name": "NestFood",
+        "user_rating": "5"
+    }
+]

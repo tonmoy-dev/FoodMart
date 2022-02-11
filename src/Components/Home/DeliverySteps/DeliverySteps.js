@@ -1,16 +1,16 @@
 import Image from "next/image";
 import React from "react";
-import shipping from "./DeliveryImages/shipping.png";
-import pay from "./DeliveryImages/pay.png";
 import moneback from "./DeliveryImages/back.png";
 import choose from "./DeliveryImages/choose.png";
+import pay from "./DeliveryImages/pay.png";
+import shipping from "./DeliveryImages/shipping.png";
 
 const DeliverySteps = () => {
   return (
     <div>
       <div className="container mx-auto py-2 pb-4">
         <div id="delivery-title">
-          <p className="text-2xl text-gray-700 font-semibold capitalize text-center pb-6">Four steps delivery</p>
+          <p className="text-3xl  font-bold capitalize text-center pb-6">Four steps delivery</p>
         </div>
         <div className="grid mx-2 lg:mx-0 md:mx-0 bg-red-00 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="block  shadow-lg bg-gray-100 max-w-sm text-center">
