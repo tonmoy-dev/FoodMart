@@ -3,9 +3,9 @@ import React from "react";
 import { ArrowRightIcon } from '@heroicons/react/solid'
 
 // import required images
-import slider1 from "../Banner/bannerImage/slider-1.jpg";
-import slider2 from "../Banner/bannerImage/slider-2.jpg";
-import slider3 from "../Banner/bannerImage/slider-3.jpg";
+import slider1 from "../../../assets/bannerImage/slider-1.jpg";
+import slider2 from "../../../assets/bannerImage/slider-2.jpg";
+import slider3 from "../../../assets/bannerImage/slider-3.jpg";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -13,7 +13,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
-import bannerStyle from "../../../../styles/Banner.module.css";
+import bannerStyle from "../../../styles/Banner.module.css";
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 SwiperCore.use([Autoplay, Navigation, Pagination]);

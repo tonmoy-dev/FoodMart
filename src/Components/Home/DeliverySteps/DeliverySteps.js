@@ -21,7 +21,7 @@ const DeliverySteps = () => {
                 src={shipping}
                 alt="shipping"
               ></Image>
-              <h5 className="text-green-500 text-lg font-medium mb-2">
+              <h5 className="text-green-500 text-lg font-medium mb-2 rounded- ">
                 Free Shipping
               </h5>
               <p className="text-gray-700 text-sm mb-4">
