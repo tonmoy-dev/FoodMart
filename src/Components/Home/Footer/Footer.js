@@ -1,9 +1,8 @@
+import Image from 'next/image';
 import React from "react";
-// import logo from '../imges/Logo.png'
-import Image from 'next/image'
-import logo from '../../../../public/Logo.png';
-import pay1 from '../../../../src/assets/brandsImg/pay3.png';
+import logo from '../../../../public/logo.png';
 import pay2 from '../../../../src/assets/brandsImg/pay2.jpg';
+import pay1 from '../../../../src/assets/brandsImg/pay3.png';
 import pay3 from '../../../../src/assets/brandsImg/pay4.jpg';
 
 const Footer = () => {
