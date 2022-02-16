@@ -1,4 +1,5 @@
 import React from 'react';
+import GoogleButton from 'react-google-button';
 import useAuth from '../../../hooks/useAuth';
 
 const Login = () => {
@@ -16,7 +17,9 @@ const Login = () => {
                 <button>Login</button>
             }
 
-            <button onClick={handleGoogleSignIn}>Google Sign In</button>
+<GoogleButton
+  onClick={ handleGoogleSignIn }
+/>
             
         </div>
     );
