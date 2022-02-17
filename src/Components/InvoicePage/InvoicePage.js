@@ -5,19 +5,19 @@ import Logo from "../../../public/logo.png";
 const InvoicePage = () => {
   return (
     <>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
-        <div className="w-3/5 bg-white shadow-lg">
-          <div className="flex justify-between p-4">
-            <div>
+      <div className="flex items-center justify-center min-h-screen min-w-full bg-gray-100">
+        <div className="w-3/5 bg-gray-200 shadow-lg">
+          <div className="flex justify-between ">
+            <div className="bg-white p-2">
               <Image src={Logo} alt="" width={150} height={70} />
-              <p className="text-base">
+              <p className="text-base bg-white">
                 If account is not paid within 7 days the credits details
                 supplied as confirmation.
               </p>
             </div>
-            <div className="p-2">
+            <div className="p-2 bg-white">
               <ul className="flex">
-                <li className="flex flex-col items-center p-2 border-l-2 border-green-200">
+                <li className="items-center p-2 border-l-2 border-green-200">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6 text-green-500"
@@ -35,11 +35,7 @@ const InvoicePage = () => {
                   <span className="text-sm">
                     https://food-mart-web.vercel.app/
                   </span>
-                  {/* <span className="text-sm">
-                                    www.lorememhh.com
-                                </span> */}
-                </li>
-                <li className="flex flex-col p-2 border-l-2 border-indigo-200">
+                  <li className="pt-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6 text-green-500"
@@ -64,10 +60,12 @@ const InvoicePage = () => {
                     2821 Kensington Road,Avondale Estates, GA 30002 USA
                   </span>
                 </li>
+                </li>
+                
               </ul>
             </div>
           </div>
-          <div className="w-full h-0.5 bg-indigo-500"></div>
+          <div className="w-full h-0.5 bg-green-500"></div>
           <div className="flex justify-between p-4">
             <div>
               <h6 className="font-bold">
@@ -97,7 +95,7 @@ const InvoicePage = () => {
           <div className="flex justify-center p-4">
             <div className="border-b border-gray-200 shadow">
               <table className="">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-300">
                   <tr>
                     <th className="px-4 py-2 text-xs text-gray-500 ">#</th>
                     <th className="px-4 py-2 text-xs text-gray-500 ">
@@ -112,7 +110,7 @@ const InvoicePage = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white">
+                <tbody className="bg-gray-200">
                   <tr className="whitespace-nowrap">
                     <td className="px-6 py-4 text-sm text-gray-500">1</td>
                     <td className="px-6 py-4">
@@ -168,7 +166,7 @@ const InvoicePage = () => {
                       <b>$1.50%</b>
                     </td>
                   </tr>
-                  <tr className="text-white bg-green-500 gap-3">
+                  <tr className="text-black bg-gray-300 gap-3">
                     <th colSpan="3"></th>
                     <td className="text-xl font-bold p-4">
                       <b>Total</b>
@@ -203,27 +201,27 @@ const InvoicePage = () => {
               <div className="text-4xl italic text-indigo-500">AAA</div>
             </div>
           </div>
-          <div className="w-full h-0.5 bg-indigo-500"></div>
+          <div className="w-full h-0.5 bg-green-500"></div>
 
           <div className="p-4">
             <div className="flex items-center justify-center">
             Thank you very much for being with us.
             </div>
             <div className="flex items-end justify-end space-x-3">
-              <button className="px-4 py-2 text-sm text-green-600 bg-green-100">
+              <button className="px-4 py-2 text-sm font-semibold text-green-700 bg-green-300">
                 Print
               </button>
-              <button className="px-4 py-2 text-sm text-blue-600 bg-blue-100">
+              <button className="px-4 py-2 text-sm font-semibold text-blue-700 bg-blue-300">
                 Save
               </button>
-              <button className="px-4 py-2 text-sm text-red-600 bg-red-100">
+              <button className="px-4 py-2 text-sm font-semibold text-red-700 bg-red-300">
                 Cancel
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      {/* <div className="flex items-center justify-center min-h-screen bg-gray-100">
         <div className="w-6/12 mt-4 text-left bg-white shadow-lg">
           <div className="flex justify-between px-8 py-6">
             <div className="flex items-center">sale invoice</div>
@@ -238,7 +236,7 @@ const InvoicePage = () => {
           </div>
           <div className="w-full h-0.5 bg-gray-800"></div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
