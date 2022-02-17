@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 
 const VendorsList = () => {
-
+    // hello
     let Allvendors = require("../../../assets/Api/Vendors.json");
     console.log(Allvendors);
     return (
