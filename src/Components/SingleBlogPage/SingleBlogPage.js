@@ -4,22 +4,177 @@ import singlePage from "../../style/SingleBlogPage.module.css";
 const SingleBlogPage = () => {
   return (
     <>
-    <div className={singlePage.aboutbg}>
-               <div className={singlePage.explorehead}>
-               <h2 className="font-semibold"> BLOG DETAILS </h2>
-               </div>
+     <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
+        <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <li className="inline-flex items-center">
+            <a
+              href="#"
+              className="inline-flex items-center text-sm font-medium text-white hover:text-gray-200 dark:text-gray-400 dark:hover:text-white"
+            >
+              <svg
+                className="mr-2 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <div className="flex items-center">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <a
+                href="#"
+                className="ml-1 text-sm font-medium text-white hover:text-gray-200 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+              >
+                Projects
+              </a>
             </div>
+          </li>
+          <li aria-current="page">
+            <div className="flex items-center">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <span className="ml-1 text-sm font-medium text-white md:ml-2 dark:text-gray-200">
+                Flowbite
+              </span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+      <div className={singlePage.aboutbg}>
+        <div className={singlePage.explorehead}>
+          <h2 className="font-semibold"> BLOG DETAILS </h2>
+        </div>
+      </div>
       <div className="py-12 bg-gray-100 min-h-screen">
         <div className="container mx-auto px-4 flex">
-
-{/* Main content  */}
-<div className="w-8/12 bg-white mx-6">
+          {/* Main content  */}
+          <div className="w-8/12 bg-white mx-6">
             <div>
-              <h2 className="text-3xl text-green-500 p-3 font-bold text-center">
+              <h2 className="text-3xl text-black p-3 font-bold text-center">
                 Best smartwatch 2021: the top wearables you can buy today
               </h2>
             </div>
-            <div>
+
+            <div className="flex justify-center gap-1 px-5 text-green-500">
+              <img
+                src="https://i.ibb.co/6R0RdxL/author-2.png"
+                alt=""
+                width={30}
+                height={10}
+              />
+              <span>By Sugar Rosie</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mt-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>2 hours ago</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mt-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <span>8 mins read</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 mt-1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              <div className="flex gap-2 ml-auto px-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                  />
+                </svg>
+
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
+              </div>
+            </div>
+
+            <div className="mt-4">
               <Image
                 src="https://i.ibb.co/yYxN9GP/b1-min-1024x1024.jpg"
                 className="object-cover transform hover:scale-110 transition duration-500"
@@ -30,19 +185,19 @@ const SingleBlogPage = () => {
             </div>
 
             <div>
-              <h3 className="text-3xl font-semibold p-4">
+              <h3 className="text-2xl font-semibold p-4 text-justify">
                 Helping everyone live happier, healthier lives at home through
                 their kitchen. Kitchn is a daily food magazine on the Web
                 celebrating life in the kitchen through home cooking and kitchen
                 intelligence.
               </h3>
-              <p className="text-gray-600 leading-5 text-sm p-4">
+              <p className="text-gray-600 leading-5 text-sm p-4 text-justify">
                 Weve reviewed and ranked all of the best smartwatches on the
                 market right now, and weve made a definitive list of the top 10
                 devices you can buy today. One of the 10 picks below may just be
                 your perfect next smartwatch.
               </p>
-              <p className="text-gray-600 leading-5 text-sm pt-1 p-4">
+              <p className="text-gray-600 leading-5 text-sm pt-1 p-4 text-justify">
                 Those top-end wearables span from the Apple Watch to Fitbits,
                 Garmin watches to Tizen-sporting Samsung watches. Theres also
                 Wear OS which is Googles own wearable operating system in the
@@ -94,7 +249,6 @@ const SingleBlogPage = () => {
                 </button>
               </div>
             </div>
-         
 
             <div className="grid grid-cols-2 gap-4 mt-4">
               <div className="bg-white p-4 shadow-lg rounded-sm">
@@ -284,32 +438,81 @@ const SingleBlogPage = () => {
               </div>
             </div>
 
-            <h2 className="mt-20 px-4 text-4xl font-extralight ">Leave a Comment</h2>
+            <h2 className="mt-20 px-4 text-4xl font-extralight ">
+              Leave a Comment
+            </h2>
 
-            <div className="flex mt-10 gap-2">
-          <textarea className={singlePage.formcontrol} name="comment" id="comment" cols="30" rows="9" placeholder="Your Name"></textarea>
-          <textarea className={singlePage.formcontrol} name="comment" id="comment" cols="30" rows="9" placeholder="Your Email"></textarea>
-          </div>
-          
-          
-          <div className={singlePage.commentform}>
-          <textarea className={singlePage.formcontrol} name="comment" id="comment" cols="30" rows="9" placeholder="Write Comment"></textarea>
-          </div>
-
-          <div>
-            <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
-            <div className="flex gap-2 px-4 mt-6">
-              <Image className="px-4" src="https://i.ibb.co/6R0RdxL/author-2.png" alt="" width={300} height={100}/>
-              <p className="leading-5">Eiusmod minim incididunt consequat irure sint. Exercitation aute veniam ex nulla esse. Aliqua reprehenderit ullamco voluptate laborum consequat excepteur minim cillum dolor. Eiusmod minim incididunt consequat irure sint. Exercitation aute veniam ex nulla esse. Aliqua reprehenderit ullamco voluptate laborum consequat excepteur minim cillum dolor.</p>
+            <div className="flex mt-10 gap-4 px-8">
+              <input
+                className={singlePage.formcontrol}
+                name="comment"
+                id="comment"
+                cols="30"
+                rows="9"
+                placeholder="Your Name"
+              ></input>
+              <input
+                className={singlePage.formcontrol}
+                name="comment"
+                id="comment"
+                cols="30"
+                rows="9"
+                placeholder="Your Email"
+              ></input>
             </div>
-            <div className="flex gap-2 px-4 mt-6">
-              <Image className="px-4" src="https://i.ibb.co/6R0RdxL/author-2.png" alt="" width={300} height={100}/>
-              <p className="leading-5">Eiusmod minim incididunt consequat irure sint. Exercitation aute veniam ex nulla esse. Aliqua reprehenderit ullamco voluptate laborum consequat excepteur minim cillum dolor. Eiusmod minim incididunt consequat irure sint. Exercitation aute veniam ex nulla esse. Aliqua reprehenderit ullamco voluptate laborum consequat excepteur minim cillum dolor.</p>
+
+            <div className="px-8">
+            <div className={singlePage.commentform}>
+              <textarea
+                className={singlePage.formcontrol}
+                name="comment"
+                id="comment"
+                cols="30"
+                rows="9"
+                placeholder="Write Comment"
+              ></textarea>
+            </div>
+            <button className="px-4 py-2 text-xl font-semibold text-white bg-green-600">Submit</button>
+            </div>
+
+            <div>
+              <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
+              <div className="flex gap-2 px-4 mt-6">
+                <Image
+                  className="px-4"
+                  src="https://i.ibb.co/6R0RdxL/author-2.png"
+                  alt=""
+                  width={300}
+                  height={100}
+                />
+                <p className="leading-5">
+                  Eiusmod minim incididunt consequat irure sint. Exercitation
+                  aute veniam ex nulla esse. Aliqua reprehenderit ullamco
+                  voluptate laborum consequat excepteur minim cillum dolor.
+                  Eiusmod minim incididunt consequat irure sint. Exercitation
+                  aute veniam ex nulla esse. Aliqua reprehenderit ullamco
+                  voluptate laborum consequat excepteur minim cillum dolor.
+                </p>
+              </div>
+              <div className="flex gap-2 px-4 mt-6">
+                <Image
+                  className="px-4"
+                  src="https://i.ibb.co/6R0RdxL/author-2.png"
+                  alt=""
+                  width={300}
+                  height={100}
+                />
+                <p className="leading-5">
+                  Eiusmod minim incididunt consequat irure sint. Exercitation
+                  aute veniam ex nulla esse. Aliqua reprehenderit ullamco
+                  voluptate laborum consequat excepteur minim cillum dolor.
+                  Eiusmod minim incididunt consequat irure sint. Exercitation
+                  aute veniam ex nulla esse. Aliqua reprehenderit ullamco
+                  voluptate laborum consequat excepteur minim cillum dolor.
+                </p>
+              </div>
             </div>
           </div>
-          </div>
-
-
 
           {/* left side category */}
           <div className="w-4/12">
@@ -612,11 +815,10 @@ const SingleBlogPage = () => {
               </div>
             </div>
 
-
             {/* gallery */}
             <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
               <h3 className="text-xl font-semibold text-gray-700 mb-3">
-              Gallery
+                Gallery
               </h3>
               <div>
                 <a href="#" className="flex group mt-4">
@@ -631,13 +833,13 @@ const SingleBlogPage = () => {
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="flex text-gray-700 text-sm items-center">
-                    <Image
-                      src="https://i.ibb.co/pyGJxQ4/thumbnail-3.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
+                      <Image
+                        src="https://i.ibb.co/pyGJxQ4/thumbnail-3.jpg"
+                        className="rounded object-cover"
+                        alt=""
+                        width={140}
+                        height={80}
+                      />
                     </div>
                   </div>
                 </a>
@@ -653,13 +855,13 @@ const SingleBlogPage = () => {
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="flex text-gray-700 text-sm items-center">
-                    <Image
-                      src="https://i.ibb.co/jW6QqhP/thumbnail-4.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
+                      <Image
+                        src="https://i.ibb.co/jW6QqhP/thumbnail-4.jpg"
+                        className="rounded object-cover"
+                        alt=""
+                        width={140}
+                        height={80}
+                      />
                     </div>
                   </div>
                 </a>
@@ -675,13 +877,13 @@ const SingleBlogPage = () => {
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="flex text-gray-700 text-sm items-center">
-                    <Image
-                      src="https://i.ibb.co/KVVdLKN/thumbnail-5.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
+                      <Image
+                        src="https://i.ibb.co/KVVdLKN/thumbnail-5.jpg"
+                        className="rounded object-cover"
+                        alt=""
+                        width={140}
+                        height={80}
+                      />
                     </div>
                   </div>
                 </a>
@@ -697,20 +899,20 @@ const SingleBlogPage = () => {
                   </div>
                   <div className="flex-grow pl-3">
                     <div className="flex text-gray-700 text-sm items-center">
-                    <Image
-                      src="https://i.ibb.co/hyPZ8Qw/thumbnail-6.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
+                      <Image
+                        src="https://i.ibb.co/hyPZ8Qw/thumbnail-6.jpg"
+                        className="rounded object-cover"
+                        alt=""
+                        width={140}
+                        height={80}
+                      />
                     </div>
                   </div>
                 </a>
               </div>
             </div>
 
-{/* One Image  */}
+            {/* One Image  */}
             <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
               <Image
                 src="https://i.ibb.co/KG3V4st/blog-details-2.jpg"
@@ -721,10 +923,6 @@ const SingleBlogPage = () => {
               />
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     </>
