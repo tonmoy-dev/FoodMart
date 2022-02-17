@@ -1,5 +1,3 @@
-import AddProduct from '../src/Components/AddProduct/AddProduct';
-import Checkout from '../src/Components/Checkout/Checkout/Checkout';
 import Banner from '../src/Components/Home/Banner/Banner';
 import BestSells from '../src/Components/Home/BestSells/BestSells';
 // import Blogs from '../src/Components/Home/Blogs/Blogs';
@@ -13,15 +11,11 @@ import NewsLetter from '../src/Components/Home/NewsLetter/NewsLetter';
 import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
 import ProductOffer from '../src/Components/Home/ProductOffer/ProductOffer';
 import Reviews from '../src/Components/Home/Reviews/Reviews';
-import AllProducts from '../src/Components/Products/AllProducts/AllProducts';
-import Vendors from '../src/Components/Vendors/Vendors/Vendors';
 
-
-export default function Home({ reviews, products, blogs }) {
-  console.log(products);
+export default function Home({reviews, products,blogs}) {
   return (
-    <div className="box-border ">
-      {/* <Navbar></Navbar>
+    <div>
+      <Navbar></Navbar>
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
@@ -29,17 +23,11 @@ export default function Home({ reviews, products, blogs }) {
       <Categories></Categories>
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
-      <Reviews reviews={reviews}></Reviews> */}
+      <Reviews reviews={reviews}></Reviews>
       {/* <Blogs blogs={blogs}></Blogs> */}
-      {/* <Brands></Brands>
+      <Brands></Brands>
       <NewsLetter></NewsLetter>
-      <Footer></Footer> */}
-
-      {/* <AllProducts products={products}></AllProducts> */}
-      {/* <Checkout products={products}></Checkout> */}
-      {/* <Vendors></Vendors> */}
-      {/* <VendorsList></VendorsList> */}
-      <AddProduct></AddProduct>
+      <Footer></Footer>
     </div>
   );
 }
@@ -56,7 +44,7 @@ export async function getStaticProps() {
   const blogs = await blogs_res.json();
 
   return {
-    props: { reviews, products, blogs }
+    props:{reviews,products,blogs}
   }
 
 }
