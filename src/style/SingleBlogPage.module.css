@@ -1,0 +1,47 @@
+/* .commentform textarea {
+  min-height: 200px;
+  padding-top: 15px;
+} */
+
+.commentform textarea {
+  border: 1px solid #7a7a7a;
+  border-radius: 10px;
+  height: 50px;
+  box-shadow: none;
+  padding: 10px 10px 10px 20px;
+  font-size: 16px;
+  width: 100%;
+  min-height: 130px;
+  margin-top: 30px;
+  /* padding: 10px; */
+}
+
+.formcontrol {
+  border: 1px solid #7a7a7a;
+  border-radius: 10px;
+  height: 30px;
+  box-shadow: none;
+  padding: 10px 10px 10px 20px;
+  font-size: 16px;
+  width: 100%;
+  min-height: 80px;
+  /* padding: 10px; */
+}
+
+.aboutbg {
+  background: linear-gradient(
+      0deg,
+      rgba(15, 204, 46, 0.301),
+      rgba(7, 197, 64, 0.582)
+    ),
+    url("https://i.ibb.co/FhkgXSy/breadcumb-img-1.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+}
+.explorehead {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 80px;
+}
