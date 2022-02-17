@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import { ViewBoardsIcon } from "@heroicons/react/outline";
 import banner1 from "../../../assets/banner-1.png";
 import banner2 from "../../../assets/banner-2.png";
 import banner3 from "../../../assets/banner-3.png";
@@ -38,18 +38,33 @@ const Categories = () => {
                                         alt="Avatar"
                                         className="object-cover w-full h-full rounded-lg"
                                     />
-                                    <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                    <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                         Fruit & Vegetables
                                     </p>
                                 </div>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
-                                    <button className="text-xl bg-orange-500 py-2 px-4 rounded opacity-100">
-                                        Details
+                                    <button className="text-xl text-gray-200 bg-orange-400 py-2 px-4 rounded opacity-100 hover:text-white hover:bg-orange-500">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-6 w-6"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                                            />
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                                            />
+                                        </svg>
                                     </button>
-                                    <p className="text-xl leading-5 text-gray-700 w-3/4 text-center pt-4">
-                                        This is a text this is a text this is a
-                                        text this is a text
-                                    </p>
                                 </div>
                             </div>
                             <div className="relative overflow-hidden w-full h-full rounded-lg">
@@ -58,7 +73,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Breakfast & Dairy
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -77,7 +92,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Meat & Seafood
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -96,7 +111,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -115,7 +130,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -134,7 +149,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -153,7 +168,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -172,7 +187,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
@@ -191,7 +206,7 @@ const Categories = () => {
                                     alt="Avatar"
                                     className="object-cover w-full h-full transition-colors rounded-lg"
                                 />
-                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-orange-600 text-xl">
+                                <p className="absolute overflow-hidden w-full h-full top-7 left-10 flex  text-gray-600 text-xl">
                                     Vegetables
                                 </p>
                                 <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-orange-300 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
