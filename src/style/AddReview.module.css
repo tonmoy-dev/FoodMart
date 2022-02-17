@@ -1,0 +1,73 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.reviewcontainer {
+  width: 40%;
+  background: rgb(33, 32, 50);
+  color: #fff;
+  margin: 2rem;
+  box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.2);
+  padding: 2.5rem;
+}
+.inputsfield {
+  background: rgb(38, 37, 55);
+  width: 100%;
+  border: 1px solid #6f6c7c;
+  padding: 0.85rem;
+  border-radius: 5px;
+}
+.inputsfield .sds {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #8c8c9f;
+  width: calc(100% - 3.2rem);
+}
+
+.inputsfield,
+.inputsfield .sds::placeholder {
+  color: #6f6c7c;
+}
+
+.inputfield {
+  background: rgb(38, 37, 55);
+  width: 300%;
+  border: 1px solid #6f6c7c;
+  padding: 0.85rem;
+  border-radius: 5px;
+}
+
+.inputfield .sss {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: #8c8c9f;
+  width: calc(100% - 2.1rem);
+  margin-bottom: 30px;
+}
+.inputfield,
+.inputfield .sss::placeholder {
+  color: #6f6c7c;
+}
+.suggest {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.dddd {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media screen and (max-width: 750px) {
+  .reviewcontainer {
+    margin: 1rem 0;
+    width: 75%;
+  }
+}
