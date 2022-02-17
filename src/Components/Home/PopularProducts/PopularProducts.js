@@ -27,8 +27,6 @@ const PopularProducts = ({ products }) => {
                 {
                     allProducts.map(product => {
                         const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
-
-                        console.log(_id);
                         return (<div key={_id}>
 
                             <div className=" max-w-sm bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
