@@ -1,35 +1,56 @@
-import Image from "next/image";
-import React from "react";
-const PopularProducts = ({ products }) => {
+import Image from 'next/image';
+import React from 'react';
+// import './Products.css'
+import '../../../../styles/AllProducts.module.css'
 
-    const allProducts = products.slice(0, 5);
+const Products = ({ products }) => {
+    // const products = products;
+    const AllProducts = products;
+
+
+
+
     return (
-        <div className="container mx-auto px-10 py-10">
-            <div className="flex justify-between pb-5">
-                <div>
-                    <h1 className="text-3xl font-bold">Popular Products</h1>
-                </div>
-                <div>
-                    <p className=" inline-block ">All</p>
-                    <p className=" inline-block px-2 ">Milk & Dairies</p>
-                    <p className=" inline-block px-2 ">Coffe & Teas</p>
-                    <p className=" inline-block px-2 ">Pet Foods</p>
-                    <p className=" inline-block px-2 ">Meats</p>
-                    <p className=" inline-block px-2 ">Vegetables</p>
-                    <p className=" inline-block px-2 ">Fruits</p>
+        <div className=" py-5  ">
+            <div className='flex flex-row my-2 justify-between'>
+                <h2 className="" >We have found <span className="font-semibold text-green-700">29</span> products </h2>
 
-                </div>
+                <div className="">
+                    <form action="">
+                        <label htmlFor="">Show:</label>
+                        <select className="mx-2" name="Sort by" id="cars">
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
+                            <option value="200">200</option>
 
+                        </select>
+                        <label htmlFor="">Category:</label>
+                        <select className="mx-2" name="cars" id="cars">
+                            <option value="snacks">snacks</option>
+                            <option value="saab">Saab</option>
+                            <option value="opel">Opel</option>
+                            <option value="audi">Audi</option>
+                        </select>
+
+                        {/* <input className='bg-orange-600 px-2 text-white' type="submit" value="Submit" /> */}
+                    </form>
+                </div>
+               
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
+
+            {/* <div className="bg-green-400 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-center align-middle product-grid-style"> */}
+            <div className=" p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-center align-middle product-grid-style">
 
                 {
-                    allProducts.map(product => {
+                    AllProducts.map(product => {
                         const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
-                        return (<div key={_id}>
+                        // card - custom - style 
+                        // console.log(_id);
+                        return (<div key={_id} className="h-min  w-56 m-1">
 
-                            <div className=" max-w-sm bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
+                            <div className="bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
 
                                 <span className="inline-block px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">{product_badge}</span>
                                 <a href="./">
@@ -70,7 +91,7 @@ const PopularProducts = ({ products }) => {
                                         <span className=" text-blue-800 text-xs font-semibold mr-2  py-0.5 rounded dark:bg-white dark:text-black ml-1">({user_rating})</span>
                                     </ul>
 
-                                    <div className="mb-2 text-xs font-semibold">
+                                    <div className=" mb-2 text-xs font-semibold">
                                         <span>By </span>
                                         <span className="text-green-600">{vendor_name}</span>
                                     </div>
@@ -93,10 +114,8 @@ const PopularProducts = ({ products }) => {
 
 
             </div>
-
-
-        </div >
+        </div>
     );
 };
 
-export default PopularProducts;
+export default Products;

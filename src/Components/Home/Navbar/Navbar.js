@@ -2,7 +2,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import { Fragment } from 'react';
-import logo from '../../../../public/Logo.png';
+import logo from '../../../../public/logo.png';
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
