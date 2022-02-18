@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // import AddProduct from '../src/Components/Dashboard/Admin/AddProduct/AddProduct';
 // import Checkout from '../src/Components/Dashboard/User/Checkout/Checkout/Checkout';
 import Banner from "../src/Components/Home/Banner/Banner";
@@ -21,6 +22,25 @@ export default function Home({ reviews, products, blogs }) {
   
   return (
     <div className="box-border ">
+=======
+import Banner from '../src/Components/Home/Banner/Banner';
+import BestSells from '../src/Components/Home/BestSells/BestSells';
+// import Blogs from '../src/Components/Home/Blogs/Blogs';
+import Brands from '../src/Components/Home/Brands/Brands';
+import Categories from '../src/Components/Home/Categories/Categories';
+import DealsofDay from '../src/Components/Home/DealsofDay/DealsofDay';
+import DeliverySteps from '../src/Components/Home/DeliverySteps/DeliverySteps';
+import Footer from '../src/Components/Home/Footer/Footer';
+import Navbar from '../src/Components/Home/Navbar/Navbar';
+import NewsLetter from '../src/Components/Home/NewsLetter/NewsLetter';
+import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
+import ProductOffer from '../src/Components/Home/ProductOffer/ProductOffer';
+import Reviews from '../src/Components/Home/Reviews/Reviews';
+
+export default function Home({reviews, products,blogs}) {
+  return (
+    <div>
+>>>>>>> b78b9896ed617e5c0659f961ace18576e92ba0bf
       <Navbar></Navbar>
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
@@ -34,17 +54,21 @@ export default function Home({ reviews, products, blogs }) {
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
+<<<<<<< HEAD
 
       {/* <AllProducts products={products}></AllProducts> */}
       {/* <Checkout products={products}></Checkout> */}
       {/* <Vendors></Vendors> */}
       {/* <VendorsList></VendorsList> */}
       {/* <AddProduct></AddProduct> */}
+=======
+>>>>>>> b78b9896ed617e5c0659f961ace18576e92ba0bf
     </div>
   );
 }
 
 export async function getStaticProps() {
+<<<<<<< HEAD
     const reviews_res = await fetch("http://foodmart11.herokuapp.com/reviews");
     const reviews = await reviews_res.json();
 
@@ -58,4 +82,19 @@ export async function getStaticProps() {
     return {
         props: { reviews, products, blogs },
     };
+=======
+  const reviews_res = await fetch('http://foodmart11.herokuapp.com/reviews');
+  const reviews = await reviews_res.json();
+
+  const products_res = await fetch('http://foodmart11.herokuapp.com/products');
+  const products = await products_res.json();
+
+  const blogs_res = await fetch('http://foodmart11.herokuapp.com/blogs');
+  const blogs = await blogs_res.json();
+
+  return {
+    props:{reviews,products,blogs}
+  }
+
+>>>>>>> b78b9896ed617e5c0659f961ace18576e92ba0bf
 }
