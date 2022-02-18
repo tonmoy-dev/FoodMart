@@ -1,8 +1,8 @@
-import React from 'react';
 import Image from 'next/image';
-import male1 from '../../../assets/aboutImg/male.jpg'
-import female from '../../../assets/aboutImg/person.jpg'
-import male2 from '../../../assets/aboutImg/male2.jpg'
+import React from 'react';
+import male1 from '../../../assets/aboutImg/male.jpg';
+import male2 from '../../../assets/aboutImg/male2.jpg';
+import female from '../../../assets/aboutImg/person.jpg';
 
 
 const Team = () => {
@@ -78,7 +78,7 @@ const Team = () => {
         width={1000}
         height={800}
         priority/>
-                        {/* <img class="object-cover w-full rounded-xl aspect-square" src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" alt=""> */}
+                        {/* <img className="object-cover w-full rounded-xl aspect-square" src="https://images.unsplash.com/photo-1531590878845-12627191e687?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80" alt=""> */}
                         
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Pamela Anderson</h1>
                         
@@ -122,7 +122,7 @@ const Team = () => {
         width={1000}
         height={800}
         priority/>
-                     {/* <img class="object-cover w-full rounded-xl aspect-square" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
+                     {/* <img className="object-cover w-full rounded-xl aspect-square" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80" alt="">
                          */}
                         <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">John Doe</h1>
                         

@@ -105,7 +105,7 @@ const CheckoutProductList = ({ products }) => {
                                         <div className="mb-3 flex -mx-2">
                                             <div className="px-2">
                                                 <label htmlFor="type1" className="flex items-center cursor-pointer">
-                                                    <input type="radio" className="form-radio h-5 w-5 text-green-500" name="type" id="type1" checked />
+                                                    <input type="radio" className="form-radio h-5 w-5 text-green-500" name="type" id="type1" defaultChecked />
                                                     <Image width="50" height="50" className="" src="https://i.ibb.co/WWzdxxr/Master-Card.png" alt="" />
                                                     <Image width="60" height="20" className="" src="https://i.ibb.co/nkRRpk8/visa.png" alt="" />
                                                 </label>

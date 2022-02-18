@@ -59,7 +59,7 @@ const PaymentCheckout = () => {
 
                                                 </div>
                                                 <label>
-                                                    <input type="checkbox" checked="checked" name="sameadr"/> Shipping address same as billin/g
+                                                    <input type="checkbox" defaultChecked="defaultChecked" name="sameadr"/> Shipping address same as billin/g
                                                 </label>
                                                 <input type="submit" value="Continue to checkout" className="btn"/>
                                                 </form>

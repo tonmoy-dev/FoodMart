@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import React from 'react';
-import Image from 'next/image'
-import aboutImg from '../../../assets/aboutImg/fdlove.webp'
+import aboutImg from '../../../assets/aboutImg/fdlove.webp';
 const AboutUs = () => {
     return (
         <div>
@@ -15,7 +15,7 @@ const AboutUs = () => {
         height={700}
         priority
       /> 
-      {/* <img class="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> */}
+      {/* <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> */}
     </div>
     <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
       <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">Welcome to FoodMart</h1>

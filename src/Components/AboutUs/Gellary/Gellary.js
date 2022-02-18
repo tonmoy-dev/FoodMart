@@ -1,12 +1,12 @@
-import React from 'react';
 import Image from 'next/image';
-import food1 from '../../../assets/aboutImg/food1.jpg'
-import food2 from '../../../assets/aboutImg/food.jpg'
-import food3 from '../../../assets/aboutImg/food3.jpg'
-import food4 from '../../../assets/aboutImg/foo7.jpg'
-import food5 from '../../../assets/aboutImg/food4.jpg'
-import food6 from '../../../assets/aboutImg/food8.jpg'
-import food7 from '../../../assets/aboutImg/food9.jpg'
+import React from 'react';
+import food4 from '../../../assets/aboutImg/foo7.jpg';
+import food2 from '../../../assets/aboutImg/food.jpg';
+import food1 from '../../../assets/aboutImg/food1.jpg';
+import food3 from '../../../assets/aboutImg/food3.jpg';
+import food5 from '../../../assets/aboutImg/food4.jpg';
+import food6 from '../../../assets/aboutImg/food8.jpg';
+import food7 from '../../../assets/aboutImg/food9.jpg';
 
 const Gellary = () => {
     return (
@@ -43,7 +43,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={800}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                   <div className="w-44 h-64 rounded-lg overflow-hidden">
                   <Image
@@ -53,7 +53,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                 </div>
                 <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
@@ -65,7 +65,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                   <div className="w-44 h-64 rounded-lg overflow-hidden">
                   <Image
@@ -75,7 +75,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                   <div className="w-44 h-64 rounded-lg overflow-hidden">
                   <Image
@@ -85,7 +85,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                 </div>
                 <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
@@ -97,7 +97,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                   <div  className="w-44 h-64 rounded-lg overflow-hidden">
                   <Image
@@ -107,7 +107,7 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
         height={600}
         priority
       /> 
-                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" alt="" class="w-full h-full object-center object-cover"> */}
+                    {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                 </div>
               </div>
