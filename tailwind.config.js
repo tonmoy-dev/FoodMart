@@ -4,6 +4,7 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -17,6 +18,7 @@ module.exports = {
         "1/2": "50%",
     },
 },
-  plugins: [
-  ],
+plugins: [
+  require('flowbite/plugin')
+]
 }
