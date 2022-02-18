@@ -8,45 +8,44 @@ const VendorShop = () => {
         {
             _id: "62056b0651bf759ee9a55b71",
     product_badge: "Hot",
-    product_title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
-    product_category: "Snack",
-    product_imageUrl: "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+    product_title: "Black Grapes",
+    product_category: "Fruits",
+    product_imageUrl: "https://i.ibb.co/jDTnwFq/f-black-grapes-250-gm.webp",
     product_price: "25.50",
-    vendor_name: "NestFood",
+    vendor_name: "Nature Food",
     user_rating: "4"
         },
         {
             _id: "6205b0651bf759ee9a55b71",
     product_badge: "Hot",
-    product_title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
-    product_category: "Snack",
-    product_imageUrl: "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+    product_title: "Lal Angur (Red Grapes) ",
+    product_category: "Fruits",
+    product_imageUrl: "https://i.ibb.co/XSZ0F14/f-red-grapes.webp",
     product_price: "25.50",
-    vendor_name: "NestFood",
-    user_rating: "4"
+    vendor_name: "Nature Food",
+    user_rating: "5"
         },
         {
             _id: "62056b0651bf59ee9a55b71",
     product_badge: "Hot",
-    product_title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
-    product_category: "Snack",
-    product_imageUrl: "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+    product_title: "Narikel (Coconut)",
+    product_category: "Fruits",
+    product_imageUrl: "https://i.ibb.co/6w2jdkz/f-narikel-coconut-1-pcs.webp",
     product_price: "25.50",
-    vendor_name: "NestFood",
+    vendor_name: "Nature Food",
     user_rating: "4"
         },
         {
             _id: "62056b0651bf759ee9a5b71",
     product_badge: "Hot",
-    product_title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
-    product_category: "Snack",
-    product_imageUrl: "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+    product_title: "Sour Jujube (Tok Boroi)",
+    product_category: "Fruits",
+    product_imageUrl: "https://i.ibb.co/WttprKM/f-sour-jujube-tok-boroi-500-gm.webp",
     product_price: "25.50",
-    vendor_name: "NestFood",
+    vendor_name: "Nature Food",
     user_rating: "4"
         },
     ]
-
 
     return (
         <div className="container mx-auto px-10 pt-10">
@@ -60,7 +59,7 @@ const VendorShop = () => {
 
             <div className=" pb-5">
 
-                <h1 className="text-4xl text-center font-semibold mb-3">Nest Food Store</h1>
+                <h1 className="text-4xl text-center font-semibold mb-3">Nature Food Store</h1>
                 <div className="w-3/4 md:w-1/3 relative mx-auto text-gray-600 mb-10">
                     <input className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
                         type="search" name="search" placeholder="Search in this store" />
@@ -75,7 +74,7 @@ const VendorShop = () => {
             <div className="flex gap-x-6 flex-col md:flex-row">
                 <div className="flex flex-col items-center gap-y-2 bg-green-100 rounded-lg p-6 w-full md:w-2/6">
                     <Image
-                        src="https://i.ibb.co/FKZzGTs/vendor-16.png"
+                        src="https://i.ibb.co/PtzJCPp/vendor-2.png"
                         // layout="fill"
                         alt="Picture of the author"
                         width={100}
@@ -84,7 +83,7 @@ const VendorShop = () => {
                     // placeholder="blur" // Optional blur-up while loading
                     />
                     <p className="text-gray-500">Since 2012</p>
-                    <h1 className="text-xl font-bold">Nest Food. Ltd</h1>
+                    <h1 className="text-xl font-bold">Nature Food</h1>
                     <div className="flex">
                         <StarIcon className="h-5 w-5 text-yellow-500" />
                         <StarIcon className="h-5 w-5 text-yellow-500" />
@@ -93,7 +92,7 @@ const VendorShop = () => {
                     <p className="inline-block text-gray-600">Got a smooth, buttery spread in your fridge? Chances are good that it's Good Chef. This brand made Lionto's list of the most popular grocery brands across the country.</p>
                     <p className=" font-normal text-gray-500 ">
                         <LocationMarkerIcon className="inline-block mb-2 mr-2 h-5 w-5 text-orange-500" />
-                        Address:  5171 W Campbell Ave undefined, Utah 53127 United States</p>
+                        Address:  5171 W Campbell Ave undefined Kent, Utah 53127 United States</p>
                     <p className="font-normal text-gray-500 ">Call Us: (+91) - 540-025-124553</p>
                     <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-blue-300 ">
                         Contact Us
@@ -116,7 +115,7 @@ const VendorShop = () => {
                                     <div className="px-5 pb-5">
                                         <span className="text-xs  font-bold text-slate-400 hover:text-sky-400 ">{product_category}</span>
                                         <a href="./">
-                                            <h3 className="md:text-lg font-semibold tracking-tight text-gray-900 dark:text-black">{product_title.slice(0, 20)}..</h3>
+                                            <h3 className="md:text-lg font-semibold tracking-tight text-gray-900 dark:text-black">{product_title.slice(0, 10)}..</h3>
                                         </a>
                                         <ul className="flex items-center mt-2.5 mb-1">
                                             <li>

@@ -2,42 +2,7 @@ import { StarIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
 import React from "react";
 
-
-const Blogs = () => {
-    const blogs = [
-        {
-            title: "Guide of Healthy Food",
-            category: "Side Dish",
-            thumbnail: "https://i.ibb.co/H7zBvkT/blog-1.png",
-            description:"Helping everyone live happier, healthier lives at home through their kitchen. Kitchn is a daily food magazine on the Web celebrating life in the kitchen through home cooking and kitchen intelligence.",
-            href: '#',
-            image_alt:"blog"
-        },
-        {
-            title: "Summer Quinoa Salad Jars",
-            category: "Soups and Stews",
-            thumbnail: "https://i.ibb.co/pWMLcdT/blog-2.png",
-            description:"Helping everyone live happier, healthier lives at home through their kitchen. Kitchn is a daily food magazine on the Web celebrating life in the kitchen through home cooking and kitchen intelligence.",
-            href: '#',
-            image_alt:"blog"
-        },
-        {
-            title: "Sticky Ginger Rice Bowls",
-            category: "Salad",
-            thumbnail: "https://i.ibb.co/727kjK8/blog-10.png",
-            description:"Helping everyone live happier, healthier lives at home through their kitchen. Kitchn is a daily food magazine on the Web celebrating life in the kitchen through home cooking and kitchen intelligence.",
-            href: '#',
-            image_alt:"blog"
-        },
-        {
-            title: "Beans & Greens Tacos",
-            category: "Vegan",
-            thumbnail: "https://i.ibb.co/wRgXbYf/blog-6.png",
-            description:"Helping everyone live happier, healthier lives at home through their kitchen. Kitchn is a daily food magazine on the Web celebrating life in the kitchen through home cooking and kitchen intelligence.",
-            href: '#',
-            image_alt:"blog"
-        }
-    ];
+const Blogs = ({blogs}) => {
     return (
         <div>
             
@@ -51,7 +16,7 @@ const Blogs = () => {
             <div className="bg-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
-                    <h2 className="text-2xl font-extrabold text-gray-900">Blogs</h2>
+                    <h2 className="text-4xl font-semibold text-center text-gray-900">All Blogs</h2>
                     {/* blogs */}
                     <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
                         {blogs.map((blog) => (
@@ -65,7 +30,7 @@ const Blogs = () => {
                                     {/* top items */}
                                     <div className="px-3 py-3 flex items-start justify-between w-full absolute top-0 left-0">
                                         <div>
-                                            <span className="inline-block py-2 px-2 rounded bg-green-700 text-white text-sm font-medium tracking-widest">Side Dish</span>
+                                            <span className="inline-block py-2 px-2 rounded bg-green-700 text-white text-sm font-medium tracking-widest">{blog.category}</span>
                                         </div>
                                         <div className="w-12 py-1 flex-shrink-0 flex flex-col text-center bg-white rounded shadow-lg">
                                             <span className="text-gray-700 pb-2 mb-2 border-b-2 border-gray-200">Jul</span>
@@ -77,28 +42,32 @@ const Blogs = () => {
                                         <div className="flex items-center">
                                             <div className="flex items-center">
                                                 <Image className="rounded-full"
-                                                    src="https://i.ibb.co/brGG9mK/photo-1586287011575-a23134f797f9-ixlib-rb-1-2.jpg"
+                                                    src={blog.author_PhotoUrl}
                                                     alt="Picture of the author"
                                                     height="50"
                                                     width="50"
                                                 />
-                                                <a href="#" className="mx-2 font-semibold text-white">Jone Doe</a>
+                                                <a href="#" className="mx-2 font-semibold text-white">{blog.author_name}</a>
                                             </div>
                                         </div>
                                         <div>
-                                            <p className="text-white text-sm font-semibold">4 mins read</p>
+                                            <p className="text-white text-sm font-semibold">{blog.reading_time} to read</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="px-3 py-3">
                                     <h3 className="text-xl font-semibold text-gray-900 inset-0 mb-3">
-                                        {blog.title}
+                                        {blog.title.slice(0,20)}..
                                         <a href={blog.href}>
                                         </a>
                                     </h3>
-                                    <p className="text-base text-gray-500">{blog.description}</p>
+                                    <p className="text-base text-gray-500">{blog.description.slice(0,190)}..</p>
                                     <div className="flex align-items justify-between w-full pt-4">
                                         <div className="py-1 flex text-yellow-500">
+                                        <StarIcon className="h-5 w-5 text-yellow-500"/>
+                                        <StarIcon className="h-5 w-5 text-yellow-500"/>
+                                        <StarIcon className="h-5 w-5 text-yellow-500"/>
+                                        <StarIcon className="h-5 w-5 text-yellow-500"/>
                                         <StarIcon className="h-5 w-5 text-yellow-500"/>
                                         </div>
                                         <div>

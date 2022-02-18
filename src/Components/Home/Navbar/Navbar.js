@@ -1,14 +1,15 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Fragment } from 'react';
 import logo from '../../../../public/logo.png';
 
 const navigation = [
-    { name: "Home", href: "#", current: true },
-    { name: "Dashboard", href: "#", current: false },
+    { name: "Home", href: "/", current: true },
+    { name: "Products", href: "#", current: false },
     { name: "Categories", href: "#", current: false },
-    { name: "Blogs", href: "#", current: false },
+    { name: "Blogs", href: "/blogs/blogs", current: false },
 ];
 
 function classNames(...classes) {
@@ -32,7 +33,7 @@ export default function Example() {
                 }
 
                 .hoverable:hover .megaMenu {
-                    display: block;
+                    display: none;
                 }
                 .deals:hover .deals-text {
                     color: orange;
@@ -124,7 +125,10 @@ export default function Example() {
                                             </svg>
 
                                         </button>
-                                        <span className="text-sm font-semibold text-gray-600">Compare</span>
+                                        <Link href="/home/compare">
+                                        <a className="text-sm font-semibold text-gray-600">Compare</a>
+        </Link>
+                                        
                                     </div>
                                     {/* Wishlist button */}
                                     <div className="mx-2">
@@ -248,9 +252,10 @@ export default function Example() {
                                     {/* Large Screen Navigation */}
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
-                                            <a
-                                                key={item.name}
-                                                href={item.href}
+                                            <Link key={item.name}
+                                            href={item.href}>
+                                             <a
+                                                
                                                 className={classNames(
                                                     item.current
                                                         ? "text-green-600"
@@ -265,6 +270,8 @@ export default function Example() {
                                             >
                                                 {item.name}
                                             </a>
+                                          </Link>
+                                           
                                         ))}
                                     </div>
 

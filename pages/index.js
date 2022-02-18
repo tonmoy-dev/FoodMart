@@ -1,5 +1,5 @@
-import AddProduct from '../src/Components/Dashboard/Admin/AddProduct/AddProduct';
-import Checkout from '../src/Components/Dashboard/User/Checkout/Checkout/Checkout';
+// import AddProduct from '../src/Components/Dashboard/Admin/AddProduct/AddProduct';
+// import Checkout from '../src/Components/Dashboard/User/Checkout/Checkout/Checkout';
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
 // import Blogs from '../src/Components/Home/Blogs/Blogs';
@@ -13,9 +13,9 @@ import NewsLetter from "../src/Components/Home/NewsLetter/NewsLetter";
 import PopularProducts from "../src/Components/Home/PopularProducts/PopularProducts";
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
-import AllProducts from '../src/Components/Products/AllProducts/AllProducts';
-import Vendors from '../src/Components/Vendors/Vendors/Vendors';
-import VendorsList from '../src/Components/Vendors/VendorsList/VendorsList';
+// import AllProducts from '../src/Components/Products/AllProducts/AllProducts';
+// import Vendors from '../src/Components/Vendors/Vendors/Vendors';
+// import VendorsList from '../src/Components/Vendors/VendorsList/VendorsList';
 
 export default function Home({ reviews, products, blogs }) {
   
@@ -35,11 +35,11 @@ export default function Home({ reviews, products, blogs }) {
       <NewsLetter></NewsLetter>
       <Footer></Footer>
 
-      <AllProducts products={products}></AllProducts>
-      <Checkout products={products}></Checkout>
-      <Vendors></Vendors>
-      <VendorsList></VendorsList>
-      <AddProduct></AddProduct>
+      {/* <AllProducts products={products}></AllProducts> */}
+      {/* <Checkout products={products}></Checkout> */}
+      {/* <Vendors></Vendors> */}
+      {/* <VendorsList></VendorsList> */}
+      {/* <AddProduct></AddProduct> */}
     </div>
   );
 }

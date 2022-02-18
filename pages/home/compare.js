@@ -1,4 +1,4 @@
-import Compare from "../../src/Components/Compare/Compare";
+import Compare from "../../src/Components/Home/Compare/Compare";
 import Footer from "../../src/Components/Home/Footer/Footer";
 import Navbar from "../../src/Components/Home/Navbar/Navbar";
 

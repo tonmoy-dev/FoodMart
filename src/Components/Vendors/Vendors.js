@@ -6,35 +6,35 @@ const Vendors = () => {
         {
             name: "Nature Food",
             subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
+            icon: "https://i.ibb.co/RTdBnft/nature-food-vendor-1.png",
             products_added: "380 products",
             address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
             contact: "(+91) - 540-025-124553",
             user_rating:"4" 
         },
         {
-            name: "Nature Foods",
+            name: "Red Baron",
+            subtitle:"2015",
+            icon: "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png",
+            products_added: "280 products",
+            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+            contact: "(+91) - 540-025-124553",
+            user_rating:"4" 
+        },
+        {
+            name: "TotinosPizza",
             subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
+            icon: "https://i.ibb.co/RTdBnft/nature-food-vendor-1.png",
             products_added: "380 products",
             address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
             contact: "(+91) - 540-025-124553",
             user_rating:"4" 
         },
         {
-            name: "Nature Foods 3",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
-            products_added: "380 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "Nature Foods 4",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
-            products_added: "380 products",
+            name: "Nature Shop",
+            subtitle:"2016",
+            icon: "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png",
+            products_added: "500 products",
             address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
             contact: "(+91) - 540-025-124553",
             user_rating:"4" 
@@ -87,6 +87,7 @@ const Vendors = () => {
                                             <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{vendor.name}</h5>
                                         </a>
                                         <div className="flex">
+                                            <StarIcon className="h-5 w-5 text-yellow-500" />
                                             <StarIcon className="h-5 w-5 text-yellow-500" />
                                             <StarIcon className="h-5 w-5 text-yellow-500" />
                                             <StarIcon className="h-5 w-5 text-yellow-500" />
