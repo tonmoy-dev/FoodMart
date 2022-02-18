@@ -15,6 +15,7 @@ import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 import AllProducts from '../src/Components/Products/AllProducts/AllProducts';
 import Vendors from '../src/Components/Vendors/Vendors/Vendors';
+import VendorsList from '../src/Components/Vendors/VendorsList/VendorsList';
 
 export default function Home({ reviews, products, blogs }) {
   console.log(products);
@@ -29,7 +30,7 @@ export default function Home({ reviews, products, blogs }) {
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
       <Reviews reviews={reviews}></Reviews>
-      <Blogs blogs={blogs}></Blogs>
+      {/* <Blogs blogs={blogs}></Blogs> */}
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>

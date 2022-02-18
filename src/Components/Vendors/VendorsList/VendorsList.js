@@ -1,12 +1,11 @@
+import Image from 'next/image';
 import React from 'react';
-import Image from 'next/image'
 
 
 
 const VendorsList = () => {
     // hello
     let Allvendors = require("../../../assets/Api/Vendors.json");
-    console.log(Allvendors);
     return (
         <div>
             <div className=" py-5  ">
