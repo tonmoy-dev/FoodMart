@@ -1,10 +1,56 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useState } from 'react';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
+
+
+    const [loginData, setLoginData] = useState({});
+
+    // snack bar
+    const [open, setOpen] = React.useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setOpen(false);
+    };
+
+    // redirects
+    // const history = useHistory();
+
+    const { user, registerUser, isLoading, authError } = useAuth();
+
+    const handleOnBlur = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newLoginData = { ...loginData };
+        newLoginData[field] = value;
+        setLoginData(newLoginData);
+    }
+    console.log(loginData);
+    const handleLoginSubmit = (e) => {
+        if (loginData.password !== loginData.password2) {
+            alert('Your password did not match');
+            return;
+        }
+        registerUser(loginData.email, loginData.password, loginData.name, loginData.photo, history);
+        e.preventDefault();
+    }
+
+
+
+    console.log(user);
+
     return (
         <div>
-            <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-gray-100">
+            <div className="flex flex-col md:flex-row items-center justify-center w-screen h-screen bg-gray-200">
 
                 <div className="py-5 px-5 mx-10 mt-4 text-left    rounded-lg">
                     <div className="flex flex-col items-center justify-center">
@@ -23,28 +69,28 @@ const Register = () => {
                     <form action="">
                         <div className="mt-4">
                             <div>
-                                <label className="block" name="Email" > Email </label>
-                                <input type="text" placeholder="Email" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
+                                <label htmlFor="email" className="block" name="Email" > Email </label>
+                                <input name="email" onBlur={handleOnBlur} type="text" placeholder="Email" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
                             </div>
 
                             <div className="mt-4">
-                                <label className="block" name="Password" > Password </label>
+                                <label htmlFor="password" className="block" name="Password" > Password </label>
 
-                                <input type="password" placeholder="Password"
+                                <input name="password" onBlur={handleOnBlur} type="password" placeholder="Password"
                                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
                             </div>
                             <div className="mt-4">
-                                <label className="block" name="Password" > Confirm Password </label>
+                                <label htmlFor="password2" className="block" name="Password2" > Confirm Password </label>
 
-                                <input type="password" placeholder="Password"
+                                <input name="password2" onBlur={handleOnBlur} type="password" placeholder="Password"
                                     className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
                             </div>
                             <div className="flex items-baseline justify-between">
-                                <button className="px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-green-900">Sign up</button>
+                                <button onClick={handleLoginSubmit} className="px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-green-900">Sign up</button>
                                 {/* <a href="#" className="text-sm text-green-600 hover:underline">Forgot password?</a> */}
                             </div>
                             <div className="mt-4">
-                                <p className="text-sm">Do not have an account? please </p> <a href="#" className="text-sm hover:text-sm text-green-600 hover:text-green-800 hover:underline">Log in</a>
+                                <p className="text-sm">Already have an account? please </p> <a href="#" className="text-sm hover:text-sm text-green-600 hover:text-green-800 hover:underline">Sign in</a>
                             </div>
                         </div>
                     </form>

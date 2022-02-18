@@ -13,15 +13,23 @@ import NewsLetter from '../src/Components/Home/NewsLetter/NewsLetter';
 import PopularProducts from '../src/Components/Home/PopularProducts/PopularProducts';
 import ProductOffer from '../src/Components/Home/ProductOffer/ProductOffer';
 import Reviews from '../src/Components/Home/Reviews/Reviews';
+import Login from '../src/Components/Login/Login/Login';
 import AllProducts from '../src/Components/Products/AllProducts/AllProducts';
+import Register from '../src/Components/Register/Register';
 import Vendors from '../src/Components/Vendors/Vendors/Vendors';
+import AuthProvider from '../src/context/AuthProvider/AuthProvider';
 
 
 export default function Home({ reviews, products, blogs }) {
-  console.log(products);
+  // console.log(products);
   return (
     <div className="box-border ">
-      {/* <Navbar></Navbar>
+
+      {/* <AuthProvider> */}
+
+
+
+        {/* <Navbar></Navbar>
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
@@ -30,16 +38,19 @@ export default function Home({ reviews, products, blogs }) {
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
       <Reviews reviews={reviews}></Reviews> */}
-      {/* <Blogs blogs={blogs}></Blogs> */}
-      {/* <Brands></Brands>
+        {/* <Blogs blogs={blogs}></Blogs> */}
+        {/* <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer> */}
 
-      {/* <AllProducts products={products}></AllProducts> */}
-      {/* <Checkout products={products}></Checkout> */}
-      {/* <Vendors></Vendors> */}
-      {/* <VendorsList></VendorsList> */}
-      <AddProduct></AddProduct>
+        {/* <AllProducts products={products}></AllProducts> */}
+        {/* <Vendors></Vendors> */}
+        {/* <Checkout products={products}></Checkout> */}
+        {/* <VendorsList></VendorsList> */}
+        <Register></Register>
+        <Login></Login>
+        {/* <AddProduct></AddProduct> */}
+      {/* </AuthProvider> */}
     </div>
   );
 }

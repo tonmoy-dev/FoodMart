@@ -2,7 +2,7 @@ import React from 'react';
 
 const AddProduct = () => {
     return (
-        <div className="bg-gray-200">
+        <div className="bg-gray-200 h-screen w-screen py-5">
             <div className="">
 
 

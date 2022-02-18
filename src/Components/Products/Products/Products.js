@@ -7,7 +7,7 @@ const Products = ({ products }) => {
     // const products = products;
     const AllProducts = products;
 
-
+    console.log(AllProducts);
 
 
     return (
@@ -36,7 +36,7 @@ const Products = ({ products }) => {
                         {/* <input className='bg-orange-600 px-2 text-white' type="submit" value="Submit" /> */}
                     </form>
                 </div>
-               
+
             </div>
 
 
@@ -54,7 +54,7 @@ const Products = ({ products }) => {
 
                                 <span className="inline-block px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">{product_badge}</span>
                                 <a href="./">
-                                    <Image className="p-8 rounded-t-lg" src={product_imageUrl} alt="product image" height="250" width="250" />
+                                    <Image className="p-8 rounded-t-lg" src={product_imageUrl.thumbnail} alt="product image" height="250" width="250" />
                                 </a>
                                 <div className="px-5 pb-5">
                                     <span className="text-xs  font-bold text-slate-400 hover:text-sky-400 ">{product_category}</span>
