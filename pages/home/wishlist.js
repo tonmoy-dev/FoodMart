@@ -1,6 +1,6 @@
-import Navbar from "../src/Components/Home/Navbar/Navbar";
-import Footer from "../src/Components/Home/Footer/Footer";
-import Wishlist from "../src/Components/Wishlist/Wishlist";
+import Footer from "../../src/Components/Home/Footer/Footer";
+import Navbar from "../../src/Components/Home/Navbar/Navbar";
+import Wishlist from "../../src/Components/Wishlist/Wishlist";
 
 const wishlist = () => {
     return (

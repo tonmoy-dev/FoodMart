@@ -67,8 +67,6 @@ const VendorsList = () => {
 
                             const { vendor_id, vendor_name, imageUrl, vendor_phone, vendor_email, vendor_address, total_products, vendor_rating, vendor_rating_count, vendor_details } = vendor;
                             const { thumbnail, banner, logo } = imageUrl;
-                            console.log(vendor_id);
-                            console.log(logo);
 
                             return (<div key={vendor_id} className="p-5 ">
                                 <a href="#" className="bg-white flex flex-col md:items-center  2xl:items-center xl:items-center lg:items-center items-start   rounded-lg border shadow-lg md:flex-col lg:flex-row xl:flex-row 2xl:flex-row  hover:bg-gray-100 ">

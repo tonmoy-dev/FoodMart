@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 // import './Products.css'
-import '../../../../styles/AllProducts.module.css'
+import '../../../../styles/AllProducts.module.css';
 
 const Products = ({ products }) => {
     // const products = products;
@@ -46,8 +46,7 @@ const Products = ({ products }) => {
                 {
                     AllProducts.map(product => {
                         const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
-                        // card - custom - style 
-                        // console.log(_id);
+                        
                         return (<div key={_id} className="h-min  w-56 m-1">
 
                             <div className="bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">

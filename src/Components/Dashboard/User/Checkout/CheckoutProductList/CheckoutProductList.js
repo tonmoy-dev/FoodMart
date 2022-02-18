@@ -4,17 +4,16 @@ import React from 'react';
 const CheckoutProductList = ({ products }) => {
 
     const TotalProducts = products.slice(0, 3);
-    console.log(products);
     // const { _id, product_badge, product_title, product_imageUrl, vendor_name, product_price } = products[0];
-    // console.log(product_title);
+    
 
     // const total_price = TotalProducts.map(product => ( return  ))
-    console.log(TotalProducts.length);
+    
     let sum = 0;
     for (let i = 0; i < TotalProducts.length; i++) {
         sum = parseFloat(TotalProducts[0].product_price) + sum;
     }
-    console.log(sum);
+    
 
     return (
         <div>

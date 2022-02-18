@@ -1,5 +1,5 @@
 import React from 'react';
-import SingleBlogPage from '../src/Components/SingleBlogPage/SingleBlogPage';
+import SingleBlogPage from '../../src/Components/SingleBlogPage/SingleBlogPage';
 
 const singleBlog = () => {
     return (

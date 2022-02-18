@@ -1,5 +1,5 @@
 import React from "react";
-import Vendors from "../src/Components/Vendors/Vendors";
+import Vendors from "../../src/Components/Vendors/Vendors";
 const vendors = () => {
     return (
         <div>

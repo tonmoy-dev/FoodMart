@@ -1,5 +1,5 @@
 import React from "react";
-import VendorShop from "../src/Components/VendorShop/VendorShop";
+import VendorShop from "../../src/Components/VendorShop/VendorShop";
 
 const vendorShop = (products) => {
     return (

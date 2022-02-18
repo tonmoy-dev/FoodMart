@@ -1,7 +1,7 @@
 import React from 'react';
 import Address from '../Address/Address';
 import CheckoutProductList from '../CheckoutProductList/CheckoutProductList';
-import Payment from '../ProductList/Payment';
+import Payment from '../Payment/Payment';
 
 const Checkout = ({ products }) => {
     return (

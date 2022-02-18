@@ -1,6 +1,6 @@
-import Navbar from "../src/Components/Home/Navbar/Navbar";
-import Footer from "../src/Components/Home/Footer/Footer";
-import ManageOrders from "../src/Components/ManageOrders/ManageOrders";
+import Footer from "../../../src/Components/Home/Footer/Footer";
+import Navbar from "../../../src/Components/Home/Navbar/Navbar";
+import ManageOrders from "../../../src/Components/ManageOrders/ManageOrders";
 
 const manageOrders = () => {
     return (

@@ -1,5 +1,5 @@
-import AddProduct from '../src/Components/AddProduct/AddProduct';
-import Checkout from '../src/Components/Checkout/Checkout/Checkout';
+import AddProduct from '../src/Components/Dashboard/Admin/AddProduct/AddProduct';
+import Checkout from '../src/Components/Dashboard/User/Checkout/Checkout/Checkout';
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
 // import Blogs from '../src/Components/Home/Blogs/Blogs';
@@ -18,7 +18,7 @@ import Vendors from '../src/Components/Vendors/Vendors/Vendors';
 import VendorsList from '../src/Components/Vendors/VendorsList/VendorsList';
 
 export default function Home({ reviews, products, blogs }) {
-  console.log(products);
+  
   return (
     <div className="box-border ">
       <Navbar></Navbar>

@@ -1,5 +1,5 @@
 import React from "react";
-import AddBlog from "../src/Components/AddBlog/AddBlog";
+import AddBlog from "../../../src/Components/AddBlog/AddBlog";
 const addBlog = () => {
     return (
         <div>
