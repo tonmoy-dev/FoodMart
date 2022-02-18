@@ -5,19 +5,20 @@
 }
 
 .reviewcontainer {
-  width: 40%;
-  background: rgb(33, 32, 50);
+  width: 50%;
+  background: rgb(255, 255, 255);
   color: #fff;
   margin: 2rem;
-  box-shadow: 1px 3px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
   padding: 2.5rem;
 }
 .inputsfield {
-  background: rgb(38, 37, 55);
+  background: rgb(255, 255, 255);
   width: 100%;
   border: 1px solid #6f6c7c;
   padding: 0.85rem;
   border-radius: 5px;
+  margin-top: 10px;
 }
 .inputsfield .sds {
   border: none;
@@ -32,21 +33,26 @@
   color: #6f6c7c;
 }
 
-.inputfield {
-  background: rgb(38, 37, 55);
+/* .inputfield {
+  background: rgb(255, 255, 255);
   width: 300%;
   border: 1px solid #6f6c7c;
-  padding: 0.85rem;
+  padding: 8px;
   border-radius: 5px;
-}
+} */
 
-.inputfield .sss {
+.sss {
   border: none;
   background: transparent;
   outline: none;
   color: #8c8c9f;
-  width: calc(100% - 2.1rem);
-  margin-bottom: 30px;
+  width: calc(100% - 3rem);
+  background: rgb(255, 255, 255);
+  width: 110%;
+  border: 1px solid #6f6c7c;
+  padding: 0.85rem;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 .inputfield,
 .inputfield .sss::placeholder {

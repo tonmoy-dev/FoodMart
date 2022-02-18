@@ -71,34 +71,69 @@ const AddReview = () => {
         </ol>
       </nav>
 
+      <div className="bg-gray-300">
       <div>
-        <h2 className="text-4xl font-bold text-green-500 text-center mt-5">
+        <h2 className="text-5xl font-bold text-black text-center">
           Give your review
         </h2>
       </div>
       <div className={addreview.content}>
         <div className={addreview.reviewcontainer}>
-          <div>
-            <h2 className="mb-5">Reviews</h2>
-            <label htmlFor="search" className={addreview.inputfield}>
+          <div className="bg-gray-200 p-8">
+
+          <div className="flex ">
+            <div className="flex flex-col">
+            <div>
+            <label htmlFor="search" className=""> <p className="text-black mt-2">Your Name</p> </label>
               <input
                 className={addreview.sss}
                 id="search"
-                placeholder="Enter Your Name..."
+                placeholder="EX: jhon Doe"
                 type="text"
               />
-            </label>
-            <div className={addreview.inputsfield}>
-              <textarea
-                className={addreview.sds}
-                name="comment"
-                id="comment"
-                cols="30"
-                rows="9"
-                placeholder="Write Comment..."
-              ></textarea>
             </div>
-            <div className="rate flex mt-8">
+            </div>
+            <div className="flex flex-col ml-auto">
+            <div>
+            <label htmlFor="search" className=""> <p className="text-black mt-2">Review Date</p> </label>
+              <input
+                className={addreview.sss}
+                id="search"
+                placeholder="EX: 02/01/2022"
+                type="text"
+              />
+            </div>
+            </div>
+            </div>
+
+            
+          <div className="flex">
+            <div className="flex flex-col gap-4">
+            <div>
+            <label htmlFor="search" className=""> <p className="text-black mt-2">Your Email</p> </label>
+              <input
+                className={addreview.sss}
+                id="search"
+                placeholder="Example@gmail.com"
+                type="text"
+              />
+            </div>
+            </div>
+            <div className="flex flex-col ml-auto">
+            <div>
+            <label htmlFor="search" className=""> <p className="text-black mt-2">Review Time</p> </label>
+              <input
+                className={addreview.sss}
+                id="search"
+                placeholder="EX: 8.00am"
+                type="text"
+              />
+            </div>
+            </div>
+            </div>
+
+            <div className="rate flex mt-4 gap-2">
+              <h2 className="mt-5 text-black text-xl font-extralight">Product Rating</h2>
               <ReactStars
                 classNames="text-green-500"
                 count={5}
@@ -111,8 +146,25 @@ const AddReview = () => {
                 activeColor="#2CCD72"
               />
             </div>
+
+            <h2 className="text-black font-extralight text-xl">Reviews</h2>
+            
+            <div className={addreview.inputsfield}>
+              <textarea
+                className={addreview.sds}
+                name="comment"
+                id="comment"
+                cols="20"
+                rows="4"
+                placeholder="Write Comment..."
+              ></textarea>
+            </div>
+            <div className="flex justify-center align-middle">
+            <button className=" px-24 mt-3 py-2 text-xl font-semibold text-white bg-green-500">Add Review</button>
+            </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
