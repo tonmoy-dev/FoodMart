@@ -1,4 +1,6 @@
-const address = () => {
+import React from "react";
+
+const Address = () => {
     return (
         <div className="py-16 mx-5">
             <h2 className="text-center text-black font-bold text-3xl pb-10">
@@ -93,4 +95,4 @@ const address = () => {
     );
 };
 
-export default address;
+export default Address;
