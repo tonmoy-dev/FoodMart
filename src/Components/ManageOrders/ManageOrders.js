@@ -96,8 +96,8 @@ const ManageOrders = () => {
                                     February 15 2022
                                 </td>
                                 <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
-                                        Processing
+                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                        shipped
                                     </span>
                                 </td>
                                 <td className="p-6 text-sm text-gray-500 whitespace-nowrap">

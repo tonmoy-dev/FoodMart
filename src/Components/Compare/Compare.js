@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import productImage from "../../assets/compareImage/product-2-1.jpg";
+import productImage1 from "../../assets/wishlistImage/product-1-1.jpg";
 
 const Compare = () => {
     return (
@@ -135,7 +136,7 @@ const Compare = () => {
                                     </h3>
                                 </td>
                                 <td className="p-4 border-b">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
+                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
                                         In Stock
                                     </span>
                                 </td>
@@ -158,7 +159,7 @@ const Compare = () => {
                             <tr className="flex flex-col w-1/4  border">
                                 <td className="p-4 h-32 border-b">
                                     <Image
-                                        src={productImage}
+                                        src={productImage1}
                                         alt="product image"
                                         className="object-cover"
                                         width="150px"
@@ -187,7 +188,7 @@ const Compare = () => {
                                 </td>
                                 <td className="p-4 border-b">
                                     <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
-                                        In Stock
+                                        Stock out
                                     </span>
                                 </td>
                                 <td className="p-4 border-b">
@@ -237,7 +238,7 @@ const Compare = () => {
                                     </h3>
                                 </td>
                                 <td className="p-4 border-b">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
+                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
                                         In Stock
                                     </span>
                                 </td>
