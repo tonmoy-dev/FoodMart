@@ -1,73 +1,14 @@
 import Image from "next/image";
 import React from "react";
 
-const BestSells = ({ products }) => {
-  const allProducts = products.slice(0, 4);
-  <style jsx>
-    {`
-      .dbs-style {
-        background-color: red;
-      }
-    `}
-  </style>;
-
+const RelatedProducts = ({ related }) => {
+  const allRelated = related.slice(0, 4);
   return (
-    <div className="container mx-auto pt-10 px-4 md:px-0">
-      <div className="flex justify-between pb-5">
-        <div>
-          <h1 className="text-3xl font-bold mb-4">Daily Best Sells</h1>
-        </div>
-        <div>
-          <p className=" inline-block ">Featured</p>
-          <p className=" inline-block px-2 ">Popular</p>
-          <p className=" inline-block  ">New added</p>
-        </div>
-      </div>
+    <div className="py-10 px-4 md:px-0">
+      <h1 className="text-3xl font-bold text-green-500 mb-6">You may also like</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
-        <div>
-          <div
-            style={{
-              backgroundImage: `url('https://i.ibb.co/cc0jgvk/banner-4.png')`,
-              height: "26rem",
-            }}
-            className="dbs-style rounded-lg border-1"
-          >
-            <div className="py-10 px-10 ">
-              <p className="text-3xl font-semibold text-gray-700">
-                Bring nature{" "}
-                <span>
-                  <br />
-                </span>{" "}
-                into your{" "}
-                <span>
-                  <br />
-                </span>{" "}
-                home
-              </p>
-            </div>
-            <div className=" px-10  ">
-              <button className="bg-green-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
-                See more 
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 pr-2 inline-block"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        {allProducts.map((product) => {
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {allRelated.map((product) => {
           const {
             _id,
             product_badge,
@@ -80,17 +21,17 @@ const BestSells = ({ products }) => {
           } = product;
           return (
             <div key={_id}>
-              <div className="relative bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg">
-              <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">
-                {product_badge}
-              </span>
+              <div className="bg-white relative border-gray-300 border rounded-lg hover:drop-shadow-lg">
+                <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">
+                  {product_badge}
+                </span>
                 <a href="./">
                   <Image
                     className="p-8 rounded-t-lg"
                     src={product_imageUrl}
                     alt="product image"
-                    height="250"
-                    width="250"
+                    height="180"
+                    width="200"
                     layout="responsive"
                   />
                 </a>
@@ -99,11 +40,11 @@ const BestSells = ({ products }) => {
                     {product_category}
                   </span>
                   <a href="./">
-                    <h3 className="md:text-lg font-semibold tracking-tight text-gray-900 dark:text-black">
-                      {product_title.slice(0, 20)}..
+                    <h3 className="md:text-md font-semibold tracking-tight text-gray-900 dark:text-black">
+                      {product_title.slice(0, 30)}..
                     </h3>
                   </a>
-                  <ul className="flex items-center mt-2.5 mb-1">
+                  <ul className="flex items-center mt-2.5 mb-2">
                     <li>
                       <svg
                         aria-hidden="true"
@@ -204,7 +145,7 @@ const BestSells = ({ products }) => {
                       <span className="text-xl font-bold text-green-500 dark:text-dark">
                         ${product_price}
                       </span>
-                      {/* <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
+                      {/*  <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
                     </div>
                     <a
                       href="#"
@@ -218,10 +159,9 @@ const BestSells = ({ products }) => {
             </div>
           );
         })}
-        <div></div>
       </div>
     </div>
   );
 };
 
-export default BestSells;
+export default RelatedProducts;

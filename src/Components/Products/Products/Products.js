@@ -1,15 +1,12 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 // import './Products.css'
 import '../../../../styles/AllProducts.module.css';
 
-const Products = ({ products }) => {
+const Products = ({ products}) => {
     // const products = products;
     const AllProducts = products;
-
-    console.log(AllProducts);
-
-
     return (
         <div className=" py-5  ">
             <div className='flex flex-row my-2 justify-between'>
@@ -52,9 +49,9 @@ const Products = ({ products }) => {
                             <div className="bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
 
                                 <span className="inline-block px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">{product_badge}</span>
-                                <a href="./">
-                                    <Image className="p-8 rounded-t-lg" src={product_imageUrl.thumbnail} alt="product image" height="250" width="250" />
-                                </a>
+                                <Link href={`/products/single-product/${_id}`}>
+                                   <a> <Image className="p-8 rounded-t-lg" src={product_imageUrl.thumbnail} alt="product image" height="250" width="250" /></a>
+                                </Link>
                                 <div className="px-5 pb-5">
                                     <span className="text-xs  font-bold text-slate-400 hover:text-sky-400 ">{product_category}</span>
                                     <a href="./">
@@ -100,7 +97,7 @@ const Products = ({ products }) => {
                                             <span className="text-xl font-bold text-green-500 dark:text-dark">${product_price}</span>
                                             {/*  <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
                                         </div>
-                                        <a href="#" className="text-green-600 bg-green-200 hover:bg-green-500 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white">Add to cart</a>
+                                        <button href="#" className="text-green-600 bg-green-200 hover:bg-green-500 focus:ring-0 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white">Add to cart</button>
                                     </div>
                                 </div>
                             </div>

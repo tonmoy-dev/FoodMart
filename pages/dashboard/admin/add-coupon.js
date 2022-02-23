@@ -4,6 +4,7 @@ const AddCoupon = () => {
   return (
     <div>
       <div className="container mx-auto bg-gray-100 p-4">
+      <h1 className="text-xl font-semibold">Edit Coupon</h1>
         <nav className="flex pb-2" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
@@ -35,7 +36,6 @@ const AddCoupon = () => {
             </li>
           </ol>
         </nav>
-        <h1 className="text-xl font-semibold">Edit Coupon</h1>
         <div className="grid grid-cols-1 lg:grid-cols-3 lg:gap-4 md:gap-4">
           <div className="col-span-2">
             <div id="status" className="bg-white p-4 shadow rounded-lg mt-4">

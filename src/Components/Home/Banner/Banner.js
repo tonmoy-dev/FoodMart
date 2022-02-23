@@ -11,7 +11,7 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 // import required images
 import slider1 from "../../../assets/bannerImage/slider-1.jpg";
-import slider2 from "../../../assets/bannerImage/slider-2.jpg";
+import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import slider3 from "../../../assets/bannerImage/slider-3.jpg";
 import bannerStyle from "../../../styles/Banner.module.css";
 

@@ -41,11 +41,11 @@ const DealsofDay = () => {
   ];
   return (
     <div>
-      <div className="container mx-auto py-10">
-        <p className="text-4xl font-semibold text-center mb-4">
+      <div className="container mx-auto pt-10 px-4 md:px-0">
+        <p className="text-3xl font-bold text-left mb-4">
           Deals of the Day
         </p>
-        <div className="grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mb-10 p-4">
+        <div className="grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mb-10 py-4">
           {fakeArr.map((card) => (
             <div
               style={{ height: "auto" }}
@@ -95,9 +95,95 @@ const DealsofDay = () => {
                   id="deals-details"
                   className="bg-white shadow-md rounded-2xl px-4 mt-4"
                 >
-                  <h4 className="text-base font-semibold pt-2">{card.title}</h4>
-                  <p className="py-2">star</p>
-                  <p className="text-sm">by foodMart</p>
+                  <h4 className="text-base font-semibold pt-2">{card.title.slice(0,30)}</h4>
+                  <ul className="flex items-center py-2">
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      className="w-4 text-yellow-300 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      className="w-4 text-yellow-300 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      className="w-4 text-yellow-300 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="fas"
+                      data-icon="star"
+                      className="w-4 text-yellow-300 mr-1"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+                      ></path>
+                    </svg>
+                  </li>
+
+                  <li>
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      data-prefix="far"
+                      data-icon="star"
+                      className="w-4 text-yellow-300"
+                      role="img"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 576 512"
+                    >
+                      <path
+                        fill="currentColor"
+                        d="M528.1 171.5L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6zM388.6 312.3l23.7 138.4L288 385.4l-124.3 65.3 23.7-138.4-100.6-98 139-20.2 62.2-126 62.2 126 139 20.2-100.6 98z"
+                      ></path>
+                    </svg>
+                  </li>
+                </ul>
                   <div className="flex items-center  justify-between py-6">
                     <h4 className="text-lg font-semibold text-green-500">
                       $32.85
@@ -105,7 +191,7 @@ const DealsofDay = () => {
                         <strike>$32.85</strike>
                       </sub>
                     </h4>
-                    <button className="bg-green-100 text-green-500 font-semibold px-2 text-sm">
+                    <button className="bg-green-500 text-white rounded py-1 font-semibold px-2 text-sm">
                       Add
                     </button>
                   </div>

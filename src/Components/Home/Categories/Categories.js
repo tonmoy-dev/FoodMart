@@ -13,14 +13,14 @@ import ctBanner from "../../../assets/categoryBanner.jpg";
 const Categories = () => {
     return (
         <>
-            <div className="py-16 mx-5">
+            <div className="py-16">
                 <h1 className="text-center text-black font-bold text-3xl pb-2">
                     Shop by Categories
                 </h1>
                 <p className="text-center text-gray-600 text-xl pb-7">
                     Trusted and powerful eCommerce store for all
                 </p>
-                <div className="md:flex justify-center items-center md:mx-10">
+                <div className="md:flex justify-center items-center md:mx-4 px-4">
                     <div className="flex h-56 md:h-full md:w-1/4 md:mr-5 mb-7 md:mb-0 rounded-lg">
                         <Image
                             src={ctBanner}

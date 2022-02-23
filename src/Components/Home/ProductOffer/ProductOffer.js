@@ -5,7 +5,7 @@ const Styles = `{
 }`;
 const ProductOffer = () => {
     return (
-        <div className="py-16 mx-5 md:mx-14 overflow-hidden">
+        <div className="py-10 mx-4 md:mx-8 overflow-hidden">
             <style jsx>{`
                 .bgOffer {
                     background: url("https://i.ibb.co/6YGHkVT/offer-2.jpg");
