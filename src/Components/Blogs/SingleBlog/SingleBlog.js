@@ -299,7 +299,7 @@ const SingleBlog = () => {
                 cols="30"
                 rows="9"
                 placeholder="Your Name"
-                ref={nameRef}
+                onChange={(e) => setUserName(e.target.value)}
               ></input>
               <input
                 className={singlePage.formcontrol}
@@ -308,7 +308,7 @@ const SingleBlog = () => {
                 cols="30"
                 rows="9"
                 placeholder="Your Email"
-                ref={emailRef}
+                onChange={(e) => setUserEmail(e.target.value)}
               ></input>
             </div>
 
@@ -321,7 +321,7 @@ const SingleBlog = () => {
                   cols="30"
                   rows="9"
                   placeholder="Write Comment"
-                  ref={commentRef}
+                  onChange={(e) => setUserComment(e.target.value)}
                 ></textarea>
               </div>
               <button type="submit" className="px-4 py-2 text-xl font-semibold text-white bg-green-600">
