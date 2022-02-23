@@ -1,10 +1,41 @@
 import Image from "next/image";
-import React from "react";
+import React, {useState} from "react";
+import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
+import RelatedBlog from "../../../Components/Blogs/SingleBlog/RelatedBlog.js";
+import Trending from "../../../Components/Blogs/SingleBlog/Trending.js";
 import singlePage from "../../../styles/SingleBlog.module.css";
 const SingleBlog = () => {
+
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [userComment, setUserComment] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // if (!image) {
+    //   return;
+    // }
+    const formData = new FormData();
+    formData.append("userName", userName);
+    formData.append("userEmail", userEmail);
+    formData.append("userComment", userComment);
+
+    fetch("http://localhost:5000/comments", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success:", data);
+      }) 
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <>
-     <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
+      <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
           <li className="inline-flex items-center">
             <a
@@ -70,7 +101,7 @@ const SingleBlog = () => {
           <h2 className="font-semibold"> BLOG DETAILS </h2>
         </div>
       </div>
-      <div className="py-12 bg-gray-100 min-h-screen">
+      <div className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 flex">
           {/* Main content  */}
           <div className="w-8/12 bg-white mx-6">
@@ -81,7 +112,7 @@ const SingleBlog = () => {
             </div>
 
             <div className="flex justify-center gap-1 px-5 text-green-500">
-              <img
+              <Image
                 src="https://i.ibb.co/6R0RdxL/author-2.png"
                 alt=""
                 width={30}
@@ -250,206 +281,25 @@ const SingleBlog = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="bg-white p-4 shadow-lg rounded-sm">
-                <a href="#" className="overflow-hidden block">
-                  <Image
-                    src="https://i.ibb.co/c894Xn8/blog-2.png"
-                    className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-3">
-                  <a href="#">
-                    <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition">
-                      Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                    </h2>
-                  </a>
-                  <div className="mt-2 flex space-x-3">
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <i className="far fa-user"></i>
-                      </span>
-                      Blogging Tips
-                    </div>
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      June 11, 2021
-                    </div>
-                  </div>
-                </div>
-              </div>
+            {/* Relate blog  */}
 
-              {/* Second */}
-              <div className="bg-white p-4 shadow-lg rounded-sm">
-                <a href="#" className="overflow-hidden block">
-                  <Image
-                    src="https://i.ibb.co/7nmZh4f/blog-1.png"
-                    className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-3">
-                  <a href="#">
-                    <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition">
-                      Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                    </h2>
-                  </a>
-                  <div className="mt-2 flex space-x-3">
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <i className="far fa-user"></i>
-                      </span>
-                      Blogging Tips
-                    </div>
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      June 11, 2021
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Third */}
-              <div className="bg-white p-4 shadow-lg rounded-sm">
-                <a href="#" className="overflow-hidden block">
-                  <Image
-                    src="https://i.ibb.co/dtDK7M1/blog-5.png"
-                    className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-3">
-                  <a href="#">
-                    <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition">
-                      Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                    </h2>
-                  </a>
-                  <div className="mt-2 flex space-x-3">
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <i className="far fa-user"></i>
-                      </span>
-                      Blogging Tips
-                    </div>
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      June 11, 2021
-                    </div>
-                  </div>
-                </div>
-              </div>
-              {/* Four */}
-              <div className="bg-white p-4 shadow-lg rounded-sm">
-                <a href="#" className="overflow-hidden block">
-                  <Image
-                    src="https://i.ibb.co/nQjqDLx/blog-4.png"
-                    className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
-                    alt=""
-                    width={400}
-                    height={300}
-                  />
-                </a>
-                <div className="mt-3">
-                  <a href="#">
-                    <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition">
-                      Lorem, ipsum dolor sit amet consec tetur adipisicing elit.
-                    </h2>
-                  </a>
-                  <div className="mt-2 flex space-x-3">
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <i className="far fa-user"></i>
-                      </span>
-                      Blogging Tips
-                    </div>
-                    <div className="flex text-gray-400 text-sm items-center">
-                      <span className="mr-2 text-xs">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      June 11, 2021
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <RelatedBlog></RelatedBlog>
 
             <h2 className="mt-20 px-4 text-4xl font-extralight ">
               Leave a Comment
             </h2>
 
+            <form onSubmit={handleSubmit}>
+              
             <div className="flex mt-10 gap-4 px-8">
-              <input
+            <input
                 className={singlePage.formcontrol}
                 name="comment"
                 id="comment"
                 cols="30"
                 rows="9"
                 placeholder="Your Name"
+                ref={nameRef}
               ></input>
               <input
                 className={singlePage.formcontrol}
@@ -458,22 +308,27 @@ const SingleBlog = () => {
                 cols="30"
                 rows="9"
                 placeholder="Your Email"
+                ref={emailRef}
               ></input>
             </div>
 
             <div className="px-8">
-            <div className={singlePage.commentform}>
-              <textarea
-                className={singlePage.formcontrol}
-                name="comment"
-                id="comment"
-                cols="30"
-                rows="9"
-                placeholder="Write Comment"
-              ></textarea>
+              <div className={singlePage.commentform}>
+                <textarea
+                  className={singlePage.formcontrol}
+                  name="comment"
+                  id="comment"
+                  cols="30"
+                  rows="9"
+                  placeholder="Write Comment"
+                  ref={commentRef}
+                ></textarea>
+              </div>
+              <button type="submit" className="px-4 py-2 text-xl font-semibold text-white bg-green-600">
+                Submit
+              </button>
             </div>
-            <button className="px-4 py-2 text-xl font-semibold text-white bg-green-600">Submit</button>
-            </div>
+            </form>
 
             <div>
               <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
@@ -574,246 +429,10 @@ const SingleBlog = () => {
             </div>
 
             {/* Recent post */}
-            <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
-              <h3 className="text-xl font-semibold text-gray-700 mb-3">
-                Recent Post
-              </h3>
-              <div>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/MnVXrpq/b1-min-200x200.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      Feb 13, 2021
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/x1Q0KNy/b3-min-200x200.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      Feb 13, 2021
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/gDB40Vn/b4-min-200x200.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      Feb 13, 2021
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/F0SfzKG/b5-min-200x200.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <span>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="h-6 w-6"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                          />
-                        </svg>
-                      </span>
-                      Feb 13, 2021
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-              </div>
-            </div>
+            <RecentPost></RecentPost>
 
             {/* Trending */}
-            <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
-              <h3 className="text-xl font-semibold text-gray-700 mb-3">
-                Trending Now
-              </h3>
-              <div>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/pyGJxQ4/thumbnail-3.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      {/* <span>
-                      </span> */}
-                      $99.50
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/jW6QqhP/thumbnail-4.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      {/* <span>
-                      </span> */}
-                      $89.50
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/KVVdLKN/thumbnail-5.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      {/* <span>
-                      </span> */}
-                      $25
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/hyPZ8Qw/thumbnail-6.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      {/* <span>
-                      </span> */}
-                      $25
-                    </div>
-                    <h5 className="text-md leading-5 font-semibold group-hover:text-green-500 transition">
-                      Green onion knife and salad placed
-                    </h5>
-                  </div>
-                </a>
-              </div>
-            </div>
+            <Trending></Trending>
 
             {/* gallery */}
             <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
