@@ -40,7 +40,7 @@ const AddCoupon = () => {
           <div className="col-span-2">
             <div id="status" className="bg-white p-4 shadow rounded-lg mt-4">
               <div className="code pb-4">
-                <h1 className="text-lg font-semibold text-gray-600 mb-4">
+                <h1 className="text-lg font-semibold text-green-500 mb-4">
                   Code
                 </h1>
                 <input
@@ -51,7 +51,7 @@ const AddCoupon = () => {
                   placeholder="qwerty12"
                 />
               </div>
-              <h1 className="text-lg font-semibold text-gray-600 mb-4">Type</h1>
+              <h1 className="text-lg font-semibold text-green-500 mb-4">Type</h1>
               <div>
                 <div className="form-check mb-2">
                   <input
@@ -98,7 +98,7 @@ const AddCoupon = () => {
                 </div>
               </div>
               <div className="discount py-4">
-                <h1 className="text-lg font-semibold text-gray-600 mb-4">
+                <h1 className="text-lg font-semibold text-green-500 mb-4">
                   Discount value
                 </h1>
                 <input
@@ -110,7 +110,7 @@ const AddCoupon = () => {
                 />
               </div>
               <div className="limit">
-                <h1 className="text-lg font-semibold text-gray-600 mb-4">
+                <h1 className="text-lg font-semibold text-green-500 mb-4">
                   Useage Limit
                 </h1>
                 <input
@@ -125,7 +125,7 @@ const AddCoupon = () => {
           </div>
           <div className="">
             <div id="status" className="bg-white p-4 shadow rounded-lg mt-4">
-              <h1 className="text-lg font-semibold text-gray-600 mb-4 border-b">
+              <h1 className="text-lg font-semibold text-green-500 mb-4 border-b">
                 Status
               </h1>
               <div>
@@ -161,7 +161,7 @@ const AddCoupon = () => {
               </div>
             </div>
             <div id="schedule" className="bg-white shadow mt-4 p-4 rounded-lg">
-              <h1 className="text-lg font-semibold text-gray-600 mb-4 border-b">
+              <h1 className="text-lg font-semibold text-green-500 mb-4 border-b">
                 Schedule
               </h1>
               <p className="mb-4">
