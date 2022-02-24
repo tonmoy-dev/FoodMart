@@ -16,7 +16,7 @@ const Gellary = () => {
              <h1 className='text-black  text-4xl font-bold text-center'>Our Best Gellary</h1>
              </div>
         </div>
-        <br/>
+
             {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
 <div className="relative bg-white overflow-hidden">
   <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">

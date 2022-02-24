@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import React from 'react';
 // import './Products.css'
-import '../../../../styles/AllProducts.module.css';
+// import '../../../../styles/AllProducts.module.css';
 
 const Products = ({ products }) => {
     // const products = products;
     const AllProducts = products;
 
-
+    console.log(AllProducts);
 
 
     return (
@@ -36,7 +36,7 @@ const Products = ({ products }) => {
                         {/* <input className='bg-orange-600 px-2 text-white' type="submit" value="Submit" /> */}
                     </form>
                 </div>
-               
+
             </div>
 
 
@@ -46,14 +46,14 @@ const Products = ({ products }) => {
                 {
                     AllProducts.map(product => {
                         const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
-                        
+                        console.log(product_imageUrl);
                         return (<div key={_id} className="h-min  w-56 m-1">
 
                             <div className="bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
 
                                 <span className="inline-block px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">{product_badge}</span>
                                 <a href="./">
-                                    <Image className="p-8 rounded-t-lg" src={product_imageUrl} alt="product image" height="250" width="250" />
+                                    <Image className="p-8 rounded-t-lg" src={product_imageUrl.thumbnail} alt="product image" height="250" width="250" />
                                 </a>
                                 <div className="px-5 pb-5">
                                     <span className="text-xs  font-bold text-slate-400 hover:text-sky-400 ">{product_category}</span>
