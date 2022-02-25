@@ -20,7 +20,7 @@ import Reviews from "../src/Components/Home/Reviews/Reviews";
 export default function Home({ reviews, products, blogs }) {
   
   return (
-    <div className="box-border ">
+    <div className="box-border">
       <Navbar></Navbar>
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>

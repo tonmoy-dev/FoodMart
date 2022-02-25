@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "foodmart-7cc26",
+  "private_key_id": "d49edd9a1e386b1e8fb3bb412f5ddb21f34cad7e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCSw7Moxkv9RksS\n3moj2UeFr+9pDe/XhzqWd2w/QG09rhgbAT0fZFDVe5kQBePOAkZRT6FzhOIWWK/B\nJydtAjkeYqZnZtI4V4SzWMjfrmH8+uzXezE3bQSS79nVpv1A/bYxHSgo+Z91rRvg\ntqmjuClJ4Om1X2Tv3Br5900+Jmlo5ngDOvUyVgtTexCrlqACT/vk4FfV2vIa7EAz\nAIW3n/m4B2N9bkg+15BkULIkoY7mFBliAGPpEVilbQI/5+nxM7+NooqDIThjjKec\n1yRsCDhahvQMPcJ2dLNDBrkRkl6Rb0yFmqR5+l+EuEhGwI6OWjq6eGr+CB2UrIjN\nw2aCiVg1AgMBAAECgf8hXL7WN8vHQEjCXb60ywwatDH4KIEc9lJiRXxdAPoNILf2\niANV338Oz5EC7+IK3TJmAleb49kr17YcOW3gfWDiKu5FTAT9nyBZiDGvw8KQ1M7z\n14Ym01MvvmR4JcvsK/lT6beFmQAtxwikocTgFj0To5Qnn50glAvjKk1PdwhUj/AH\nFji5LhgrDK963vLJ1+k7EWJ1ylKYDw1UTv0ZIqz5ZWe1kdO3ntreiYFN2kh8g9SK\nVfNwVQQ9ATteV98DNNwQ906ixgjyXMwkTxYMuACdtju5R6wJh+OFKfCORFcwXWth\n54DLu/BU8rZbv6p3UzDbnyx5PgfxDkgDOPxWT4kCgYEAzoTTm7NpxIjGT5KK4jCe\nlbc/+MqL0rw1uWLKAMnHJZafSFObZ2MB7fXiVWSyoz5yTgrCL0NI2HdUXQTjZlCQ\n9lyRYiA0g8u6sOtm7IKPjCTjRvLlxj0Mx7rRkNGaY5YS5P+CCxiFqT4yOqv9WT6h\nzLICfBy0gygzmVVUIY2Z0ykCgYEAte29Il2B6Zz7iduT8DIqeQltRlwLSDQZeUDB\n48vxCmRMaOe0agta4G3tocFqE5ZvZqcKMENFNutn1kymWMKhozX9EDt3gGyGeO9K\nT/7byeWDlySHABVSQByQ+wyXx5v/6gpamXpRV8W8+BgP9mnJ0wSE8j+qGPFIqkBU\nZNTWqi0CgYBSQVdjQZ+T9wI9uVl14/WWHinttwbgBbTERRO+IqAeWZLRpPNVx3qC\nRBhE+Nmp6XpvmRtk5cDC7yx77DGCk/5ZEd+aHMet4txWETyqYQo5wIuBu8dHIRPR\nDZjgvItotOKLsTUjpD3AfhRViCFdhXO+avxQYMKJJt7+aJ0czCCDmQKBgARi0uh9\nMKCdNENCk/J6gyOf4o6LsYnwF50gvovrYshJWr48t9DGrU4z2ELKEvCd89mZtVks\nhgKo8jvsZSZGqvbwWkWF6X+jHirUOgprrojTi7SdINQTr4P0LFqhFxes3yKZVU3V\n8RgYoFGq4teh/UelGD9u4X7wcjwIiQBVUUeRAoGBALHPUeGWol0aZ2yZP+PpzFsZ\ntQ8rhq5cgQ2PQTeCqfy+K6XLAgU5ZJSH6rKeoBHZuOKG1Azqy8lxVR/4B3O1F1bn\nuD/MlOoso/fKw6R4BBxEPoLZEhVu2Ru/HTjX85K3wA77jETMv3LbTA/uehZPvuLW\n0tG6cwl1YIXDBN4oI7wC\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-44qlc@foodmart-7cc26.iam.gserviceaccount.com",
+  "client_id": "111054014015164324453",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-44qlc%40foodmart-7cc26.iam.gserviceaccount.com"
+}

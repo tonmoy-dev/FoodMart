@@ -15,11 +15,12 @@ import slider2 from "../../../assets/bannerImage/slider-2.jpg";
 import slider3 from "../../../assets/bannerImage/slider-3.jpg";
 import bannerStyle from "../../../styles/Banner.module.css";
 
+
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 const Banner = () => {
     return (
-        <div className="py-10">
+        <div className="py-10 banner">
             <style jsx>{`
                 .swiper-pagination-bullet-active {
                     background-color: red !important;
@@ -29,7 +30,7 @@ const Banner = () => {
                 <div className="grid lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-2">
                     <div
                         id="carousel-part"
-                        className="col-span-2 bg-green px-2 lg:px-0 md:px-0"
+                        className="col-span-2 bg-green px-2 lg:px-0 md:px-0 banner"
                     >
                         <Swiper
                             spaceBetween={30}

@@ -1,13 +1,9 @@
 import React from "react";
 import Blogs from "../../src/Components/Blogs/Blogs/Blogs";
-import Footer from "../../src/Components/Home/Footer/Footer";
-import Navbar from "../../src/Components/Home/Navbar/Navbar";
 const AllBlogs = ({blogs}) => {
     return (
         <div>
-            <Navbar></Navbar>
             <Blogs blogs={blogs}></Blogs>
-            <Footer></Footer>
         </div>
     );
 };
