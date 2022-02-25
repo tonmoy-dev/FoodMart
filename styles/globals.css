@@ -4,6 +4,14 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
 /* import './Allproducts.module.css' */
 
+/* ...Megamenu... */
+.hoverable-menu {
+  z-index: 1;
+}
+.banner {
+  z-index: -1;
+}
+
 /* Avishek Styles */
 
 .vendor-card-style {
