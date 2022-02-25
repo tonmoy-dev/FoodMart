@@ -34,6 +34,7 @@ export default function Home({ reviews, products, blogs }) {
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
+      {/* <SingleBlog comments={comments}></SingleBlog> */}
 
       {/* <AllProducts products={products}></AllProducts> */}
       {/* <Checkout products={products}></Checkout> */}
@@ -45,10 +46,11 @@ export default function Home({ reviews, products, blogs }) {
 }
 
 export async function getStaticProps() {
+
     const reviews_res = await fetch("http://foodmart11.herokuapp.com/reviews");
     const reviews = await reviews_res.json();
 
-    const products_res = await fetch("http://foodmart11.herokuapp.com/products");
+    const products_res = await fetch("http://localhost:5000/products");
     const products = await products_res.json();
   
     const blogs_res = await fetch("http://foodmart11.herokuapp.com/blogs");
