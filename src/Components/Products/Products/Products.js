@@ -198,7 +198,7 @@ const Products = ({ data }) => {
                     <a
                     className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
                   >
-                    <Link href="/cart">
+                    <Link href="/checkout">
                     Add to cart
                     </Link>
                   </a>
