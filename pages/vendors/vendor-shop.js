@@ -124,7 +124,7 @@ const VendorShop = () => {
                         <StarIcon className="h-5 w-5 text-yellow-500" />
                         <StarIcon className="h-5 w-5 text-yellow-500" />
                     </div>
-                    <p className="inline-block text-gray-600">Got a smooth, buttery spread in your fridge? Chances are good that it's Good Chef. This brand made Lionto's list of the most popular grocery brands across the country.</p>
+                    <p className="inline-block text-gray-600">Got a smooth, buttery spread in your fridge? Chances are good that it is Good Chef. This brand made Lionto list of the most popular grocery brands across the country.</p>
                     <p className=" font-normal text-gray-500 ">
                         <LocationMarkerIcon className="inline-block mb-2 mr-2 h-5 w-5 text-orange-500" />
                         Address:  5171 W Campbell Ave undefined Kent, Utah 53127 United States</p>
