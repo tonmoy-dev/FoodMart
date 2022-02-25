@@ -145,12 +145,11 @@ const AddProduct = () => {
                   Image Url:
                 </label>
                 <input
-                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  className="border sr-only rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   required
                   id="file-upload"
                   name="file-upload"
                   type="file"
-                  className="sr-only"
                   onChange={(e) => setProductImage(e.target.files[0])}
                 />
               </div>
