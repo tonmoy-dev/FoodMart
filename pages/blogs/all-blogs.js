@@ -15,7 +15,7 @@ const AllBlogs = ({blogs}) => {
 export default AllBlogs;
 
 export async function getStaticProps() {
-    const blogs_res = await fetch("https://foodmart-server.herokuapp.com/blogs");
+    const blogs_res = await fetch("http://localhost:5000/blogs");
     const blogs = await blogs_res.json();
     return {
         props: { blogs },
