@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 
-
-
 function AllProductss({ products }) {
 
-
-    
-
-
-
-  // Declare a new state variable, which we'll call "count"
   const [allProducts, setAllProducts] = useState(products);
 
   const handleDelete = async (id) => {

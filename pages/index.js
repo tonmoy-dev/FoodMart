@@ -34,6 +34,7 @@ export default function Home({ reviews, products, blogs }) {
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
+      {/* <SingleBlog comments={comments}></SingleBlog> */}
 
       {/* <AllProducts products={products}></AllProducts> */}
       {/* <Checkout products={products}></Checkout> */}

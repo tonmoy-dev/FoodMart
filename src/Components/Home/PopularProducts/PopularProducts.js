@@ -38,7 +38,7 @@ const PopularProducts = ({ products }) => {
                                 <div className="px-5 pb-5">
                                     <span className="text-xs  font-bold text-slate-400 hover:text-sky-400 ">{product_category}</span>
                                     <a href="./">
-                                        <h3 className="md:text-lg font-semibold tracking-tight text-gray-900 dark:text-black">{product_title.slice(0, 18)}..</h3>
+                                        <h3 className="md:text-lg font-semibold tracking-tight text-gray-900 dark:text-black">{product_title}..</h3>
                                     </a>
                                     <ul className="flex items-center mt-2.5 mb-1">
                                         <li>

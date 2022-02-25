@@ -3,7 +3,7 @@ import React from 'react';
 
 const RelatedBlog = () => {
     return (
-        <div className="grid grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-4 mt-4">
         <div className="bg-white p-4 shadow-lg rounded-sm">
           <a href="#" className="overflow-hidden block">
             <Image
