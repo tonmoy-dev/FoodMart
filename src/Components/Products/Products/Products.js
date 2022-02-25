@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import "../../../../styles/AllProducts.module.css";
+// import "../../../../styles/AllProducts.module.css";
 
 const Products = ({ data }) => {
   const AllProducts = data;

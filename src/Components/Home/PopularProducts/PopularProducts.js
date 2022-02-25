@@ -34,9 +34,19 @@ const PopularProducts = ({ products }) => {
           return (
             <div key={_id}>
             <div className="bg-white relative border-gray-300 border rounded-lg hover:drop-shadow-lg">
-              <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">
-                {product_badge}
-              </span>
+            <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                  {product_badge}
+                </span>
+                {product_badge.toLowerCase() == "sale" && (
+                  <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    {product_badge}
+                  </span>
+                )}
+                {product_badge.toLowerCase() == "new" && (
+                  <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    {product_badge}
+                  </span>
+                )}
               <a href="./">
                 <Image
                   className="p-8 rounded-t-lg"
@@ -161,7 +171,7 @@ const PopularProducts = ({ products }) => {
                   </div>
                   <a
                     href="#"
-                    className="text-white bg-green-500 hover:bg-orange-500 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white"
+                    className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
                   >
                     Add to cart
                   </a>

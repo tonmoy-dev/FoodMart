@@ -191,7 +191,7 @@ const DealsofDay = () => {
                         <strike>$32.85</strike>
                       </sub>
                     </h4>
-                    <button className="bg-green-500 text-white rounded py-1 font-semibold px-2 text-sm">
+                    <button className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
                       Add
                     </button>
                   </div>
