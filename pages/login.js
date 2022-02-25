@@ -115,6 +115,9 @@ const Login = (logimData) => {
                                 <div className="text-center">
                                     <button onClick={handleGoogleSignIn} className="py-2 px-3 bg-orange-400 rounded-lg border hover:bg-sky-700 text-white font-bold hover:border-black " > Sign in with Google </button>
                                 </div>
+                                <div>
+                                    <button onClick={logOut}>logOut</button>
+                                </div>
                             </div>
                         </form>
                     </div>
