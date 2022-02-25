@@ -7,7 +7,7 @@ import "swiper/components/pagination/pagination.min.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-import reviewStyle from "../../../style/Review.module.css";
+import reviewStyle from "../../../styles/Review.module.css";
 
 SwiperCore.use([EffectCoverflow, Navigation, Pagination]);
 const Reviews = () => {
