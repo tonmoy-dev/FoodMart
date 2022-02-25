@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import React, { useState } from "react";
 const AddBlog = () => {
   const [blogTitle, setBlogTitle] = useState("");
   const [blogCategory, setBlogCategory] = useState("");
@@ -22,7 +22,7 @@ const AddBlog = () => {
     formData.append("authorName", authorName);
     formData.append("photoUrl", photoUrl);
 
-    fetch("http://localhost:5000/addBlog", {
+    fetch("https://foodmart-server.herokuapp.com/addBlog", {
       method: "POST",
       body: formData,
     })

@@ -23,7 +23,7 @@ const CheckoutForm = ({ product }) => {
     }, []);
     
     /* useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://foodmart-server.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
