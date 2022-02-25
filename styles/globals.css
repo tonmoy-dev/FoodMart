@@ -110,19 +110,16 @@ background-color: orange !important;
   line-height: 1.5;
   /* background-position: right 0.5rem center; */
   background-size: 1.5em 1.5em;
-  /* background-color: orange !important; */
 }
 
 .form-select::-ms-expand {
   color: #a0aec0;
   border: none;
-  /* background-color: orange !important; */
 }
 
 @media not print {
   .form-select::-ms-expand {
     display: none;
-    /* background-color: orange !important; */
   }
 }
 
@@ -130,30 +127,10 @@ background-color: orange !important;
   print and (-ms-high-contrast: none) {
   .form-select {
     padding-right: 0.75rem;
-    /* background-color: orange !important; */
   }
 }
 
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-background-color: orange !important;
-  }
-
-a {
-  color: inherit;
-  text-decoration: none;
-background-color: orange !important;
-}
-
-* {
-  box-sizing: border-box;
-background-color: orange !important;
-}
- */
+ /* ----------gallery-------------- */
  .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
   outline: none;
   border: 2px solid #f1f1f1 !important;
@@ -161,4 +138,14 @@ background-color: orange !important;
 }
 .image-gallery-thumbnail:hover{
   border: 2px solid #ccc !important;
+}
+/* ---------------dashboard--------------- */
+@media (max-width: 992px){
+  #side-bar{
+      @apply -left-72;
+  }
+  
+  #side-bar.active{
+    @apply -left-0;
+  }
 }
