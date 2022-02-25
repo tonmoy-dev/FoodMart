@@ -33,13 +33,13 @@ export default function Home({ reviews, products, blogs }) {
 }
 
 export async function getStaticProps() {
-  const reviews_res = await fetch("http://foodmart11.herokuapp.com/reviews");
+  const reviews_res = await fetch("https://foodmart-server.herokuapp.com/reviews");
   const reviews = await reviews_res.json();
 
-  const products_res = await fetch("http://foodmart11.herokuapp.com/products");
+  const products_res = await fetch("https://foodmart-server.herokuapp.com/products");
   const products = await products_res.json();
 
-  const blogs_res = await fetch("http://foodmart11.herokuapp.com/blogs");
+  const blogs_res = await fetch("https://foodmart-server.herokuapp.com/blogs");
   const blogs = await blogs_res.json();
 
   return {

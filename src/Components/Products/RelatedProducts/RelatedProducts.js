@@ -28,7 +28,7 @@ const RelatedProducts = ({ related }) => {
                 <a href="./">
                   <Image
                     className="p-8 rounded-t-lg"
-                    src={product_imageUrl}
+                    src={product_imageUrl.thumbnail}
                     alt="product image"
                     height="180"
                     width="200"

@@ -2,12 +2,14 @@ import React from "react";
 import Products from "../../src/Components/Products/Products/Products";
 import SideBar from "../../src/Components/Products/SideBar/SideBar/SideBar";
 import useSWR from "swr";
-
+import {
+  HomeIcon,
+} from "@heroicons/react/solid";
+import Link from "next/link";
 const AllProducts = () => {
-  // let products = require("../../src/assets/Api/Products.json");
 
   const fetcher = async () => {
-    const response = await fetch(`http://foodmart11.herokuapp.com/products`);
+    const response = await fetch(`https://foodmart-server.herokuapp.com/products`);
     const data = await response.json();
     return data;
   };
@@ -18,23 +20,19 @@ const AllProducts = () => {
 
   return (
     <>
-     <div className="border border-l-0 border-r-0 py-4">
+      <div className="border border-l-0 border-r-0 py-4">
         <nav className="flex px-8" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
             <li className="inline-flex items-center">
               <a
                 href="#"
-                className="inline-flex items-center text-sm font-sm text-green-500 hover:text-orange-500"
+                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
-                <svg
-                  className="mr-2 w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-                </svg>
-                Home
+                <HomeIcon
+                  className="h-4 w-4 text-gray-700 mr-2"
+                  aria-hidden="true"
+                />
+                <Link href="/">Home</Link>
               </a>
             </li>
             <li>
@@ -62,21 +60,23 @@ const AllProducts = () => {
           </ol>
         </nav>
       </div>
-    <div className=" flex flex-col justify-center align-middle items-center">
-      <div className="pt-10">
-        <h1 className="text-gray-700 font-bold text-3xl mb-6">All Fresh Products</h1>
-      </div>
-    </div>
-    <div>
-    <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
-        <div className="lg:col-span-3 sm:col-span-2">
-          <Products data={data}></Products>
-        </div>
-        <div className="px-4 mt-2">
-          <SideBar></SideBar>
+      <div className=" flex flex-col justify-center align-middle items-center">
+        <div className="pt-10">
+          <h1 className="text-gray-700 font-bold text-3xl mb-6">
+            All Fresh Products
+          </h1>
         </div>
       </div>
-    </div>
+      <div>
+        <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
+          <div className="lg:col-span-3 sm:col-span-2">
+            <Products data={data}></Products>
+          </div>
+          <div className="px-4 mt-2">
+            <SideBar></SideBar>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

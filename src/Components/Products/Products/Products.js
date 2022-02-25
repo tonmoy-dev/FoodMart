@@ -76,7 +76,7 @@ const Products = ({ data }) => {
                     {" "}
                     <Image
                       className="p-8 rounded-t-lg"
-                      src={product_imageUrl}
+                      src={product_imageUrl.thumbnail}
                       alt="product image"
                       height="180"
                       width="200"
@@ -195,12 +195,13 @@ const Products = ({ data }) => {
                         ${product_price}
                       </span>
                     </div>
-                    <button
-                      href="#"
-                      className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
-                    >
-                      Add to cart
-                    </button>
+                    <a
+                    className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
+                  >
+                    <Link href="/cart">
+                    Add to cart
+                    </Link>
+                  </a>
                   </div>
                 </div>
               </div>

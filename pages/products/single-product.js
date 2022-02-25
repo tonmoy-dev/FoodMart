@@ -389,7 +389,7 @@ const SingleProduct = ({ related }) => {
 export default SingleProduct;
 
 export async function getStaticProps() {
-  const related_res = await fetch("http://foodmart11.herokuapp.com/products");
+  const related_res = await fetch("https://foodmart-server.herokuapp.com/products");
   const related = await related_res.json();
 
   return {
