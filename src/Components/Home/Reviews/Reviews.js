@@ -10,7 +10,7 @@ import "swiper/swiper.min.css";
 import reviewStyle from "../../../styles/Review.module.css";
 
 SwiperCore.use([EffectCoverflow, Navigation, Pagination]);
-const Reviews = () => {
+const Reviews = ({reviews}) => {
   return (
     <>
       <section className={reviewStyle.slidecontain}>
