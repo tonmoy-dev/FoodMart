@@ -1,5 +1,6 @@
 import { loadStripe } from '@stripe/stripe-js';
 import axios from 'axios';
+import Cart from './cart';
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
@@ -32,7 +33,8 @@ const Checkout = () => {
     }
     return (
         <div>
-                <button onClick={createCheckoutSession} role="link" type="submit">Checkout</button>
+            <Cart createCheckoutSession={createCheckoutSession}></Cart>
+                {/* <button onClick={createCheckoutSession} role="link" type="submit">Checkout</button> */}
         </div>
     );
 }

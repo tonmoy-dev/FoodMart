@@ -1,14 +1,14 @@
 import {
-    ArchiveIcon,
-    ArrowLeftIcon,
-    ClipboardIcon,
-    LogoutIcon,
-    RefreshIcon
+  ArchiveIcon,
+  ArrowLeftIcon,
+  ClipboardIcon,
+  LogoutIcon,
+  RefreshIcon
 } from "@heroicons/react/solid";
 import Image from "next/image";
 import React from "react";
 
-const Cart = () => {
+const Cart = ({createCheckoutSession}) => {
   const fakeCart = [
     {
       id: "1",
@@ -172,7 +172,7 @@ const Cart = () => {
                 </h2>
               </div>
               <div className="py-4 mb-2">
-                <button className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                <button onClick={createCheckoutSession} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                   <LogoutIcon className="w-4" />
                 </button>
