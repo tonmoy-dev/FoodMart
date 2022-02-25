@@ -16,9 +16,6 @@ const AddReview = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (!image) {
-    //   return;
-    // }
     const formData = new FormData();
     formData.append("userName", userName);
     formData.append("userEmail", userEmail);
