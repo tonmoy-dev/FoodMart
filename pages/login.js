@@ -1,11 +1,10 @@
 import Image from "next/image";
 import React, { useState } from "react";
-import useAuth from "../src/hooks/useAuth";
+import useAuth from '../src/hooks/useAuth';
 
-const Login = (logimData) => {
-  const [loginData, setLoginData] = useState({});
-  const { user, loginUser, authError, isLoading, signInWithGoogle, logOut } =
-    useAuth();
+const Login = (loginData) => {
+  const [Data, setData] = useState({});
+  const { user, loginUser, signInWithGoogle,logOut } = useAuth();
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -22,13 +21,12 @@ const Login = (logimData) => {
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
-    setLoginData(newLoginData);
+    const newData = {...Data};
+    newData[field] = value;
+    setData(newData);
   };
   const handleLoginSubmit = (e) => {
-    loginUser(loginData.email, loginData.password, location, history);
-
+    loginUser(Data.email, Data.password, location, history);
     e.preventDefault();
   };
 
@@ -36,8 +34,8 @@ const Login = (logimData) => {
     signInWithGoogle();
     console.log("From Login", user);
   };
-  console.log("From Login", user);
-  console.log("From login data:", loginData);
+  // console.log("From Login", user);
+  // console.log("From login data:", Data);
 
   return (
     <div className=" h-screen w-screen  ">
@@ -55,6 +53,7 @@ const Login = (logimData) => {
                 height="100"
                 width="300"
                 alt="logo"
+                priority
               ></Image>
               <br />
               <h3 className="block text-base font-bold text-center text-green-800">
