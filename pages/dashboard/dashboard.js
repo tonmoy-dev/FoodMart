@@ -280,7 +280,6 @@ const Dashboard = () => {
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
           <h1 className="text-3xl text-gray-700 font-bold">
             Welcome to Dashboard
-            {/* {children} */}
           </h1>
         </div>
       </div>
