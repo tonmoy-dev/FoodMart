@@ -1,11 +1,15 @@
 import Image from "next/image";
 import React from "react";
+import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
+import Link from "next/link";
 
 const RelatedProducts = ({ related }) => {
   const allRelated = related.slice(0, 4);
   return (
     <div className="py-10 px-4 md:px-0">
-      <h1 className="text-3xl font-bold text-green-500 mb-6">You may also like</h1>
+      <h1 className="text-3xl font-bold text-green-500 mb-6">
+        You may also like
+      </h1>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {allRelated.map((product) => {
@@ -21,10 +25,31 @@ const RelatedProducts = ({ related }) => {
           } = product;
           return (
             <div key={_id}>
-              <div className="bg-white relative border-gray-300 border rounded-lg hover:drop-shadow-lg">
-                <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">
+              <div className="bg-white product-card relative border-gray-300 border rounded-lg hover:drop-shadow-lg">
+                <div className="z-50 w-full absolute left-0 right-0 bottom-60">
+                  <div className="product-card-overlay transition flex justify-center items-center gap-3">
+                    <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <Link href={`/products/${_id}`}>
+                      <a>
+                        <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                      </a>
+                    </Link>
+                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                  </div>
+                </div>
+                <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>
+                {product_badge.toLowerCase() == "sale" && (
+                  <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    {product_badge}
+                  </span>
+                )}
+                {product_badge.toLowerCase() == "new" && (
+                  <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                    {product_badge}
+                  </span>
+                )}
                 <a href="./">
                   <Image
                     className="p-8 rounded-t-lg"
@@ -147,11 +172,8 @@ const RelatedProducts = ({ related }) => {
                       </span>
                       {/*  <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
                     </div>
-                    <a
-                      href="#"
-                      className="text-white bg-green-500 hover:bg-orange-500 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white"
-                    >
-                      Add to cart
+                    <a className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
+                      <Link href="/cart">Add to cart</Link>
                     </a>
                   </div>
                 </div>
