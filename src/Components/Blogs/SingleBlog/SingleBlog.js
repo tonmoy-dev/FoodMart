@@ -28,7 +28,7 @@ const SingleBlog = ({ comments }) => {
     formData.append("userEmail", userEmail);
     formData.append("userComment", userComment);
 
-    fetch("http://localhost:5000/comments", {
+    fetch("", {
       method: "POST",
       body: formData,
     })
