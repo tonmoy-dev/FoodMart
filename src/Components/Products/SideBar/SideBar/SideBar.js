@@ -3,8 +3,7 @@ import Category from '../Category/Category';
 
 const SideBar = () => {
     return (
-        <div className="mt-10  w-64  sidebar-style">
-            {/* <h1>This is sidebar</h1> */}
+        <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
             <Category></Category>
         </div>
     );

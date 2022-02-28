@@ -2,10 +2,8 @@ import React from "react";
 
 const Address = () => {
     return (
-        <div className="py-16 mx-5">
-            <h2 className="text-center text-black font-bold text-3xl pb-10">
-                My Address
-            </h2>
+        <div className="py-16 mx-5 md:mx-20">
+            <h2 className="text-black font-bold text-3xl pb-2">My Address</h2>
             {/* breadcrumb */}
             <div>
                 <nav className="flex" aria-label="Breadcrumb">
@@ -35,16 +33,38 @@ const Address = () => {
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
-                                        fill-rule="evenodd"
+                                        fillRule="evenodd"
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"
+                                        clipRule="evenodd"
                                     ></path>
                                 </svg>
                                 <a
                                     href="#"
                                     className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
                                 >
-                                    Contact
+                                    Dashboard
+                                </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div className="flex items-center">
+                                <svg
+                                    className="w-6 h-6 text-gray-400"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        fillRule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clipRule="evenodd"
+                                    ></path>
+                                </svg>
+                                <a
+                                    href="#"
+                                    className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                                >
+                                    User
                                 </a>
                             </div>
                         </li>
@@ -57,9 +77,9 @@ const Address = () => {
                                     xmlns="http://www.w3.org/2000/svg"
                                 >
                                     <path
-                                        fill-rule="evenodd"
+                                        fillRule="evenodd"
                                         d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"
+                                        clipRule="evenodd"
                                     ></path>
                                 </svg>
                                 <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
@@ -71,8 +91,8 @@ const Address = () => {
                 </nav>
             </div>
             {/* Address content */}
-            <div className="grid grid-cols md:grid-cols-2 gap-5 md:flex md:justify-center">
-                <div className="border border-gray-300 w-1/4 text p-4">
+            <div className="grid grid-cols md:grid-cols-2 gap-5 py-10 px-8 md:px-16 mt-10 md:flex md:justify-center shadow rounded">
+                <div className="border border-gray-300 w-full md:w-1/4 text p-4">
                     <h2 className="text-2xl font-semibold pb-4">
                         Billing Address
                     </h2>
@@ -81,7 +101,7 @@ const Address = () => {
                     <p className="text-gray-500">Dhaka-1200</p>
                     <p className="text-gray-500">Bangladesh</p>
                 </div>
-                <div className="border border-gray-300 w-1/4 p-4">
+                <div className="border border-gray-300 w-full md:w-1/4 p-4">
                     <h2 className="text-2xl font-semibold pb-4">
                         Shipping Address
                     </h2>

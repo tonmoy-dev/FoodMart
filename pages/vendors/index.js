@@ -133,7 +133,7 @@ const AllVendors = () => {
                     {
                         vendors.map(vendor => (
                     
-                            <div vendor={vendor} kev={vendor.name} className="max-w-sm mx-auto bg-white rounded-lg border border-gray-200 shadow-md ">
+                            <div vendor={vendor} key={vendor.name} className="max-w-sm mx-auto bg-white rounded-lg border border-gray-200 shadow-md ">
                                 <a href="#">
                                     <img className="rounded-t-lg" src={vendor.icon} alt="" />
                                 </a>

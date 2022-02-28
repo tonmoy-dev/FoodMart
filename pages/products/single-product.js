@@ -1,9 +1,18 @@
 import { HeartIcon } from "@heroicons/react/solid";
-import React from "react";
+import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
+import Category from "../../src/Components/Products/SideBar/Category/Category";
 
-const SingleProduct = () => {
+const SingleProduct = ({ related }) => {
+  const [details, setDetails] = useState([]);
+
+  const [toggleState, setToggleState] = useState(1);
+  const toggleTab = (index) => {
+    setToggleState(index);
+  };
+
   const images = [
     {
       original:
@@ -34,8 +43,44 @@ const SingleProduct = () => {
         "https://i.ibb.co/KK4mDdw/1-da8f6f9f-7e5f-4601-ab50-8cfde5005293-159x202.jpg",
     },
   ];
+
   return (
     <div>
+      <style jsx>
+        {`
+          .tabs {
+            padding: 5px 10px;
+            text-align: center;
+            cursor: pointer;
+            box-sizing: content-box;
+            position: relative;
+            outline: none;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+          }
+
+          .active-tabs {
+            background: #0e9f6e;
+            color: #fff;
+          }
+          .tabs button {
+            border: none;
+          }
+          .content-tabs {
+            flex-grow: 1;
+          }
+          .content {
+            background: white;
+            width: 100%;
+            height: 100%;
+            display: none;
+          }
+          .active-content {
+            display: block;
+          }
+        `}
+      </style>
       <div className="border border-l-0 border-r-0 py-4">
         <nav className="flex px-8" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
@@ -101,7 +146,7 @@ const SingleProduct = () => {
       </div>
       <div>
         <div className="container mx-auto py-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
               <div
                 id="GalleryAndDetailsContainer"
@@ -118,7 +163,7 @@ const SingleProduct = () => {
                 </div>
                 <div id="productDetails" className="lg:px-0 md:px-0 px-4">
                   <h2 className="text-2xl text-green-500 font-semibold">
-                    Fresh Organic Fruit(50gm)
+                    {details.product_title}
                   </h2>
                   <div id="rating" className="py-2">
                     ***** <span className="text-gray-500">(33 reviews)</span>
@@ -190,14 +235,150 @@ const SingleProduct = () => {
                   </div>
                 </div>
               </div>
-              <div id="alldetails">
-                
+              <div
+                className="py-10 px-4 shadow border rounded-lg mt-4 mx-4 md:mx-0"
+                id="alldetails"
+              >
+                <div className="flex lg:flex-row flex-row text-sm gap-4 mb-4">
+                  <button
+                    className={toggleState === 1 ? "tabs active-tabs" : "tabs"}
+                    onClick={() => toggleTab(1)}
+                  >
+                    Description
+                  </button>
+                  <button
+                    className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
+                    onClick={() => toggleTab(2)}
+                  >
+                    Additional Info
+                  </button>
+                  <button
+                    className={toggleState === 3 ? "tabs active-tabs" : "tabs"}
+                    onClick={() => toggleTab(3)}
+                  >
+                    Vendors
+                  </button>
+                  <button
+                    className={toggleState === 4 ? "tabs active-tabs" : "tabs"}
+                    onClick={() => toggleTab(4)}
+                  >
+                    Reviews
+                  </button>
+                </div>
+
+                <div className="content-tabs">
+                  <div
+                    className={
+                      toggleState === 1 ? "content  active-content" : "content"
+                    }
+                  >
+                    <h2 className="font-semibold text-lg mb-4">Details</h2>
+                    <p className="text-justify text-sm">
+                      Uninhibited carnally hired played in whimpered dear
+                      gorilla koala depending and much yikes off far quetzal
+                      goodness and from for grimaced goodness unaccountably and
+                      meadowlark near unblushingly crucial scallop tightly
+                      neurotic hungrily some and dear furiously this apart.{" "}
+                      <br /> Spluttered narrowly yikes left moth in yikes bowed
+                      this that grizzly much hello on spoon-fed that alas
+                      rethought much decently richly and wow against the
+                      frequent fluidly at formidable acceptably flapped besides
+                      and much circa far over the bucolically hey precarious
+                      goldfinch mastodon goodness gnashed a jellyfish and one
+                      however because.
+                    </p>
+                    <h2 className="font-semibold text-lg my-4">
+                      Packaging & delivery
+                    </h2>
+                    <p className="text-justify text-sm">
+                      Uninhibited carnally hired played in whimpered dear
+                      gorilla koala depending and much yikes off far quetzal
+                      goodness and from for grimaced goodness unaccountably and
+                      meadowlark near unblushingly crucial scallop tightly
+                      neurotic hungrily some and dear furiously this apart.{" "}
+                      <br /> Spluttered narrowly yikes left moth in yikes bowed
+                      this that grizzly much hello on spoon-fed that alas
+                      rethought much decently richly and wow against the
+                      frequent fluidly at formidable acceptably flapped besides
+                      and much circa far over the bucolically hey precarious
+                      goldfinch mastodon goodness gnashed a jellyfish and one
+                      however because.
+                    </p>
+                  </div>
+
+                  <div
+                    className={
+                      toggleState === 2 ? "content  active-content" : "content"
+                    }
+                  >
+                    <h2 className="font-semibold text-lg mb-4">Info</h2>
+                    <p className="text-justify text-sm">
+                      Uninhibited carnally hired played in whimpered dear
+                      gorilla koala depending and much yikes off far quetzal
+                      goodness and from for grimaced goodness unaccountably and
+                      meadowlark near unblushingly crucial scallop tightly
+                      neurotic hungrily some and dear furiously this apart.{" "}
+                      <br /> Spluttered narrowly yikes left moth in yikes bowed
+                      this that grizzly much hello on spoon-fed that alas
+                      rethought much decently richly and wow against the
+                      frequent fluidly at formidable acceptably flapped besides
+                      and much circa far over the bucolically hey precarious
+                      goldfinch mastodon goodness gnashed a jellyfish and one
+                      however because.
+                    </p>
+                  </div>
+
+                  <div
+                    className={
+                      toggleState === 3 ? "content  active-content" : "content"
+                    }
+                  >
+                    <h2 className="font-semibold text-lg mb-4">Vendors</h2>
+
+                    <p className="text-justify text-sm">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Eos sed nostrum rerum laudantium totam unde adipisci
+                      incidunt modi alias! Accusamus in quia odit aspernatur
+                      provident et ad vel distinctio recusandae totam quidem
+                      repudiandae omnis veritatis nostrum laboriosam architecto
+                      optio rem, dignissimos voluptatum beatae aperiam
+                      voluptatem atque. Beatae rerum dolores sunt.
+                    </p>
+                  </div>
+                  <div
+                    className={
+                      toggleState === 4 ? "content  active-content" : "content"
+                    }
+                  >
+                    <h2 className="font-semibold text-lg mb-4">
+                      Customer questions & answers
+                    </h2>
+
+                    <p className="text-justify text-sm">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                      Eos sed nostrum rerum laudantium totam unde adipisci
+                      incidunt modi alias! Accusamus in quia odit aspernatur
+                      provident et ad vel distinctio recusandae totam quidem
+                      repudiandae omnis veritatis nostrum laboriosam architecto
+                      optio rem, dignissimos voluptatum beatae aperiam
+                      voluptatem atque. Beatae rerum dolores sunt.
+                    </p>
+                  </div>
+                </div>
               </div>
               {/* tab finish */}
             </div>
-            <div className="bg-gray-100">
-              <h2 className="text-xl text-gray-700 text-center">Category</h2>
+
+            <div id="catagory" className="md:pl-12 ">
+              {/* <h2 className="text-xl text-gray-700 text-center">Category</h2> */}
+              <div className="shadow rounded-lg p-4 mx-4 md:mx-0">
+                <Category></Category>
+              </div>
             </div>
+          </div>
+
+          <div id="related-product">
+            <RelatedProducts related={related}></RelatedProducts>
           </div>
         </div>
       </div>
@@ -206,3 +387,12 @@ const SingleProduct = () => {
 };
 
 export default SingleProduct;
+
+export async function getStaticProps() {
+  const related_res = await fetch("https://foodmart-server.herokuapp.com/products");
+  const related = await related_res.json();
+
+  return {
+    props: { related },
+  };
+}

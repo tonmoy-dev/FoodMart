@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import addreviewStyle from "../../../src/styles/AddReview.module.css";
 
@@ -7,9 +7,39 @@ const ratingChanged = (newRating) => {
 };
 
 const AddReview = () => {
-    return (
-        <div>
-            <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
+  const [userName, setUserName] = useState("");
+  const [reviewDate, setReviewDate] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [reviewTime, setReviewTime] = useState("");
+  const [description, setDescription] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("userName", userName);
+    formData.append("userEmail", userEmail);
+    formData.append("reviewDate", reviewDate);
+    formData.append("reviewTime", reviewTime);
+    formData.append("description", description);
+    formData.append("imgUrl", imgUrl);
+
+    fetch("https://foodmart-server.herokuapp.com/reviews", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  return (
+    <div>
+      <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
         <ol className="inline-flex items-center space-x-1 md:space-x-3">
           <li className="inline-flex items-center">
             <a
@@ -72,102 +102,138 @@ const AddReview = () => {
       </nav>
 
       <div className="bg-gray-300">
-      <div>
-        <h2 className="text-5xl font-bold text-black text-center">
-          Give your review
-        </h2>
-      </div>
-      <div className={addreviewStyle.content}>
-        <div className={addreviewStyle.reviewcontainer}>
-          <div className="bg-gray-200 p-8">
+        <div>
+          <h2 className="text-5xl font-bold text-black text-center">
+            Give your review
+          </h2>
+        </div>
+        <div className={addreviewStyle.content}>
+          <div className={addreviewStyle.reviewcontainer}>
+            <form onSubmit={handleSubmit}>
+              <div className="bg-gray-200 p-8">
+                <div className="flex ">
+                  <div className="flex flex-col">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Your Name</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: jhon Doe"
+                        type="text"
+                        onChange={(e) => setUserName(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-auto">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Review Date</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: 02/01/2022"
+                        type="text"
+                        onChange={(e) => setReviewDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
 
-          <div className="flex ">
-            <div className="flex flex-col">
-            <div>
-            <label htmlFor="search" className=""> <p className="text-black mt-2">Your Name</p> </label>
-              <input
-                className={addreviewStyle.sss}
-                id="search"
-                placeholder="EX: jhon Doe"
-                type="text"
-              />
-            </div>
-            </div>
-            <div className="flex flex-col ml-auto">
-            <div>
-            <label htmlFor="search" className=""> <p className="text-black mt-2">Review Date</p> </label>
-              <input
-                className={addreviewStyle.sss}
-                id="search"
-                placeholder="EX: 02/01/2022"
-                type="text"
-              />
-            </div>
-            </div>
-            </div>
+                <div className="flex">
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Your Email</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="Example@gmail.com"
+                        type="text"
+                        onChange={(e) => setUserEmail(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-auto">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Review Time</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: 8.00am"
+                        type="text"
+                        onChange={(e) => setReviewTime(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Image Url</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        type="text"
+                        onChange={(e) => setImgUrl(e.target.value)}
+                      />
+                    </div>
 
-            
-          <div className="flex">
-            <div className="flex flex-col gap-4">
-            <div>
-            <label htmlFor="search" className=""> <p className="text-black mt-2">Your Email</p> </label>
-              <input
-                className={addreviewStyle.sss}
-                id="search"
-                placeholder="Example@gmail.com"
-                type="text"
-              />
-            </div>
-            </div>
-            <div className="flex flex-col ml-auto">
-            <div>
-            <label htmlFor="search" className=""> <p className="text-black mt-2">Review Time</p> </label>
-              <input
-                className={addreviewStyle.sss}
-                id="search"
-                placeholder="EX: 8.00am"
-                type="text"
-              />
-            </div>
-            </div>
-            </div>
+                <div className="rate flex mt-4 gap-2">
+                  <h2 className="mt-5 text-black text-xl font-extralight">
+                    Product Rating
+                  </h2>
+                  <ReactStars
+                    classNames="text-green-500"
+                    count={5}
+                    onChange={ratingChanged}
+                    size={40}
+                    isHalf={true}
+                    emptyIcon={<i className="far fa-star"></i>}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-star"></i>}
+                    activeColor="#2CCD72"
+                  />
+                </div>
 
-            <div className="rate flex mt-4 gap-2">
-              <h2 className="mt-5 text-black text-xl font-extralight">Product Rating</h2>
-              <ReactStars
-                classNames="text-green-500"
-                count={5}
-                onChange={ratingChanged}
-                size={40}
-                isHalf={true}
-                emptyIcon={<i className="far fa-star"></i>}
-                halfIcon={<i className="fa fa-star-half-alt"></i>}
-                fullIcon={<i className="fa fa-star"></i>}
-                activeColor="#2CCD72"
-              />
-            </div>
+                <h2 className="text-black font-extralight text-xl">Reviews</h2>
 
-            <h2 className="text-black font-extralight text-xl">Reviews</h2>
-            
-            <div className={addreviewStyle.inputsfield}>
-              <textarea
-                className={addreviewStyle.sds}
-                name="comment"
-                id="comment"
-                cols="20"
-                rows="4"
-                placeholder="Write Comment..."
-              ></textarea>
-            </div>
-            <div className="flex justify-center align-middle">
-            <button className=" px-24 mt-3 py-2 text-xl font-semibold text-white bg-green-500">Add Review</button>
-            </div>
+                <div className={addreviewStyle.inputsfield}>
+                  <textarea
+                    className={addreviewStyle.sds}
+                    name="comment"
+                    id="comment"
+                    cols="20"
+                    rows="4"
+                    placeholder="Write Comment..."
+                    onChange={(e) => setDescription(e.target.value)}
+                  ></textarea>
+                </div>
+                <div className="flex justify-center align-middle">
+                  <button
+                    type="submit"
+                    className=" px-24 mt-3 py-2 text-xl font-semibold text-white bg-green-500"
+                  >
+                    Add Review
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
-      </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default AddReview;

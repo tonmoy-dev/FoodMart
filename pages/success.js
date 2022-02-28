@@ -12,7 +12,7 @@ const Success = () => {
                         <h1 className="text-3xl">Yeh! your order has been confirmed</h1>
                     </div>
                     <p className="mb-3">
-                       Thank you for shopping with us. We'll send a confirmation  once your item has shipped, if you would like to check the status of your orders, press the link below.
+                       Thank you for shopping with us. We will send a confirmation  once your item has shipped, if you would like to check the status of your orders, press the link below.
                     </p>
                     <button onClick={()=>router.push("/")} className="bg-green-500 text-white font-semibold py-1 rounded">Go to your orders</button>
                 </div>

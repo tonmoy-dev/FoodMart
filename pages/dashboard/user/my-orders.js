@@ -1,5 +1,7 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React from "react";
+import Image from "next/image";
+import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
 
 const MyOrders = () => {
     return (
@@ -33,7 +35,7 @@ const MyOrders = () => {
                                     href="#"
                                     className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
                                 >
-                                    Pages
+                                    Dashboard
                                 </a>
                             </div>
                         </li>
@@ -47,7 +49,7 @@ const MyOrders = () => {
                                     href="#"
                                     className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
                                 >
-                                    MyAccount
+                                    User
                                 </a>
                             </div>
                         </li>
@@ -65,8 +67,8 @@ const MyOrders = () => {
                     </ol>
                 </nav>
             </div>
-            <div className="p-5 md:p-10 h-screen bg-white shadow-lg  rounded-lg">
-                <h2 className="text-3xl font-semibold mb-2">My Orders</h2>
+            <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-lg">
+                <h2 className="text-2xl font-semibold mb-2">My Orders</h2>
                 <div className="overflow-auto rounded-lg shadow hidden md:block">
                     <table className="w-full">
                         <thead className="bg-gray-50 border-b-2 border-gray-200">
@@ -97,8 +99,8 @@ const MyOrders = () => {
                                     February 15 2022
                                 </td>
                                 <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
-                                        Processing
+                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                        shipped
                                     </span>
                                 </td>
                                 <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
@@ -130,60 +132,88 @@ const MyOrders = () => {
                         </tbody>
                     </table>
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-                    <div className="bg-gray-100 p-4 rounded-lg shadow">
-                        <div className="flex items-center space-x-2 text-sm">
-                            <div className="text-sm text-gray-600">
-                                <p>#1254</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+                    <div className="bg-gray-100 py-4 rounded-lg shadow-md">
+                        <div className="flex">
+                            <div className="flex items-center border-r border-gray-300">
+                                <Image
+                                    src={productImage}
+                                    alt="product image"
+                                    className="object-cover "
+                                    width="120px"
+                                    height="90px"
+                                />
                             </div>
-                            <div className="text-sm text-gray-600 px-2">
-                                <p>15-02-2022</p>
-                            </div>
-                            <div>
-                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
-                                    Processing
-                                </span>
-                            </div>
-                        </div>
-                        <div className="text-sm text-gray-600 px-2">
-                            <p>Product Name will be show here.</p>
-                        </div>
-                        <div>
-                            <div className="text-base font-medium text-gray-600 px-2">
-                                <p>145.00 for 2 items</p>
-                            </div>
-                            <div>
-                                <span className="px-2 py-1 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                    view
-                                </span>
+                            <div className="px-2">
+                                <div className="flex space-x-10 text-sm pb-2">
+                                    <div className="text-sm text-gray-600">
+                                        <p>#1254</p>
+                                    </div>
+                                    <div className="text-sm text-gray-600 px-2">
+                                        <p>15-02-2022</p>
+                                    </div>
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    <p>Product Name will be show here.</p>
+                                </div>
+
+                                <div className="text-base font-medium text-gray-600 py-2">
+                                    <p>$ 155.00 for 2 items</p>
+                                </div>
+                                <div className="flex space-x-10">
+                                    <div>
+                                        <span className="px-2 py-1 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                            view
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
+                                            Processing
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="bg-gray-100 p-4 rounded-lg shadow">
-                        <div className="flex items-center space-x-2 text-sm">
-                            <div className="text-sm text-gray-600">
-                                <p>#1254</p>
+                    <div className="bg-gray-100 py-4 rounded-lg shadow-md">
+                        <div className="flex">
+                            <div className="flex items-center border-r border-gray-300">
+                                <Image
+                                    src={productImage}
+                                    alt="product image"
+                                    className="object-cover "
+                                    width="120px"
+                                    height="90px"
+                                />
                             </div>
-                            <div className="text-sm text-gray-600 px-2">
-                                <p>15-02-2022</p>
-                            </div>
-                            <div>
-                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                    Shipped
-                                </span>
-                            </div>
-                        </div>
-                        <div className="text-sm text-gray-600 px-2">
-                            <p>Product Name will be show here.</p>
-                        </div>
-                        <div>
-                            <div className="text-base font-medium text-gray-600 px-2">
-                                <p>145.00 for 2 items</p>
-                            </div>
-                            <div>
-                                <span className="px-2 py-1 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                    view
-                                </span>
+                            <div className="px-2">
+                                <div className="flex space-x-10 text-sm pb-2">
+                                    <div className="text-sm text-gray-600">
+                                        <p>#1254</p>
+                                    </div>
+                                    <div className="text-sm text-gray-600 px-2">
+                                        <p>15-02-2022</p>
+                                    </div>
+                                </div>
+                                <div className="text-sm text-gray-600">
+                                    <p>Product Name will be show here.</p>
+                                </div>
+
+                                <div className="text-base font-medium text-gray-600 py-2">
+                                    <p>$ 155.00 for 2 items</p>
+                                </div>
+                                <div className="flex space-x-10">
+                                    <div>
+                                        <span className="px-2 py-1 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                            view
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                            Shipped
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
