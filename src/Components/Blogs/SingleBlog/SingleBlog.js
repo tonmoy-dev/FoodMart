@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-  AiFillFacebook,
-  AiFillLinkedin,
-  AiFillTwitterCircle
+    AiFillFacebook,
+    AiFillLinkedin,
+    AiFillTwitterCircle
 } from "react-icons/ai";
 import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
 import RelatedBlog from "../../../Components/Blogs/SingleBlog/RelatedBlog.js";
@@ -19,7 +19,7 @@ const SingleBlog = ({ comments }) => {
   const [userComment, setUserComment] = useState("");
 
   // useEffect(() => {
-  //   fetch('http://localhost:5000/comments')
+  //   fetch('https://foodmart-server.herokuapp.com/comments')
   //   .then(res => res.json())
   //   .then(data => setUsers(data))
   // }, [])
@@ -34,7 +34,7 @@ const SingleBlog = ({ comments }) => {
     formData.append("userEmail", userEmail);
     formData.append("userComment", userComment);
 
-    fetch("http://localhost:5000/comments", {
+    fetch("https://foodmart-server.herokuapp.com/comments", {
       method: "POST",
       body: formData,
     })

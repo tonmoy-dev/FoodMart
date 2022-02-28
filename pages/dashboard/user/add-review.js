@@ -24,7 +24,7 @@ const AddReview = () => {
     formData.append("description", description);
     formData.append("imgUrl", imgUrl);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://foodmart-server.herokuapp.com/reviews", {
       method: "POST",
       body: formData,
     })

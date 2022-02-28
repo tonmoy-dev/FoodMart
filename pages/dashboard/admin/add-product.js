@@ -1,5 +1,5 @@
-import React, { useState } from "react";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import React, { useState } from "react";
 
 const AddProduct = () => {
   const [productTitle, setProductTitle] = useState("");
@@ -21,7 +21,7 @@ const AddProduct = () => {
     formData.append("productDetails", productDetails);
     formData.append("productImage", productImage);
 
-    fetch("http://localhost:5000/products", {
+    fetch("https://foodmart-server.herokuapp.com/products", {
       method: "POST",
       body: formData,
     })

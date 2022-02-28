@@ -1,10 +1,8 @@
 import {
-    ArchiveIcon,
-    ArrowLeftIcon,
-    ClipboardIcon,
-    LogoutIcon,
-    RefreshIcon,
-    HomeIcon
+  ArchiveIcon,
+  ArrowLeftIcon,
+  ClipboardIcon, HomeIcon, LogoutIcon,
+  RefreshIcon
 } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";

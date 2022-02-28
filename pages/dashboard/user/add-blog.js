@@ -1,40 +1,41 @@
-import React, { useState } from "react";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import { useRouter } from "next/router";
+import React, { useState } from "react";
+import swal from 'sweetalert';
+
+
 const AddBlog = () => {
-  const [blogTitle, setBlogTitle] = useState("");
-  const [blogCategory, setBlogCategory] = useState("");
-  const [blogThumb, setBlogThumb] = useState("");
-  const [blogTag, setBlogTag] = useState("");
-  const [blogShortDescription, setBlogShortDescription] = useState("");
-  const [blogDescription, setBlogDescription] = useState("");
-  const [authorName, setAuthorName] = useState("");
-  const [photoUrl, setPhotoUrl] = useState("");
+  const [addBlogData, setAddBlogData] = useState({});
+  const router = useRouter();
 
-  const handleSubmit = (e) => {
+  // handle input fields onBlur
+  const handleInputOnBlur = e => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newBlogData = { ...addBlogData };
+    newBlogData[field] = value;
+    setAddBlogData(newBlogData);
+  }
+
+  // handle add blog Submit
+  const handleSubmission = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("blogTitle", blogTitle);
-    formData.append("blogCategory", blogCategory);
-    formData.append("blogThumb", blogThumb);
-    formData.append("blogTag", blogTag);
-    formData.append("blogShortDescription", blogShortDescription);
-    formData.append("blogDescription", blogDescription);
-    formData.append("authorName", authorName);
-    formData.append("photoUrl", photoUrl);
-
-    fetch("http://localhost:5000/addBlog", {
+    // post blog data
+    const res = await fetch("/api/blogs", {
       method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
-
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(addBlogData)
+    });
+    const data = await res.json();
+    if (data.insertedId) {
+      swal("Good job!", "Your add blog request has been received.", "success");
+      setAddBlogData("");
+      router.push('/blogs');
+  }
+  }
+  
   return (
     <div className="py-16 mx-5 md:mx-20">
       <h1 className=" text-black font-semibold text-4xl pb-2">Add A Blog</h1>
@@ -101,55 +102,55 @@ const AddBlog = () => {
           Add Your Blog
         </h3>
         <div className="mt-5 md:mt-0">
-          <form onSubmit={handleSubmit} method="POST">
+          <form onSubmit={handleSubmission} method="POST">
             <div className="shadow sm:rounded-md sm:overflow-hidden">
               <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-                <div className="md:grid md:grid-cols-3 gap-6">
-                  <div className="col-span-12">
-                    <label
-                      name="company-website"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      {" "}
-                      Your blog title <span className="text-orange-600">*</span>
-                    </label>
-                    <div className="mt-1 flex rounded-md shadow-sm">
-                      <input
-                        required
-                        type="text"
-                        name="blog_title"
-                        id="blog_title"
-                        onChange={(e) => setBlogTitle(e.target.value)}
-                        className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
-                        placeholder="title"
-                      />
-                    </div>
-                    {/* blog category */}
-                    <label
-                      name="company-website"
-                      className="block text-sm font-medium text-gray-700"
-                    >
-                      {" "}
-                      Your blog title <span className="text-orange-600">*</span>
-                    </label>
-                    <div className="mt-1 flex rounded-md shadow-sm">
-                      <input
-                        required
-                        type="text"
-                        name="blog_category"
-                        id="blog_category"
-                        onChange={(e) => setBlogCategory(e.target.value)}
-                        className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
-                        placeholder="catagory"
-                      />
-                    </div>
-                    {/* blog category */}
-                  </div>
-                </div>
-
+                {/* blog title */}
                 <div>
                   <label
-                    name="about"
+                    name="blog-title"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    {" "}
+                    Your blog title <span className="text-orange-600">*</span>
+                  </label>
+                  <div className="mt-1 flex rounded-md shadow-sm">
+                    <input
+                      required
+                      type="text"
+                      name="title"
+                      id="blog_title"
+                      onBlur={handleInputOnBlur}
+                      className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                      placeholder="title"
+                    />
+                  </div>
+                </div>
+                {/* blog category */}
+                <div>
+                  <label
+                    name="blog-category"
+                    className="block text-sm font-medium text-gray-700"
+                  >
+                    {" "}
+                    Your blog category <span className="text-orange-600">*</span>
+                  </label>
+                  <div className="mt-1 flex rounded-md shadow-sm">
+                    <input
+                      required
+                      type="text"
+                      name="category"
+                      id="blog_category"
+                      onBlur={handleInputOnBlur}
+                      className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                      placeholder="category"
+                    />
+                  </div>
+                </div>
+                {/* blog description */}
+                <div>
+                  <label
+                    name="blog-description"
                     className="block text-sm font-medium text-gray-700"
                   >
                     {" "}
@@ -157,60 +158,70 @@ const AddBlog = () => {
                   </label>
                   <div className="mt-1">
                     <textarea
-                      id="about"
-                      name="about"
+                      id="blog-description"
+                      name="description"
                       rows="3"
-                      className="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md p-3"
-                      placeholder="My receipe"
+                      onBlur={handleInputOnBlur}
+                      className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                      placeholder="blog details"
                     ></textarea>
                   </div>
                   <p className="mt-2 text-sm text-gray-500">
-                    Write a brief description for your blog. URLs are
-                    hyperlinked.
+                    Write a brief description for your blog.
                   </p>
                 </div>
-
+                {/* blog thumbnail */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">
-                    {" "}
-                    Add your blog thumbnail{" "}
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="blog_thumbnail"
+                  >
+                    Blog Thumbnail:
                   </label>
-                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                    <div className="space-y-1 text-center">
-                      <svg
-                        className="mx-auto h-12 w-12 text-gray-400"
-                        stroke="currentColor"
-                        fill="none"
-                        viewBox="0 0 48 48"
-                        aria-hidden="true"
-                      >
-                        <path
-                          d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                      <div className="flex text-sm text-gray-600">
-                        <label
-                          name="file-upload"
-                          className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500"
-                        >
-                          <span>Upload a file</span>
-                          <input
-                            id="file-upload"
-                            name="file-upload"
-                            type="file"
-                            className="sr-only"
-                          />
-                        </label>
-                        <p className="pl-1">or drag and drop</p>
-                      </div>
-                      <p className="text-xs text-gray-500">
-                        PNG, JPG, GIF up to 10MB
-                      </p>
-                    </div>
+                  <div className="mt-1 flex rounded-md shadow-sm">
+                    <input
+                      className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                      type="text"
+                      name="thumbnail"
+                      id="image_url"
+                      onBlur={handleInputOnBlur}
+                      placeholder="add blog thumbnail url"
+                    />
                   </div>
+                </div>
+                {/* blog author name */}
+                <div>
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="blog_author_name"
+                  >
+                    Blog Author Name:
+                  </label>
+                  <input
+                    className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                    type="text"
+                    name="author_name"
+                    id="blog_author_name"
+                    onBlur={handleInputOnBlur}
+                    placeholder="author name"
+                  />
+                </div>
+                {/* blog author PhotoUrl*/}
+                <div className="flex flex-col mb-4">
+                  <label
+                    className="block text-sm font-medium text-gray-700"
+                    htmlFor="blog_author_PhotoUrl"
+                  >
+                    Blog Author Photo Url:
+                  </label>
+                  <input
+                    className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
+                    type="text"
+                    name="author_PhotoUrl"
+                    id="author_PhotoUrl"
+                    onBlur={handleInputOnBlur}
+                    placeholder="author photo url"
+                  />
                 </div>
               </div>
               <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
@@ -222,109 +233,6 @@ const AddBlog = () => {
                 </button>
               </div>
             </div>
-
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_thumbnail"
-              >
-                Blog Thumbnail:
-              </label>
-              <input
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="text"
-                name="blog_thumbnail"
-                id="image_url"
-                onChange={(e) => setBlogThumb(e.target.value)}
-              />
-            </div>
-
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_tags"
-              >
-                Blog Tags:
-              </label>
-              <input
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="text"
-                name="text"
-                id="blog_tags"
-                onChange={(e) => setBlogTag(e.target.value)}
-              />
-            </div>
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_short-description"
-              >
-                Short Description:
-              </label>
-              <textarea
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="blog_short-description"
-                name="blog_short-description"
-                id="blog_short-description"
-                rows="3"
-                onChange={(e) => setBlogShortDescription(e.target.value)}
-              ></textarea>
-            </div>
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_description"
-              >
-                Description:
-              </label>
-              <textarea
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="blog_description"
-                name="blog_description"
-                id="blog_description"
-                rows="10"
-                onChange={(e) => setBlogDescription(e.target.value)}
-              ></textarea>
-            </div>
-
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_author_name"
-              >
-                Blog Author Name:
-              </label>
-              <input
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="text"
-                name="text"
-                id="blog_author_name"
-                onChange={(e) => setAuthorName(e.target.value)}
-              />
-            </div>
-
-            <div className="flex flex-col mb-4">
-              <label
-                className="mb-2 font-bold text-lg text-gray-900"
-                htmlFor="blog_author_PhotoUrl"
-              >
-                Blog Author Photo Url:
-              </label>
-              <input
-                className="border rounded-lg border-gray-400 py-2 px-3 text-grey-800"
-                type="text"
-                name="blog_author_PhotoUrl"
-                id="image_url"
-                onChange={(e) => setPhotoUrl(e.target.value)}
-              />
-            </div>
-
-            <button
-              className="block font-bold rounded-xl bg-green-600 hover:bg-green-800 text-white uppercase text-lg mx-auto p-4 "
-              type="submit"
-            >
-              Add blog
-            </button>
           </form>
         </div>
       </div>

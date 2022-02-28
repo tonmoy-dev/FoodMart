@@ -3,8 +3,8 @@ import { BellIcon, HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, UserIcon,
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
-import logo from '../../../../public/logo.png';
 import { FiChevronDown } from 'react-icons/fi';
+import logo from '../../../../public/logo.png';
 
 const navigation = [
     { name: "Home", href: "/", current: true },
@@ -142,7 +142,7 @@ export default function Example() {
                                         <button type="button" className="nav-icon-btn">
                                             <ShoppingCartIcon className="h-6 w-6"/>
                                         </button>
-                                        <Link href="/cart">
+                                        <Link href="/checkout">
                                             <a className="text-sm font-semibold text-gray-600">
                                                 Cart
                                             </a>
