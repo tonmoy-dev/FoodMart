@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 
 const AddBlog = () => {
   const [addBlogData, setAddBlogData] = useState({});
-  const router = useRouter()
+  const router = useRouter();
 
   // handle input fields onBlur
   const handleInputOnBlur = e => {
