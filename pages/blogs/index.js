@@ -10,7 +10,7 @@ const AllBlogs = ({blogs}) => {
 
 export default AllBlogs;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     // load all blogs
     const blogs_res = await fetch("http://localhost:3000/api/blogs");
     const blogs = await blogs_res.json();

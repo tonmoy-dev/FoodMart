@@ -23,7 +23,7 @@ export default async function blogsHandler(req, res) {
         console.log(req.headers.host); // localhost:3000
         console.log(req.url); // /api/...
         res.status(200).json({ message: "success" }); */
-      }
+    }
     
 }
 

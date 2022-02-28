@@ -3,16 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-    AiFillFacebook,
-    AiFillLinkedin,
-    AiFillTwitterCircle
+  AiFillFacebook,
+  AiFillLinkedin,
+  AiFillTwitterCircle
 } from "react-icons/ai";
 import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
 import RelatedBlog from "../../../Components/Blogs/SingleBlog/RelatedBlog.js";
 import Trending from "../../../Components/Blogs/SingleBlog/Trending.js";
 import singlePage from "../../../styles/SingleBlog.module.css";
 const SingleBlog = ({ comments }) => {
-  console.log(comments);
+  // console.log(comments);
   // const [users, setUsers] = useState(comments)
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
@@ -315,7 +315,7 @@ const SingleBlog = ({ comments }) => {
 
             <div>
               <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
-              <div>
+              {/* <div>
                 {comments.map((user) => (
                   <div key={user.userName}>
                     <p className="text-sm font-semibold pt-4 px-3 text-gray-400">{user.userName}</p>
@@ -323,7 +323,7 @@ const SingleBlog = ({ comments }) => {
                     <h5 className="text-1xl font-semibold pt-2 px-3">{user.userComment}</h5>
                   </div>
                 ))}
-              </div>
+              </div> */}
             </div>
           </div>
 
