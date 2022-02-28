@@ -9,7 +9,7 @@ import Link from "next/link";
 const AllProducts = () => {
 
   const fetcher = async () => {
-    const response = await fetch(`https://foodmart-server.herokuapp.com/products`);
+    const response = await fetch(`http://localhost:3000/api/products`);
     const data = await response.json();
     return data;
   };
