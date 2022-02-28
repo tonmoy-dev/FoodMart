@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 // import "../../../../styles/AllProducts.module.css";
 
 const Products = ({ data }) => {
@@ -57,7 +58,19 @@ const Products = ({ data }) => {
 
           return (
             <div key={_id} className="">
-              <div className="bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
+              <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
+                <div className="z-50 w-full absolute left-0 right-0 bottom-60">
+                  <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
+                    <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <Link href={`/products/${_id}`}>
+                      <a>
+                        <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                      </a>
+                    </Link>
+                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                  </div>
+                </div>
+
                 <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>
@@ -71,19 +84,17 @@ const Products = ({ data }) => {
                     {product_badge}
                   </span>
                 )}
-                <Link href={`/products/${_id}`}>
-                  <a>
-                    {" "}
-                    <Image
-                      className="p-8 rounded-t-lg"
-                      src={product_imageUrl.thumbnail}
-                      alt="product image"
-                      height="180"
-                      width="200"
-                      layout="responsive"
-                    />
-                  </a>
-                </Link>
+                <a>
+                  {" "}
+                  <Image
+                    className="p-8 rounded-t-lg"
+                    src={product_imageUrl.thumbnail}
+                    alt="product image"
+                    height="180"
+                    width="200"
+                    layout="responsive"
+                  />
+                </a>
                 <div className="px-2 pb-5 pt-2">
                   <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
                     {product_category}

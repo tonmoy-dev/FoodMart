@@ -54,14 +54,14 @@ const Blogs = ({blogs}) => {
                                 <div key={blog.title} className="group relative flex-col">
                                     <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                                         <img
-                                            src={blog.thumbnail}
-                                            alt={blog.image_alt}
+                                            src={blog?.thumbnail}
+                                            alt={blog?.image_alt}
                                             className="w-full h-full object-center object-cover"
                                         />
                                         {/* top items */}
                                         <div className="px-3 py-3 flex items-start justify-between w-full absolute top-0 left-0">
                                             <div>
-                                                <span className="inline-block py-2 px-2 rounded bg-green-700 text-white text-sm font-medium tracking-widest">{blog.category}</span>
+                                                <span className="inline-block py-2 px-2 rounded bg-green-700 text-white text-sm font-medium tracking-widest">{blog?.category}</span>
                                             </div>
                                             <div className="w-12 py-1 flex-shrink-0 flex flex-col text-center bg-white rounded shadow-lg">
                                                 <span className="text-gray-700 pb-2 mb-2 border-b-2 border-gray-200">Jul</span>
@@ -73,26 +73,26 @@ const Blogs = ({blogs}) => {
                                             <div className="flex items-center">
                                                 <div className="flex items-center">
                                                     <Image className="rounded-full"
-                                                        src={blog.author_PhotoUrl}
+                                                        src={blog?.author_PhotoUrl}
                                                         alt="Picture of the author"
                                                         height="50"
                                                         width="50"
                                                     />
-                                                    <a href="#" className="mx-2 font-semibold text-white">{blog.author_name}</a>
+                                                    <a href="#" className="mx-2 font-semibold text-white">{blog?.author_name}</a>
                                                 </div>
                                             </div>
                                             <div>
-                                                <p className="text-white text-sm font-semibold">{blog.reading_time} to read</p>
+                                                <p className="text-white text-sm font-semibold">{blog?.reading_time} to read</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="px-3 py-3">
                                         <h3 className="text-xl font-semibold text-gray-900 inset-0 mb-3">
-                                            {blog.title.slice(0, 20)}..
-                                            <a href={blog.href}>
+                                            {blog?.title.slice(0, 20)}..
+                                            <a href={blog?.href}>
                                             </a>
                                         </h3>
-                                        <p className="text-base text-gray-500">{blog.description.slice(0, 190)}..</p>
+                                        <p className="text-base text-gray-500">{blog?.description.slice(0, 190)}..</p>
                                         <div className="flex align-items justify-between w-full pt-4">
                                             <div className="py-1 flex text-yellow-500">
                                                 <StarIcon className="h-5 w-5 text-yellow-500" />

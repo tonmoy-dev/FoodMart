@@ -157,3 +157,13 @@ background-color: orange !important;
     @apply -left-0;
   }
 }
+/* product card overlay */
+.product-card-overlay{
+  transform: scale(0);
+}
+.product-card:hover .product-card-overlay{
+  cursor:pointer;
+  transform: scale(1);
+  transition:all 0.7s;
+} 
+/* product card overlay */
