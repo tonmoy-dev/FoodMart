@@ -3,26 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-    AiFillFacebook,
-    AiFillLinkedin,
-    AiFillTwitterCircle
+  AiFillFacebook,
+  AiFillLinkedin,
+  AiFillTwitterCircle
 } from "react-icons/ai";
 import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
 import RelatedBlog from "../../../Components/Blogs/SingleBlog/RelatedBlog.js";
 import Trending from "../../../Components/Blogs/SingleBlog/Trending.js";
 import singlePage from "../../../styles/SingleBlog.module.css";
 const SingleBlog = ({ comments }) => {
-  console.log(comments);
-  // const [users, setUsers] = useState(comments)
+  // console.log(comments);
   const [userName, setUserName] = useState("");
   const [userEmail, setUserEmail] = useState("");
   const [userComment, setUserComment] = useState("");
 
-  // useEffect(() => {
-  //   fetch('https://foodmart-server.herokuapp.com/comments')
-  //   .then(res => res.json())
-  //   .then(data => setUsers(data))
-  // }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,7 +28,7 @@ const SingleBlog = ({ comments }) => {
     formData.append("userEmail", userEmail);
     formData.append("userComment", userComment);
 
-    fetch("https://foodmart-server.herokuapp.com/comments", {
+    fetch("http://localhost:5000/comments", {
       method: "POST",
       body: formData,
     })
@@ -95,13 +89,17 @@ const SingleBlog = ({ comments }) => {
               </h2>
             </div>
 
-            <div className="flex justify-center gap-1 px-5 text-green-500">
+            <div className="flex justify-center gap-1 px-5 text-green-500 items-center">
+              <div className="rounded-full h-9 w-9">
               <Image
                 src="https://i.ibb.co/6R0RdxL/author-2.png"
                 alt=""
-                width={30}
-                height={10}
+                width={36}
+                height={36}
+                // layout='responsive'
               />
+              </div>
+              <div className="flex items-center justify-center">
               <span>By Sugar Rosie</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -156,6 +154,7 @@ const SingleBlog = ({ comments }) => {
                   clipRule="evenodd"
                 />
               </svg>
+              </div>
               <div className="flex gap-2 ml-auto px-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -314,13 +313,13 @@ const SingleBlog = ({ comments }) => {
             </form>
 
             <div>
-              <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
-              <div>
+              <h2 className="px-4 text-4xl font-extralight mt-3">Comments</h2>
+              <div className="px-4 pb-4">
                 {comments.map((user) => (
-                  <div key={user.userName}>
-                    <p className="text-sm font-semibold pt-4 px-3 text-gray-400">{user.userName}</p>
+                  <div key={user.userName} className='border-2 p-2 mt-2 rounded-xl'>
+                    <p className="text-sm font-semibold pt-4 px-3 ">{user.userName}</p>
                     <h3 className="text-sm font-semibold pt-1 px-3">{user.userEmail}</h3>
-                    <h5 className="text-1xl font-semibold pt-2 px-3">{user.userComment}</h5>
+                    <h5 className="text-md font-normal pt-2 px-3 text-justify">{user.userComment}</h5>
                   </div>
                 ))}
               </div>
