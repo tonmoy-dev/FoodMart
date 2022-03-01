@@ -91,37 +91,6 @@ const ProductOffer = () => {
                         </p>
                     </div>
                 </div>
-                {/* <div className={Styles}>
-                    <div className="max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-md h-auto">
-                        <Image
-                            src="https://i.ibb.co/6YGHkVT/offer-2.jpg"
-                            width={650}
-                            height={300}
-                            priority
-                            alt="Best Offer Products"
-                            className="object-cover w-full h-full rounded"
-                        />
-                        <div className="py-6">
-                            <div>
-                                <span className="text-xl font-bold text-green-500 uppercase">
-                                    Products
-                                </span>
-                                <a
-                                    href="#"
-                                    className="block mt-2 text-2xl font-semibold text-gray-800 transition-colors duration-200 transform dark:text-white hover:text-gray-600 hover:underline"
-                                >
-                                    Vegetable
-                                </a>
-                                <p className="mt-2 text-base text-gray-600">
-                                    Lorem ipsum dolor sit amet, consectetur
-                                    adipiscing elit. Molestie parturient et sem
-                                    ipsum volutpat vel. Natoque sem et aliquam
-                                    mauris egestas quam volutpat viverra.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> */}
             </div>
         </div>
     );
