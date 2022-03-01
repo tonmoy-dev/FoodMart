@@ -99,7 +99,7 @@ const ManageProducts = () => {
                                         aria-hidden="true"
                                     />
                                     <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                        Manage Products
+                                        Manage Productsgi
                                     </span>
                                 </div>
                             </li>
