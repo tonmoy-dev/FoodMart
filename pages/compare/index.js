@@ -1,7 +1,7 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import React from "react";
-import productImage from "../src/assets/compareImage/product-2-1.jpg";
+import productImage from "../../src/assets/compareImage/product-2-1.jpg";
 
 const Compare = () => {
     return (
