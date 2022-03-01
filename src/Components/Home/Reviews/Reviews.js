@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import SwiperCore, { EffectCoverflow, Navigation, Pagination } from "swiper";
+import SwiperCore, { Navigation, Pagination } from "swiper";
 import "swiper/components/effect-coverflow/effect-coverflow.min.css";
 import "swiper/components/navigation/navigation.min.css";
 import "swiper/components/pagination/pagination.min.css";
@@ -9,31 +9,27 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 import reviewStyle from "../../../styles/Review.module.css";
 
-SwiperCore.use([EffectCoverflow, Navigation, Pagination]);
+SwiperCore.use([ Navigation, Pagination]);
 const Reviews = ({reviews}) => {
   return (
     <>
       <section className={reviewStyle.slidecontain}>
         <div className={reviewStyle.heading}>
-          <h2 className="text-black text-3xl">Happy Clients</h2>
+          <h6 className="text-green-500 text-xs uppercase">Testimonials</h6>
+          <h2 className="text-black text-3xl my-2">What Clients Say</h2>
         </div>
 
         <Swiper
           navigation={false}
+          spaceBetween={40}
           effect={"coverflow"}
           grabCursor={true}
           centeredSlides={true}
           slidesPerView={"auto"}
           loop={true}
-          coverflowEffect={{
-            rotate: 58,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={{
-            clickable: true,
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
           }}
           className={reviewStyle.swiper}
         >
