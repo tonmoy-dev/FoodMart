@@ -11,14 +11,14 @@ export default async function blogsHandler(req, res) {
         const products = await db.collection("products").find({}).toArray();
         res.json(products);
     }
-
+    
     /* if (method === "POST") {
         const blogData = req.body;
         const addBlog = await db.collection("blogs").insertOne(blogData);
         res.json(addBlog);
 
         // console.log(req.body); 
-        // console.log(req.query) 
+        console.log(req.query) 
         // console.log(req.method); // POST
         // console.log(req.headers.host); // localhost:3000
         // console.log(req.url); // /api/...
