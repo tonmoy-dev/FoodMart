@@ -23,9 +23,9 @@ export async function getStaticPaths() {
         
     }
 }
-
+ 
 export async function getStaticProps({ params }) {
-    console.log(params);
+    // console.log(params);
     const data = await fetch(`${process.env.MY_APP_DOMAIN}api/blogs/blogDetails?blog_id=${params.blog_id}`);
     const blog = await data.json();
 
@@ -34,7 +34,7 @@ export async function getStaticProps({ params }) {
         revalidate: false
         // revalidate: 1
     }
-}
+ }
 
 /* export async function getServerSideProps(context) {
     // console.log(context.query.blog_id);
@@ -46,4 +46,5 @@ export async function getStaticProps({ params }) {
     return {
         props:{blog}
     }
-} */
+}
+ */
