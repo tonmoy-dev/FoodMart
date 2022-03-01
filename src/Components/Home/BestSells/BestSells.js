@@ -1,9 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 
 const BestSells = ({ products }) => {
-  const allProducts = products.slice(0, 4);
+  const allProducts = products.slice(9, 13);
   <style jsx>
     {`
       .dbs-style {
@@ -81,7 +82,18 @@ const BestSells = ({ products }) => {
           } = product;
           return (
             <div key={_id}>
-              <div className="relative bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg">
+              <div className="relative product-card bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg">
+              <div className="z-50 w-full absolute left-0 right-0 bottom-60">
+                  <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
+                    <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <Link href={`/products/${_id}`}>
+                      <a>
+                        <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                      </a>
+                    </Link>
+                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                  </div>
+                </div>
               <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>

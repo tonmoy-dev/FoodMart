@@ -25,37 +25,6 @@
   align-items: center !important;
 }
 
-/* All Products */
-.sidebar-style {
-  /* position: absolute !important; */
-  /* background-color: orange !important; */
-}
-
-.AllProducts-style {
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr); */
-  /* justify-content: center !important; */
-
-  /* background-color: aqua; */
-  /* align-items: center; */
-}
-
-.card-custom-style {
-  /* width: 14rem !important; */
-  /* height: 20px !important; */
-  /* background-color: green !important; */
-  /* background-color: orange !important; */
-}
-
-/* .product-grid-style{
-  display: grid;
-  justify-content: center !important;
-  align-items: center !important;
-  background-color: pink;
-background-color: orange !important;
-} */
-
-/* Payment */
 .form-radio {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -72,8 +41,6 @@ background-color: orange !important;
   flex-shrink: 0;
   border-radius: 100%;
   border-width: 2px;
-
-  /* background-color: orange !important; */
 }
 
 .form-radio:defaultchecked {
@@ -83,7 +50,6 @@ background-color: orange !important;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-color: orange !important; */
 }
 
 @media not print {
@@ -93,13 +59,11 @@ background-color: orange !important;
     background: inherit;
     border-color: inherit;
     border-radius: inherit;
-    /* background-color: orange !important; */
   }
 }
 
 .form-radio:focus {
   outline: none;
-  /* background-color: orange !important; */
 }
 
 .form-select {
@@ -116,7 +80,6 @@ background-color: orange !important;
   padding-left: 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  /* background-position: right 0.5rem center; */
   background-size: 1.5em 1.5em;
 }
 
@@ -166,4 +129,7 @@ background-color: orange !important;
   transform: scale(1);
   transition:all 0.7s;
 } 
-/* product card overlay */
+/*slider bullet style */
+.swiper-pagination-bullet-active{
+  background-color: #0e9f6e !important;
+}

@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
-// import "../../../../styles/AllProducts.module.css";
 
 const Products = ({ data }) => {
   const AllProducts = data;
@@ -10,7 +9,7 @@ const Products = ({ data }) => {
     <div className="py-5">
       <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
         <h2 className="text-green-700 text-lg">
-          <span className="font-semibold">29</span> Products{" "}
+          <span className="font-semibold">{AllProducts.length} </span> Products{" "}
         </h2>
 
         <div>

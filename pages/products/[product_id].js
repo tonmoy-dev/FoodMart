@@ -1,4 +1,4 @@
-import { HeartIcon ,HomeIcon} from "@heroicons/react/solid";
+import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
@@ -6,9 +6,7 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
 import Category from "../../src/Components/Products/SideBar/Category/Category";
 
-const SingleProduct = ({ related }) => {
-  const [details, setDetails] = useState([]);
-
+const SingleProduct = ({ related, product }) => {
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);
@@ -85,10 +83,8 @@ const SingleProduct = ({ related }) => {
       <div className="border border-l-0 border-r-0 py-4">
         <nav className="flex px-8" aria-label="Breadcrumb">
           <ol className="inline-flex items-center space-x-1 md:space-x-3">
-          <li className="inline-flex items-center">
-              <a
-                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
+            <li className="inline-flex items-center">
+              <a className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
                 <HomeIcon
                   className="h-4 w-4 text-gray-700 mr-2"
                   aria-hidden="true"
@@ -110,9 +106,7 @@ const SingleProduct = ({ related }) => {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <a
-                  className="ml-1 text-sm font-sm text-green-500 hover:text-orange-500 md:ml-2"
-                >
+                <a className="ml-1 text-sm font-sm text-green-500 hover:text-orange-500 md:ml-2">
                   <Link href="/products/all-products">Products</Link>
                 </a>
               </div>
@@ -158,28 +152,33 @@ const SingleProduct = ({ related }) => {
                 </div>
                 <div id="productDetails" className="lg:px-0 md:px-0 px-4">
                   <h2 className="text-2xl text-green-500 font-semibold">
-                    {details.product_title}
+                    {product.product_title}
                   </h2>
                   <div id="rating" className="py-2">
-                    ***** <span className="text-gray-500">(33 reviews)</span>
+                    *****{" "}
+                    <span className="text-gray-500">
+                      ({product.rating_count} reviews)
+                    </span>
                   </div>
                   <h2 className="text-lg pt-4 font-semibold text-gray-700">
-                    Availability :{" "}
-                    <span className="text-sm text-orange-500">In Stock</span>
+                    Availability :
+                    <span className="text-sm text-orange-500">
+                      {" "}
+                      {product.product_stock} In Stock
+                    </span>
                   </h2>
                   <div id="price">
                     <h2 className="text-2xl font-bold text-green-500 py-4">
-                      $ <span>38</span>
+                      $ <span>{product.product_price}</span>
                     </h2>
                   </div>
                   <div id="details">
                     <p className="text-justify text-base">
                       Hurry up! only{" "}
-                      <span className="text-orange-500 font-semibold">10</span>{" "}
-                      products left in stock! Lorem Ipsum is simply dummy text
-                      of the printing and typesetting industry. Lorem Ipsum has
-                      been the industry standard dummy text ever since the
-                      1500s, when an unknown printer took a galley.
+                      <span className="text-orange-500 font-semibold">
+                        {product.product_stock}
+                      </span>{" "}
+                      {product.produc_Details}
                     </p>
                   </div>
                   <div
@@ -269,18 +268,10 @@ const SingleProduct = ({ related }) => {
                   >
                     <h2 className="font-semibold text-lg mb-4">Details</h2>
                     <p className="text-justify text-sm">
-                      Uninhibited carnally hired played in whimpered dear
-                      gorilla koala depending and much yikes off far quetzal
-                      goodness and from for grimaced goodness unaccountably and
-                      meadowlark near unblushingly crucial scallop tightly
-                      neurotic hungrily some and dear furiously this apart.{" "}
-                      <br /> Spluttered narrowly yikes left moth in yikes bowed
-                      this that grizzly much hello on spoon-fed that alas
-                      rethought much decently richly and wow against the
-                      frequent fluidly at formidable acceptably flapped besides
-                      and much circa far over the bucolically hey precarious
-                      goldfinch mastodon goodness gnashed a jellyfish and one
-                      however because.
+                      {product.produc_Details}
+                      <br />
+                      <br />
+                      {product.produc_Details}
                     </p>
                     <h2 className="font-semibold text-lg my-4">
                       Packaging & delivery
@@ -365,7 +356,6 @@ const SingleProduct = ({ related }) => {
             </div>
 
             <div id="catagory" className="md:pl-12 ">
-              {/* <h2 className="text-xl text-gray-700 text-center">Category</h2> */}
               <div className="shadow rounded-lg p-4 mx-4 md:mx-0">
                 <Category></Category>
               </div>
@@ -383,11 +373,24 @@ const SingleProduct = ({ related }) => {
 
 export default SingleProduct;
 
-export async function getStaticProps() {
-  const related_res = await fetch("https://foodmart-server.herokuapp.com/products");
+export async function getStaticPaths() {
+  return {
+    paths: ["/products/[product_id]"],
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const data = await fetch(
+    `http://localhost:3000/api/products/productDetails?product_id=${params.product_id}`
+  );
+  const product = await data.json();
+
+  const related_res = await fetch("http://localhost:3000/api/products/");
   const related = await related_res.json();
 
   return {
-    props: { related },
+    props: { related, product },
+    revalidate: false,
   };
 }
