@@ -4,7 +4,7 @@ import React from "react";
 import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 
 const Products = ({ data }) => {
-  const AllProducts = data;
+  const AllProducts = data.slice(0,10);
   return (
     <div className="py-5">
       <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
