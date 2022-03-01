@@ -15,7 +15,7 @@ const Reviews = ({reviews}) => {
     <>
       <section className={reviewStyle.slidecontain}>
         <div className={reviewStyle.heading}>
-          <h2 className="text-black text-3xl">Customer Reviews</h2>
+          <h2 className="text-black text-3xl">Happy Clients</h2>
         </div>
 
         <Swiper
