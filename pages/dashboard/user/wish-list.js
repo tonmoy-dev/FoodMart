@@ -1,7 +1,6 @@
 import { TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
-import React from "react";
 import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
 
 const WishList = () => {
