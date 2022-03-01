@@ -1,6 +1,11 @@
 import { TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+<<<<<<< HEAD
+=======
+import Link from "next/link";
+import React from "react";
+>>>>>>> 154a84d5322a2528edced80eebf97cea002bc2d1
 import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
 
 const WishList = () => {
@@ -14,16 +19,16 @@ const WishList = () => {
                 <nav className="flex" aria-label="Breadcrumb">
                     <ol className="inline-flex items-center space-x-1 md:space-x-3">
                         <li className="inline-flex items-center">
-                            <a
-                                href="#"
-                                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                            >
-                                <HomeIcon
-                                    className="h-4 w-4 text-gray-700 mr-2"
-                                    aria-hidden="true"
-                                />
-                                Home
-                            </a>
+                        <a
+                href="#"
+                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+              >
+                <HomeIcon
+                  className="h-4 w-4 text-gray-700 mr-2"
+                  aria-hidden="true"
+                />
+                <Link href="/">Home</Link>
+              </a>
                         </li>
                         <li>
                             <div className="flex items-center">

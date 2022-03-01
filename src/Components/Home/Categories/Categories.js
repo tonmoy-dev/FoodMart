@@ -51,13 +51,14 @@ const categoriess = [
 const Categories = () => {
     return (
         <>
-            <div className="py-16 mx-5">
+            <div className="py-16">
                 <h1 className="text-center text-black font-bold text-3xl pb-2">
                     Shop by Categories
                 </h1>
                 <p className="text-center text-gray-600 text-xl pb-7">
                     Trusted and powerful eCommerce store for all
                 </p>
+<<<<<<< HEAD
                 <div className="md:flex justify-center items-center md:mx-10">
                     <div className="relative h-50 md:h-full md:w-1/4 md:mr-5 mb-7 md:mb-0 rounded-lg">
                         <div className="">
@@ -84,6 +85,15 @@ const Categories = () => {
                                 </span>
                             </p>
                         </div>
+=======
+                <div className="md:flex justify-center items-center md:mx-4 px-4">
+                    <div className="flex h-56 md:h-full md:w-1/4 md:mr-5 mb-7 md:mb-0 rounded-lg">
+                        <Image
+                            src={ctBanner}
+                            alt="category banner"
+                            className="object-cover h-full rounded-lg"
+                        />
+>>>>>>> 154a84d5322a2528edced80eebf97cea002bc2d1
                     </div>
                     <div className="flex md:w-3/4">
                         <div className="grid grid-cols md:grid-cols-3 gap-5 drop-shadow-md">

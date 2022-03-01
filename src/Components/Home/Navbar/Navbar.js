@@ -1,18 +1,18 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline';
+import { BellIcon, HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fragment } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 import logo from '../../../../public/logo.png';
 
 const navigation = [
     { name: "Home", href: "/", current: true },
     { name: "Products", href: "/products/all-products", current: false },
-    { name: "Blogs", href: "/blogs/all-blogs", current: false },
-    { name: "Vendors", href: "/vendors/all-vendors", current: false },
+    { name: "Blogs", href: "/blogs", current: false },
+    { name: "Vendors", href: "/vendors", current: false },
     { name: "About Us", href: "/contents/about-us", current: false },
     { name: "Contact Us", href: "/contents/contact-us", current: false },
-    { name: "Login", href: "/login", current: false },
 ];
 
 function classNames(...classes) {
@@ -33,20 +33,23 @@ export default function Example() {
 
                 .hoverable {
                     position: static;
-                    display:none;
+                    display: block;
                 }
 
                 .hoverable:hover .megaMenu {
-                    display: none;
+                    display: block;
                 }
                 .deals:hover .deals-text {
                     color: orange;
+                }
+                .right-nav:hover .nav-icon-btn{
+                    color: black;
                 }
             `}</style>
             <Disclosure as="nav" className="bg-white">
                 {({ open }) => (
                     <>
-                        <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+                        <div className="max-w-8xl mx-auto px-2 sm:px-6 lg:px-8">
                             <div className="relative flex items-center justify-between h-16">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile hamburger menu button*/}
@@ -113,60 +116,41 @@ export default function Example() {
                                 {/* Right side menu buttons */}
                                 <div className="hidden absolute inset-y-0 right-0 md:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                                     {/* Compare button */}
-                                    <div className="mx-2">
-                                        <button type="button" className="text-gray-600 hover:text-black">
-                                            <svg className="h-5 w-5" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <g clipPath="url(#clip0)">
-                                                    <path d="M20.298 8.38686L21.7149 7.56033C18.6493 2.2939 12.0415 0.282014 6.56113 2.94644V0.930145H4.9212V5.84994H9.84099V4.21001H7.74598C12.3848 2.24224 17.7631 4.03197 20.298 8.38686Z" fill="currentColor" />
-                                                    <path d="M5.33116 21.1635C1.52924 18.0758 0.528575 12.686 2.96884 8.43938L1.54702 7.61942C-1.2363 12.4662 -0.183154 18.6069 4.05611 22.2492H2.0513V23.8892H6.97109V18.9694H5.33116V21.1635V21.1635Z" fill="currentColor" />
-                                                    <path d="M22.5209 11.2355L19.0426 14.7146L20.202 15.874L21.5959 14.4801C21.0492 19.5603 16.7683 23.4158 11.6588 23.43V25.0699C17.7465 25.0539 22.7967 20.3557 23.2514 14.2849L24.8405 15.874L26 14.7146L22.5209 11.2355Z" fill="currentColor" />
-                                                </g>
-                                                <defs>
-                                                    <clipPath id="clip0">
-                                                        <rect width="26" height="26" fill="white" />
-                                                    </clipPath>
-                                                </defs>
-                                            </svg>
-
+                                    <div className="mx-2 text-gray-600 right-nav">
+                                        <button type="button" className="nav-icon-btn">
+                                        <RefreshIcon className="w-6 h-6"/>
                                         </button>
                                         <Link href="/compare">
-                                        <a className="text-sm font-semibold text-gray-600">Compare</a>
-        </Link>
+                                            <a className="text-sm font-semibold">Compare</a>
+                                        </Link>
                                         
                                     </div>
                                     {/* Wishlist button */}
-                                    <div className="mx-2">
-                                        <button type="button" className="text-gray-600 hover:text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                                            </svg>
+                                    <div className="mx-2 text-gray-600 right-nav">
+                                        <button type="button" className="nav-icon-btn">
+                                            <HeartIcon className="h-6 w-6"/>
                                         </button>
                                         <Link href="/dashboard/user/wish-list">
-                                        <a className="text-sm font-semibold text-gray-600">
-                                            Wishlist
-                                        </a>
+                                            <a className="text-sm font-semibold text-gray-600">
+                                                Wishlist
+                                            </a>
                                         </Link>
                                         
                                     </div>
                                     {/* Cart button */}
-                                    <div className="mx-2">
-                                        <button type="button" className=" text-gray-600 hover:text-black">
-                                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                            </svg>
+                                    <div className="mx-2  text-gray-600 right-nav">
+                                        <button type="button" className="nav-icon-btn">
+                                            <ShoppingCartIcon className="h-6 w-6"/>
                                         </button>
-                                        <Link href="/cart">
-                                        <a className="text-sm font-semibold text-gray-600">
-                                        Cart
-                                        </a>
+                                        <Link href="/checkout">
+                                            <a className="text-sm font-semibold text-gray-600">
+                                                Cart
+                                            </a>
                                         </Link>
                                     </div>
                                     {/* Notification button */}
-                                    <div className="mx-2 ">
-                                        <button
-                                            type="button"
-                                            className="text-gray-600 hover:text-black"
-                                        >
+                                    <div className="mx-2  text-gray-600 right-nav">
+                                        <button type="button" className="nav-icon-btn">
                                             <span className="sr-only">View notifications</span>
                                             <BellIcon className="h-6 w-6" aria-hidden="true" />
                                         </button>
@@ -174,26 +158,13 @@ export default function Example() {
                                     </div>
 
                                     {/* Profile dropdown */}
-                                    <Menu as="div" className="ml-3 relative">
+                                    <Menu as="div" className="ml-3 relative z-50">
                                         <div>
                                             <Menu.Button className="flex text-sm rounded-full p-0.5 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                                 <span className="sr-only">
                                                     Open user menu
                                                 </span>
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    className="h-6 w-6"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        strokeWidth={2}
-                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                                    />
-                                                </svg>
+                                                <UserIcon className="h-6 w-6"/>
                                             </Menu.Button>
                                         </div>
                                         <Transition
@@ -208,8 +179,8 @@ export default function Example() {
                                             <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                 <Menu.Item>
                                                     {({ active }) => (
+                                                        <Link href="/dashboard/dashboard">
                                                         <a
-                                                            href="#"
                                                             className={classNames(
                                                                 active
                                                                     ? "bg-gray-100"
@@ -217,12 +188,14 @@ export default function Example() {
                                                                 "block px-4 py-2 text-sm text-gray-700"
                                                             )}
                                                         >
-                                                            Your Profile
+                                                            Dashboard
                                                         </a>
+                                                        </Link>
                                                     )}
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
+                                                        <Link href="/login">
                                                         <a
                                                             href="#"
                                                             className={classNames(
@@ -232,12 +205,14 @@ export default function Example() {
                                                                 "block px-4 py-2 text-sm text-gray-700"
                                                             )}
                                                         >
-                                                            Sign In
+                                                            Login
                                                         </a>
+                                                        </Link>
                                                     )}
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
+                                                        <Link href="#">
                                                         <a
                                                             href="#"
                                                             className={classNames(
@@ -247,8 +222,9 @@ export default function Example() {
                                                                 "block px-4 py-2 text-sm text-gray-700"
                                                             )}
                                                         >
-                                                            Sign out
-                                                        </a>
+                                                            Logout
+                                                            </a>
+                                                            </Link>
                                                     )}
                                                 </Menu.Item>
                                             </Menu.Items>
@@ -264,38 +240,35 @@ export default function Example() {
                                     <div className="flex space-x-4">
                                         {navigation.map((item) => (
                                             <Link key={item.name}
-                                            href={item.href}>
-                                             <a
-                                                
-                                                className={classNames(
-                                                    item.current
-                                                        ? "text-green-600"
-                                                        : "text-black hover:bg-gray-100 hover:text-green-500",
-                                                    "px-3 py-2 rounded-md text-md font-medium text-gray-500"
-                                                )}
-                                                aria-current={
-                                                    item.current
-                                                        ? "page"
-                                                        : undefined
-                                                }
-                                            >
-                                                {item.name}
-                                            </a>
-                                          </Link>
+                                                href={item.href}>
+                                                <a className={classNames(
+                                                        item.current
+                                                            ? "text-green-600"
+                                                            : "text-black hover:bg-gray-100 hover:text-green-500",
+                                                        "px-3 py-2 rounded-md text-md font-medium text-gray-500"
+                                                    )}
+                                                    aria-current={
+                                                        item.current
+                                                            ? "page"
+                                                            : undefined
+                                                    }>
+                                                    {item.name}
+                                                </a>
+                                            </Link>
                                            
                                         ))}
                                     </div>
 
                                     {/* <!--Hoverable Mega Menu--> */}
-                                    <div className="hoverable">
+                                    <div className="hoverable hoverable-menu transition">
                                         <a
                                             href="#"
                                             className="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-semibold"
                                         >
-                                            Menu
+                                            <div className='flex flex-row items-center'>Menu <FiChevronDown className='pt-1 w-5 h-5' /></div>
                                         </a>
 
-                                        <div className="megaMenu px-5 bg-white mb-16 rounded-lg shadow-md">
+                                        <div className="megaMenu transition px-5 bg-white mb-16 rounded-lg shadow-md">
                                             <div className="container w-full flex flex-wrap justify-between sm:mb-0 bg-white ">
                                                 <div className="w-full text-green-500 mb-2">
                                                     <h2 className=" hidden font-semibold text-3xl">
@@ -493,7 +466,7 @@ export default function Example() {
 
                         {/* Small screen navigation */}
                         <Disclosure.Panel className="">
-                            <div className="px-2 pt-2 pb-3 space-y-1">
+                            <div className="px-2 pt-1 pb-3 space-y-1 text-center">
                                 {navigation.map((item) => (
                                     <Disclosure.Button
                                         key={item.name}
@@ -501,8 +474,8 @@ export default function Example() {
                                         href={item.href}
                                         className={classNames(
                                             item.current
-                                                ? "bg-gray-900 text-white"
-                                                : "hover:bg-gray-700 hover:text-white",
+                                                ? "bg-orange-500 text-white"
+                                                : "hover:bg-orange-500 hover:text-white",
                                             "block px-3 py-2 rounded-md text-base font-medium"
                                         )}
                                         aria-current={

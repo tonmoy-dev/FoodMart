@@ -38,19 +38,19 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
                   <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
                   <Image
             src={food1}
-        alt="Picture of the author"
-        width={1000}
-        height={800}
-        priority
-      /> 
+          alt="Picture of the author"
+          width={1000}
+          height={900}
+          priority
+          /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-01.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                   <div className="w-44 h-64 rounded-lg overflow-hidden">
                   <Image
             src={food2}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
       /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-02.jpg" alt="" className="w-full h-full object-center object-cover"> */}
@@ -61,8 +61,8 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
                   <Image
             src={food3}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
       /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-03.jpg" alt="" className="w-full h-full object-center object-cover"> */}
@@ -71,8 +71,8 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
                   <Image
             src={food4}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
       /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-04.jpg" alt="" className="w-full h-full object-center object-cover"> */}
@@ -81,8 +81,8 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
                   <Image
             src={food5}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
       /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-05.jpg" alt="" className="w-full h-full object-center object-cover"> */}
@@ -93,20 +93,21 @@ Pitatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam v
                   <Image
             src={food6}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
       /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-06.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
-                  <div  className="w-44 h-64 rounded-lg overflow-hidden">
+                  <div  className="w-44 h-72 rounded-lg overflow-hidden">
                   <Image
+                  className='img-fluid'
             src={food7}
         alt="Picture of the author"
-        width={800}
-        height={600}
+        width={1000}
+        height={900}
         priority
-      /> 
+          /> 
                     {/* <img src="https://tailwindui.com/img/ecommerce-images/home-page-03-hero-image-tile-07.jpg" alt="" className="w-full h-full object-center object-cover"> */}
                   </div>
                 </div>

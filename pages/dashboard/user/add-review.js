@@ -1,201 +1,239 @@
-import {
-    PencilAltIcon,
-    ChevronRightIcon,
-    HomeIcon,
-    StarIcon,
-} from "@heroicons/react/solid";
+import React, { useState } from "react";
+import ReactStars from "react-rating-stars-component";
+import addreviewStyle from "../../../src/styles/AddReview.module.css";
+
+const ratingChanged = (newRating) => {
+  console.log(newRating);
+};
 
 const AddReview = () => {
-    return (
-        <div>
-            <div className="bg-gray-100 px-4 py-16 md:px-20">
-                <h2 className=" text-black font-semibold text-4xl pb-2">
-                    Add Review
-                </h2>
-                {/* breadcrumb */}
-                <div className="pb-10">
-                    <nav className="flex" aria-label="Breadcrumb">
-                        <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                            <li className="inline-flex items-center">
-                                <a
-                                    href="#"
-                                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                >
-                                    <HomeIcon
-                                        className="h-4 w-4 text-gray-700 mr-2"
-                                        aria-hidden="true"
-                                    />
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="h-5 w-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <a
-                                        href="#"
-                                        className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="h-5 w-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <a
-                                        href="#"
-                                        className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                                    >
-                                        User
-                                    </a>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="h-5 w-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                        Add Review
-                                    </span>
-                                </div>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-                <div className=" flex justify-center">
-                    <div className="border rounded md:p-6 w-full md:w-1/2">
-                        <div className="pt-6 md:pt-4">
-                            <h2 className="text-3xl font-semibold pb-4 text-black text-center">
-                                Give your review
-                            </h2>
-                        </div>
-                        <div className="flex justify-center">
-                            <div className="py-6">
-                                <div className="md:flex ">
-                                    <div className="md:mr-2">
-                                        <label htmlFor="search" className="">
-                                            {" "}
-                                            <p className="text-black mt-2">
-                                                Your Name
-                                            </p>{" "}
-                                        </label>
-                                        <input
-                                            className="w-full rounded border-gray-300"
-                                            id="search"
-                                            placeholder="EX: jhon Doe"
-                                            type="text"
-                                        />
-                                    </div>
-                                    <div className="">
-                                        <label htmlFor="search" className="">
-                                            {" "}
-                                            <p className="text-black mt-2">
-                                                Review Date
-                                            </p>{" "}
-                                        </label>
-                                        <input
-                                            className="w-full rounded border-gray-300"
-                                            id="search"
-                                            placeholder="EX: 02/01/2022"
-                                            type="text"
-                                        />
-                                    </div>
-                                </div>
-                                <div className="md:flex">
-                                    <div className="md:mr-2">
-                                        <label htmlFor="search" className="">
-                                            {" "}
-                                            <p className="text-black mt-2">
-                                                Your Email
-                                            </p>{" "}
-                                        </label>
-                                        <input
-                                            className="w-full rounded border-gray-300"
-                                            id="search"
-                                            placeholder="Example@gmail.com"
-                                            type="text"
-                                        />
-                                    </div>
+  const [userName, setUserName] = useState("");
+  const [reviewDate, setReviewDate] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [reviewTime, setReviewTime] = useState("");
+  const [description, setDescription] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
 
-                                    <div className="">
-                                        <label htmlFor="search" className="">
-                                            {" "}
-                                            <p className="text-black mt-2">
-                                                Review Time
-                                            </p>{" "}
-                                        </label>
-                                        <input
-                                            className="w-full rounded border-gray-300"
-                                            id="search"
-                                            placeholder="EX: 8.00am"
-                                            type="text"
-                                        />
-                                    </div>
-                                </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("userName", userName);
+    formData.append("userEmail", userEmail);
+    formData.append("reviewDate", reviewDate);
+    formData.append("reviewTime", reviewTime);
+    formData.append("description", description);
+    formData.append("imgUrl", imgUrl);
 
-                                <div className="rate mt-4 gap-2 flex">
-                                    <div>
-                                        <h2 className=" text-black text-lg">
-                                            Product Rating:
-                                        </h2>
-                                    </div>
-                                    <div className="flex justify-center items-center">
-                                        <StarIcon
-                                            className="h-5 w-5 text-orange-500"
-                                            aria-hidden="true"
-                                        />
-                                        <StarIcon
-                                            className="h-5 w-5 text-orange-500"
-                                            aria-hidden="true"
-                                        />
-                                        <StarIcon
-                                            className="h-5 w-5 text-orange-500"
-                                            aria-hidden="true"
-                                        />
-                                        <StarIcon
-                                            className="h-5 w-5 text-orange-500"
-                                            aria-hidden="true"
-                                        />
-                                        <StarIcon
-                                            className="h-5 w-5 text-orange-500"
-                                            aria-hidden="true"
-                                        />
-                                    </div>
-                                </div>
+    fetch("https://foodmart-server.herokuapp.com/reviews", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
 
-                                <h2 className="pt-4 text-black font-base text-xl">
-                                    Reviews
-                                </h2>
-
-                                <div className="w-full">
-                                    <textarea
-                                        className="w-full rounded border-gray-300"
-                                        name="comment"
-                                        id="comment"
-                                        rows="3"
-                                        placeholder="Write Comment..."
-                                    ></textarea>
-                                </div>
-                                <div className="flex justify-center align-middle">
-                                    <button className="w-full md:px-24 mt-3 py-2 text-xl font-semibold text-white bg-green-500 hover:bg-green-700 rounded">
-                                        Add Review
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <div>
+      <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
+        <ol className="inline-flex items-center space-x-1 md:space-x-3">
+          <li className="inline-flex items-center">
+            <a
+              href="#"
+              className="inline-flex items-center text-sm font-medium text-white hover:text-gray-200 dark:text-gray-400 dark:hover:text-white"
+            >
+              <svg
+                className="mr-2 w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
+              </svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <div className="flex items-center">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <a
+                href="#"
+                className="ml-1 text-sm font-medium text-white hover:text-gray-200 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+              >
+                Projects
+              </a>
             </div>
+          </li>
+          <li aria-current="page">
+            <div className="flex items-center">
+              <svg
+                className="w-6 h-6 text-white"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+              <span className="ml-1 text-sm font-medium text-white md:ml-2 dark:text-gray-200">
+                Flowbite
+              </span>
+            </div>
+          </li>
+        </ol>
+      </nav>
+
+      <div className="bg-gray-300">
+        <div>
+          <h2 className="text-5xl font-bold text-black text-center">
+            Give your review
+          </h2>
         </div>
-    );
+        <div className={addreviewStyle.content}>
+          <div className={addreviewStyle.reviewcontainer}>
+            <form onSubmit={handleSubmit}>
+              <div className="bg-gray-200 p-8">
+                <div className="flex ">
+                  <div className="flex flex-col">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Your Name</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: jhon Doe"
+                        type="text"
+                        onChange={(e) => setUserName(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-auto">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Review Date</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: 02/01/2022"
+                        type="text"
+                        onChange={(e) => setReviewDate(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex">
+                  <div className="flex flex-col gap-4">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Your Email</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="Example@gmail.com"
+                        type="text"
+                        onChange={(e) => setUserEmail(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-col ml-auto">
+                    <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Review Time</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        placeholder="EX: 8.00am"
+                        type="text"
+                        onChange={(e) => setReviewTime(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div>
+                      <label htmlFor="search" className="">
+                        {" "}
+                        <p className="text-black mt-2">Image Url</p>{" "}
+                      </label>
+                      <input
+                        className={addreviewStyle.sss}
+                        id="search"
+                        type="text"
+                        onChange={(e) => setImgUrl(e.target.value)}
+                      />
+                    </div>
+
+                <div className="rate flex mt-4 gap-2">
+                  <h2 className="mt-5 text-black text-xl font-extralight">
+                    Product Rating
+                  </h2>
+                  <ReactStars
+                    classNames="text-green-500"
+                    count={5}
+                    onChange={ratingChanged}
+                    size={40}
+                    isHalf={true}
+                    emptyIcon={<i className="far fa-star"></i>}
+                    halfIcon={<i className="fa fa-star-half-alt"></i>}
+                    fullIcon={<i className="fa fa-star"></i>}
+                    activeColor="#2CCD72"
+                  />
+                </div>
+
+                <h2 className="text-black font-extralight text-xl">Reviews</h2>
+
+                <div className={addreviewStyle.inputsfield}>
+                  <textarea
+                    className={addreviewStyle.sds}
+                    name="comment"
+                    id="comment"
+                    cols="20"
+                    rows="4"
+                    placeholder="Write Comment..."
+                    onChange={(e) => setDescription(e.target.value)}
+                  ></textarea>
+                </div>
+                <div className="flex justify-center align-middle">
+                  <button
+                    type="submit"
+                    className=" px-24 mt-3 py-2 text-xl font-semibold text-white bg-green-500"
+                  >
+                    Add Review
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AddReview;

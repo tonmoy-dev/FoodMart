@@ -76,7 +76,7 @@ const CouponsList = () => {
                     <div className="w-full sm:block items-center md:flex grow py-3 px-15">
                         <div className="w-full relative mx-auto text-gray-600">
                             <input
-                                className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                                className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-green-500"
                                 type="search"
                                 name="search"
                                 placeholder="Search coupon"

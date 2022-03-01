@@ -100,5 +100,76 @@
         "vendor_rating": 4,
         "vendor_rating_count": 10,
         "vendor_details": "Nature Shop, is a fresh food selling shop. It has been working since las 10 years."
+    },
+
+
+
+    {
+        "vendor_id": "RedBaron1",
+        "vendor_badge": "New",
+        "vendor_name": "Red Baron Pizza",
+        "imageUrl": {
+            "thumbnail": "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+            "banner": "https://i.ibb.co/qgxbNC4/1200px-White-flag-of-surrender-svg.png",
+            "logo": "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png"
+        },
+        "vendor_phone": "88019XXXXXXX",
+        "vendor_email": "next@mail.com",
+        "vendor_address": "dhaka, bangladesh",
+        "total_products": 20,
+        "vendor_rating": 5,
+        "vendor_rating_count": 35,
+        "vendor_details": "Nature Shop, is a fresh food selling shop. It has been working since las 10 years."
+    },
+    {
+        "vendor_id": "DovePromises",
+        "vendor_badge": "New",
+        "vendor_name": "Dove Promises",
+        "imageUrl": {
+            "thumbnail": "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+            "banner": "https://i.ibb.co/qgxbNC4/1200px-White-flag-of-surrender-svg.png",
+            "logo": "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png"
+        },
+        "vendor_phone": "88019XXXXXXX",
+        "vendor_email": "next@mail.com",
+        "vendor_address": "dhaka, bangladesh",
+        "total_products": 15,
+        "vendor_rating": 5,
+        "vendor_rating_count": 15,
+        "vendor_details": "Nature Shop, is a fresh food selling shop. It has been working since las 10 years."
+    },
+    {
+        "vendor_id": "USANoodleSoup1",
+        "vendor_badge": "New",
+        "vendor_name": "USA Noodle Soup",
+        "imageUrl": {
+            "thumbnail": "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+            "banner": "https://i.ibb.co/qgxbNC4/1200px-White-flag-of-surrender-svg.png",
+            "logo": "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png"
+        },
+        "vendor_phone": "88019XXXXXXX",
+        "vendor_email": "next@mail.com",
+        "vendor_address": "dhaka, bangladesh",
+        "total_products": 40,
+        "vendor_rating": 3,
+        "vendor_rating_count": 21,
+        "vendor_details": "Nature Shop, is a fresh food selling shop. It has been working since las 10 years."
+    },
+    {
+        "vendor_id": "SnydersLance",
+        "vendor_badge": "New",
+        "vendor_name": "Snyder's-Lance",
+        "imageUrl": {
+            "thumbnail": "https://i.ibb.co/cNQqQ8Z/product-1-1.jpg",
+            "banner": "https://i.ibb.co/qgxbNC4/1200px-White-flag-of-surrender-svg.png",
+            "logo": "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png"
+        },
+        "vendor_phone": "88019XXXXXXX",
+        "vendor_email": "next@mail.com",
+        "vendor_address": "dhaka, bangladesh",
+        "total_products": 20,
+        "vendor_rating": 4,
+        "vendor_rating_count": 30,
+        "vendor_details": "Nature Shop, is a fresh food selling shop. It has been working since las 10 years."
     }
 ]

@@ -4,6 +4,14 @@
 @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
 /* import './Allproducts.module.css' */
 
+/* ...Megamenu... */
+.hoverable-menu {
+  z-index: 1;
+}
+.banner {
+  z-index: -1;
+}
+
 /* Avishek Styles */
 
 .vendor-card-style {
@@ -17,37 +25,6 @@
   align-items: center !important;
 }
 
-/* All Products */
-.sidebar-style {
-  /* position: absolute !important; */
-  /* background-color: orange !important; */
-}
-
-.AllProducts-style {
-  /* display: grid;
-  grid-template-columns: repeat(2, 1fr); */
-  /* justify-content: center !important; */
-
-  /* background-color: aqua; */
-  /* align-items: center; */
-}
-
-.card-custom-style {
-  /* width: 14rem !important; */
-  /* height: 20px !important; */
-  /* background-color: green !important; */
-  /* background-color: orange !important; */
-}
-
-/* .product-grid-style{
-  display: grid;
-  justify-content: center !important;
-  align-items: center !important;
-  background-color: pink;
-background-color: orange !important;
-} */
-
-/* Payment */
 .form-radio {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -64,8 +41,6 @@ background-color: orange !important;
   flex-shrink: 0;
   border-radius: 100%;
   border-width: 2px;
-
-  /* background-color: orange !important; */
 }
 
 .form-radio:defaultchecked {
@@ -75,7 +50,6 @@ background-color: orange !important;
   background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
-  /* background-color: orange !important; */
 }
 
 @media not print {
@@ -85,13 +59,11 @@ background-color: orange !important;
     background: inherit;
     border-color: inherit;
     border-radius: inherit;
-    /* background-color: orange !important; */
   }
 }
 
 .form-radio:focus {
   outline: none;
-  /* background-color: orange !important; */
 }
 
 .form-select {
@@ -108,21 +80,17 @@ background-color: orange !important;
   padding-left: 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  /* background-position: right 0.5rem center; */
   background-size: 1.5em 1.5em;
-  /* background-color: orange !important; */
 }
 
 .form-select::-ms-expand {
   color: #a0aec0;
   border: none;
-  /* background-color: orange !important; */
 }
 
 @media not print {
   .form-select::-ms-expand {
     display: none;
-    /* background-color: orange !important; */
   }
 }
 
@@ -130,27 +98,38 @@ background-color: orange !important;
   print and (-ms-high-contrast: none) {
   .form-select {
     padding-right: 0.75rem;
-    /* background-color: orange !important; */
   }
 }
 
-/* html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-background-color: orange !important;
+ /* ----------gallery-------------- */
+ .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
+  outline: none;
+  border: 2px solid #f1f1f1 !important;
+  box-shadow: 0px 4px 8px 0px #ccc;
+}
+.image-gallery-thumbnail:hover{
+  border: 2px solid #ccc !important;
+}
+/* ---------------dashboard--------------- */
+@media (max-width: 992px){
+  #side-bar{
+      @apply -left-72;
   }
-
-a {
-  color: inherit;
-  text-decoration: none;
-background-color: orange !important;
+  
+  #side-bar.active{
+    @apply -left-0;
+  }
 }
-
-* {
-  box-sizing: border-box;
-background-color: orange !important;
+/* product card overlay */
+.product-card-overlay{
+  transform: scale(0);
 }
- */
+.product-card:hover .product-card-overlay{
+  cursor:pointer;
+  transform: scale(1);
+  transition:all 0.7s;
+} 
+/*slider bullet style */
+.swiper-pagination-bullet-active{
+  background-color: #0e9f6e !important;
+}

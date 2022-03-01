@@ -1,6 +1,6 @@
 [
     {
-        "product_id": "FruitsBG1",
+        "_id": "FruitsBG1",
         "product_badge": "Hot",
         "product_title": "Black Grapes",
         "product_category": "Fruits",
@@ -17,7 +17,7 @@
         "produc_Details": "Black grapes, which are known for their velvety colour and sweet flavour, come packed with nutrients and antioxidants. With their cultivation dating back to 6,000 to 8,000 years ago, they are said to be the oldest cultivated fruit in the Near East and Europe, and are botanically known as Vitis vinifera. There are two widely known species of black grapes: the old world species is native to the area across the southeast coast of the Black Sea (near the south of the Caspian Sea) to Afghanistan and is still found in these regions with over 10,000 varieties; and the new world species that originated from South America and North Eastern America. Grapes are actually 'berries' that have a semi-solid, translucent flesh inside them; they may or may not have seeds. The most popular use of grapes, all over the world, is in making wines. However, the juicy fruit has also added a number of uses to its crowning glory. Apart from being relished as a fruit or in salads, black grapes can also be cooked in a variety of ways to make sauces, jams, compotes, desserts and more. In addition, it has some incredible benefits for the skin, hair and overall health."
     },
     {
-        "product_id": "FruitsLA1",
+        "_id": "FruitsLA1",
         "product_badge": "Hot",
         "product_title": "Lal Angur (Red Grapes) ",
         "product_category": "Fruits",
@@ -34,7 +34,7 @@
         "produc_Details": "The combination of unique texture and sweet, tart flavor has made Red Grapes an extra-ordinary fruit. Red Grapes are small round or oval berries that feature semi-translucent flesh encased by a smooth skin. Red grapes are relatively low in calories and are fat and cholesterol free. A 1-cup serving of red grapes contains only 104 calories, yet still provides 1 g of protein and 1 g of fiber. However, this serving also contains 27 g of total carbohydrates, 23 g of which come from sugar. Red grapes are a good source of several vitamins. One serving of red grapes offers 16 mg of vitamin C, which is about 27 percent of the daily value, based on a 2,000-calorie diet. It also contains 22 mcg of vitamin K and 0.4 mg of thiamin, which is about 28 percent and 27 percent of the daily value, respectfully. Red grapes also contain small amounts of vitamin E, vitamin A, vitamin K, pantothenic acid, vitamin B-6, folate, beta carotene and alpha carotene. These nutrients help your body processes function properly."
     },
     {
-        "product_id": "FruitsN1",
+        "_id": "FruitsN1",
         "product_badge": "New",
         "product_title": "Narikel (Coconut)",
         "product_category": "Fruits",
@@ -51,7 +51,7 @@
         "produc_Details": "Coconut is one of very versatile and indispensable food item for millions of inhabitants in South and South-East Asia. It is one of the most sought-after ingredients in the kitchen since it employed in almost each and every recipe prepared in these parts of the world. Coconut is a very versatile and indispensable food item for most people under the tropical belt. It is a complete food rich in calories, vitamins, and minerals. A medium-size coconut carrying 400 g edible meat and some 30-150 ml of water may provide almost all the daily-required essential minerals, vitamins, and energy of an average-sized individual. Coconut water is a very refreshing drink to beat tropical summer thirst. The juice is packed with simple sugar, electrolytes, minerals, and bioactive compounds such as cytokinin, and enzymes such as acid phosphatase, catalase, dehydrogenase, peroxidase, polymerases, etc. Altogether, these enzymes aid in digestion and metabolism. It is also a very good source of B-complex vitamins such as folates, riboflavin, niacin, thiamin, and pyridoxine. These vitamins are essential in the sense that body requires them from external sources to replenish. Coconut meat and water contain a very good amount of potassium. 100 g of fresh meat contains 356 mg% or 7.5% of daily required levels of potassium. A full-sized coconut weighs about 1.44 kg (3.2 lb)."
     },
     {
-        "product_id": "FruitsSJ1",
+        "_id": "FruitsSJ1",
         "product_badge": "Sale",
         "product_title": "Sour Jujube (Tok Boroi)",
         "product_category": "Fruits",
@@ -68,7 +68,7 @@
         "produc_Details": "Plums are extremely nutritious, with a variety of health benefits to offer. They contain many vitamins and minerals, in addition to fiber and antioxidants that may help reduce your risk of several chronic diseases. You can consume plums fresh or dried. Dried plums, or prunes, are known for improving several health conditions, including constipation and osteoporosis."
     },
     {
-        "product_id": "DairyAB1",
+        "_id": "DairyAB1",
         "product_badge": "New",
         "product_title": "Aarong Dairy Butter",
         "product_category": "Dairy",
@@ -85,7 +85,7 @@
         "produc_Details": "Aarong butter is a dairy product made by fresh or fermented cream or milk, to separate the butterfat from the buttermilk. It is generally used as a spread as well as in cooking, such as baking, sauce making, and pan frying. Butter consists of butterfat, milk proteins and water. Most frequently made from cows' milk, butter can also be manufactured from the milk of other mammals, including sheep, goats, buffalo, and yaks. Salt, flavorings and preservatives are sometimes added to butter. Rendering butter produces clarified butter or ghee, which is almost entirely butterfat."
     },
     {
-        "product_id": "DairyAB2",
+        "_id": "DairyAB2",
         "product_badge": "New",
         "product_title": "Amul Pasteurized Butter",
         "product_category": "Dairy",
@@ -102,7 +102,7 @@
         "produc_Details": "Amul is synonymous with Butter. Several Generation of consumers have grown up with the taste of Amul Butter for the six decades. Utterly Butterly Delicious taste of Amul Butter on the table makes breakfast delicious and enjoyable. Pasteurized Amul butter is a delicious bread spread, an essential ingredient of baking and a known enhancer for many food items. This smooth creamy chunk from the house of Amul can be added to sauce, Indian gravy and baked products. Origin: India"
     },
     {
-        "product_id": "DairyE1",
+        "_id": "DairyE1",
         "product_badge": "Sale",
         "product_title": "Chicken Eggs (Layer)",
         "product_category": "Dairy",
@@ -119,7 +119,7 @@
         "produc_Details": "Eggs are an all-natural source of high-quality protein and a number of other nutrients, all for 70 calories an egg. 100% fresh and healthy."
     },
     {
-        "product_id": "DairyEQ1",
+        "_id": "DairyEQ1",
         "product_badge": "Sale",
         "product_title": "Quail Eggs",
         "product_category": "Dairy",
@@ -136,7 +136,7 @@
         "produc_Details": "Locally sourced, Quail eggs are packed with vitamins and minerals. Even with their small size, their nutritional value is three to four times greater than chicken eggs.Quail eggs are low in calories. A serving of five eggs contains only 71 calories -- 4 percent of your daily calorie intake in a standard 2,000-calorie diet and roughly the same as one large chicken egg. Each serving of quail eggs provides you with 6 grams of protein to support the health of your skin and hair. Quail eggs also contain 5 grams of fat, including 1.6 grams of saturated fat per serving."
     },
     {
-        "product_id": "DairyASY1",
+        "_id": "DairyASY1",
         "product_badge": "Sale",
         "product_title": "Aarong Dairy Sour Yogurt",
         "product_category": "Dairy",
@@ -153,7 +153,7 @@
         "produc_Details": "Pure Yogurt"
     },
     {
-        "product_id": "SnacksNM1",
+        "_id": "SnacksNM1",
         "product_badge": "Sale",
         "product_title": "Nestle Maggi 2-Minute Masala Instant Noodles",
         "product_category": "Snacks",
@@ -170,7 +170,7 @@
         "produc_Details": "MAGGI offers tasty and healthy snacks option for Bangladeshi families Fortified with Vitamin A, Iron and Iodine. The tastemaker is comprised of known ingredients typically found in Bangladeshi households, such as turmeric, pepper, coriander, ginger and cardamom. To boost the goodness in your bowl, add colourful vegetables and lean protein such as chicken. Contains noodle cake & Tastemaker inside for a quick 2-minute preparation. Variant: Masala. Net Weight: 496g. Origin: Bangladesh"
     },
     {
-        "product_id": "SnacksNM1",
+        "_id": "SnacksNM1",
         "product_badge": "Sale",
         "product_title": "Nestle Maggi 2-Minute Masala Instant Noodles",
         "product_category": "Snacks",
@@ -187,7 +187,7 @@
         "produc_Details": "MAGGI offers tasty and healthy snacks option for Bangladeshi families Fortified with Vitamin A, Iron and Iodine. The tastemaker is comprised of known ingredients typically found in Bangladeshi households, such as turmeric, pepper, coriander, ginger and cardamom. To boost the goodness in your bowl, add colourful vegetables and lean protein such as chicken. Contains noodle cake & Tastemaker inside for a quick 2-minute preparation. Variant: Masala. Net Weight: 496g. Origin: Bangladesh"
     },
     {
-        "product_id": "SnacksNMSM1",
+        "_id": "SnacksNMSM1",
         "product_badge": "Sale",
         "product_title": "MAGGI Shaad-e Magic",
         "product_category": "Snacks",
@@ -204,7 +204,7 @@
         "produc_Details": "MAGGI Shaad-e Magic is a unique blend of roasted spices which can enhance the taste of everyday dishes. This seasoning is comprised of well-known Bangladeshi spices such as cumin, chilli, turmeric, garlic which enriches the taste of a wide variety of traditional Bangladeshi dishes. Fortified with vital nutrients such as vitamin A, Iron and Iodine. Quantity: This multipack contains 12pcs of MAGGI Shaad-e Magic 4g sachet Origin: Bangladesh"
     },
     {
-        "product_id": "SnacksPS1",
+        "_id": "SnacksPS1",
         "product_badge": "Sale",
         "product_title": "Pran Hot Tomato Sauce",
         "product_category": "Snacks",
@@ -223,7 +223,7 @@
 
     },
     {
-        "product_id": "SnacksAM1",
+        "_id": "SnacksAM1",
         "product_badge": "Sale",
         "product_title": "American Garden Real Mayonnaise",
         "product_category": "Snacks",

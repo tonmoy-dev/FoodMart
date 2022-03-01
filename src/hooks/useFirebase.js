@@ -5,15 +5,10 @@ import Login from "../../pages/login";
 import initializeFirebase from "../Authenticaion/Firebase/firebase.init";
 
 
-
-
-
 initializeFirebase();
 
-
-
 const useFirebase = () => {
-  const [user, setUser] = useState()
+  const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState('');
   const auth = getAuth();
@@ -49,6 +44,8 @@ const useFirebase = () => {
     setIsLoading(true);
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
+        setAuthError('');
+        alert("login successfuly")
         const destination = location?.state?.from || '/';
         history.replace(destination);
         setAuthError('');
@@ -63,31 +60,37 @@ const useFirebase = () => {
 
 
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
+  // const signInWithGoogle = () => {
+  //   setIsLoading(true);
+  //   signInWithPopup(auth, googleProvider)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       setUser(user);
+  //       console.log(user)
+  //       console.log(user.displayName)
+  //       const loginData = user;
+
+  //       { user && <Login loginData={result.user}></Login> }
+  //       // console.log(user)
+  //     }).catch((error) => {
+  //       setAuthError(error.message);
+  //     })
+  //     .finally(()=> setIsLoading(false));
+  // };
+
+  const signInWithGoogle = () =>{
+    setIsLoading(true);
+    signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        setUser(user);
-        console.log(user)
-        console.log(user.displayName)
-        const loginData = user;
-
-        { user && <Login loginData={result.user}></Login> }
-        // console.log(user)
-      }).catch((error) => {
-
-        const errorCode = error.code;
-        const errorMessage = error.message;
-
-        const email = error.email;
-
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
-
-  }
-
-
+        setError('');
+        alert("Successfuly sign in")
+      })
+      .catch((error) => {
+        setError(error.message);
+      })
+      .finally(()=> setIsLoading(false));
+  };
 
 
 
@@ -109,10 +112,11 @@ const useFirebase = () => {
   const logOut = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
+        setAuthError('');
+        alert('Sign out successfuly');
       })
       .catch((error) => {
-        // An error happened.
+        setAuthError(error.message);
       })
       .finally(() => setIsLoading(false));
   }
@@ -138,7 +142,8 @@ const useFirebase = () => {
     registerUser,
     logOut,
     signInWithGoogle,
-    authError
+    authError,
+    isLoading
   }
 
 }
