@@ -1,9 +1,6 @@
-// import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import Login from "../../pages/login";
-import initializeFirebase from "../Authenticaion/Firebase/firebase.init";
-
+import initializeFirebase from '../Authenticaion/Firebase/firebase.init';
 
 initializeFirebase();
 
@@ -11,8 +8,9 @@ const useFirebase = () => {
   const [user, setUser] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState('');
+
   const auth = getAuth();
-  const googleProvider = new GoogleAuthProvider();
+  const provider = new GoogleAuthProvider();
 
 
 // Email Password sign in, sign up
@@ -57,27 +55,6 @@ const useFirebase = () => {
   }
 
 
-
-
-
-  // const signInWithGoogle = () => {
-  //   setIsLoading(true);
-  //   signInWithPopup(auth, googleProvider)
-  //     .then((result) => {
-  //       const user = result.user;
-  //       setUser(user);
-  //       console.log(user)
-  //       console.log(user.displayName)
-  //       const loginData = user;
-
-  //       { user && <Login loginData={result.user}></Login> }
-  //       // console.log(user)
-  //     }).catch((error) => {
-  //       setAuthError(error.message);
-  //     })
-  //     .finally(()=> setIsLoading(false));
-  // };
-
   const signInWithGoogle = () =>{
     setIsLoading(true);
     signInWithPopup(auth, provider)
@@ -91,8 +68,6 @@ const useFirebase = () => {
       })
       .finally(()=> setIsLoading(false));
   };
-
-
 
 
   // observer user state
@@ -121,29 +96,34 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   }
 
+  const newsignIn = async () => {
+    const { user }  =  await signInWithPopup(firebaseAuth, provider);
+ const { refreshToken, providerData } = user;
+ // localstorage.setItem("user", JSON.stringify(providerData));
+ // localstorage.setItem("accessToken", JSON.stringify(refreshToken));
+ };
 
-
-  const saveUser = (email, password, displayName, method) => {
-    const user = { email, password, displayName };
-    fetch('https://pacific-oasis-02900.herokuapp.com/users', {
-      method: method,
-      headers: {
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(user)
-    })
-      .then()
-  }
+  // const saveUser = (email, password, displayName, method) => {
+  //   const user = { email, password, displayName };
+  //   fetch('https://pacific-oasis-02900.herokuapp.com/users', {
+  //     method: method,
+  //     headers: {
+  //       'content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify(user)
+  //   })
+  //     .then()
+  // }
 
   return {
-
     user,
     loginUser,
     registerUser,
     logOut,
     signInWithGoogle,
     authError,
-    isLoading
+    isLoading,
+    newsignIn
   }
 
 }

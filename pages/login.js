@@ -1,23 +1,27 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import initializeFirebase from "../src/Authenticaion/Firebase/firebase.init";
 import useAuth from '../src/hooks/useAuth';
 
-const Login = (loginData) => {
+
+initializeFirebase();
+
+const Login = () => {
   const [Data, setData] = useState({});
-  const { user, loginUser, signInWithGoogle,logOut } = useAuth();
-  const [open, setOpen] = React.useState(false);
+  const {user, signInWithGoogle,loginUser,logOut,newsignIn} = useAuth();
+  // const [open, setOpen] = React.useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  };
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
+  // const handleClose = (event, reason) => {
+  //   if (reason === "clickaway") {
+  //     return;
+  //   }
 
-    setOpen(false);
-  };
+  //   setOpen(false);
+  // };
   const handleOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
@@ -31,11 +35,17 @@ const Login = (loginData) => {
   };
 
   const handleGoogleSignIn = () => {
-    signInWithGoogle();
+    // signInWithGoogle();
+    newsignIn();
     console.log("From Login", user);
   };
-  // console.log("From Login", user);
-  // console.log("From login data:", Data);
+
+  const handleLogout = () =>{
+    logOut();
+    alert("logout succesfully")
+  }
+
+
 
   return (
     <div className=" h-screen w-screen  ">
@@ -106,6 +116,12 @@ const Login = (loginData) => {
                     className="px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-green-900"
                   >
                     Sign in
+                  </button>
+                  <button
+                    onClick={newsignIn}
+                    className="px-6 ml-4 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-green-900"
+                  >
+                    newSign
                   </button>
                   <a
                     href="#"
