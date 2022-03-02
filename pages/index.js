@@ -24,7 +24,7 @@ export default function Home({ reviews, products, blogs }) {
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
       <Reviews reviews={reviews}></Reviews>
-      {/* <Blogs blogs={blogs}></Blogs> */}
+      <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
@@ -39,7 +39,7 @@ export async function getStaticProps() {
   const products_res = await fetch("https://foodmart-server.herokuapp.com/products");
   const products = await products_res.json();
 
-  const blogs_res = await fetch("https://foodmart-server.herokuapp.com/blogs");
+  const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
   const blogs = await blogs_res.json();
 
   return {
