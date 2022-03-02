@@ -382,11 +382,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await fetch(
-    `http://localhost:3000/api/products/productDetails?product_id=${params.product_id}`
+    `https://food-mart-web.vercel.app/api/products/productDetails?product_id=${params.product_id}`
   );
   const product = await data.json();
 
-  const related_res = await fetch("http://localhost:3000/api/products/");
+  const related_res = await fetch("https://food-mart-web.vercel.app/api/products/");
   const related = await related_res.json();
 
   return {

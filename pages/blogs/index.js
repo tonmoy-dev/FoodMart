@@ -12,7 +12,7 @@ export default AllBlogs;
 
 export async function getServerSideProps() {
     // load all blogs
-    const blogs_res = await fetch("http://localhost:3000/api/blogs");
+    const blogs_res = await fetch("https://food-mart-web.vercel.app/api/blogs");
     const blogs = await blogs_res.json();
     return {
         props: { blogs },

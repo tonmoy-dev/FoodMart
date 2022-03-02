@@ -1,15 +1,15 @@
+// import useSWR from "swr";
+import {
+    HomeIcon
+} from "@heroicons/react/solid";
+import Link from "next/link";
 import React from "react";
 import Products from "../../src/Components/Products/Products/Products";
 import SideBar from "../../src/Components/Products/SideBar/SideBar/SideBar";
-// import useSWR from "swr";
-import {
-  HomeIcon,
-} from "@heroicons/react/solid";
-import Link from "next/link";
 
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3000/api/products");
+  const res = await fetch("https://food-mart-web.vercel.app/api/products");
   const data = await res.json();
 return {
   props: {
@@ -21,7 +21,7 @@ return {
 const AllProducts = ({data}) => {
 
   // const fetcher = async () => {
-  //   const response = await fetch(`http://localhost:3000/api/products`);
+  //   const response = await fetch(`https://food-mart-web.vercel.app/api/products`);
   //   const data = await response.json();
   //   return data;
   // };
