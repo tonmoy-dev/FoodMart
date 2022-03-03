@@ -353,49 +353,49 @@ const SingleBlog = ({ comments, setComments }) => {
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(12)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(7)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(5)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(10)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(11)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(7)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(6)</span>
                 </a>
               </div>

@@ -1,6 +1,6 @@
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
-// import Blogs from '../src/Components/Home/Blogs/Blogs';
+import Blogs from '../src/Components/Home/Blogs/Blogs';
 import Brands from "../src/Components/Home/Brands/Brands";
 import Categories from "../src/Components/Home/Categories/Categories";
 import DealsofDay from "../src/Components/Home/DealsofDay/DealsofDay";
@@ -25,8 +25,7 @@ export default function Home({ reviews, products, blogs }) {
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
       <Reviews reviews={reviews}></Reviews>
-      {/* <Example products={products}></Example> */}
-      {/* <Blogs blogs={blogs}></Blogs> */}
+      <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
       <Footer></Footer>
@@ -37,14 +36,14 @@ export default function Home({ reviews, products, blogs }) {
 }
 
 export async function getStaticProps() {
-  const reviews_res = await fetch("http://localhost:3000/api/reviews");
+  const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
 
-  const products_res = await fetch("http://localhost:3000/api/products");
+  const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
   const products = await products_res.json();
   console.log(products);
 
-  const blogs_res = await fetch("http://localhost:3000/api/blogs");
+  const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
   const blogs = await blogs_res.json();
 
   return {

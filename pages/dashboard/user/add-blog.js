@@ -33,7 +33,7 @@ const AddBlog = () => {
       swal("Good job!", "Your add blog request has been received.", "success");
       setAddBlogData("");
       router.push('/blogs');
-  }
+    }
   }
   
   return (
