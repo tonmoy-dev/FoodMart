@@ -1,14 +1,8 @@
-import React, { useState } from "react";
 import {
-  SearchIcon,
-  BellIcon,
-  UserCircleIcon,
-  HomeIcon,
-  MenuIcon,
-  XIcon,
-  LogoutIcon
+  BellIcon, HomeIcon, LogoutIcon, MenuIcon, SearchIcon, UserCircleIcon, XIcon
 } from "@heroicons/react/solid";
 import Link from "next/link";
+import React, { useState } from "react";
 const Dashboard = () => {
   const [isActive, setActive] = useState("false");
 
@@ -115,71 +109,66 @@ const Dashboard = () => {
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Catagory List
+                <Link href="/dashboard/admin/category-list">Catagory List</Link>
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Add Products
+                <Link href="/dashboard/admin/add-product">Add Products</Link>
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Manage Products
+                <Link href="/dashboard/admin/manage-products">Manage Products</Link>
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Manage Orders
+                <Link href="/dashboard/admin/manage-orders">Manage Orders</Link>
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Add Coupons
+                <Link href="/dashboard/admin/add-coupon">Add Coupons</Link>
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Add blog
+                <Link href="/dashboard/user/add-blog">Add blog</Link>
+                
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Add Review
+                <Link href="/dashboard/user/add-review">Add Review</Link>
+                
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                My Order
+                <Link href="/dashboard/user/my-orders">My Order</Link>
+               
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Order Details
+                <Link href="/dashboard/admin/order-details">Order Details</Link>
+                
               </a>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
-                Account details
+                <Link href="/dashboard/user/account-details">Account details</Link>
+                
               </a>
 
 
