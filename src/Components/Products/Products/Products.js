@@ -6,6 +6,7 @@ import React from "react";
 import swal from "sweetalert";
 
 const Products = ({ products }) => {
+    
     const AllProducts = products.slice(0, 10);
 
     // Add to cart a product
@@ -23,13 +24,14 @@ const Products = ({ products }) => {
               }
         });
         
-      }
-  return (
-    <div className="py-5">
-      <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
-        <h2 className="text-green-700 text-lg">
-          <span className="font-semibold">{AllProducts.length} </span> Products{" "}
-        </h2>
+    }
+    
+    return (
+        <div className="py-5">
+            <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
+                <h2 className="text-green-700 text-lg">
+                    <span className="font-semibold">{AllProducts.length} </span> Products{" "}
+                </h2>
 
                 <div>
                     <form action="">
@@ -227,7 +229,7 @@ const Products = ({ products }) => {
                                                 ${product_price}
                                             </span>
                                         </div>
-                                        <a href="#" onClick={() => addToCartHandler(product_title,product_imageUrl.thumbnail,product_price,produc_Details)} className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
+                                        <a href="#" onClick={() => addToCartHandler(product_title, product_imageUrl.thumbnail, product_price, produc_Details)} className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
                                             Add to cart
                                         </a>
                                     </div>
