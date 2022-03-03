@@ -10,11 +10,8 @@ import NewsLetter from "../src/Components/Home/NewsLetter/NewsLetter";
 import PopularProducts from "../src/Components/Home/PopularProducts/PopularProducts";
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
-import ManageProducts from "./dashboard/admin/manage-products";
-// import ManageProducts from "./dashboard/admin/manage-products";
 
 export default function Home({ reviews, products, blogs }) {
-  console.log(products);
   return (
     <div className="">
       <Banner></Banner>
@@ -28,9 +25,6 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
-      <Footer></Footer>
-      {/* <ManageProducts products={products}></ManageProducts> */}
-      <ManageProducts products={products}></ManageProducts>
     </div>
   );
 }
