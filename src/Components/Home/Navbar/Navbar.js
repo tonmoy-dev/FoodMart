@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import logo from '../../../../public/logo.png';
+import { useRouter } from "next/router";
 
 const navigation = [
     { name: "Home", href: "/", current: true },
@@ -20,6 +21,8 @@ function classNames(...classes) {
 }
 
 export default function Example() {
+    const router = useRouter()
+    if (!router?.pathname?.includes('dashboard'))
     return (
         <>
             <style jsx>{`
@@ -492,4 +495,5 @@ export default function Example() {
             </Disclosure>
         </>
     );
+    return null;
 }
