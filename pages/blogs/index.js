@@ -1,4 +1,4 @@
-import { ChevronRightIcon, HomeIcon, StarIcon } from '@heroicons/react/solid';
+import { ArrowRightIcon, ChevronRightIcon, HomeIcon, StarIcon } from '@heroicons/react/solid';
 import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -7,29 +7,13 @@ import { AiOutlineEye } from 'react-icons/ai';
 import { FiMessageCircle } from 'react-icons/fi';
 
 const Blogs = () => {
-    const [blogs,setBlogs] = useState([])
-    const [control, setConrol] = useState(false);
+    const [blogs, setBlogs] = useState([]);
     
     useEffect(() => {
-        setConrol(true);
         axios.get('/api/blogs').then(response => {
             setBlogs(response.data);
         });
-    }, [control]);
-    
-    const handleDelete = async (id) => {
-        axios
-        .delete(`/api/blogs/blogDetails?blog_id=${id}`, {
-        })
-            .then(response => {
-            if (response.data.deletedCount) {
-                setConrol(!control);
-                alert('Booking Canceled sucessfully');
-            } else {
-              setConrol(false);
-            } 
-        })
-    };
+    }, []);
     
     return (
         <div>
@@ -114,22 +98,27 @@ const Blogs = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="p-5 h-60 grid content-between">
+                                    <div className="p-5 h-64 grid content-between">
                                         <div>
                                             <h3 className="text-xl font-semibold text-gray-900 inset-0 mb-3">
                                                 {blog?.title.slice(0, 20)}..
                                                 <a href={blog?.href}>
                                                 </a>
                                             </h3>
-                                            <p className="text-base text-gray-500">{blog?.description.slice(0, 190)}..</p>
+                                            <p className="text-base mb-3 text-gray-500">{blog?.description.slice(0, 170)}..</p>
+                                            <Link href={`/blogs/${encodeURIComponent(blog._id)}`}>
+                                                <a className="text-green-500 font-semibold flex items-center">
+                                                    <span>Learn More</span> <ArrowRightIcon className="ml-1 w-4" />
+                                                </a>
+                                            </Link>
                                         </div>
                                         <div className="flex align-items justify-between w-full pt-4">
-                                            <div className="py-1 flex text-yellow-500">
-                                                <StarIcon className="h-5 w-5 text-yellow-500" />
-                                                <StarIcon className="h-5 w-5 text-yellow-500" />
-                                                <StarIcon className="h-5 w-5 text-yellow-500" />
-                                                <StarIcon className="h-5 w-5 text-yellow-500" />
-                                                <StarIcon className="h-5 w-5 text-yellow-500" />
+                                            <div className="py-1 flex text-yellow-400">
+                                                <StarIcon className="h-5 w-5" />
+                                                <StarIcon className="h-5 w-5" />
+                                                <StarIcon className="h-5 w-5" />
+                                                <StarIcon className="h-5 w-5" />
+                                                <StarIcon className="h-5 w-5" />
                                             </div>
                                             <div>
                                                 <span className="text-gray-400 mr-3 inline-flex items-center  text-sm pr-3 py-1 border-r-2 border-gray-200">
@@ -143,12 +132,7 @@ const Blogs = () => {
                                             </div>
                                         </div>
                                     </div>
-                                    <Link href={`/blogs/${encodeURIComponent(blog._id)}`}>
-                                        <a className="bg-green-600 p-3 text-white">
-                                            Learn More
-                                        </a>
-                                    </Link>
-                                    <button onClick={() => handleDelete(blog._id)} className="mx-5 bg-red-600 text-white p-3">Delete {blog?.title.slice(0, 5)} blog </button>
+                                    
                                 </div>
                             ))}
                         </div>

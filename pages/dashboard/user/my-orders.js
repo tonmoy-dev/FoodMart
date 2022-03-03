@@ -1,8 +1,8 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
-import React from "react";
 import Image from "next/image";
+import React from "react";
 import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
-
+ 
 const MyOrders = () => {
     return (
         <div className="py-16 mx-5 md:mx-20">
