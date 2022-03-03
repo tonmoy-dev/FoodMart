@@ -3,7 +3,7 @@ export default async (req, res) => {
     const { items, email } = req.body;
     
     const transformdItems = items.map(item => ({
-        description: item.description,
+        description: item.description.slice(0,10),
         quantity: 1,
         price_data: {
             currency: 'usd',

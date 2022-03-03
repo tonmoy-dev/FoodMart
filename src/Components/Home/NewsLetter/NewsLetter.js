@@ -6,15 +6,16 @@ const NewsLetter = () => {
       <style jsx>
         {`
           .newsletter {
-            background: url("https://i.ibb.co/82j6Rvf/banner-1-f884a64d-39d6-44a8-882e-dc7e15c332aa.jpg");
+            background: #f3f4f6 ;
+            // background: url("https://i.ibb.co/82j6Rvf/banner-1-f884a64d-39d6-44a8-882e-dc7e15c332aa.jpg");
             background-size: cover;
           }
         `}
       </style>
-      <div className="newsletter py-3">
+      <div className="newsletter py-3 border-b">
         <div>
           <div>
-            <h1 className="text-black mt-4  text-3xl font-semibold text-center">
+            <h1 className="text-green-500 mt-4  text-3xl font-semibold text-center">
               Sign up for the NewsLetter
             </h1>
           </div>
