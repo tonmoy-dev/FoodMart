@@ -5,13 +5,31 @@ import Link from "next/link";
 import React, { useState } from "react";
 const Dashboard = () => {
   const [isActive, setActive] = useState("false");
+  const [isAActive, setAActive] = useState("false");
 
   const handleToggle = () => {
     setActive(!isActive);
   };
+  // for mobile device
+  const handleMenu = () => {
+    setAActive(!isAActive);
+  };
 
   return (
     <div>
+      <style jsx>
+        {`
+          ::-webkit-scrollbar {
+            width: 1px;
+          }
+          ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: darkcyan;
+          }
+        `}
+      </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
         <div
@@ -28,9 +46,10 @@ const Dashboard = () => {
           </div>
           {/* menu button */}
           <div className="relative hidden lg:block">
-            <SearchIcon className="absolute left-2 top-2 w-6 text-green-500"/>
+            <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
             <input
-              type="text" placeholder="Search for products"
+              type="text"
+              placeholder="Search for products"
               className="block pl-11 pr-2 w-72 border-none rounded-3xl focus:ring-gray-400 focus:outline-none py-2 bg-gray-100 text-base text-gray-600"
             />
           </div>
@@ -39,7 +58,10 @@ const Dashboard = () => {
               <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-green-400" />
             </div>
             <div className="ml-4 relative">
-              <div onClick={handleToggle} className="cursor-pointer flex items-center gap-1">
+              <div
+                onClick={handleToggle}
+                className="cursor-pointer flex items-center gap-1"
+              >
                 <UserCircleIcon
                   id="dropdown"
                   className="h-8 w-8 text-green-500 rounded-full"
@@ -52,7 +74,7 @@ const Dashboard = () => {
                   isActive ? "hidden" : ""
                 } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
               >
-                <div className="px-4 py-2 text=xs text-gray-400">
+                <div className="px-4 py-2 text-xs text-gray-400">
                   Manage Account
                 </div>
                 <a
@@ -87,7 +109,8 @@ const Dashboard = () => {
           } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
         >
           <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
-            <h1 className="text-green-500">food<span className="text-orange-400">Mart</span>
+            <h1 className="text-green-500">
+              food<span className="text-orange-400">Mart</span>
             </h1>
             <XIcon
               onClick={handleToggle}
@@ -96,14 +119,26 @@ const Dashboard = () => {
             />
           </div>
 
-          <div className="flex flex-col justify-between flex-grow">
+          <div className="flex overflow-y-auto h-full flex-col justify-between flex-grow">
             <div className="py-5">
+              <Link href="/dashboard/dashboard">
+                <a className="flex items-center my-1 px-4 py-3 text-white border-l-4 border-orange-500 bg-green-500">
+                  <HomeIcon className="w-5 mr-3" />
+                  Home
+                </a>
+              </Link>
+              <Link href="/dashboard/user/invoice">
+                <a className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500">
+                  <HomeIcon className="w-5 mr-3" />
+                  Catag List
+                </a>
+              </Link>
               <a
                 href="#"
-                className="flex items-center my-1 px-4 py-3 text-white border-l-4 border-orange-500 bg-green-500"
+                className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
                 <HomeIcon className="w-5 mr-3" />
-               <Link href="/">Home</Link>
+                Catagory List
               </a>
               <a
                 href="#"
@@ -171,7 +206,6 @@ const Dashboard = () => {
                 
               </a>
 
-
               {/* for mobile device */}
               <a
                 href="#"
@@ -193,8 +227,32 @@ const Dashboard = () => {
               </div>
               {/* user profile for mobil device */}
               <div className="border-t border-gray-400 flex items-center py-4 px-5">
-                <div className="cursor-pointer mr-4">
+                <div
+                  onClick={handleMenu}
+                  className="relative cursor-pointer mr-4"
+                >
                   <UserCircleIcon className="h-8 w-8 text-green-500 rounded-full" />
+                  <div
+                    className={`absolute ${
+                      isAActive ? "hidden" : ""
+                    } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
+                  >
+                    <div className="px-4 py-2 text-xs text-gray-400">
+                      Manage Account
+                    </div>
+                    <a
+                      href="#"
+                      className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    >
+                      Profile
+                    </a>
+                    <a
+                      href="#"
+                      className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
+                    >
+                      Settings
+                    </a>
+                  </div>
                 </div>
                 <a href="#" className="text-dark text-md capitalize">
                   Anik Nath
