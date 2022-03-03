@@ -121,23 +121,20 @@ const Dashboard = () => {
 
           <div className="flex overflow-y-auto h-full flex-col justify-between flex-grow">
             <div className="py-5">
-              <Link href="/dashboard/dashboard">
+              <Link href="/">
                 <a className="flex items-center my-1 px-4 py-3 text-white border-l-4 border-orange-500 bg-green-500">
-                  <HomeIcon className="w-5 mr-3" />
                   Home
                 </a>
               </Link>
               <Link href="/dashboard/user/invoice">
                 <a className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500">
-                  <HomeIcon className="w-5 mr-3" />
-                  Catag List
+                  Product List
                 </a>
               </Link>
               <a
                 href="#"
                 className="flex items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
               >
-                <HomeIcon className="w-5 mr-3" />
                 Catagory List
               </a>
               <a
