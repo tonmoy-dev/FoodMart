@@ -5,16 +5,19 @@ import Link from "next/link";
 import React from "react";
 import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
 
-const WishList = () => {
-  return (
-    <div className="py-16 mx-5 md:mx-20">
-      <h2 className=" text-black font-semibold text-4xl pb-2">Wishlist</h2>
-      {/* breadcrumb */}
-      <div className="pb-10">
-        <nav className="flex" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <a
+const WishList = ({wishlists}) => {
+    console.log(wishlists)
+    return (
+        <div className="py-16 mx-5 md:mx-20">
+            <h2 className=" text-black font-semibold text-4xl pb-2">
+                Wishlist
+            </h2>
+            {/* breadcrumb */}
+            <div className="pb-10">
+                <nav className="flex" aria-label="Breadcrumb">
+                    <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                        <li className="inline-flex items-center">
+                        <a
                 href="#"
                 className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
@@ -399,3 +402,13 @@ const WishList = () => {
 };
 
 export default WishList;
+
+
+export async function getServerSideProps() {
+    // load all wishlist
+    const wishlists_res = await fetch("http://localhost:3000/api/wishlists");
+    const wishlists = await wishlists_res.json();
+    return {
+        props: { wishlists },
+    };
+}
