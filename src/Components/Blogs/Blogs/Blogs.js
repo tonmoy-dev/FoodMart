@@ -7,7 +7,7 @@ import { FiMessageCircle } from 'react-icons/fi';
 
 const Blogs = ({blogs}) => {
     return (
-        <div>
+        <div className='pt-8'>
             <style jsx>
                 {`
                     .linear-bg{
@@ -15,43 +15,14 @@ const Blogs = ({blogs}) => {
                     }
                 `}
             </style>
-            <div className="bg-gray-100">
+            <div className="bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="py-10">
-                        <nav className="flex" aria-label="Breadcrumb">
-                            <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                                <li className="inline-flex items-center">
-                                    <a
-                                        href="#"
-                                        className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                    >
-                                        <HomeIcon
-                                            className="h-4 w-4 text-gray-700 mr-2"
-                                            aria-hidden="true"
-                                        />
-                                        <Link href="/">Home</Link>
-                                    </a>
-                                </li>
-                                <li aria-current="page">
-                                    <div className="flex items-center">
-                                        <ChevronRightIcon
-                                            className="h-5 w-5 text-gray-400"
-                                            aria-hidden="true"
-                                        />
-                                        <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                            Blogs
-                                        </span>
-                                    </div>
-                                </li>
-                            </ol>
-                        </nav>
-                    </div>
-                    <div className="max-w-2xl mx-auto lg:max-w-none">
-                    <h2 className="text-4xl mb-3 text-center font-semibold text-gray-900">Food Blogs</h2>
+                    <div className="max-w-2xl mx-auto lg:max-w-none pb-8">
+                    <h2 className="text-3xl mb-3 text-center font-semibold text-gray-900">Food Blogs</h2>
                         {/* blogs */}
                         <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
                             {blogs.map((blog) => (
-                                <div key={blog.title} className="group relative flex-col">
+                                <div key={blog.title} className="group relative flex-col border rounded-lg">
                                     <div className="relative w-full h-80 bg-white rounded-lg overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 sm:h-64 lg:aspect-w-1 lg:aspect-h-1">
                                         <img
                                             src={blog?.thumbnail}

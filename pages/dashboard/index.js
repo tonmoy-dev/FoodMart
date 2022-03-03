@@ -109,7 +109,7 @@ const Dashboard = () => {
                 className="flex items-center my-1 px-4 py-3 text-white border-l-4 border-orange-500 bg-green-500"
               >
                 <HomeIcon className="w-5 mr-3" />
-               <Link href="/">Home</Link>
+               <Link href="dashboard/user/invoice">Home</Link>
               </a>
               <a
                 href="#"
