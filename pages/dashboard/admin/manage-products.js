@@ -27,7 +27,7 @@ const ManageProducts = () => {
         console.log(response);
         if (response.data.deletedCount) {
           setConrol(!control);
-          swal("Good job!", "Deleted", "success");
+          swal("Good job!", "Deleted successfully", "success");
         } else {
           setConrol(false);
         }
