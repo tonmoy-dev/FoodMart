@@ -1,7 +1,6 @@
-import Image from "next/image";
+import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 import React from "react";
-import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 // import "../../../../styles/AllProducts.module.css";
 
 const Products = ({ data }) => {
@@ -74,17 +73,17 @@ const Products = ({ data }) => {
                 <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>
-                {product_badge.toLowerCase() == "sale" && (
+                {product_badge.toLowerCase() == "Sale" && (
                   <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                     {product_badge}
                   </span>
                 )}
-                {product_badge.toLowerCase() == "new" && (
+                {product_badge.toLowerCase() == "New" && (
                   <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                     {product_badge}
                   </span>
                 )}
-                <a>
+                {/* <a>
                   {" "}
                   <Image
                     className="p-8 rounded-t-lg"
@@ -94,7 +93,7 @@ const Products = ({ data }) => {
                     width="200"
                     layout="responsive"
                   />
-                </a>
+                </a> */}
                 <div className="px-2 pb-5 pt-2">
                   <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
                     {product_category}
@@ -213,6 +212,7 @@ const Products = ({ data }) => {
                     Add to cart
                     </Link>
                   </a>
+
                   </div>
                 </div>
               </div>

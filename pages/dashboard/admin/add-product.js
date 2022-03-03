@@ -1,37 +1,49 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
+import swal from "sweetalert";
 
 const AddProduct = () => {
-  const [productTitle, setProductTitle] = useState("");
-  const [productCategory, setProductCategory] = useState("");
-  const [productPrice, setProductPrice] = useState("");
-  const [productStock, setProductStock] = useState("");
-  const [productVendor, setProductVendor] = useState("");
-  const [productDetails, setProductDetails] = useState("");
-  const [productImage, setProductImage] = useState("");
+  const [addProduct, setAddProduct] = useState({});
+  const [product_imageUrl, setProduct_imageUrl] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleImageUrl = (e) => {
+    const newProductImageUrl = { ...product_imageUrl };
+    newProductImageUrl[e.target.name] = e.target.value;
+    setProduct_imageUrl(newProductImageUrl);
+  };
+
+  const handleInputOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newAddData = { ...addProduct };
+    newAddData[field] = value;
+    setAddProduct(newAddData);
+  };
+
+  console.log(addProduct);
+
+  const handleSubmission = async (e) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("productTitle", productTitle);
-    formData.append("productCategory", productCategory);
-    formData.append("productPrice", productPrice);
-    formData.append("productStock", productStock);
-    formData.append("productVendor", productVendor);
-    formData.append("productDetails", productDetails);
-    formData.append("productImage", productImage);
-
-    fetch("https://foodmart-server.herokuapp.com/products", {
+    const newAddProduct = { ...addProduct };
+    newAddProduct.product_imageUrl = product_imageUrl;
+    setAddProduct(newAddProduct);
+    // post blog data
+    const res = await fetch("/api/products", {
       method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addProduct),
+    });
+    const data = await res.json();
+    if (data.insertedId) {
+      swal("Good job!", "SUBMITED", "success");
+      // router.push('/blog');
+      // const newComments = comments;
+      // newComments.push(addCommentData);
+      // setComments(newComments);
+      e.target.reset();
+    }
   };
 
   return (
@@ -104,7 +116,24 @@ const AddProduct = () => {
                 Add Product
               </h1>
             </div>
-            <form onSubmit={handleSubmit} className="pt-10">
+            <form onSubmit={handleSubmission} className="pt-10">
+              <div className="flex flex-col mb-2">
+                <label
+                  className="font-semibold text-lg text-gray-700"
+                  htmlFor="product_title"
+                >
+                  Product bage:
+                </label>
+                <input
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  required
+                  type="text"
+                  name="product_badge"
+                  id="product_badge"
+                  onBlur={handleInputOnBlur}
+                />
+              </div>
+
               <div className="flex flex-col mb-2">
                 <label
                   className="font-semibold text-lg text-gray-700"
@@ -118,7 +147,7 @@ const AddProduct = () => {
                   type="text"
                   name="product_title"
                   id="product_title"
-                  onChange={(e) => setProductTitle(e.target.value)}
+                  onBlur={handleInputOnBlur}
                 />
               </div>
               <div className="flex flex-col mb-2">
@@ -134,25 +163,59 @@ const AddProduct = () => {
                   type="text"
                   name="product_category"
                   id="product_category"
-                  onChange={(e) => setProductCategory(e.target.value)}
+                  onBlur={handleInputOnBlur}
+                />
+              </div>
+
+              <div className="flex flex-col mb-2">
+                <label
+                  className="font-semibold text-lg text-gray-700"
+                  htmlFor="product_category"
+                >
+                  Thumbnail:
+                </label>
+                <input
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  required
+                  type="text"
+                  name="thumbnail"
+                  id="thumbnail"
+                  onBlur={handleImageUrl}
                 />
               </div>
               <div className="flex flex-col mb-2">
                 <label
                   className="font-semibold text-lg text-gray-700"
-                  htmlFor="image_url"
+                  htmlFor="product_category"
                 >
-                  Image Url:
+                  Image 1:
                 </label>
                 <input
-                  className="border sr-only rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   required
-                  id="file-upload"
-                  name="file-upload"
-                  type="file"
-                  onChange={(e) => setProductImage(e.target.files[0])}
+                  type="text"
+                  name="img1"
+                  id="img1"
+                  onBlur={handleImageUrl}
                 />
               </div>
+              <div className="flex flex-col mb-2">
+                <label
+                  className="font-semibold text-lg text-gray-700"
+                  htmlFor="product_category"
+                >
+                  Image 2:
+                </label>
+                <input
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  required
+                  type="text"
+                  name="img2"
+                  id="img2"
+                  onBlur={handleImageUrl}
+                />
+              </div>
+
               <div className="flex flex-col mb-2">
                 <label
                   className="font-semibold text-lg text-gray-700"
@@ -163,10 +226,10 @@ const AddProduct = () => {
                 <input
                   className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   required
-                  type="text"
-                  name="text"
+                  type="number"
+                  name="product_price"
                   id="product_price"
-                  onChange={(e) => setProductPrice(e.target.value)}
+                  onBlur={handleInputOnBlur}
                 />
               </div>
               <div className="flex flex-col mb-2">
@@ -179,10 +242,10 @@ const AddProduct = () => {
                 <input
                   className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   required
-                  type="text"
-                  name="text"
+                  type="number"
+                  name="product_stock"
                   id="product_stock"
-                  onChange={(e) => setProductStock(e.target.value)}
+                  onBlur={handleInputOnBlur}
                 />
               </div>
               <div className="flex flex-col mb-2">
@@ -196,9 +259,41 @@ const AddProduct = () => {
                   className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   required
                   type="text"
-                  name="text"
+                  name="vendor_name"
                   id="vendor_name"
-                  onChange={(e) => setProductVendor(e.target.value)}
+                  onBlur={handleInputOnBlur}
+                />
+              </div>
+              <div className="flex flex-col mb-2">
+                <label
+                  className="font-semibold text-lg text-gray-700"
+                  htmlFor="vendor_name"
+                >
+                  User Rating:
+                </label>
+                <input
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  required
+                  type="number"
+                  name="user_rating"
+                  id="user_rating"
+                  onBlur={handleInputOnBlur}
+                />
+              </div>
+              <div className="flex flex-col mb-2">
+                <label
+                  className="font-semibold text-lg text-gray-700"
+                  htmlFor="vendor_name"
+                >
+                  Rating Count:
+                </label>
+                <input
+                  className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                  required
+                  type="number"
+                  name="rating_count"
+                  id="rating_count"
+                  onBlur={handleInputOnBlur}
                 />
               </div>
               <div className="flex flex-col mb-2">
@@ -211,10 +306,10 @@ const AddProduct = () => {
                 <textarea
                   className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                   type="productDetails"
-                  name="productDetails"
-                  id="productDetails"
+                  name="produc_Details"
+                  id="produc_Details"
                   rows="6"
-                  onChange={(e) => setProductDetails(e.target.value)}
+                  onBlur={handleInputOnBlur}
                 ></textarea>
               </div>
               <div className="pt-3">
