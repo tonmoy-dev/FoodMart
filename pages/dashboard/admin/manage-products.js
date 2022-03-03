@@ -8,33 +8,31 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
 
-
 const ManageProducts = () => {
-//   console.log(products);
-    const [allProducts,setAllProducts] = useState([])
-    const [control, setConrol] = useState(false);
-    
-    useEffect(() => {
-        setConrol(true);
-        axios.get('/api/products').then(response => {
-            setAllProducts(response.data);
-        });
-    }, [control]);
+  //   console.log(products);
+  const [allProducts, setAllProducts] = useState([]);
+  const [control, setConrol] = useState(false);
 
-const handleDelete = (id) => {
+  useEffect(() => {
+    setConrol(true);
+    axios.get("/api/products").then((response) => {
+      setAllProducts(response.data);
+    });
+  }, [control]);
+
+  const handleDelete = (id) => {
     axios
-    .delete(`/api/products/productDetails?product_id=${id}`, {
-    })
-        .then(response => {
-            console.log(response)
+      .delete(`/api/products/productDetails?product_id=${id}`, {})
+      .then((response) => {
+        console.log(response);
         if (response.data.deletedCount) {
-            setConrol(!control);
-            swal("Good job!", "Deleted", "success");
+          setConrol(!control);
+          swal("Good job!", "Deleted", "success");
         } else {
           setConrol(false);
-        } 
-    })
-};
+        }
+      });
+  };
   return (
     <div className="   ">
       <style jsx>{`
@@ -162,13 +160,13 @@ const handleDelete = (id) => {
                               className="w-4 h-4"
                             />
                             <div className="border image-container">
-                                                            <Image
-                                                                width={50}
-                                                                height={50}
-                                                                src={product.product_imageUrl.thumbnail}
-                                                                alt="image"
-                                                            />
-                                                        </div>
+                              <Image
+                                width={50}
+                                height={50}
+                                src={product.product_imageUrl.thumbnail}
+                                alt="image"
+                              />
+                            </div>
                             <div className="flex flex-col">
                               <h1>{product.product_title}</h1>
                               <h1 className="text-gray-500 font-light">
@@ -227,7 +225,6 @@ const handleDelete = (id) => {
 
 export default ManageProducts;
 
-
 // export async function getStaticProps() {
 //     const product_res = await fetch("http://localhost:3000/api/products");
 //     const products = await product_res.json();
@@ -235,4 +232,3 @@ export default ManageProducts;
 //       props: { products }, // will be passed to the page component as props
 //     };
 //   }
-
