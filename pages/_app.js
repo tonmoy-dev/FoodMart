@@ -1,13 +1,16 @@
-import AuthProvider from '../src/context/AuthProvider';
 import '../styles/globals.css';
 import ScrollToTop from "react-scroll-to-top";
+import Footer from '../src/Components/Home/Footer/Footer';
+import Example from '../src/Components/Home/Navbar/Navbar';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <AuthProvider>
-        <ScrollToTop smooth />
+    <>
+      <Example></Example>
+      <ScrollToTop smooth />
       <Component {...pageProps} />
-    </AuthProvider>
+      <Footer></Footer>
+    </>
   )
 }
 
