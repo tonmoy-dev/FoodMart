@@ -5,27 +5,30 @@ import axios from "axios";
 import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 import swal from "sweetalert";
 
-const productTest = [
-    {
-        name: "fruit",
-        info: "This is a fruit",
-        category: "fff",
-    },
-];
-
 const PopularProducts = ({ products }) => {
-    const [control, setControl] = useState(false);
+    // const [control, setControl] = useState(false);
 
     const handleAddCompare = async (id) => {
         const compareProduct = products.filter((product) => product._id === id);
+        console.log(compareProduct[0]);
+        const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
 
-        axios.post("/api/compare", { compareProduct }).then((response) => {
+        axios.post("/api/compare", {
+            product_title: product_title,
+            product_price: product_price,
+            user_rating: user_rating,
+            product_stock: product_stock,
+            product_imageUrl: product_imageUrl.thumbnail,
+            produc_Details: produc_Details
+
+        }).then((response) => {
             if (response.data.insertedId) {
-                setControl(!control);
+                // setControl(!control);
                 swal("WOW!!! Compare product add successfully");
-            } else {
-                setControl(false);
             }
+            // else {
+            //     setControl(false);
+            // }
         });
     };
     const allProducts = products.slice(0, 5);

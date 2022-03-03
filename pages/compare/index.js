@@ -1,40 +1,33 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import swal from "sweetalert";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
-const Compare = ({ compareProducts }) => {
+const Compare = () => {
     const [control, setControl] = useState(false);
-    const result = compareProducts.map((compareItems) =>
-        console.log(compareItems.compareProduct[0])
-    );
+    const [products, setProducts] = useState([]);
 
-    //Delete product from compare
-    const handleDeleteProduct = async (compareId) => {
-        console.log(compareId);
-        const response = await fetch(`/api/compare/${compareId}`, {
-            method: "DELETE",
+    useEffect(() => {
+        setControl(true);
+        axios.get('/api/compare').then(response => {
+            setProducts(response.data);
         });
-        const data = await response.json();
-        console.log(data);
+    }, [control, products]);
 
-        //console.log("api/compare?_id="+ id)
-        /* const url= `/api/compare/compareProduct[0]?${id} `;
-        console.log(url)
-       axios.delete(url, {}).then((response) => {
-            console.log(url)
-            console.log(response);
+    const handleDeleteProduct = async (id) => {
+        axios.delete(`/api/compare?_id=${id}`, {}).then((response) => {
             if (response.data.deletedCount) {
                 setControl(!control);
                 swal("Delete product sucessfully");
             } else {
                 setControl(false);
             }
-        }); 
-        axios.delete(url)*/
+        });
     };
+
+
 
     return (
         <div div className="py-16 mx-5 md:mx-20">
@@ -134,7 +127,8 @@ const Compare = ({ compareProducts }) => {
                                     </h3>
                                 </td>
                             </tr>
-                            {compareProducts.slice(0, 3).map((product) => {
+
+                            {products?.slice(0, 3).map((product) => {
                                 const {
                                     _id,
                                     product_imageUrl,
@@ -143,7 +137,9 @@ const Compare = ({ compareProducts }) => {
                                     user_rating,
                                     produc_Details,
                                     product_stock,
-                                } = product.compareProduct[0];
+                                } = product;
+                                console.log(product);
+
 
                                 return (
                                     <tr
@@ -152,7 +148,7 @@ const Compare = ({ compareProducts }) => {
                                     >
                                         <td className="flex justify-center items-center h-32 md:h-48 border-b">
                                             <Image
-                                                src={product_imageUrl.thumbnail}
+                                                src={product_imageUrl}
                                                 alt="product image"
                                                 className="object-cover"
                                                 width="175px"
@@ -176,7 +172,7 @@ const Compare = ({ compareProducts }) => {
                                         </td>
                                         <td className="h-40 p-4 border-b overflow-scroll">
                                             <h3 className="text-sm font-semibold text-gray-500">
-                                                {produc_Details.slice(0, 234)}
+                                                {produc_Details.slice(0,180)}
                                             </h3>
                                         </td>
                                         <td className="p-4 border-b">
@@ -192,7 +188,7 @@ const Compare = ({ compareProducts }) => {
                                         <td className="p-4 border-b">
                                             <button
                                                 onClick={() =>
-                                                    handleDeleteProduct(_id)
+                                                    handleDeleteProduct(product._id)
                                                 }
                                                 className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-lg"
                                             >

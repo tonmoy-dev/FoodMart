@@ -13,9 +13,8 @@ import Reviews from "../src/Components/Home/Reviews/Reviews";
 import ManageProducts from "./dashboard/admin/manage-products";
 // import ManageProducts from "./dashboard/admin/manage-products";
 
-
 export default function Home({ reviews, products, blogs }) {
-  console.log(products)
+  console.log(products);
   return (
     <div className="">
       <Banner></Banner>
@@ -39,21 +38,16 @@ export default function Home({ reviews, products, blogs }) {
 
 export async function getStaticProps() {
   const reviews_res = await fetch("http://localhost:3000/api/reviews");
-const reviews = await reviews_res.json();
-  // return {
-  //   props: {reviews}, // will be passed to the page component as props
-  // }
-
+  const reviews = await reviews_res.json();
 
   const products_res = await fetch("http://localhost:3000/api/products");
   const products = await products_res.json();
-  console.log(products)
+  console.log(products);
 
   const blogs_res = await fetch("http://localhost:3000/api/blogs");
   const blogs = await blogs_res.json();
 
   return {
     props: { reviews, products, blogs },
-  }
+  };
 }
-
