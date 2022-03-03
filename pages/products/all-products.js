@@ -1,7 +1,7 @@
 import React from "react";
 import Products from "../../src/Components/Products/Products/Products";
 import SideBar from "../../src/Components/Products/SideBar/SideBar/SideBar";
-// import useSWR from "swr";
+import useSWR from "swr";
 import {
   HomeIcon,
 } from "@heroicons/react/solid";
@@ -10,25 +10,13 @@ import Link from "next/link";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3000/api/products");
-  const data = await res.json();
+  const products = await res.json();
 return {
-  props: {
-  data,
-  },
+  props: {products},
 }
 };
 
-const AllProducts = ({data}) => {
-
-  // const fetcher = async () => {
-  //   const response = await fetch(`http://localhost:3000/api/products`);
-  //   const data = await response.json();
-  //   return data;
-  // };
-
-  // const { data, error } = useSWR("details", fetcher);
-  // if (error) return `An error has occured${error}`;
-  // if (!data) return "Loading";
+const AllProducts = ({products}) => {
 
   return (
     <>
@@ -82,7 +70,7 @@ const AllProducts = ({data}) => {
       <div>
         <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
           <div className="lg:col-span-3 sm:col-span-2">
-            <Products data={data}></Products>
+            <Products products={products}></Products>
           </div>
           <div className="px-4 mt-2">
             <SideBar></SideBar>

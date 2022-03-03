@@ -4,7 +4,9 @@
 
 .slidecontain {
   background-size: cover;
+  /* background-color: #f1f1f1; */
   background: url("https://i.ibb.co/XkpwYss/bg-testimonial-v1.jpg");
+  /* background: url("https://i.ibb.co/qn8pBY2/banner-1.jpg"); */
 }
 
 .testimonialcont {
@@ -18,7 +20,7 @@
 section .heading {
   display: inline-block;
   position: relative;
-  color: rgb(66, 214, 66);
+  color: #0e9f6e;
   /* font-size: 4vw; */
   padding: 60px;
   width: 100%;
@@ -30,7 +32,7 @@ section .heading::before {
   position: absolute;
   width: 100px;
   height: 3px;
-  background-color: rgb(66, 214, 66);
+  background-color: #0e9f6e;
   bottom: 50px;
   left: 50%;
   transform: translateX(-50%);
@@ -86,7 +88,7 @@ section .heading b {
   height: 80px;
   width: 80px;
   margin: auto;
-  border: 5px solid #22c55e;
+  border: 5px solid #0e9f6e;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -108,7 +110,7 @@ section .heading b {
   padding: 5px 0;
   margin-top: 10px;
   text-transform: capitalize;
-  color: rgb(0, 0, 0);
+  color: #000;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1px;
@@ -116,7 +118,7 @@ section .heading b {
 }
 .reviewdetails {
   margin-top: 50px;
-  color: rgb(0, 0, 0);
+  color: #000;
   padding: 20px;
   font-size: 15px;
   opacity: 0.8;
@@ -125,13 +127,13 @@ section .heading b {
   font-size: 40px;
   display: block;
   text-align: left;
-  color: rgb(0, 0, 0, 0.9);
+  color: #0e9f6e;
 }
 .qoute1 {
   font-size: 40px;
   display: block;
   text-align: right;
-  color: rgb(0, 0, 0, 0.9);
+  color: #0e9f6e;
 }
 
 #app {
@@ -145,7 +147,9 @@ section .heading b {
 }
 
 .swiperslide {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
+  box-shadow: 0px 2px 4px 0px #ccc;
+  /* border: 1px solid #0e9f6e; */
   background-position: center;
   background-size: cover;
   border-radius: 8px;
