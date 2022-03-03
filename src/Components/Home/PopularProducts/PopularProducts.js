@@ -14,18 +14,30 @@ const productTest = [
 ];
 
 const PopularProducts = ({ products }) => {
-    const [control, setControl] = useState(false);
+    // const [control, setControl] = useState(false);
 
     const handleAddCompare = async (id) => {
         const compareProduct = products.filter((product) => product._id === id);
+        console.log(compareProduct[0]);
+        const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
+        const img = product_imageUrl.thumbnail;
+        // const object = { product_title, product_price, user_rating, produc_Details, product_stock, img }
+        axios.post("/api/compare", {
+            product_title: product_title,
+            product_price: product_price,
+            user_rating: user_rating,
+            product_stock: product_stock,
+            product_imageUrl: product_imageUrl.thumbnail
 
-        axios.post("/api/compare", { compareProduct }).then((response) => {
+
+        }).then((response) => {
             if (response.data.insertedId) {
-                setControl(!control);
+                // setControl(!control);
                 swal("WOW!!! Compare product add successfully");
-            } else {
-                setControl(false);
             }
+            // else {
+            //     setControl(false);
+            // }
         });
     };
     const allProducts = products.slice(0, 5);

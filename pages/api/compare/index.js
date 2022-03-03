@@ -6,36 +6,39 @@ export default async function compareProductHandler(req, res) {
     const db = client.db("foodmart_shop");
 
     const { method } = req;
+    // console.log(req.params._id)
 
     // load compare products in ui
     if (method === "GET") {
         const compare = await db.collection("compare").find({}).toArray();
         res.json(compare);
-        console.log(compare);
+        // console.log(req)
+        // console.log(compare);
     }
     // store compare product in database
-    if (method === "POST") {
+    else if (method === "POST") {
         const compareData = req.body;
         const addCompare = await db
             .collection("compare")
             .insertOne(compareData);
         res.json(addCompare);
-
+    }
 
     // compare product delete form database
-    if(method === 'DELETE') {
-        const id = req.params.id;
-        const query = {_id: ObjectId(id)};
+    else if (method === 'DELETE') {
+        const id = req.query._id;
+        console.log(id)
+        const query = { _id: ObjectId(id) };
         const result = await db.collection("compare").deleteOne(query);
         res.json(result);
-        console.log(result);
+        // console.log(result);
     }
 
-        /* console.log(req.body); 
-        console.log(req.query) 
-        console.log(req.method); // POST
-        console.log(req.headers.host); // localhost:3000
-        console.log(req.url); // /api/...
-        res.status(200).json({ message: "success" }); */
-    }
+    /* console.log(req.body); 
+    console.log(req.query) 
+    console.log(req.method); // POST
+    console.log(req.headers.host); // localhost:3000
+    console.log(req.url); // /api/...
+    res.status(200).json({ message: "success" }); */
 }
+

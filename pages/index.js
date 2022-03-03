@@ -35,6 +35,7 @@ export default function Home({ reviews, products, blogs }) {
 export async function getStaticProps() {
   const reviews_res = await fetch("https://foodmart-server.herokuapp.com/reviews");
   const reviews = await reviews_res.json();
+  // console.log(reviews);
 
   const products_res = await fetch("http://localhost:3000/api/products");
   const products = await products_res.json();

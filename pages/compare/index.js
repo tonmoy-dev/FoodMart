@@ -1,20 +1,36 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import swal from "sweetalert";
 
-const Compare = ({ compareProducts }) => {
+const Compare = () => {
+    // { compareProducts }
     const [control, setControl] = useState(false);
-    const result = compareProducts.map((compareItems) =>
-        console.log(compareItems.compareProduct[0])
-    );
+
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        setControl(true);
+        axios.get('/api/compare').then(response => {
+            setProducts(response.data);
+            console.log(products);
+        });
+    }, [control, products]);
+
+    console.log(products);
+
+    // const result = compareProducts.map((compareItems) =>
+    //     console.log(compareItems.compareProduct[0])
+    // );
 
     //Delete product from compare
     const handleDeleteProduct = async (id) => {
-        console.log(id);
+        // console.log(id);
         axios.delete(`/api/compare?_id=${id}`, {}).then((response) => {
             console.log(response);
+            // setProduct({})
             if (response.data.deletedCount) {
                 setControl(!control);
                 swal("Delete product sucessfully");
@@ -23,6 +39,22 @@ const Compare = ({ compareProducts }) => {
             }
         });
     };
+
+    // /api/products / productDetails ? product_id = ${ id }`
+    // 6220e9a569d2f1f41b69ba5c
+    // const handleDelete = async (id) => {
+    //     axios
+    //         .delete(`/api/blogs/blogDetails?blog_id=${id}`, {
+    //         })
+    //         .then(response => {
+    //             if (response.data.deletedCount) {
+    //                 setConrol(!control);
+    //                 alert('Booking Canceled sucessfully');
+    //             } else {
+    //                 setConrol(false);
+    //             }
+    //         })
+    // };
 
     return (
         <div div className="py-16 mx-5 md:mx-20">
@@ -122,7 +154,8 @@ const Compare = ({ compareProducts }) => {
                                     </h3>
                                 </td>
                             </tr>
-                            {compareProducts.slice(0, 3).map((product) => {
+
+                            {products?.slice(0, 3).map((product) => {
                                 const {
                                     _id,
                                     product_imageUrl,
@@ -131,7 +164,9 @@ const Compare = ({ compareProducts }) => {
                                     user_rating,
                                     produc_Details,
                                     product_stock,
-                                } = product.compareProduct[0];
+                                } = product;
+                                console.log(product);
+
 
                                 return (
                                     <tr
@@ -140,7 +175,7 @@ const Compare = ({ compareProducts }) => {
                                     >
                                         <td className="flex justify-center items-center h-32 md:h-48 border-b">
                                             <Image
-                                                src={product_imageUrl.thumbnail}
+                                                src={product_imageUrl}
                                                 alt="product image"
                                                 className="object-cover"
                                                 width="175px"
@@ -163,9 +198,9 @@ const Compare = ({ compareProducts }) => {
                                             </h3>
                                         </td>
                                         <td className="h-40 p-4 border-b overflow-scroll">
-                                            <h3 className="text-sm font-semibold text-gray-500">
+                                            {/* <h3 className="text-sm font-semibold text-gray-500">
                                                 {produc_Details.slice(0, 234)}
-                                            </h3>
+                                            </h3> */}
                                         </td>
                                         <td className="p-4 border-b">
                                             <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
@@ -180,7 +215,7 @@ const Compare = ({ compareProducts }) => {
                                         <td className="p-4 border-b">
                                             <button
                                                 onClick={() =>
-                                                    handleDeleteProduct(_id)
+                                                    handleDeleteProduct(product._id)
                                                 }
                                                 className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-lg"
                                             >
