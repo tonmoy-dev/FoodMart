@@ -1,10 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
+import swal from 'sweetalert';
+import axios from "axios";
 
 const Products = ({ data }) => {
-  const AllProducts = data;
+  const [control, setControl] = useState(false);
+
+  const handleAddWishlist = async (id) => {
+      const Wishlistproduct = data.filter((product) => product._id === id);
+
+      axios.post("/api/wishlists", { Wishlistproduct }).then((response) => {
+          if (response.data.insertedId) {
+              setControl(!control);
+              swal("WOW!!!  product add successfully");
+          } else {
+              setControl(false);
+          }
+      });
+  }
+  
+  const AllProducts = data.slice(0,10);
   return (
     <div className="py-5">
       <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
@@ -60,7 +77,11 @@ const Products = ({ data }) => {
               <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
                 <div className="z-50 w-full absolute left-0 right-0 bottom-60">
                   <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
-                    <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <HeartIcon 
+                    onClick={() =>
+                      handleAddWishlist(_id)
+                  }
+                    className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                     <Link href={`/products/${_id}`}>
                       <a>
                         <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />

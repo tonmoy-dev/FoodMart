@@ -1,12 +1,12 @@
 import clientPromise from "../../../lib/mongodb";
-
+import { ObjectId } from "mongodb";
 export default async function wishlistHandler(req, res) {
     const client = await clientPromise;
     const db = client.db("foodmart_shop");
-
+    
     const { method } = req;
 
-    // load all 
+    // load wishlist
     if (method === "GET") {
         const wishlist = await db.collection("wishlist").find({}).toArray();
         res.json(wishlist);

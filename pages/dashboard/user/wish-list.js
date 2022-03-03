@@ -5,7 +5,8 @@ import Link from "next/link";
 import React from "react";
 import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
 
-const WishList = () => {
+const WishList = ({wishlists}) => {
+    console.log(wishlists)
     return (
         <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">
@@ -351,7 +352,7 @@ const WishList = () => {
                                     <p className="text-center">
                                         <a href="#">
                                             Field Roast Chaeo Cheese Creamy
-                                            Original
+                                            
                                         </a>
                                     </p>
                                 </div>
@@ -417,3 +418,13 @@ const WishList = () => {
 };
 
 export default WishList;
+
+
+export async function getServerSideProps() {
+    // load all wishlist
+    const wishlists_res = await fetch("http://localhost:3000/api/wishlists");
+    const wishlists = await wishlists_res.json();
+    return {
+        props: { wishlists },
+    };
+}
