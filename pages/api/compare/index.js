@@ -11,7 +11,7 @@ export default async function compareProductHandler(req, res) {
     if (method === "GET") {
         const compare = await db.collection("compare").find({}).toArray();
         res.json(compare);
-        console.log(compare);
+        //console.log(compare);
     }
     // store compare product in database
     if (method === "POST") {
@@ -25,17 +25,11 @@ export default async function compareProductHandler(req, res) {
     // compare product delete form database
     if(method === 'DELETE') {
         const id = req.params.id;
+        console.log(id)
         const query = {_id: ObjectId(id)};
         const result = await db.collection("compare").deleteOne(query);
         res.json(result);
-        console.log(result);
+        //console.log(result);
     }
-
-        /* console.log(req.body); 
-        console.log(req.query) 
-        console.log(req.method); // POST
-        console.log(req.headers.host); // localhost:3000
-        console.log(req.url); // /api/...
-        res.status(200).json({ message: "success" }); */
     }
 }

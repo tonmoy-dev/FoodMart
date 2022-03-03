@@ -2,6 +2,7 @@ import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import swal from "sweetalert";
 import axios from "axios";
 
 const Compare = ({ compareProducts }) => {
@@ -11,9 +12,19 @@ const Compare = ({ compareProducts }) => {
     );
 
     //Delete product from compare
-    const handleDeleteProduct = async (id) => {
-        console.log(id);
-        axios.delete(`/api/compare?_id=${id}`, {}).then((response) => {
+    const handleDeleteProduct = async (compareId) => {
+        console.log(compareId);
+        const response = await fetch(`/api/compare/${compareId}`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+        console.log(data);
+
+        //console.log("api/compare?_id="+ id)
+        /* const url= `/api/compare/compareProduct[0]?${id} `;
+        console.log(url)
+       axios.delete(url, {}).then((response) => {
+            console.log(url)
             console.log(response);
             if (response.data.deletedCount) {
                 setControl(!control);
@@ -21,7 +32,8 @@ const Compare = ({ compareProducts }) => {
             } else {
                 setControl(false);
             }
-        });
+        }); 
+        axios.delete(url)*/
     };
 
     return (

@@ -215,7 +215,7 @@ const PopularProducts = ({ products }) => {
                                             <span className="text-xl font-bold text-green-500 dark:text-dark">
                                                 ${product_price}
                                             </span>
-                                            {/*  <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
+                                            
                                         </div>
                                         <a className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
                                             <Link href="/checkout">
