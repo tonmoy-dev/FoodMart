@@ -1,7 +1,7 @@
+import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 
 const Products = ({ products }) => {
   const AllProducts = products.slice(0, 10);
