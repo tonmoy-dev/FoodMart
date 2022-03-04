@@ -1,21 +1,20 @@
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { useEffect, useState } from "react";
 import Cart from "./cart";
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
-
 const Checkout = () => {
+  const [items, setItems] = useState([]);
   const email = {
     email: "rx@gmail.com",
   };
-  const items = [
-    {
-      title: "Food_Product",
-      image: "https://i.ibb.co/2WdSM6X/product-2-1.jpg",
-      price: 50,
-      description: "It is a good product. Fresh food.",
-    },
-  ];
+  useEffect(() => {
+    axios.get('http://localhost:3000/api/cart').then(response => {
+      setItems(response.data);
+    });
+  }, []);
+  
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;
 
@@ -33,7 +32,7 @@ const Checkout = () => {
   };
   return (
     <div>
-      <Cart createCheckoutSession={createCheckoutSession} ></Cart>
+      <Cart createCheckoutSession={createCheckoutSession}></Cart>
     </div>
   );
 };

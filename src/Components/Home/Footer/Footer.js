@@ -1,11 +1,11 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 import logo from "../../../../public/logo.png";
-import pay2 from "../../../../src/assets/brandsImg/pay2.jpg";
-import pay1 from "../../../../src/assets/brandsImg/pay3.png";
-import pay3 from "../../../../src/assets/brandsImg/pay4.jpg";
 
 const Footer = () => {
+  const router = useRouter()
+  if (!router?.pathname?.includes('dashboard'))
   return (
     <div className="bg-gray-100 pt-5">
       <div className="container px-6 py-4 mx-auto">
@@ -208,6 +208,7 @@ const Footer = () => {
       </div>
     </div>
   );
+  return null;
 };
 
 export default Footer;

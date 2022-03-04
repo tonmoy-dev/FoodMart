@@ -6,16 +6,16 @@ export default async function blogsHandler(req, res) {
 
     const { method } = req;
 
-    // load all blogs
+    // load comments
     if (method === "GET") {
-        const blogs = await db.collection("blogs").find({}).toArray();
-        res.json(blogs);
+        const reviews = await db.collection("reviews").find({}).toArray();
+        res.json(reviews);
     }
 
     if (method === "POST") {
-        const blogData = req.body;
-        const addBlog = await db.collection("blogs").insertOne(blogData);
-        res.json(addBlog);
+        const review = req.body;
+        const addreviews = await db.collection("reviews").insertOne(review);
+        res.json(addreviews);
 
         /* console.log(req.body); 
         console.log(req.query) 
@@ -23,7 +23,7 @@ export default async function blogsHandler(req, res) {
         console.log(req.headers.host); // localhost:3000
         console.log(req.url); // /api/...
         res.status(200).json({ message: "success" }); */
-    }
+      }
     
 }
 

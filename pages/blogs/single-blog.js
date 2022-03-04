@@ -1,21 +1,21 @@
-import React from 'react';
-import SingleBlogPage from '../../src/Components/Blogs/SingleBlog/SingleBlog';
+// import React from 'react';
+// import SingleBlogPage from '../../src/Components/Blogs/SingleBlog/SingleBlog';
 
-const SingleBlog = ({comments}) => {
-    return (
-        <div>
-            <SingleBlogPage comments={comments}></SingleBlogPage>
-        </div>
-    );
-};
+// const SingleBlog = ({comments}) => {
+//     return (
+//         <div>
+//             <SingleBlogPage comments={comments}></SingleBlogPage>
+//         </div>
+//     );
+// };
 
-export default SingleBlog;
-export async function getStaticProps(context) {
-    const comments_res = await fetch("https://foodmart-server.herokuapp.com/comments");
-const comments = await comments_res.json();
-    return {
-      props: {comments}, // will be passed to the page component as props
-    }
-  }
+// export default SingleBlog;
+// export async function getStaticProps() {
+//     const comments_res = await fetch("http://localhost:3000/api/comments");
+// const comments = await comments_res.json();
+//     return {
+//       props: {comments}, // will be passed to the page component as props
+//     }
+//   }
 
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
+import swal from "sweetalert";
 import addreviewStyle from "../../../src/styles/AddReview.module.css";
 
 const ratingChanged = (newRating) => {
@@ -7,35 +8,42 @@ const ratingChanged = (newRating) => {
 };
 
 const AddReview = () => {
-  const [userName, setUserName] = useState("");
-  const [reviewDate, setReviewDate] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [reviewTime, setReviewTime] = useState("");
-  const [description, setDescription] = useState("");
-  const [imgUrl, setImgUrl] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("userName", userName);
-    formData.append("userEmail", userEmail);
-    formData.append("reviewDate", reviewDate);
-    formData.append("reviewTime", reviewTime);
-    formData.append("description", description);
-    formData.append("imgUrl", imgUrl);
+  
+  const [addReview, setAddReview] = useState({});
 
-    fetch("https://foodmart-server.herokuapp.com/reviews", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+  const handleInputOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newReviewData = { ...addReview };
+    newReviewData[field] = value;
+    setAddReview(newReviewData);
   };
+
+  const handleSubmission = async (e) => {
+    e.preventDefault();
+    // post blog data
+    const res = await fetch("/api/reviews", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addReview),
+    });
+    const data = await res.json();
+    if (data.insertedId) {
+      swal("Good job!", "SUBMITED", "success");
+      // router.push('/');
+      // const newComments = comments;
+      // newComments.push(addReview);
+      // setComments(newComments);
+      e.target.reset();
+    }
+  };
+  
+
+
+
 
   return (
     <div>
@@ -109,7 +117,7 @@ const AddReview = () => {
         </div>
         <div className={addreviewStyle.content}>
           <div className={addreviewStyle.reviewcontainer}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmission}>
               <div className="bg-gray-200 p-8">
                 <div className="flex ">
                   <div className="flex flex-col">
@@ -123,7 +131,8 @@ const AddReview = () => {
                         id="search"
                         placeholder="EX: jhon Doe"
                         type="text"
-                        onChange={(e) => setUserName(e.target.value)}
+                        name="userName"
+                        onBlur={handleInputOnBlur}
                       />
                     </div>
                   </div>
@@ -137,8 +146,9 @@ const AddReview = () => {
                         className={addreviewStyle.sss}
                         id="search"
                         placeholder="EX: 02/01/2022"
-                        type="text"
-                        onChange={(e) => setReviewDate(e.target.value)}
+                        type="date"
+                        name="reviewDate"
+                        onBlur={handleInputOnBlur}
                       />
                     </div>
                   </div>
@@ -155,8 +165,10 @@ const AddReview = () => {
                         className={addreviewStyle.sss}
                         id="search"
                         placeholder="Example@gmail.com"
-                        type="text"
-                        onChange={(e) => setUserEmail(e.target.value)}
+                        type="email"
+                        name="userEmail"
+                        onBlur={handleInputOnBlur}
+                        required
                       />
                     </div>
                   </div>
@@ -170,8 +182,9 @@ const AddReview = () => {
                         className={addreviewStyle.sss}
                         id="search"
                         placeholder="EX: 8.00am"
-                        type="text"
-                        onChange={(e) => setReviewTime(e.target.value)}
+                        type="time"
+                        name="reviewTime"
+                        onBlur={handleInputOnBlur}
                       />
                     </div>
                   </div>
@@ -185,7 +198,8 @@ const AddReview = () => {
                         className={addreviewStyle.sss}
                         id="search"
                         type="text"
-                        onChange={(e) => setImgUrl(e.target.value)}
+                        name="imageUrl"
+                        onBlur={handleInputOnBlur}
                       />
                     </div>
 
@@ -203,6 +217,8 @@ const AddReview = () => {
                     halfIcon={<i className="fa fa-star-half-alt"></i>}
                     fullIcon={<i className="fa fa-star"></i>}
                     activeColor="#2CCD72"
+                    name="Ratting"
+                    onBlur={handleInputOnBlur}
                   />
                 </div>
 
@@ -211,12 +227,12 @@ const AddReview = () => {
                 <div className={addreviewStyle.inputsfield}>
                   <textarea
                     className={addreviewStyle.sds}
-                    name="comment"
                     id="comment"
                     cols="20"
                     rows="4"
                     placeholder="Write Comment..."
-                    onChange={(e) => setDescription(e.target.value)}
+                    name="description"
+                        onBlur={handleInputOnBlur}
                   ></textarea>
                 </div>
                 <div className="flex justify-center align-middle">

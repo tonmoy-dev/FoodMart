@@ -97,12 +97,12 @@ const BestSells = ({ products }) => {
               <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>
-                {product_badge.toLowerCase() == "sale" && (
+                {product_badge == "sale" && (
                   <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                     {product_badge}
                   </span>
                 )}
-                {product_badge.toLowerCase() == "new" && (
+                {product_badge  == "new" && (
                   <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                     {product_badge}
                   </span>

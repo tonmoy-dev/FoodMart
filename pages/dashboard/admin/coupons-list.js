@@ -2,7 +2,11 @@ import { SearchIcon, TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React from "react";
 
-const CouponsList = () => {
+const CouponsList = ({ coupons }) => {
+    const handleCouponDelete = (id) => {
+        
+    }
+
     return (
         <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">
@@ -146,117 +150,58 @@ const CouponsList = () => {
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-200">
-                            <tr>
-                                <td className="p-4 whitespace-nowrap">
-                                    <input type="checkbox" className="ml-4" />
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p className="uppercase">Esunday</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>Percentage</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>20%</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
-                                        Finish
-                                    </span>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        20-6-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        05-7-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <div className="flex justify-center items-center">
-                                        <TrashIcon
-                                            className="h-6 w-6 text-red-500 "
-                                            aria-hidden="true"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="p-4 whitespace-nowrap">
-                                    <input type="checkbox" className="ml-4" />
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p className="uppercase">spscrash</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>Percentage</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>20%</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                        Active
-                                    </span>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        25-7-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        05-8-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <div className="flex justify-center items-center">
-                                        <TrashIcon
-                                            className="h-6 w-6 text-red-500 "
-                                            aria-hidden="true"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="p-4 whitespace-nowrap">
-                                    <input type="checkbox" className="ml-4" />
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p className="uppercase">spscrash</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>Percentage</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>20%</p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                        Active
-                                    </span>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        25-7-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <p>
-                                        05-8-2021 <span> 00.00</span>
-                                    </p>
-                                </td>
-                                <td className="p-4 whitespace-nowrap">
-                                    <div className="flex justify-center items-center">
-                                        <TrashIcon
-                                            className="h-6 w-6 text-red-500 "
-                                            aria-hidden="true"
-                                        />
-                                    </div>
-                                </td>
-                            </tr>
+                            {coupons.map((coupon) => {
+                                const {
+                                    _id,
+                                    code,
+                                    type,
+                                    discount,
+                                    limit,
+                                    status,
+                                    start,
+                                    end,
+                                } = coupon;
+                                return (
+                                    <tr key={_id}>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <input
+                                                type="checkbox"
+                                                className="ml-4"
+                                            />
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <p className="uppercase">{code}</p>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <p>{type}</p>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <p>{discount}</p>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
+                                                {status}
+                                            </span>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <p>{start}</p>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <p>{end}</p>
+                                        </td>
+                                        <td className="p-4 whitespace-nowrap">
+                                            <div className="flex justify-center items-center">
+                                                <button onClick={() => handleCouponDelete(_id)} className="bg-red-200 bg-opacity-50 rounded-lg">
+                                                <TrashIcon
+                                                    className="h-6 w-6 text-red-500 "
+                                                    aria-hidden="true"
+                                                />
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })}
                         </tbody>
                     </table>
                 </div>
@@ -411,3 +356,12 @@ const CouponsList = () => {
 };
 
 export default CouponsList;
+export async function getServerSideProps() {
+    // load all coupons
+    const coupon_res = await fetch("http://localhost:3000/api/coupons");
+    const coupons = await coupon_res.json();
+    console.log(coupons);
+    return {
+        props: { coupons },
+    };
+}

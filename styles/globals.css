@@ -115,7 +115,6 @@
   #side-bar{
       @apply -left-72;
   }
-  
   #side-bar.active{
     @apply -left-0;
   }
@@ -132,4 +131,10 @@
 /*slider bullet style */
 .swiper-pagination-bullet-active{
   background-color: #0e9f6e !important;
+}
+/* scrool icon */
+.styles_scroll-to-top__2A70v{
+  background-color: #f1f1f1 !important;
+  width: 30px !important;
+  height: 40px !important;
 }

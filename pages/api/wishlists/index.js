@@ -1,21 +1,21 @@
 import clientPromise from "../../../lib/mongodb";
-
-export default async function blogsHandler(req, res) {
+import { ObjectId } from "mongodb";
+export default async function wishlistHandler(req, res) {
     const client = await clientPromise;
     const db = client.db("foodmart_shop");
-
+    
     const { method } = req;
 
-    // load all blogs
+    // load wishlist
     if (method === "GET") {
-        const blogs = await db.collection("blogs").find({}).toArray();
-        res.json(blogs);
+        const wishlist = await db.collection("wishlist").find({}).toArray();
+        res.json(wishlist);
     }
 
     if (method === "POST") {
-        const blogData = req.body;
-        const addBlog = await db.collection("blogs").insertOne(blogData);
-        res.json(addBlog);
+        const wishlistData = req.body;
+        const addwishlist = await db.collection("wishlist").insertOne(wishlistData);
+        res.json(addwishlist);
 
         /* console.log(req.body); 
         console.log(req.query) 
@@ -23,7 +23,7 @@ export default async function blogsHandler(req, res) {
         console.log(req.headers.host); // localhost:3000
         console.log(req.url); // /api/...
         res.status(200).json({ message: "success" }); */
-    }
+      }
     
 }
 

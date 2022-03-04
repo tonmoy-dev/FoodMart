@@ -3,51 +3,47 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import {
-    AiFillFacebook,
-    AiFillLinkedin,
-    AiFillTwitterCircle
+  AiFillFacebook,
+  AiFillLinkedin,
+  AiFillTwitterCircle
 } from "react-icons/ai";
+import swal from "sweetalert";
 import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
 import RelatedBlog from "../../../Components/Blogs/SingleBlog/RelatedBlog.js";
 import Trending from "../../../Components/Blogs/SingleBlog/Trending.js";
 import singlePage from "../../../styles/SingleBlog.module.css";
-const SingleBlog = ({ comments }) => {
+const SingleBlog = ({ comments, setComments }) => {
   console.log(comments);
-  // const [users, setUsers] = useState(comments)
-  const [userName, setUserName] = useState("");
-  const [userEmail, setUserEmail] = useState("");
-  const [userComment, setUserComment] = useState("");
 
-  // useEffect(() => {
-  //   fetch('https://foodmart-server.herokuapp.com/comments')
-  //   .then(res => res.json())
-  //   .then(data => setUsers(data))
-  // }, [])
+  const [addCommentData, setAddCommentData] = useState({});
 
-  const handleSubmit = (e) => {
+  const handleInputOnBlur = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newCommentData = { ...addCommentData };
+    newCommentData[field] = value;
+    setAddCommentData(newCommentData);
+  };
+
+  const handleSubmission = async (e) => {
     e.preventDefault();
-    // if (!image) {
-    //   return;
-    // }
-    const formData = new FormData();
-    formData.append("userName", userName);
-    formData.append("userEmail", userEmail);
-    formData.append("userComment", userComment);
-
-    fetch("https://foodmart-server.herokuapp.com/comments", {
+    // post blog data
+    const res = await fetch("/api/comments", {
       method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.insertedId) {
-          alert("user Added successfully");
-          e.target.reset();
-        }
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(addCommentData),
+    });
+    const data = await res.json();
+    if (data.insertedId) {
+      swal("Good job!", "SUBMITED", "success");
+      // router.push('/blog');
+      const newComments = comments;
+      newComments.push(addCommentData);
+      setComments(newComments);
+      e.target.reset();
+    }
   };
 
   return (
@@ -95,67 +91,72 @@ const SingleBlog = ({ comments }) => {
               </h2>
             </div>
 
-            <div className="flex justify-center gap-1 px-5 text-green-500">
-              <Image
-                src="https://i.ibb.co/6R0RdxL/author-2.png"
-                alt=""
-                width={30}
-                height={10}
-              />
-              <span>By Sugar Rosie</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mt-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
+            <div className="flex justify-center gap-1 px-5 text-green-500 items-center">
+              <div className="rounded-full h-9 w-9">
+                <Image
+                  src="https://i.ibb.co/6R0RdxL/author-2.png"
+                  alt=""
+                  width={36}
+                  height={36}
+                  // layout='responsive'
                 />
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>2 hours ago</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mt-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-              <span>8 mins read</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 mt-1"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-                <path
-                  fillRule="evenodd"
-                  d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
+              </div>
+              <div className="flex items-center justify-center">
+                <span>By Sugar Rosie</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>2 hours ago</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <span>8 mins read</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-5 w-5 mt-1"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </div>
               <div className="flex gap-2 ml-auto px-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -270,25 +271,25 @@ const SingleBlog = ({ comments }) => {
               Leave a Comment
             </h2>
 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmission}>
               <div className="flex mt-10 gap-4 px-8">
                 <input
                   className={singlePage.formcontrol}
-                  name="comment"
-                  id="comment"
-                  cols="30"
-                  rows="9"
+                  name="name"
+                  id="user_name"
                   placeholder="Your Name"
-                  onChange={(e) => setUserName(e.target.value)}
+                  required
+                  type="text"
+                  onBlur={handleInputOnBlur}
                 ></input>
                 <input
                   className={singlePage.formcontrol}
-                  name="comment"
-                  id="comment"
-                  cols="30"
-                  rows="9"
+                  name="email"
+                  required
+                  id="user_email"
+                  type="email"
                   placeholder="Your Email"
-                  onChange={(e) => setUserEmail(e.target.value)}
+                  onBlur={handleInputOnBlur}
                 ></input>
               </div>
 
@@ -298,10 +299,8 @@ const SingleBlog = ({ comments }) => {
                     className={singlePage.formcontrol}
                     name="comment"
                     id="comment"
-                    cols="30"
-                    rows="9"
                     placeholder="Write Comment"
-                    onChange={(e) => setUserComment(e.target.value)}
+                    onBlur={handleInputOnBlur}
                   ></textarea>
                 </div>
                 <button
@@ -314,13 +313,29 @@ const SingleBlog = ({ comments }) => {
             </form>
 
             <div>
-              <h2 className="px-4 text-3xl font-semibold ">Comments</h2>
-              <div>
+              <h2 className="px-4 text-4xl font-extralight mt-3">Comments</h2>
+              <div className="px-4 pb-4">
                 {comments.map((user) => (
-                  <div key={user.userName}>
-                    <p className="text-sm font-semibold pt-4 px-3 text-gray-400">{user.userName}</p>
-                    <h3 className="text-sm font-semibold pt-1 px-3">{user.userEmail}</h3>
-                    <h5 className="text-1xl font-semibold pt-2 px-3">{user.userComment}</h5>
+                  <div key={user.name} className="border-2 p-2 mt-2 rounded-xl hover:shadow-md">
+                    <div className="rounded-full h-10 w-10">
+                <Image
+                  src="https://i.ibb.co/6R0RdxL/author-2.png"
+                  alt=""
+                  width={40}
+                  height={40}
+                  // className="bg-green-400"
+                  // layout='responsive'
+                />
+              </div>
+                    <p className="text-sm font-semibold pt-2 ">
+                      {user.name}
+                    </p>
+                    <h3 className="text-sm font-semibold pt-1">
+                      {user.email}
+                    </h3>
+                    <h5 className="text-md font-light pt-2 text-justify">
+                      {user.comment}
+                    </h5>
                   </div>
                 ))}
               </div>
@@ -338,49 +353,49 @@ const SingleBlog = ({ comments }) => {
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(12)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(7)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(5)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(10)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(11)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(7)</span>
                 </a>
                 <a
                   href="#"
                   className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
                 >
-                  <span>Fruit & Vegetables</span>
+                  <span>Fruit &#38; Vegetables</span>
                   <span className=" font-normal ml-auto">(6)</span>
                 </a>
               </div>
