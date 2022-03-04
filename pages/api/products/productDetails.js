@@ -5,11 +5,9 @@ export default async function handler(req, res) {
   const client = await clientPromise;
   const db = client.db("foodmart_shop");
 
-  console.log(req.query);
-
   const query = req.query.product_id;
 
-  switch (req.method) {
+  switch (req.method) {     
     case "GET":
       const product = await db
         .collection("products")
