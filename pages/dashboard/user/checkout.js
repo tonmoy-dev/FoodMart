@@ -92,7 +92,7 @@ export default Checkout;
 
 export async function getStaticProps() {
     const products_res = await fetch(
-        "https://foodmart-server.herokuapp.com/products"
+        `${process.env.MY_APP_DOMAIN}/products`
     );
     const products = await products_res.json();
 
