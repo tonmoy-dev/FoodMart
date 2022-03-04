@@ -375,7 +375,7 @@ export default SingleProduct;
 export async function getStaticPaths() {
   return {
     paths: ["/products/[product_id]"],
-    fallback: true,
+    fallback: false
   };
 }
 
@@ -393,3 +393,4 @@ export async function getStaticProps({ params }) {
     revalidate: false,
   };
 }
+
