@@ -215,7 +215,7 @@ export default function Example() {
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link href="#">
+                                                        <Link href="/newlogin">
                                                         <a
                                                             href="#"
                                                             className={classNames(
