@@ -5,15 +5,6 @@ import Link from "next/link";
 import Products from "../../src/Components/Products/Products/Products";
 import SideBar from "../../src/Components/Products/SideBar/SideBar/SideBar";
 
-
-export const getStaticProps = async () => {
-  const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
-  const products = await res.json();
-return {
-  props: {products},
-}
-};
-
 const AllProducts = ({products}) => {
 
   return (
@@ -81,3 +72,11 @@ const AllProducts = ({products}) => {
 
 export default AllProducts;
 
+
+export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
+  const products = await res.json();
+return {
+  props: {products},
+}
+};
