@@ -12,13 +12,13 @@ const Compare = ({ compareProducts }) => {
     );
 
     //Delete product from compare
-    const handleDeleteProduct = async (compareId) => {
+    /* const handleDeleteProduct = async (compareId) => {
         console.log(compareId);
         const response = await fetch(`/api/compare/${compareId}`, {
             method: "DELETE",
         });
         const data = await response.json();
-        console.log(data);
+        console.log(data); */
 
         //console.log("api/compare?_id="+ id)
         /* const url= `/api/compare/compareProduct[0]?${id} `;
@@ -33,8 +33,8 @@ const Compare = ({ compareProducts }) => {
                 setControl(false);
             }
         }); 
-        axios.delete(url)*/
-    };
+        axios.delete(url)
+    };*/
 
     return (
         <div div className="py-16 mx-5 md:mx-20">
