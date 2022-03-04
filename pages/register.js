@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
-import useAuth from '../src/hooks/useAuth';
 
 const Register = () => {
 
@@ -22,10 +21,7 @@ const Register = () => {
         setOpen(false);
     };
 
-    // redirects
-    // const history = useHistory();
-
-    const { user, registerUser, isLoading, authError } = useAuth();
+    // const { user, registerUser, isLoading, authError } = useAuth();
 
     const handleOnBlur = (e) => {
         const field = e.target.name;
@@ -44,9 +40,6 @@ const Register = () => {
         e.preventDefault();
     }
 
-
-
-    console.log(user);
 
     return (
         <div>
