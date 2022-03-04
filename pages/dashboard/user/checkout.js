@@ -90,7 +90,7 @@ const Checkout = ({ products }) => {
 
 export default Checkout;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const products_res = await fetch(
         `${process.env.MY_APP_DOMAIN}/products`
     );
