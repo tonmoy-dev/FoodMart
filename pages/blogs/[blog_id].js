@@ -1,5 +1,28 @@
+import React from 'react';
+import SingleBlog from '../../src/Components/Blogs/SingleBlog/SingleBlog';
 
-export default function MovieDetails({ blog }) {
+const Blogss = ({ blog }) => {
+    return (
+        <div>
+            <SingleBlog blog={blog}></SingleBlog>
+        </div>
+    );
+};
+
+
+export default Blogss;
+
+/* export async function getStaticProps() {
+    const comments_res = await fetch("http://localhost:3000/api/comments");
+const comments = await comments_res.json();
+    return {
+      props: {comments}, // will be passed to the page component as props
+    }
+  } */
+
+
+/* 
+  export default function MovieDetails({ blog }) {
     return (
         <div>
             {
@@ -15,7 +38,7 @@ export default function MovieDetails({ blog }) {
         </div>
     );
 }
-
+ */
 export async function getStaticPaths() {
     return {
         paths: ['/blogs/[blog_id]'],
@@ -36,15 +59,14 @@ export async function getStaticProps({ params }) {
     }
  }
 
-/* export async function getServerSideProps(context) {
-    // console.log(context.query.blog_id);
-    // console.log(context.query.blog_id);
-    // const data = await fetch(`http://localhost:3000/api/blogs/blogDetails?blog_id=6217e0fe6a1c3f42d89492d1`);
-    const data = await fetch(`http://localhost:3000/api/blogs/blogDetails?blog_id=${context.query.blog_id}`);
-    const blog = await data.json();
+/* export async function getServerSideProps() {
+    const comments_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/comments`);
+    const comments = await comments_res.json();
+    // const data = await fetch(`http://localhost:3000/api/blogs/blogDetails?blog_id=${context.query.blog_id}`);
+    // const blog = await data.json();
 
     return {
-        props:{blog}
+        props:{comments}
     }
 }
  */
