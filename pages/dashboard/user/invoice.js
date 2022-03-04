@@ -101,7 +101,6 @@ const Invoice = () => {
                                 </svg>
                             </li>
                             <span className="text-sm">
-                                http://localhost:3000/
                             </span>
                         </ul>
                         <ul className="flex items-center">

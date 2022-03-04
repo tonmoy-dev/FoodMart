@@ -16,7 +16,7 @@ const Cart = ({ createCheckoutSession }) => {
 
   useEffect(() => {
     setControl(true);
-      axios.get('http://localhost:3000/api/cart').then(response => {
+      axios.get('/api/cart').then(response => {
         setProducts(response.data);
       });
   }, [control]);

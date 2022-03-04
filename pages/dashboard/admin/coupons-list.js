@@ -358,7 +358,7 @@ const CouponsList = ({ coupons }) => {
 export default CouponsList;
 export async function getServerSideProps() {
     // load all coupons
-    const coupon_res = await fetch("http://localhost:3000/api/coupons");
+    const coupon_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/coupons`);
     const coupons = await coupon_res.json();
     console.log(coupons);
     return {

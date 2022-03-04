@@ -1,8 +1,8 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import swal from "sweetalert";
 
 const Compare = () => {
@@ -210,7 +210,7 @@ export default Compare;
 
 export async function getServerSideProps() {
     // load all compare products
-    const compare_res = await fetch("http://localhost:3000/api/compare");
+    const compare_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/compare`);
     const compareProducts = await compare_res.json();
     return {
         props: { compareProducts },

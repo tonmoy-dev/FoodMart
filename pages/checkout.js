@@ -10,7 +10,7 @@ const Checkout = () => {
     email: "rx@gmail.com",
   };
   useEffect(() => {
-    axios.get('http://localhost:3000/api/cart').then(response => {
+    axios.get('/api/cart').then(response => {
       setItems(response.data);
     });
   }, []);
