@@ -1,9 +1,9 @@
 import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import swal from "sweetalert";
-import axios from "axios";
 
 const Products = ({ products }) => {
   const [control, setControl] = useState(false);
@@ -12,8 +12,17 @@ const Products = ({ products }) => {
 
   const handleAddWishlist = async (id) => {
     const Wishlistproduct = products.filter((product) => product._id === id);
+    const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
 
-    axios.post("/api/wishlists", { Wishlistproduct }).then((response) => {
+    axios.post("/api/wishlists", { 
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl.thumbnail,
+
+     }).then((response) => {
+
       if (response.data.insertedId) {
         setControl(!control);
         swal("WOW!!!  product add successfully");
