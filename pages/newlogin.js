@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import Image from 'next/image';
+import React, { useEffect, useState } from 'react';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { config } from '../src/Authenticaion/config';
 
 firebase.initializeApp(config);
@@ -37,17 +37,17 @@ function SignInScreen() {
 
   if (!isSignedIn) {
     return (
-      <div className='bg-green-500 text-center w-1/2 py-4 my-10 mx-auto'>
-        <h1 className='text-white text-2xl'>Please sign-in</h1>
+      <div className='w-full max-w-sm px-4 py-6 mx-auto my-10 bg-gray-200 rounded-md shadow-md'>
+        <h1 className='text-green-500 font-semibold text-3xl text-center mb-6'>Login Here</h1>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={firebase.auth()} />
       </div>
     );
   }
   return (
-    <div className='bg-green-500 text-center w-1/2 py-4 my-10 mx-auto'>
-        <Image width={100} height={100} src={firebase.auth().currentUser.photoURL} alt=''></Image>
-      <p className='text-white'>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
-      <button className='bg-white text-green-500 px-4 py-2 mt-4' onClick={() => firebase.auth().signOut()}>Sign-out</button>
+    <div className='w-full max-w-sm px-10 py-6 mx-auto my-10 bg-gray-200 rounded-md shadow-md'>
+        <Image className="rounded-full" width={80} height={80} src={firebase.auth().currentUser.photoURL} alt=''></Image>
+      <p className='text-black font-semibold my-4'>Welcome {firebase.auth().currentUser.displayName}! You are now signed-in!</p>
+      <button className='bg-white font-semibold rounded-md text-green-500 px-4 py-2 mt-4' onClick={() => firebase.auth().signOut()}>Sign-out</button>
     </div>
   );
 }

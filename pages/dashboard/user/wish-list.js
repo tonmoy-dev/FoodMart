@@ -1,11 +1,32 @@
 import { TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
-const WishList = ({wishlists}) => {
-    console.log(wishlists)
+const WishList = () => {
+  const [wishlists, setWishlists] = useState([]);
+  const [control, setControl] = useState(false);
+
+  useEffect(() => {
+    setControl(true);
+      axios.get('/api/wishlists').then(response => {
+        setWishlists(response.data);
+      });
+  }, [control]);
+
+  const handleDelete = async (id) => {
+    axios.delete(`/api/wishlists?product_id=${id}`, {
+    }).then(response => {
+        if (response.data.deletedCount) {
+            setControl(!control);
+            swal("Oh!", "You removed a product from your cart", "success");
+        } else {
+          setControl(false);
+        } 
+    })
+  };
     return (
         <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">
@@ -178,12 +199,12 @@ const WishList = ({wishlists}) => {
                   </button>
                 </td>
                 <td className="p-4 whitespace-nowrap ">
-                  <div className="flex justify-center items-center">
-                    <TrashIcon
+                  <button className="flex justify-center items-center">
+                    <TrashIcon onClick={() => handleDelete(_id)}
                       className="h-6 w-6 text-red-500 "
                       aria-hidden="true"
                     />
-                  </div>
+                  </button>
                 </td>
               </tr>
                   )
@@ -284,12 +305,13 @@ const WishList = ({wishlists}) => {
 
 export default WishList;
 
-
+/* 
 export async function getServerSideProps() {
     // load all wishlist
-    const wishlists_res = await fetch("http://localhost:3000/api/wishlists");
+    const wishlists_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/wishlists`);
     const wishlists = await wishlists_res.json();
     return {
         props: { wishlists },
     };
 }
+ */

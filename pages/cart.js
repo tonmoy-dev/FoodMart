@@ -1,7 +1,7 @@
 import {
   ArchiveIcon,
   ArrowLeftIcon,
-  ClipboardIcon, HomeIcon, LogoutIcon,
+  ClipboardIcon, LogoutIcon,
   RefreshIcon
 } from "@heroicons/react/solid";
 import axios from "axios";
@@ -16,7 +16,7 @@ const Cart = ({ createCheckoutSession }) => {
 
   useEffect(() => {
     setControl(true);
-      axios.get('http://localhost:3000/api/cart').then(response => {
+      axios.get('/api/cart').then(response => {
         setProducts(response.data);
       });
   }, [control]);
@@ -24,7 +24,6 @@ const Cart = ({ createCheckoutSession }) => {
   const handleDelete = async (id) => {
     axios.delete(`/api/cart?product_id=${id}`, {
     }).then(response => {
-      console.log(response);
         if (response.data.deletedCount) {
             setControl(!control);
             swal("Oh!", "You removed a product from your cart", "success");
@@ -43,46 +42,6 @@ const Cart = ({ createCheckoutSession }) => {
   
   return (
     <div>
-      <div className="border border-l-0 border-r-0 py-4">
-        <nav className="flex px-8" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <a
-                href="#"
-                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
-                <HomeIcon
-                  className="h-4 w-4 text-gray-700 mr-2"
-                  aria-hidden="true"
-                />
-                <Link href="/">Home</Link>
-              </a>
-            </li>
-            <li>
-              <div className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-gray-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <a
-                  href="#"
-                  className="ml-1 text-sm font-sm text-gray-500 hover:text-orange-500 md:ml-2"
-                >
-                  Shopping Cart
-                </a>
-              </div>
-            </li>
-          </ol>
-        </nav>
-      </div>
       <div className="container mx-auto py-4">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="col-span-2 bg-gray-100 rounded-lg border">
@@ -91,17 +50,15 @@ const Cart = ({ createCheckoutSession }) => {
             </h1>
             <hr />
             {/* Cart is empty */}
-            {
+            {/* {
               (products.length === 0)  && (
                 <div className="py-10 px-5">
                   <p className="text-center text-orange-500 font-semibold text-2xl">You have no product to your cart. Please add a product!</p>
                 </div>
               )
-            }
+            } */}
             {/* Cart is not empty */}
-            {
-              (products.length !== 0)  && (
-                <>
+            
                 <div>
                   <div className="flex flex-col">
                     <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -198,9 +155,7 @@ const Cart = ({ createCheckoutSession }) => {
                     Update Cart
                   </button>
                 </div>
-                </>
-              )
-            }
+            
           </div>
           <div className="bg-gray-100 px-4 rounded-lg border">
             <h1 className="text-2xl text-center font-semibold py-4">

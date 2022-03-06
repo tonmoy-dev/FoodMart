@@ -1,13 +1,50 @@
+import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import axios from "axios";
-import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 import swal from "sweetalert";
 
 const PopularProducts = ({ products }) => {
-    // const [control, setControl] = useState(false);
+    const [control, setControl] = useState(false);
 
+    const handleAddWishlist = async (id) => {
+        const Wishlistproduct = products.filter((product) => product._id === id);
+        const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
+    
+        axios.post("/api/wishlists", { 
+          product_title: product_title,
+          product_price: product_price,
+          user_rating: user_rating,
+          product_stock: product_stock,
+          product_imageUrl: product_imageUrl.thumbnail,
+    
+         }).then((response) => {
+    
+          if (response.data.insertedId) {
+            setControl(!control);
+            swal("WOW!!!  product add successfully");
+          } else {
+            setControl(false);
+          }
+        });
+      };
+    
+    // Add to cart a product
+  const addToCartHandler = async (title, image, price, description) => {
+    axios
+      .post("/api/cart", {
+        title: title,
+        image: image,
+        price: price,
+        description: description.slice(0, 50),
+      })
+      .then((response) => {
+        if (response.data.insertedId) {
+          swal("Wow!", "Product is added to your cart", "success");
+        }
+      });
+  };
     const handleAddCompare = async (id) => {
         const compareProduct = products.filter((product) => product._id === id);
         console.log(compareProduct[0]);
@@ -20,7 +57,7 @@ const PopularProducts = ({ products }) => {
             product_stock: product_stock,
             product_imageUrl: product_imageUrl.thumbnail,
             produc_Details: produc_Details
-
+            
         }).then((response) => {
             if (response.data.insertedId) {
                 // setControl(!control);
@@ -62,13 +99,14 @@ const PopularProducts = ({ products }) => {
                         vendor_name,
                         user_rating,
                         product_price,
+                        produc_Details
                     } = product;
                     return (
                         <div key={_id}>
                             <div className="product-card bg-white relative border-gray-300 border rounded-lg hover:drop-shadow-lg">
                                 <div className="z-50 w-full absolute left-0 right-0 bottom-60">
                                     <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
-                                        <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                                        <HeartIcon onClick={() => handleAddWishlist(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                                         <Link href={`/products/${_id}`}>
                                             <a>
                                                 <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
@@ -220,11 +258,16 @@ const PopularProducts = ({ products }) => {
                                             </span>
                                             
                                         </div>
-                                        <a className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
-                                            <Link href="/checkout">
-                                                Add to cart
-                                            </Link>
-                                        </a>
+                                        <button onClick={() =>
+                                            addToCartHandler(
+                                                product_title,
+                                                product_imageUrl.thumbnail,
+                                                product_price,
+                                                produc_Details
+                                            )
+                                        } className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
+                                            Add to cart
+                                        </button>
                                     </div>
                                 </div>
                             </div>

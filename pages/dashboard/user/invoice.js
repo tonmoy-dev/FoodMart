@@ -1,6 +1,6 @@
+import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import React from "react";
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import Logo from "../../../public/logo.png";
 
 const Invoice = () => {
@@ -101,7 +101,6 @@ const Invoice = () => {
                                 </svg>
                             </li>
                             <span className="text-sm">
-                                https://food-mart-web.vercel.app/
                             </span>
                         </ul>
                         <ul className="flex items-center">

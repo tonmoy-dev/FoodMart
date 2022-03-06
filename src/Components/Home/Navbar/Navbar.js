@@ -2,10 +2,10 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { BellIcon, HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, UserIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/router";
 import { Fragment } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import logo from '../../../../public/logo.png';
-import { useRouter } from "next/router";
 
 const navigation = [
     { name: "Home", href: "/", current: true },
@@ -52,7 +52,7 @@ export default function Example() {
             <Disclosure as="nav" className="bg-white">
                 {({ open }) => (
                     <>
-                        <div className="max-w-8xl mx-auto px-2 sm:px-6 lg:px-8">
+                        <div className="max-w-8xl mx-auto px-2 sm:px-6 lg:px-8 shadow pb-3">
                             <div className="relative flex items-center justify-between h-16">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile hamburger menu button*/}
@@ -198,7 +198,7 @@ export default function Example() {
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link href="/login">
+                                                        <Link href="/newlogin">
                                                         <a
                                                             href="#"
                                                             className={classNames(
@@ -215,7 +215,7 @@ export default function Example() {
                                                 </Menu.Item>
                                                 <Menu.Item>
                                                     {({ active }) => (
-                                                        <Link href="#">
+                                                        <Link href="/newlogin">
                                                         <a
                                                             href="#"
                                                             className={classNames(

@@ -1,3 +1,5 @@
+import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
+import Link from "next/link";
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import swal from "sweetalert";
@@ -9,7 +11,6 @@ const ratingChanged = (newRating) => {
 
 const AddReview = () => {
 
-  
   const [addReview, setAddReview] = useState({});
 
   const handleInputOnBlur = (e) => {
@@ -46,79 +47,77 @@ const AddReview = () => {
 
 
   return (
-    <div>
-      <nav className="flex bg-gray-800 p-6" aria-label="Breadcrumb ">
-        <ol className="inline-flex items-center space-x-1 md:space-x-3">
-          <li className="inline-flex items-center">
-            <a
-              href="#"
-              className="inline-flex items-center text-sm font-medium text-white hover:text-gray-200 dark:text-gray-400 dark:hover:text-white"
-            >
-              <svg
-                className="mr-2 w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-              </svg>
-              Home
-            </a>
-          </li>
-          <li>
-            <div className="flex items-center">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
+    <div className="m-10">
+      <h1 className=" text-black font-semibold text-3xl pb-2">Add Review</h1>
+      {/* breadcrumb */}
+      <div className="pb-10">
+        <nav className="flex" aria-label="Breadcrumb">
+          <ol className="inline-flex items-center space-x-1 md:space-x-3">
+            <li className="inline-flex items-center">
               <a
                 href="#"
-                className="ml-1 text-sm font-medium text-white hover:text-gray-200 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               >
-                Projects
+                <HomeIcon
+                  className="h-4 w-4 text-gray-700 mr-2"
+                  aria-hidden="true"
+                />
+                <Link href="/">Home</Link>
               </a>
-            </div>
-          </li>
-          <li aria-current="page">
-            <div className="flex items-center">
-              <svg
-                className="w-6 h-6 text-white"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-              <span className="ml-1 text-sm font-medium text-white md:ml-2 dark:text-gray-200">
-                Flowbite
-              </span>
-            </div>
-          </li>
-        </ol>
-      </nav>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+                <a
+                  href="#"
+                  className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                >
+                  Dashboard
+                </a>
+              </div>
+            </li>
+            <li>
+              <div className="flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+                <a
+                  href="#"
+                  className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
+                >
+                  User
+                </a>
+              </div>
+            </li>
+            <li aria-current="page">
+              <div className="flex items-center">
+                <ChevronRightIcon
+                  className="h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+                <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                  Add Review
+                </span>
+              </div>
+            </li>
+          </ol>
+        </nav>
+      </div>
 
-      <div className="bg-gray-300">
+      <div>
         <div>
-          <h2 className="text-5xl font-bold text-black text-center">
+          <h2 className="text-3xl font-semibold text-black text-center">
             Give your review
           </h2>
         </div>
         <div className={addreviewStyle.content}>
           <div className={addreviewStyle.reviewcontainer}>
             <form onSubmit={handleSubmission}>
-              <div className="bg-gray-200 p-8">
+              <div className="p-8">
                 <div className="flex ">
                   <div className="flex flex-col">
                     <div>

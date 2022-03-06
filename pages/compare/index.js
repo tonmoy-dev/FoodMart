@@ -1,8 +1,6 @@
-import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
-import Image from "next/image";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 import swal from "sweetalert";
 
 const Compare = () => {
@@ -31,55 +29,10 @@ const Compare = () => {
 
     return (
         <div div className="py-16 mx-5 md:mx-20">
-            <h2 className=" text-black font-semibold text-4xl pb-2">
+            <h2 className=" text-black font-semibold text-3xl text-center pb-2">
                 Products Compare
             </h2>
-            {/* breadcrumb */}
-            <div>
-                <nav className="flex" aria-label="Breadcrumb">
-                    <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                        <li className="inline-flex items-center">
-                            <a
-                                href="#"
-                                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                            >
-                                <HomeIcon
-                                    className="h-4 w-4 text-gray-700 mr-2"
-                                    aria-hidden="true"
-                                />
-                                <Link href="/">Home</Link>
-                            </a>
-                        </li>
-                        <li>
-                            <div className="flex items-center">
-                                <ChevronRightIcon
-                                    className="h-5 w-5 text-gray-400"
-                                    aria-hidden="true"
-                                />
-                                <a
-                                    href="#"
-                                    className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                                >
-                                    <Link href="/products/all-products">
-                                        Shop
-                                    </Link>
-                                </a>
-                            </div>
-                        </li>
-                        <li aria-current="page">
-                            <div className="flex items-center">
-                                <ChevronRightIcon
-                                    className="h-5 w-5 text-gray-400"
-                                    aria-hidden="true"
-                                />
-                                <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                    Compare
-                                </span>
-                            </div>
-                        </li>
-                    </ol>
-                </nav>
-            </div>
+            
             <div className="">
                 {/* wishlist table */}
                 <div className="pt-10 overflow-auto">
@@ -210,7 +163,7 @@ export default Compare;
 
 export async function getServerSideProps() {
     // load all compare products
-    const compare_res = await fetch("http://localhost:3000/api/compare");
+    const compare_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/compare`);
     const compareProducts = await compare_res.json();
     return {
         props: { compareProducts },

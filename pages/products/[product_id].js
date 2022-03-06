@@ -371,11 +371,11 @@ const SingleProduct = ({ related, product }) => {
 };
 
 export default SingleProduct;
-
+/* 
 export async function getStaticPaths() {
   return {
     paths: ["/products/[product_id]"],
-    fallback: true,
+    fallback: false
   };
 }
 
@@ -392,4 +392,18 @@ export async function getStaticProps({ params }) {
     props: { related, product },
     revalidate: false,
   };
+}
+ */
+
+
+export async function getServerSideProps(context) {
+  const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);
+  const product = await data.json();
+  
+  const related_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/`);
+  const related = await related_res.json();
+
+  return {
+      props:{product,related}
+  }
 }
