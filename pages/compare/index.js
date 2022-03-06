@@ -91,7 +91,6 @@ const Compare = () => {
                                     produc_Details,
                                     product_stock,
                                 } = product;
-                                console.log(product);
 
 
                                 return (

@@ -47,7 +47,6 @@ const PopularProducts = ({ products }) => {
   };
     const handleAddCompare = async (id) => {
         const compareProduct = products.filter((product) => product._id === id);
-        console.log(compareProduct[0]);
         const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
 
         axios.post("/api/compare", {

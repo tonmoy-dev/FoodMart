@@ -138,8 +138,8 @@ const WishList = () => {
             </thead>
             <tbody className="divide-y divide-gray-200">
             {
-                wishlists.map(wish => {
-                  console.log(wish)
+                  wishlists.map(wish => {
+                  
                   const {product_title, product_price, user_rating, product_stock, product_imageUrl,_id} = wish;
                   return(
                     <tr key={_id}>

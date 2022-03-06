@@ -10,14 +10,11 @@ export default async function compareProductHandler(req, res) {
     if (method === "GET") {
         const coupons = await db.collection("coupons").find({}).toArray();
         res.json(coupons);
-        console.log(coupons);
     }
     // store coupon data in database
     if (method === "POST") {
         const couponData = req.body;
         const addCoupon = await db.collection("coupons").insertOne(couponData);
         res.json(addCoupon);
-        console.log(couponData);
-        console.log(addCoupon);
     }
 }

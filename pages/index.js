@@ -34,7 +34,6 @@ export async function getServerSideProps() {
 
   const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
   const products = await products_res.json();
-  console.log(products);
 
   const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
   const blogs = await blogs_res.json();

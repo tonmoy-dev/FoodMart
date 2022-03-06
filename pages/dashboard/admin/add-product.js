@@ -20,7 +20,6 @@ const AddProduct = () => {
     setAddProduct(newAddData);
   };
 
-  console.log(addProduct);
 
   const handleSubmission = async (e) => {
     e.preventDefault();

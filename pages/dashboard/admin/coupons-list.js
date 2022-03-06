@@ -360,7 +360,6 @@ export async function getServerSideProps() {
     // load all coupons
     const coupon_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/coupons`);
     const coupons = await coupon_res.json();
-    console.log(coupons);
     return {
         props: { coupons },
     };

@@ -9,7 +9,6 @@ export default async function blogsHandler(req, res) {
   // load all blogs
   if (method === "GET") {
     const products = await db.collection("products").find({}).toArray();
-    console.log(products);
     res.json(products);
   }
 
