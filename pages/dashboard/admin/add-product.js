@@ -1,10 +1,14 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
-import swal from "sweetalert";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+// import swal from "sweetalert";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const AddProduct = () => {
   const [addProduct, setAddProduct] = useState({});
   const [product_imageUrl, setProduct_imageUrl] = useState({});
+  const notify = () => toast("Product added successfully!");
 
   const handleImageUrl = (e) => {
     const newProductImageUrl = { ...product_imageUrl };
@@ -19,7 +23,6 @@ const AddProduct = () => {
     newAddData[field] = value;
     setAddProduct(newAddData);
   };
-
 
   const handleSubmission = async (e) => {
     e.preventDefault();
@@ -36,7 +39,7 @@ const AddProduct = () => {
     });
     const data = await res.json();
     if (data.insertedId) {
-      swal("Good job!", "SUBMITED", "success");
+      // swal("Good job!", "SUBMITED", "success");
       // router.push('/blog');
       // const newComments = comments;
       // newComments.push(addCommentData);
@@ -311,14 +314,33 @@ const AddProduct = () => {
                   onBlur={handleInputOnBlur}
                 ></textarea>
               </div>
+
               <div className="pt-3">
                 <button
                   className="w-full block font-semibold rounded-lg bg-green-500 hover:bg-green-600 text-white uppercase text-lg mx-auto px-4 py-2"
                   type="submit"
+                  onClick={notify}
                 >
                   Add Product
                 </button>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={5000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss
+                  draggable
+                  pauseOnHover
+                />
               </div>
+
+              <MessengerCustomerChat
+    pageId="100697865102030"
+    appId="361045412549261"
+    // htmlRef="<REF_STRING>"
+  />,
             </form>
           </div>
         </div>
