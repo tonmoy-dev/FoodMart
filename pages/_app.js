@@ -1,17 +1,44 @@
-import '../styles/globals.css';
+import "../styles/globals.css";
 import ScrollToTop from "react-scroll-to-top";
-import Footer from '../src/Components/Home/Footer/Footer';
-import Example from '../src/Components/Home/Navbar/Navbar';
+import Footer from "../src/Components/Home/Footer/Footer";
+import Example from "../src/Components/Home/Navbar/Navbar";
+import { useEffect, useState } from "react";
+import Preloader from "../src/Components/Preloader/Preloader";
 
 function MyApp({ Component, pageProps }) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
   return (
     <>
-      <Example></Example>
-      <ScrollToTop smooth />
-      <Component {...pageProps} />
-      <Footer></Footer>
+      {loading ? (
+        <div className="flex flex-col justify-center items-center h-screen loader-body">
+          <Preloader></Preloader>
+          <h1 className="text-green-500 font-bold text-lg uppercase">food<span className="text-orange-500">mart</span></h1>
+          <style jsx>
+            {`
+            .loader-body{
+              background: #f8f5f0;
+            }
+            `}
+          </style>
+        </div>
+      ) : (
+        <>
+          <Example></Example>
+          <ScrollToTop smooth />
+          <Component {...pageProps} />
+          <Footer></Footer>
+        </>
+      )}
     </>
-  )
+  );
 }
 
-export default MyApp
+export default MyApp;

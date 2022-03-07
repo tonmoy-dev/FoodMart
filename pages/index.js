@@ -5,7 +5,6 @@ import Brands from "../src/Components/Home/Brands/Brands";
 import Categories from "../src/Components/Home/Categories/Categories";
 import DealsofDay from "../src/Components/Home/DealsofDay/DealsofDay";
 import DeliverySteps from "../src/Components/Home/DeliverySteps/DeliverySteps";
-import Footer from "../src/Components/Home/Footer/Footer";
 import NewsLetter from "../src/Components/Home/NewsLetter/NewsLetter";
 import PopularProducts from "../src/Components/Home/PopularProducts/PopularProducts";
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
