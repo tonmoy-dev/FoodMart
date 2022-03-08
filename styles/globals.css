@@ -138,3 +138,6 @@
   width: 30px !important;
   height: 40px !important;
 }
+.jodit-status-bar {
+  visibility: collapse;
+}

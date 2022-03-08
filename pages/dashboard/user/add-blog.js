@@ -2,6 +2,7 @@ import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import swal from 'sweetalert';
+import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
 
 
 const AddBlog = () => {
@@ -36,6 +37,12 @@ const AddBlog = () => {
     }
   }
   
+  const [value, setValue] = useState("");
+  const getValue = (value) => {
+    setValue(value);
+  };
+
+
   return (
     <div className="py-16 mx-5 md:mx-20">
       <h1 className=" text-black font-semibold text-4xl pb-2">Add A Blog</h1>
@@ -236,6 +243,9 @@ const AddBlog = () => {
           </form>
         </div>
       </div>
+      {/* editor */}
+      <h1>editor</h1>
+      <BlogMarkdown initialValue="" getValue={getValue}></BlogMarkdown>
     </div>
   );
 };
