@@ -32,6 +32,31 @@ const Products = ({ products }) => {
     });
   };
 
+  const handleAddCompare = async (id) => {
+    const compareProduct = products.filter((product) => product._id === id);
+    console.log(compareProduct[0]);
+    const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
+
+    axios.post("/api/compare", {
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl.thumbnail,
+      produc_Details: produc_Details
+
+    }).then((response) => {
+      if (response.data.insertedId) {
+        // setControl(!control);
+        swal("WOW!!! Compare product add successfully");
+      }
+      // else {
+      //     setControl(false);
+      // }
+    });
+  };
+
+
   // Add to cart a product
   const addToCartHandler = async (title, image, price, description) => {
     axios
@@ -113,7 +138,7 @@ const Products = ({ products }) => {
                         <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                       </a>
                     </Link>
-                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <RefreshIcon onClick={() => handleAddCompare(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                   </div>
                 </div>
 

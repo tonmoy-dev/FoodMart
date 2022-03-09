@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
+import axios from "axios";
 
 const BestSells = ({ products }) => {
   const allProducts = products.slice(9, 13);
@@ -12,6 +13,44 @@ const BestSells = ({ products }) => {
       }
     `}
   </style>;
+
+  const handleAddWishlist = async (id) => {
+    const Wishlistproduct = products.filter((product) => product._id === id);
+
+    axios.post("/api/wishlists", { Wishlistproduct }).then((response) => {
+      if (response.data.insertedId) {
+        setControl(!control);
+        swal("WOW!!!  product add successfully");
+      } else {
+        setControl(false);
+      }
+    });
+  };
+
+
+  const handleAddCompare = async (id) => {
+    const compareProduct = products.filter((product) => product._id === id);
+    console.log(compareProduct[0]);
+    const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
+
+    axios.post("/api/compare", {
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl.thumbnail,
+      produc_Details: produc_Details
+
+    }).then((response) => {
+      if (response.data.insertedId) {
+        // setControl(!control);
+        swal("WOW!!! Compare product add successfully");
+      }
+      // else {
+      //     setControl(false);
+      // }
+    });
+  };
 
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
@@ -50,7 +89,7 @@ const BestSells = ({ products }) => {
             </div>
             <div className=" px-10  ">
               <button className="bg-green-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
-                See more 
+                See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-6 w-6 pr-2 inline-block"
@@ -83,18 +122,18 @@ const BestSells = ({ products }) => {
           return (
             <div key={_id}>
               <div className="relative product-card bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg">
-              <div className="z-50 w-full absolute left-0 right-0 bottom-60">
+                <div className="z-50 w-full absolute left-0 right-0 bottom-60">
                   <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
-                    <HeartIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <HeartIcon onClick={() => handleAddWishlist(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                     <Link href={`/products/${_id}`}>
                       <a>
                         <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                       </a>
                     </Link>
-                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <RefreshIcon onClick={() => handleAddCompare(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                   </div>
                 </div>
-              <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+                <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                   {product_badge}
                 </span>
                 {product_badge == "sale" && (
@@ -102,7 +141,7 @@ const BestSells = ({ products }) => {
                     {product_badge}
                   </span>
                 )}
-                {product_badge  == "new" && (
+                {product_badge == "new" && (
                   <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
                     {product_badge}
                   </span>
@@ -230,12 +269,12 @@ const BestSells = ({ products }) => {
                       {/* <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
                     </div>
                     <a
-                    className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
-                  >
-                    <Link href="/checkout">
-                    Add to cart
-                    </Link>
-                  </a>
+                      className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
+                    >
+                      <Link href="/checkout">
+                        Add to cart
+                      </Link>
+                    </a>
                   </div>
                 </div>
               </div>
