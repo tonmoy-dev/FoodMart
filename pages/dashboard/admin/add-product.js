@@ -63,7 +63,7 @@ const AddProduct = () => {
           }
         `}
       </style>
-      <div id="dashboard-container" className="h-screen bg-gray-100">
+      <div id="dashboard-container" className=" bg-gray-100">
         {/* top bar */}
         <DashAdminMenu />
 
@@ -72,7 +72,7 @@ const AddProduct = () => {
         {/* main content */}
 
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-          <div className="bg-gray-100">
+          <div className="">
 
             <div className="py-16 mx-5 md:mx-20">
               <h1 className=" text-black font-semibold text-4xl pb-2">Add Product</h1>
