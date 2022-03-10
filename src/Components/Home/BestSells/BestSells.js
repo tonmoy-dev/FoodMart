@@ -11,44 +11,6 @@ const BestSells = ({ products }) => {
     `}
   </style>;
 
-  const handleAddWishlist = async (id) => {
-    const Wishlistproduct = products.filter((product) => product._id === id);
-
-    axios.post("/api/wishlists", { Wishlistproduct }).then((response) => {
-      if (response.data.insertedId) {
-        setControl(!control);
-        swal("WOW!!!  product add successfully");
-      } else {
-        setControl(false);
-      }
-    });
-  };
-
-
-  const handleAddCompare = async (id) => {
-    const compareProduct = products.filter((product) => product._id === id);
-    console.log(compareProduct[0]);
-    const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
-
-    axios.post("/api/compare", {
-      product_title: product_title,
-      product_price: product_price,
-      user_rating: user_rating,
-      product_stock: product_stock,
-      product_imageUrl: product_imageUrl.thumbnail,
-      produc_Details: produc_Details
-
-    }).then((response) => {
-      if (response.data.insertedId) {
-        // setControl(!control);
-        swal("WOW!!! Compare product add successfully");
-      }
-      // else {
-      //     setControl(false);
-      // }
-    });
-  };
-
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
       <div className="flex justify-between pb-5">
