@@ -4,11 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaRegStar, FaStar } from 'react-icons/fa';
+import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 
 const Product = ({product}) => {
   const [control, setControl] = useState(false);
+  const user = useSelector((state) => state.states.user);
 
   // add to wishlists
   const handleAddWishlist = async (product_title,product_price,user_rating,product_stock,product_imageUrl) => {
@@ -59,7 +61,8 @@ const Product = ({product}) => {
         title: title,
         image: image,
         price: price,
-        description: description.slice(0, 50),
+        description: description.slice(0, 20),
+        email: user.email
       })
       .then((response) => {
         if (response.data.insertedId) {

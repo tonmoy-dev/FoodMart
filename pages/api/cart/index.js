@@ -8,8 +8,9 @@ export default async function blogsHandler(req, res) {
     const { method } = req;
     // load all products
     if (method === "GET") {
-        const products = await db.collection("add_to_cart").find({}).toArray();
-        res.json(products);
+        const email = req.query.email;
+        const cartProducts = await db.collection("add_to_cart").find({email}).toArray();
+        res.json(cartProducts);
     }
 
     if (method === "POST") {
@@ -26,4 +27,3 @@ export default async function blogsHandler(req, res) {
     
     
 }
-
