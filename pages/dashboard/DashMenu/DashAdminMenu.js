@@ -164,7 +164,7 @@ const DashAdminMenu = () => {
       >
         <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
           <h1 className="text-green-500">
-            food<span className="text-orange-400">Mart</span>
+            <Link href="/"><a href="">food<span className="text-orange-400">Mart</span></a></Link>
           </h1>
           <XIcon
             onClick={handleToggle}
