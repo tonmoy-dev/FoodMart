@@ -1,97 +1,153 @@
-import Image from 'next/image';
-import React, { useState } from 'react';
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import useFirebase from "../src/Authenticaion/hooks/useFirebase";
 
 const Register = () => {
+  const errorMsg = useSelector((state) => state.states.registerError);
 
+  const { registerWithEmailPass } = useFirebase();
 
-    const [loginData, setLoginData] = useState({});
+  const [showPass, setShowPass] = React.useState(false);
+  const [showPassConfirm, setShowPassConfirm] = React.useState(false);
 
-    // snack bar
-    const [open, setOpen] = React.useState(false);
+  const { register, handleSubmit, reset } = useForm();
 
-    const handleClick = () => {
-        setOpen(true);
-    };
-
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
-
-    // const { user, registerUser, isLoading, authError } = useAuth();
-
-    const handleOnBlur = (e) => {
-        const field = e.target.name;
-        const value = e.target.value;
-        const newLoginData = { ...loginData };
-        newLoginData[field] = value;
-        setLoginData(newLoginData);
+  const onSubmit = (data) => {
+    if (data.password === data.confirmPass) {
+      registerWithEmailPass(data?.email, data?.password, data?.displayName);
+      toast("Wow password matched!");
+      reset();
+    } else {
+      toast("Oops! password dosen't match");
     }
-    console.log(loginData);
-    const handleLoginSubmit = (e) => {
-        if (loginData.password !== loginData.password2) {
-            alert('Your password did not match');
-            return;
-        }
-        registerUser(loginData.email, loginData.password, loginData.name, loginData.photo, history);
-        e.preventDefault();
-    }
+  };
 
+  const handleHideConfirm = () => {
+    setShowPassConfirm(true);
+  };
 
-    return (
-        <div>
-            <div className="flex flex-col md:flex-row items-center justify-center w-screen h-screen bg-gray-200">
+  const handleShowConfirm = () => {
+    setShowPassConfirm(false);
+  };
 
-                <div className="py-5 px-5 mx-10 mt-4 text-left    rounded-lg">
-                    <div className="flex flex-col items-center justify-center">
+  const handleHidePass = () => {
+    setShowPass(true);
+  };
 
-                        <h3 className="block text-2xl font-bold text-center">Welcome To </h3>
-                        <br />
-                        <Image className='block' src="https://i.ibb.co/hKfBmFG/logo-1.png" height="100" width="300" alt="logo"></Image>
-                        <br />
-                        <h3 className="block text-base font-bold text-center text-green-800">An initiative by winning devs</h3>
-                    </div>
+  const handleShowPass = () => {
+    setShowPass(false);
+  };
 
-
-                </div>
-                <div className="px-8 mx-10 py-6 mt-4 text-left bg-white shadow-lg  rounded-lg">
-                    <h3 className="text-2xl font-bold text-center">Create new account</h3>
-                    <form action="">
-                        <div className="mt-4">
-                            <div>
-                                <label htmlFor="email" className="block" name="Email" > Email </label>
-                                <input name="email" onBlur={handleOnBlur} type="text" placeholder="Email" className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
-                            </div>
-
-                            <div className="mt-4">
-                                <label htmlFor="password" className="block" name="Password" > Password </label>
-
-                                <input name="password" onBlur={handleOnBlur} type="password" placeholder="Password"
-                                    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
-                            </div>
-                            <div className="mt-4">
-                                <label htmlFor="password2" className="block" name="Password2" > Confirm Password </label>
-
-                                <input name="password2" onBlur={handleOnBlur} type="password" placeholder="Password"
-                                    className="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-1 focus:ring-green-600" />
-                            </div>
-                            <div className="flex items-baseline justify-between">
-                                <button onClick={handleLoginSubmit} className="px-6 py-2 mt-4 text-white bg-green-600 rounded-lg hover:bg-green-900">Sign up</button>
-                                {/* <a href="#" className="text-sm text-green-600 hover:underline">Forgot password?</a> */}
-                            </div>
-                            <div className="mt-4">
-                                <p className="text-sm">Already have an account? please </p> <a href="#" className="text-sm hover:text-sm text-green-600 hover:text-green-800 hover:underline">Sign in</a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
-            </div>
+  
+return (
+  <>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossOrigin="anonymous"
+        referrerPolicy="no-referrer"
+      />
+    </Head>
+    <div className="flex justify-center m-10 sm:mx-auto md:flex-row flex-col w-5/6">
+      <div className="md:w-3/6">
+        <Image
+          src="https://i.ibb.co/9YxD538/122154446-104392108127200-4918932120265177979-n.jpg"
+          height="600"
+          width="700"
+          alt="register image"
+        />
+      </div>
+      <div className="md:w-2/5 w-11/12 mx-auto my-5 p-3 flex flex-col gap-y-4">
+        <div className="mx-auto text-center">
+        <h2 className="md:text-3xl text-2xl font-semibold mb-3">
+          Create your account
+        </h2>
+        <p className="text-xl">Please Register using account detail bellow.</p>
         </div>
-    );
-};
+        {/* register-form */}
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {/* name-field */}
+          <input
+            {...register("displayName", { required: true })}
+            className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md"
+            placeholder="Your Name"
+          ></input>
+          <input
+            {...register("email", { required: true })}
+            className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md mt-5"
+            placeholder="Your Email address"
+          ></input>
+
+          {/* password-filed */}
+          <div className="relative">
+            <input
+              {...register("password", { required: true })}
+              type={showPass ? "text" : "password"}
+              className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md mt-5"
+              placeholder="Password"
+            ></input>
+            <i
+              onClick={showPass ? handleShowPass : handleHidePass}
+              className={
+                showPass
+                  ? "fa-solid fa-eye absolute dark:text-black  right-5 top-10"
+                  : "fa-solid  fa-eye-slash absolute dark:text-black  right-5 top-10"
+              }
+            />
+          </div>
+
+          {/* confirm-password */}
+          <div className="relative">
+            <input
+              {...register("confirmPass", { required: true })}
+              type={showPassConfirm ? "text" : "password"}
+              className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md mt-5"
+              placeholder="Confirm Password"
+            ></input>
+            <i
+              onClick={showPassConfirm ? handleShowConfirm : handleHideConfirm}
+              className={
+                showPassConfirm
+                  ? "fa-solid fa-eye absolute dark:text-black  right-5 top-10"
+                  : "fa-solid  fa-eye-slash absolute dark:text-black   right-5 top-10"
+              }
+            />
+          </div>
+
+          <div className="flex py-3">
+            <input id="remember" type="checkbox" className="w-4 h-4 rounded mt-1" />
+            <label htmlFor="remember" className="text-gray-400 font-semibold pl-2">
+              Accept Term and Conditions
+            </label>
+          </div>
+          <button
+            type="submit"
+            className="w-full h-14 py-4 font-bold rounded-md bg-green-700 text-white"
+          >
+            Register
+          </button>
+        </form>
+        <p className="text-gray-400 py-3 font-semibold text-center">
+          Already have account?{" "}
+          <Link passHref href="/login">
+            <a className="text-orange-500	pl-1">Login Now</a>
+          </Link>
+        </p>
+        <div className="text-center">
+          <p className="text-red-500 font-bold">{errorMsg}</p>
+        </div>
+      </div>
+    </div>
+  </>
+)
+}
 
 export default Register;

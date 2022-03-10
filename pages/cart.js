@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 import {
   ArchiveIcon,
   ArrowLeftIcon,
@@ -8,16 +9,21 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import DotLoader from "react-spinners/DotLoader";
 import swal from "sweetalert";
 
 const Cart = ({ createCheckoutSession }) => {
+  const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("green");
   const [products, setProducts] = useState([]);
   const [control, setControl] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     setControl(true);
       axios.get('/api/cart').then(response => {
         setProducts(response.data);
+        setLoading(false);
       });
   }, [control]);
 
@@ -25,10 +31,12 @@ const Cart = ({ createCheckoutSession }) => {
     axios.delete(`/api/cart?product_id=${id}`, {
     }).then(response => {
         if (response.data.deletedCount) {
-            setControl(!control);
+          setControl(!control);
+          setLoading(false);
             swal("Oh!", "You removed a product from your cart", "success");
         } else {
           setControl(false);
+          setLoading(false);
         } 
     })
   };
@@ -39,7 +47,11 @@ const Cart = ({ createCheckoutSession }) => {
   }
   const totalPrice = sum;
 
-  
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  `;  
+
   return (
     <div>
       <div className="container mx-auto py-4">
@@ -49,17 +61,23 @@ const Cart = ({ createCheckoutSession }) => {
               Shopping Cart
             </h1>
             <hr />
+            {
+              loading && (
+                <DotLoader color={color} loading={loading} css={override} size={60} />
+              )
+            }
             {/* Cart is empty */}
-            {/* {
-              (products.length === 0)  && (
+            {
+              !loading && (products.length === 0)  && (
                 <div className="py-10 px-5">
                   <p className="text-center text-orange-500 font-semibold text-2xl">You have no product to your cart. Please add a product!</p>
                 </div>
               )
-            } */}
+            }
             {/* Cart is not empty */}
-            
-                <div>
+            {
+              !loading && (products.length !== 0)  && (
+                  <div>
                   <div className="flex flex-col">
                     <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                       <div className="inline-block min-w-full sm:px-6 lg:px-8">
@@ -141,7 +159,9 @@ const Cart = ({ createCheckoutSession }) => {
                       </div>
                     </div>
                   </div>
-                </div>
+            </div>
+             )
+            }
                 <div className="flex flex-row justify-between items-center py-4 px-4">
                   <button className="bg-green-500 flex flex-row gap-1 items-center hover:bg-green-600 text-white px-2 py-2 rounded">
                     <ArrowLeftIcon className="w-4" />

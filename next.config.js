@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['i.ibb.co','images.unsplash.com','lh3.googleusercontent.com'],
+    domains: ['i.ibb.co','images.unsplash.com','lh3.googleusercontent.com','uitheme.net'],
   },
   env: {
     stripe_public_key: process.env.STRIPE_PUBLIC_KEY
