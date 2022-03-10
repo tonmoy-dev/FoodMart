@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 const Success = () => {
     const router = useRouter();
+    
     return (
         <div className="bg-gray-100 h-screen">
             <main className="max-w-screen-lg mx-auto">

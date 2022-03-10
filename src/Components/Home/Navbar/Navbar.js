@@ -140,7 +140,7 @@ export default function Navigation() {
                                             <button type="button" className="nav-icon-btn">
                                                 <ShoppingCartIcon className="h-6 w-6" />
                                             </button>
-                                            <Link href="/checkout">
+                                            <Link href="/cart">
                                                 <a className="text-sm font-semibold text-gray-600">
                                                     Cart
                                                 </a>
@@ -177,7 +177,7 @@ export default function Navigation() {
                                                 <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                                     <Menu.Item>
                                                         {
-                                                            user ? (
+                                                            user?.email ? (
                                                                 <p className="block px-4 py-2 text-sm text-gray-700">Hi! {user.displayName}</p>
                                                             ) : (
                                                                 <p className="block px-4 py-2 text-sm text-gray-700">Welcome to FoodMart!</p>
