@@ -174,23 +174,22 @@ const DashAdminMenu = () => {
         </div>
         <div className="flex overflow-y-auto h-full flex-col justify-between flex-grow">
           <div className="py-5">
+            <Link href="/dashboard/dashboard">
             <a
-              href="#"
-              className="flex items-center my-1 px-4 py-3 text-white hover:text-white border-l-4 border-transparent transition border-orange-500 bg-green-500"
+              className="flex items-center my-1 px-6 py-3 text-white hover:text-white border-l-4 border-transparent transition border-orange-500 bg-green-500"
             >
-              <Link href="/dashboard/dashboard">Home</Link>
+              Home
             </a>
-
+            </Link>
             {MenuList.map((menu) => (
               <div key={menu.menuId}>
                 <Link href={`${menu.pageLink}`}>
-                  <a className="flex items-center my-1 px-4 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
+                  <a className="flex items-center my-1 px-6 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
                     {menu.menuName}
                   </a>
                 </Link>
               </div>
             ))}
-
 
             {/* for mobile device */}
             <a
