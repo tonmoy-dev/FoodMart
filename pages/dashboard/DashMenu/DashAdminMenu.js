@@ -313,7 +313,7 @@ const DashAdminMenu = () => {
                 id="dropdown"
                 className="h-8 w-8 text-green-500 rounded-full"
               />
-              <h1 className="font-medium uppercase">anik nath</h1>
+              <h1 className="font-medium uppercase">admin</h1>
             </div>
             <div
               id="dropdown_settings"

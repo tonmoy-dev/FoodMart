@@ -330,7 +330,7 @@ const DashMenu = () => {
                                 </div>
                             </div>
                             <a href="#" className="text-dark text-md capitalize">
-                                Anik Nath
+                                admin
                             </a>
                             <div className="ml-auto">
                                 <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-gray-900" />
