@@ -63,7 +63,8 @@ const WelcomeAdmin = () => {
 
     // top products
 
-    const topVendors = products?.slice(0, 5);
+    const topVendors = vendors?.slice(0, 5);
+    console.log(topVendors);
 
 
 
@@ -126,9 +127,7 @@ const WelcomeAdmin = () => {
                                 {/* Cart is not empty */}
 
                                 <div>
-                                    {/* <div>
-                                <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
-                            </div> */}
+
                                     <div className="flex flex-col">
                                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                             <div className="inline-block min-w-full sm:px-6 lg:px-8">
@@ -167,17 +166,17 @@ const WelcomeAdmin = () => {
                                                                         <td className="flex flex-row gap-2 items-center px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
 
                                                                             <div className="border ">
-                                                                                {/* <Image
+                                                                                <Image
                                                                                     width={80}
                                                                                     height={80}
                                                                                     src={product?.product_imageUrl}
                                                                                     alt="image"
-                                                                                ></Image> */}
+                                                                                ></Image>
                                                                             </div>
                                                                             <h1>{product_title}</h1>
                                                                         </td>
                                                                         <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                                                            $ <span>{product_price}</span>
+                                                                            <span>{product_price}</span>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -212,9 +211,7 @@ const WelcomeAdmin = () => {
                                 {/* Cart is not empty */}
 
                                 <div>
-                                    {/* <div>
-                                <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
-                            </div> */}
+
                                     <div className="flex flex-col">
                                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                             <div className="inline-block min-w-full sm:px-6 lg:px-8">
@@ -244,7 +241,7 @@ const WelcomeAdmin = () => {
 
                                                                 const image = icon;
 
-
+                                                                console.log(_id,icon);
                                                                 return (
                                                                     <tr
                                                                         key={_id}
@@ -253,13 +250,13 @@ const WelcomeAdmin = () => {
                                                                         <td className="flex flex-row gap-2 items-center px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
 
                                                                             <div className="border z-0">
-                                                                                {/* <Image
+                                                                                <Image
                                                                                     className='z-0'
                                                                                     width={80}
                                                                                     height={80}
                                                                                     src={image}
                                                                                     alt="image"
-                                                                                ></Image> */}
+                                                                                ></Image>
                                                                             </div>
                                                                             <h1>{name}</h1>
                                                                         </td>
