@@ -19,7 +19,7 @@ const Products = ({ products }) => {
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
-      product_imageUrl: product_imageUrl.thumbnail,
+      product_imageUrl: product_imageUrl,
 
      }).then((response) => {
 
@@ -134,7 +134,7 @@ const Products = ({ products }) => {
                   {" "}
                   <Image
                     className="p-8 rounded-t-lg"
-                    src={product_imageUrl.thumbnail}
+                    src={product_imageUrl}
                     alt="product image"
                     height="180"
                     width="200"
@@ -257,7 +257,7 @@ const Products = ({ products }) => {
                       onClick={() =>
                         addToCartHandler(
                           product_title,
-                          product_imageUrl.thumbnail,
+                          product_imageUrl,
                           product_price,
                           produc_Details
                         )
