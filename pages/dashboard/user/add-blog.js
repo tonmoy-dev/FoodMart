@@ -1,22 +1,22 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
-
+import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
 
 const AddBlog = () => {
   const [addBlogData, setAddBlogData] = useState({});
   const router = useRouter();
 
   // handle input fields onBlur
-  const handleInputOnBlur = e => {
+  const handleInputOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newBlogData = { ...addBlogData };
     newBlogData[field] = value;
     setAddBlogData(newBlogData);
-  }
+  };
 
   // handle add blog Submit
   const handleSubmission = async (e) => {
@@ -25,17 +25,22 @@ const AddBlog = () => {
     const res = await fetch("/api/blogs", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(addBlogData)
+      body: JSON.stringify(addBlogData),
     });
     const data = await res.json();
     if (data.insertedId) {
       swal("Good job!", "Your add blog request has been received.", "success");
       setAddBlogData("");
-      router.push('/blogs');
+      router.push("/blogs");
     }
-  }
+  };
+
+  const [value, setValue] = useState("");
+  const getValue = (value) => {
+    setValue(value);
+  };
 
   return (
     <>
@@ -56,13 +61,12 @@ const AddBlog = () => {
         {/* top bar */}
         <DashAdminMenu />
 
-
-
         {/* main content */}
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-
           <div className="py-16 mx-5 md:mx-20">
-            <h1 className=" text-black font-semibold text-4xl pb-2">Add A Blog</h1>
+            <h1 className=" text-black font-semibold text-4xl pb-2">
+              Add A Blog
+            </h1>
             {/* breadcrumb */}
             <div className="pb-10">
               <nav className="flex" aria-label="Breadcrumb">
@@ -136,7 +140,8 @@ const AddBlog = () => {
                           className="block text-sm font-medium text-gray-700"
                         >
                           {" "}
-                          Your blog title <span className="text-orange-600">*</span>
+                          Your blog title{" "}
+                          <span className="text-orange-600">*</span>
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -157,7 +162,8 @@ const AddBlog = () => {
                           className="block text-sm font-medium text-gray-700"
                         >
                           {" "}
-                          Your blog category <span className="text-orange-600">*</span>
+                          Your blog category{" "}
+                          <span className="text-orange-600">*</span>
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -262,15 +268,12 @@ const AddBlog = () => {
             </div>
           </div>
 
-
-
+          {/* editor */}
+          <h1>editor</h1>
+          <BlogMarkdown initialValue="" getValue={getValue}></BlogMarkdown>
         </div>
-
       </div>
     </>
-
-
-
   );
 };
 

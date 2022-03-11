@@ -20,7 +20,7 @@ SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 const Banner = () => {
   return (
-    <div className="py-10 banner">
+    <div className="banner">
       <style jsx>{`
         .swiper-pagination-bullet-active {
           background-color: red !important;

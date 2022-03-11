@@ -13,13 +13,11 @@ const NewsLetter = () => {
         `}
       </style>
       <div className="newsletter py-3 border-b">
-        <div>
           <div>
             <h1 className="text-green-500 mt-4  text-3xl font-semibold text-center">
               Sign up for the NewsLetter
             </h1>
           </div>
-        </div>
 
         <div className="flex justify-center px-4 footer">
           <div className="container py-6">

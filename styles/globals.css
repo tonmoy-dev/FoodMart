@@ -206,3 +206,19 @@
   transition-duration: 0.2s;
   transform: translateX(-50%) scaleY(1);
 }
+.jodit-status-bar {
+  visibility: collapse;
+}
+/* page banner style */
+.head-banner{
+  background: url("https://i.ibb.co/3hv0fp9/Head-banner.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-inner{
+  min-height:200px;
+}
+.vendor-banner{
+  height: 240px;
+}
