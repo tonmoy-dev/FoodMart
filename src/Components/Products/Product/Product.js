@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaRegStar, FaStar, FaCartPlus } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
@@ -168,9 +168,9 @@ const Product = ({product}) => {
                 produc_Details
               )
             }
-            className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
+            className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
           >
-            Add to cart
+            <FaCartPlus className="w-6 h-6"/>
           </a>
         </div>
       </div>
