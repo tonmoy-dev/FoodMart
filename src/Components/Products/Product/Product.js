@@ -89,7 +89,7 @@ const Product = ({product}) => {
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
             <HeartIcon
-              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,user.email)}
+              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl,user.email)}
               className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
             />
           </button>
@@ -99,7 +99,7 @@ const Product = ({product}) => {
             </button>
           </Link>
           <button data-tooltip="+ Add to compare">
-            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
           </button>
         </div>
       </div>
@@ -121,7 +121,7 @@ const Product = ({product}) => {
         {" "}
         <Image
           className="p-8 rounded-t-lg"
-          src={product_imageUrl.thumbnail}
+          src={product_imageUrl}
           alt="product image"
           height="180"
           width="200"
@@ -163,7 +163,7 @@ const Product = ({product}) => {
             onClick={() =>
               addToCartHandler(
                 product_title,
-                product_imageUrl.thumbnail,
+                product_imageUrl,
                 product_price,
                 produc_Details
               )

@@ -1,7 +1,7 @@
+import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
 import Image from "next/image";
-import React from "react";
-import { HeartIcon, RefreshIcon, EyeIcon } from "@heroicons/react/outline";
 import Link from "next/link";
+import React from "react";
 
 const RelatedProducts = ({ related }) => {
   const allRelated = related.slice(0, 4);
@@ -53,7 +53,7 @@ const RelatedProducts = ({ related }) => {
                 <a href="./">
                   <Image
                     className="p-8 rounded-t-lg"
-                    src={product_imageUrl.thumbnail}
+                    src={product_imageUrl}
                     alt="product image"
                     height="180"
                     width="200"

@@ -44,7 +44,7 @@ const CheckoutProductList = ({ products }) => {
                                                     <div className="w-1/3">
                                                         <Image
                                                             src={
-                                                                product_imageUrl.thumbnail
+                                                                product_imageUrl
                                                             }
                                                             width="90"
                                                             height="80"
