@@ -15,7 +15,8 @@ const SingleProduct = ({ related, product }) => {
   const images = [
     {
       original:`${product.product_imageUrl}`,
-      thumbnail:`${product.product_imageUrl}`,
+      thumbnail:
+        "https://i.ibb.co/28dHMTv/25-525c2823-683a-445e-b187-6fe7ca3f5a8e-159x202.jpg",
     },
     {
       original:`${product.product_imageUrl}`,
@@ -341,11 +342,11 @@ export async function getStaticProps({ params }) {
 export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);
   const product = await data.json();
-  
+
   const related_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/`);
   const related = await related_res.json();
 
   return {
-      props:{product,related}
+    props: { product, related }
   }
 }

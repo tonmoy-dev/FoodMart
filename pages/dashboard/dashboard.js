@@ -3,6 +3,7 @@ import {
 } from "@heroicons/react/solid";
 import Link from "next/link";
 import React, { useState } from "react";
+import WelcomeAdmin from "../../src/Components/Dashboard/Admin/WelcomePage/WelcomeAdmin";
 import DashAdminMenu from "./DashMenu/DashAdminMenu";
 const Dashboard = () => {
   const [isActive, setActive] = useState("false");
@@ -58,9 +59,7 @@ const Dashboard = () => {
 
         {/* main content */}
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-          <h1 className="text-3xl text-gray-700 font-bold">
-            Welcome to Dashboard
-          </h1>
+          <WelcomeAdmin></WelcomeAdmin>
         </div>
 
       </div>

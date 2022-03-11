@@ -14,14 +14,14 @@ const Products = ({ products }) => {
     const Wishlistproduct = products.filter((product) => product._id === id);
     const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
 
-    axios.post("/api/wishlists", { 
+    axios.post("/api/wishlists", {
       product_title: product_title,
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
 
-     }).then((response) => {
+    }).then((response) => {
 
       if (response.data.insertedId) {
         setControl(!control);

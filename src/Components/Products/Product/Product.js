@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
   const [control, setControl] = useState(false);
   const user = useSelector((state) => state.states.user);
 
@@ -53,7 +53,7 @@ const Product = ({product}) => {
       // }
     });
   };
- 
+
   // Add to cart a product
   const addToCartHandler = async (title, image, price, description) => {
     axios

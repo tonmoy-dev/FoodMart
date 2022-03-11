@@ -2,6 +2,9 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import ReactDOM from 'react-dom';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+// import MessengerCustomerChat from 'react-messenger-customer-chat';
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/components/navigation/navigation.min.css";
@@ -154,6 +157,13 @@ const Banner = () => {
           </div>
         </div>
       </div>
+
+      <MessengerCustomerChat
+        // className="bg-green-700"
+        pageId="4077509485697177"
+        appId="361045412549261"
+      // htmlRef="<REF_STRING>"
+      />,
     </div>
   );
 };
