@@ -8,7 +8,8 @@ export default async function compareProductHandler(req, res) {
 
     // load compare products in ui
     if (method === "GET") {
-        const compare = await db.collection("compare").find({}).toArray();
+        const email = req.query.email;
+        const compare = await db.collection("compare").find({email}).toArray();
         res.json(compare);
     }
     // store compare product in database

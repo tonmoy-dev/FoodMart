@@ -13,14 +13,14 @@ const Product = ({product}) => {
   const user = useSelector((state) => state.states.user);
 
   // add to wishlists
-  const handleAddWishlist = async (product_title,product_price,user_rating,product_stock,product_imageUrl) => {
+  const handleAddWishlist = async (product_title,product_price,user_rating,product_stock,product_imageUrl,email) => {
     axios.post("/api/wishlists", { 
       product_title: product_title,
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
-
+      email:email
      }).then((response) => {
 
       if (response.data.insertedId) {
@@ -33,7 +33,7 @@ const Product = ({product}) => {
   };
 
   // add to compare lists
-  const handleAddCompare = async (product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details) => {
+  const handleAddCompare = async (product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,email) => {
 
     axios.post("/api/compare", {
       product_title: product_title,
@@ -41,8 +41,8 @@ const Product = ({product}) => {
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
-      produc_Details: produc_Details
-        
+      produc_Details: produc_Details,
+      email:email  
     }).then((response) => {
       if (response.data.insertedId) {
         // setControl(!control);
@@ -89,7 +89,7 @@ const Product = ({product}) => {
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
             <HeartIcon
-              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail)}
+              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,user.email)}
               className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
             />
           </button>
@@ -99,7 +99,7 @@ const Product = ({product}) => {
             </button>
           </Link>
           <button data-tooltip="+ Add to compare">
-            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,produc_Details)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
           </button>
         </div>
       </div>
