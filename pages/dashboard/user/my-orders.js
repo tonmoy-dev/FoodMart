@@ -1,9 +1,23 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
-import Image from "next/image";
-import React from "react";
-import productImage from "../../../src/assets/wishlistImage/product-1-1.png";
+import axios from "axios";
+import Link from 'next/link';
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
  
 const MyOrders = () => {
+    const [loading, setLoading] = useState(true)
+    const [items, setItems] = useState([]);
+    const user = useSelector((state) => state.states.user);
+     // cart data
+    useEffect(() => {
+        setLoading(true);
+      axios.get(`/api/orders?email=${user.email}`).then(response => {
+          setItems(response.data);
+          setLoading(false);
+      });
+  }, [user.email]);
+    console.log(items)
+    // console.log(items[0].email)
     return (
         <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">
@@ -22,7 +36,7 @@ const MyOrders = () => {
                                     className="h-4 w-4 text-gray-700 mr-2"
                                     aria-hidden="true"
                                 />
-                                Home
+                                <Link href="/">Home</Link>
                             </a>
                         </li>
                         <li>
@@ -69,70 +83,59 @@ const MyOrders = () => {
             </div>
             <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-lg">
                 <h2 className="text-2xl font-semibold mb-2">My Orders</h2>
-                <div className="overflow-auto rounded-lg shadow hidden md:block">
-                    <table className="w-full">
-                        <thead className="bg-gray-50 border-b-2 border-gray-200">
-                            <tr>
-                                <th className="p-6 text-sm font-semibold tracking-wide text-left">
-                                    Order
-                                </th>
-                                <th className="p-6 text-sm font-semibold tracking-wide text-left">
-                                    Date
-                                </th>
-                                <th className="p-6 text-sm font-semibold tracking-wide text-left">
-                                    Status
-                                </th>
-                                <th className="p-6 text-sm font-semibold tracking-wide text-left">
-                                    Total
-                                </th>
-                                <th className="p-6 text-sm font-semibold tracking-wide text-left">
-                                    Actions
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody className="divide-y divide-gray-200">
-                            <tr>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    #1234
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    February 15 2022
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
-                                        shipped
-                                    </span>
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    $145.00 for 2 item
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    View
-                                </td>
-                            </tr>
-                            <tr>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    #1234
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    February 15 2022
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
-                                        Processing
-                                    </span>
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    $145.00 for 2 item
-                                </td>
-                                <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                                    View
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
+                {loading && <p>Please wait</p>}
+                {
+                    !loading && (
+                        <div className="overflow-auto rounded-lg shadow">
+                            <table className="w-full">
+                                <thead className="bg-gray-50 border-b-2 border-gray-200">
+                                    <tr>
+                                        <th className="p-6 text-sm font-semibold tracking-wide text-left">
+                                            Order
+                                        </th>
+                                        <th className="p-6 text-sm font-semibold tracking-wide text-left">
+                                            Date
+                                        </th>
+                                        <th className="p-6 text-sm font-semibold tracking-wide text-left">
+                                            Status
+                                        </th>
+                                        <th className="p-6 text-sm font-semibold tracking-wide text-left">
+                                            Total
+                                        </th>
+                                        <th className="p-6 text-sm font-semibold tracking-wide text-left">
+                                            Email
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-200">
+                                    <tr>
+                                        <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
+                                            #{items[0]?._id}
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
+                                            March 11, 2022
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
+                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                                Processing
+                                            </span>
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
+                                            $ {items[0]?.price}
+                                        </td>
+                                        <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
+                                            {items[0]?.email}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    )
+                }
+                
+                {/* orders in small screen view */}
+
+                {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
                     <div className="bg-gray-100 py-4 rounded-lg shadow-md">
                         <div className="flex">
                             <div className="flex items-center border-r border-gray-300">
@@ -217,7 +220,7 @@ const MyOrders = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );

@@ -9,11 +9,13 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import DotLoader from "react-spinners/DotLoader";
 import swal from "sweetalert";
 
 const Cart = ({ createCheckoutSession, items, control, setControl, loading, setLoading}) => {
   const [color, setColor] = useState("green");
+  const user = useSelector((state) => state.states.user);
   const products = items;
 
   const handleDelete = async (id) => {
@@ -28,6 +30,16 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
           setLoading(false);
         } 
     })
+  };
+
+  // send items to the orders
+  const handleAddOrders = async (items,total,email) => {
+    axios.post("/api/orders", {
+      email:email,
+      items,
+      price:total,
+    }).then((response) => {
+    });
   };
   
   let sum = 0;
@@ -215,7 +227,7 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
                   Proceed To Checkout
                     </button>
                   ) : (
-                    <button onClick={createCheckoutSession} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(products,totalPrice,user.email)]} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                   <LogoutIcon className="w-4" />
                       </button>
