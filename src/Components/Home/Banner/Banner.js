@@ -2,6 +2,7 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/components/navigation/navigation.min.css";
@@ -147,6 +148,11 @@ const Banner = () => {
                   Shop now <ArrowRightIcon className="w-4" />
                 </button>
 
+                <MessengerCustomerChat
+    pageId="100697865102030"
+    appId="361045412549261"
+    // htmlRef="<REF_STRING>"
+  />,
 
  
               </div>
