@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import {FaCartPlus } from 'react-icons/fa';
+
 const DealsofDay = () => {
   const fakeArr = [
     {
@@ -191,8 +193,8 @@ const DealsofDay = () => {
                         <strike>$32.85</strike>
                       </sub>
                     </h4>
-                    <button className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white">
-                      Add
+                    <button className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white">
+                    <FaCartPlus className="w-6 h-6"/>
                     </button>
                   </div>
                 </div>

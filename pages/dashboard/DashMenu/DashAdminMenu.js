@@ -57,11 +57,11 @@ const DashAdminMenu = () => {
       menuName: "My order",
       pageLink: "/dashboard/user/my-orders",
     },
-    {
-      menuId: 9,
-      menuName: "Order Details",
-      pageLink: "/dashboard/admin/order-details",
-    },
+    // {
+    //   menuId: 9,
+    //   menuName: "Order Details",
+    //   pageLink: "/dashboard/admin/order-details",
+    // },
     {
       menuId: 10,
       menuName: "Account Details",

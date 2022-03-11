@@ -1,3 +1,4 @@
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
 import Blogs from "../src/Components/Home/Blogs/Blogs";
@@ -9,6 +10,7 @@ import NewsLetter from "../src/Components/Home/NewsLetter/NewsLetter";
 import PopularProducts from "../src/Components/Home/PopularProducts/PopularProducts";
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 export default function Home({ reviews, products, blogs }) {
   return (
@@ -24,6 +26,13 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
+
+      <MessengerCustomerChat
+        className="bg-green-700"
+        pageId="100697865102030"
+        appId="361045412549261"
+      // htmlRef="<REF_STRING>"
+      />,
     </div>
   );
 }
@@ -40,5 +49,6 @@ export async function getServerSideProps() {
 
   return {
     props: { reviews, products, blogs },
+
   };
 }

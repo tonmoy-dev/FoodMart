@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaRegStar, FaStar } from 'react-icons/fa';
+import { FaRegStar, FaStar, FaCartPlus } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
@@ -13,15 +13,15 @@ const Product = ({ product }) => {
   const user = useSelector((state) => state.states.user);
 
   // add to wishlists
-  const handleAddWishlist = async (product_title, product_price, user_rating, product_stock, product_imageUrl) => {
-    axios.post("/api/wishlists", {
+  const handleAddWishlist = async (product_title,product_price,user_rating,product_stock,product_imageUrl,email) => {
+    axios.post("/api/wishlists", { 
       product_title: product_title,
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
-
-    }).then((response) => {
+      email:email
+     }).then((response) => {
 
       if (response.data.insertedId) {
         setControl(!control);
@@ -33,7 +33,7 @@ const Product = ({ product }) => {
   };
 
   // add to compare lists
-  const handleAddCompare = async (product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details) => {
+  const handleAddCompare = async (product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,email) => {
 
     axios.post("/api/compare", {
       product_title: product_title,
@@ -41,8 +41,8 @@ const Product = ({ product }) => {
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
-      produc_Details: produc_Details
-
+      produc_Details: produc_Details,
+      email:email  
     }).then((response) => {
       if (response.data.insertedId) {
         // setControl(!control);
@@ -89,7 +89,7 @@ const Product = ({ product }) => {
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
             <HeartIcon
-              onClick={() => handleAddWishlist(product_title, product_price, user_rating, product_stock, product_imageUrl)}
+              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl,user.email)}
               className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
             />
           </button>
@@ -99,7 +99,7 @@ const Product = ({ product }) => {
             </button>
           </Link>
           <button data-tooltip="+ Add to compare">
-            <RefreshIcon onClick={() => handleAddCompare(product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
           </button>
         </div>
       </div>
@@ -168,9 +168,9 @@ const Product = ({ product }) => {
                 produc_Details
               )
             }
-            className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
+            className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
           >
-            Add to cart
+            <FaCartPlus className="w-6 h-6"/>
           </a>
         </div>
       </div>

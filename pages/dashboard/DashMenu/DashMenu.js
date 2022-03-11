@@ -9,7 +9,15 @@ import {
 import Link from "next/link";
 import React, { useState } from "react";
 
-const DashVendorMenu = () => {
+
+
+
+
+
+
+
+
+const DashMenu = () => {
     const [isActive, setActive] = useState("false");
     const [isAActive, setAActive] = useState("false");
 
@@ -21,7 +29,58 @@ const DashVendorMenu = () => {
         setAActive(!isAActive);
     };
 
-    const MenuList = [
+    
+    // [
+    //     {
+    //         menuId: 2,
+    //         menuName: "Coupon List",
+    //         pageLink: "/dashboard/admin/coupons-list",
+    //     },
+    //     {
+    //         menuId: 3,
+    //         menuName: "Catagory List",
+    //         pageLink: "/dashboard/admin/category-list",
+    //     },
+    //     {
+    //         menuId: 4,
+    //         menuName: "Add Product",
+    //         pageLink: "/dashboard/admin/add-product",
+    //     },
+    //     {
+    //         menuId: 5,
+    //         menuName: "Add Coupon",
+    //         pageLink: "/dashboard/admin/add-coupon",
+    //     },
+    //     {
+    //         menuId: 6,
+    //         menuName: "Add Blog",
+    //         pageLink: "/dashboard/user/add-blog",
+    //     },
+    //     {
+    //         menuId: 7,
+    //         menuName: "Add Review",
+    //         pageLink: "/dashboard/user/add-review",
+    //     },
+    //     {
+    //         menuId: 8,
+    //         menuName: "My order",
+    //         pageLink: "/dashboard/user/my-orders",
+    //     },
+    //     {
+    //         menuId: 9,
+    //         menuName: "Order Details",
+    //         pageLink: "/dashboard/admin/order-details",
+    //     },
+    //     {
+    //         menuId: 10,
+    //         menuName: "Account Details",
+    //         pageLink: "/dashboard/user/account-details",
+    //     },
+    // ];
+
+
+
+    const adminMenuList =    [
         {
             menuId: 2,
             menuName: "Coupon List",
@@ -32,11 +91,7 @@ const DashVendorMenu = () => {
             menuName: "Catagory List",
             pageLink: "/dashboard/admin/category-list",
         },
-        {
-            menuId: 4,
-            menuName: "Add Product",
-            pageLink: "/dashboard/admin/add-product",
-        },
+
         {
             menuId: 5,
             menuName: "Add Coupon",
@@ -54,7 +109,7 @@ const DashVendorMenu = () => {
         },
         {
             menuId: 8,
-            menuName: "My Order",
+            menuName: "My order",
             pageLink: "/dashboard/user/my-orders",
         },
         {
@@ -68,6 +123,44 @@ const DashVendorMenu = () => {
             pageLink: "/dashboard/user/account-details",
         },
     ];
+
+    const vendorMenuList = [
+
+
+        {
+            menuId: 4,
+            menuName: "Add Product",
+            pageLink: "/dashboard/admin/add-product",
+        },
+
+        {
+            menuId: 6,
+            menuName: "Add Blog",
+            pageLink: "/dashboard/user/add-blog",
+        },
+        {
+            menuId: 7,
+            menuName: "Add Review",
+            pageLink: "/dashboard/user/add-review",
+        },
+        {
+            menuId: 8,
+            menuName: "My order",
+            pageLink: "/dashboard/user/my-orders",
+        },
+        {
+            menuId: 9,
+            menuName: "Order Details",
+            pageLink: "/dashboard/admin/order-details",
+        },
+        {
+            menuId: 10,
+            menuName: "Account Details",
+            pageLink: "/dashboard/user/account-details",
+        },
+    ];
+
+    const MenuList = adminMenuList;
 
     return (
         <div>
@@ -257,4 +350,4 @@ const DashVendorMenu = () => {
     );
 };
 
-export default DashVendorMenu;
+export default DashMenu;
