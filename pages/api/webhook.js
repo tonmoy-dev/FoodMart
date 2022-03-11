@@ -1,15 +1,12 @@
-// import * as admin from "firebase-admin";
+import * as admin from "firebase-admin";
 import { buffer } from "micro";
-import clientPromise from "../../../lib/mongodb";
 
-const client = await clientPromise;
-const db = client.db("foodmart_shop");
 // secure a connection to firebase from the backend
-// const serviceAccount = require('../../permissions.json');
-/* const app = !admin.apps.length ? admin.initializeApp({
+const serviceAccount = require('../../permissions.json');
+const app = !admin.apps.length ? admin.initializeApp({
     credential:admin.credential.cert(serviceAccount)
 })
-    : admin.app(); */
+    : admin.app();
 
     // establish connection to stripe
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
@@ -17,10 +14,9 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const endpointSecrect = process.env.STRIPE_SIGNING_SECRET;
 
 const fullfilOrder = async (session) => {
-    // console.log('fullfilling order', session);
-    const app = await db.collection("orders").insertOne(session);
-    return app;
-    /* return app.firestore().collection('users').doc(session.metadata.email).collection('orders').doc(session.id).set({
+    // console.log('fullfilling order',session);
+
+    return app.firestore().collection('users').doc(session.metadata.email).collection('orders').doc(session.id).set({
         amount: session.amount_total / 100,
         amount_shipping: session.total_details.amount_shipping / 100,
         images: JSON.parse(session.metadata.images),
@@ -28,11 +24,10 @@ const fullfilOrder = async (session) => {
     })
         .then(() => {
         console.log(`SUCCESS: Order ${session.id} had been added to Database`)
-    }) */
+    })
 }
 
 export default async (req, res) => {
-
     if (req.method === 'POST') {
         const requestBuffer = await buffer(req);
         const payload = requestBuffer.toString();
@@ -51,7 +46,6 @@ export default async (req, res) => {
         // handle the checkout session completed event
         if (event.type === 'checkout.session.completed') {
             const session = event.data.object;
-            console.log(session)
 
             // full fill the order
             return fullfilOrder(session)
