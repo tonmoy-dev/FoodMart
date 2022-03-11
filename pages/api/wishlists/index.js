@@ -8,7 +8,8 @@ export default async function wishlistHandler(req, res) {
 
     // load wishlist
     if (method === "GET") {
-        const wishlist = await db.collection("wishlist").find({}).toArray();
+        const email = req.query.email;
+        const wishlist = await db.collection("wishlist").find({email}).toArray();
         res.json(wishlist);
     }
 
