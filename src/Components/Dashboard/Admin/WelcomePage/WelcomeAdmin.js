@@ -23,7 +23,6 @@ import swal from "sweetalert";
 const WelcomeAdmin = () => {
     // Hello
     const user = useSelector((state) => state.states.user);
-    console.log(user);
     const [products, setProducts] = useState([]);
     const [vendors, setVendors] = useState([]);
     const [control, setControl] = useState(false);
@@ -36,7 +35,6 @@ const WelcomeAdmin = () => {
         axios.get("/api/products").then(response => {
 
             setProducts(response?.data);
-            console.log(response.data);
             setLoading(false);
         });
     }, [control]);
@@ -64,8 +62,28 @@ const WelcomeAdmin = () => {
     // top products
 
     const topVendors = vendors?.slice(0, 5);
-    console.log(topVendors);
 
+
+    // users
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        setControl(true);
+        axios.get("/api/users").then(response => {
+            setUsers(response.data);
+            setLoading(false);
+        });
+    }, [control]);
+
+
+    console.log(user.displayName);
+    console.log(user.email);
+    const email = user.email
+
+
+    const userNow = users.filter(user => user.email === email)[0]
+    console.log(userNow);
+    // const userNow = users.filter()
 
 
     return (
@@ -176,7 +194,7 @@ const WelcomeAdmin = () => {
                                                                             <h1>{product_title}</h1>
                                                                         </td>
                                                                         <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                                                            <span>{product_price}</span>
+                                                                            $ <span>{product_price}</span>
                                                                         </td>
                                                                     </tr>
                                                                 )
@@ -241,7 +259,6 @@ const WelcomeAdmin = () => {
 
                                                                 const image = icon;
 
-                                                                console.log(_id,icon);
                                                                 return (
                                                                     <tr
                                                                         key={_id}
@@ -261,7 +278,7 @@ const WelcomeAdmin = () => {
                                                                             <h1>{name}</h1>
                                                                         </td>
                                                                         <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                                                            $ <span>{products_added}</span>
+                                                                            <span>{products_added}</span>
                                                                         </td>
                                                                     </tr>
                                                                 )
