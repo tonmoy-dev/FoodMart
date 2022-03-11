@@ -21,6 +21,7 @@ import swal from "sweetalert";
 
 
 const WelcomeAdmin = () => {
+    // Hello
     const user = useSelector((state) => state.states.user);
     console.log(user);
     const [products, setProducts] = useState([]);
@@ -33,7 +34,7 @@ const WelcomeAdmin = () => {
         setLoading(true);
         setControl(true);
         axios.get("/api/products").then(response => {
-            
+
             setProducts(response?.data);
             console.log(response.data);
             setLoading(false);
