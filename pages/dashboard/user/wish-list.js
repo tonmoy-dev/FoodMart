@@ -17,7 +17,7 @@ const WishList = () => {
   }, [control]);
 
   const handleDelete = async (id) => {
-    axios.delete(`/api/wishlists?product_id=${id}`, {
+    axios.delete(`/api/Account?product_id=${id}`, {
     }).then(response => {
         if (response.data.deletedCount) {
             setControl(!control);
