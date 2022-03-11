@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import formStyle from "../../styles/AccountDetails.module.css";
 import swal from "sweetalert";
+import DashAdminMenu from "../../../pages/dashboard/DashMenu/DashAdminMenu";
 
 const AccountDetails = () => {
     const { register, handleSubmit, reset } = useForm();
@@ -18,6 +19,26 @@ const AccountDetails = () => {
     };
 
     return (
+        <>
+         <style jsx>
+        {`
+          ::-webkit-scrollbar {
+            width: 1px;
+          }
+          ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+          }
+          ::-webkit-scrollbar-thumb {
+            background: darkcyan;
+          }
+        `}
+        </style>
+
+        <div id="dashboard-container" className="h-screen bg-gray-100">
+        {/* top bar */}
+        <DashAdminMenu />
+         {/* main content */}
+         <div id="main-content" className="pt-10 pr-8 pl-8 lg:pl-64 bg-gray-100">
         <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">
                 Account Details
@@ -240,6 +261,9 @@ const AccountDetails = () => {
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        </>
     );
 };
 
