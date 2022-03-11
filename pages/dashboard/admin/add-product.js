@@ -1,6 +1,5 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React, { useState } from "react";
-import MessengerCustomerChat from 'react-messenger-customer-chat';
 // import swal from "sweetalert";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -335,12 +334,6 @@ const AddProduct = () => {
                   pauseOnHover
                 />
               </div>
-
-              <MessengerCustomerChat
-    pageId="100697865102030"
-    appId="361045412549261"
-    // htmlRef="<REF_STRING>"
-  />,
             </form>
           </div>
         </div>

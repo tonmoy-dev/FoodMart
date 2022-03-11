@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
@@ -11,10 +12,9 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 // import required images
 import slider1 from "../../../assets/bannerImage/slider-1.jpg";
-import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import slider3 from "../../../assets/bannerImage/slider-3.jpg";
+import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import bannerStyle from "../../../styles/Banner.module.css";
-import Link from "next/link";
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
@@ -146,6 +146,9 @@ const Banner = () => {
                 <button className="mt-2 text-sm capitalize text-green-500 hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
                 </button>
+
+
+ 
               </div>
             </div>
           </div>
