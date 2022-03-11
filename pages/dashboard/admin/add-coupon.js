@@ -57,7 +57,7 @@ const AddCoupon = () => {
 
 
                 {/* main content */}
-                <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
+                <div id="main-content" className="pt-24 pl-8 lg:pl-72">
                 {/* <div> */}
 
                 <div className=" bg-gray-100 bg-opacity-70">
@@ -317,9 +317,9 @@ const AddCoupon = () => {
                                 <div className="col-span-2">
                                     <button
                                         type="submit"
-                                        className="w-full md:w-1/5 inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                        className="w-full md:w-1/5 inline-flex justify-center py-2 px-6 border border-transparent shadow-sm text-lg font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                                     >
-                                        Save
+                                        Add
                                     </button>
                                 </div>
                             </div>

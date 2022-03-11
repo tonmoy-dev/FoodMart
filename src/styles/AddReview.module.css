@@ -1,16 +1,16 @@
 .content {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 
 .reviewcontainer {
-  width: 50%;
+  width: 80%;
   background: rgb(255, 255, 255);
   color: #fff;
-  margin: 2rem;
   box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
   padding: 2.5rem;
+  margin: 40px 0px;
 }
 .inputsfield {
   background: rgb(255, 255, 255);

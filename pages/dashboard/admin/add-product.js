@@ -67,13 +67,13 @@ const AddProduct = () => {
 
         {/* main content */}
 
-        <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
+        <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-72">
           <div className="bg-gray-100">
 
-            <div className="py-16 mx-5 md:mx-20">
-              <h1 className=" text-black font-semibold text-4xl pb-2">Add Product</h1>
+            <div className="pb-16 mx-5">
+              <h1 className=" text-black font-semibold text-4xl pb-2 ml-4">Add Product</h1>
               {/* breadcrumb */}
-              <div className="pb-10">
+              <div className="pb-10 ml-4">
                 <nav className="flex" aria-label="Breadcrumb">
                   <ol className="inline-flex items-center space-x-1 md:space-x-3">
                     <li className="inline-flex items-center">
@@ -130,15 +130,10 @@ const AddProduct = () => {
                   </ol>
                 </nav>
               </div>
-              <h1 className="text-xl pb-3 font-semibold">Add New Product</h1>
+              {/* <h1 className="text-xl pb-3 font-semibold">Add New Product</h1> */}
               <div className="md:flex flex-wrap items-center justify-center ">
-                <div className="md:w-1/2 bg-white rounded-lg p-8 md:m-4">
-                  <div className="">
-                    <h1 className="text-gray-700 text-center font-semibold text-3xl ">
-                      Add Product
-                    </h1>
-                  </div>
-                  <form onSubmit={handleSubmission} className="pt-10">
+                <div className="md:w-full bg-white rounded-lg p-8 md:m-8">
+                  <form onSubmit={handleSubmission}>
                     <div className="flex flex-col mb-2">
                       <label
                         className="font-semibold text-lg text-gray-700"
