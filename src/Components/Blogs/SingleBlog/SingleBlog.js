@@ -214,7 +214,7 @@ const SingleBlog = ({ blog }) => {
 
             <div>
               <h3 className="text-2xl font-semibold p-4 text-justify">
-                Let's learn more about {blog.title}
+                Lets learn more about {blog.title}
               </h3>
               <p className="text-gray-600 leading-5 text-sm p-4 text-justify">
                 {blog.description}

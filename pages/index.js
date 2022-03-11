@@ -1,3 +1,4 @@
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
 import Blogs from "../src/Components/Home/Blogs/Blogs";
@@ -25,6 +26,13 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
+
+      <MessengerCustomerChat
+              className="bg-green-700"
+    pageId="100697865102030"
+    appId="361045412549261"
+    // htmlRef="<REF_STRING>"
+  />,
     </div>
   );
 }
