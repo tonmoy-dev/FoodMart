@@ -27,7 +27,6 @@ const Faq = () => {
               <div className="px-2 w-2/4">
                 <Image
                   className=""
-                //   src="https://i.ibb.co/CPMfDrx/FAQs.gif"
                   src="https://i.ibb.co/KjQW4kx/3567801.jpg"
                   alt="Picture of the author"
                   width={500}
