@@ -14,9 +14,8 @@ const SingleProduct = ({ related, product }) => {
 
   const images = [
     {
-      original:`${product.product_imageUrl.thumbnail}`,
-      thumbnail:
-        "https://i.ibb.co/28dHMTv/25-525c2823-683a-445e-b187-6fe7ca3f5a8e-159x202.jpg",
+      original:`${product.product_imageUrl}`,
+      thumbnail:`${product.product_imageUrl}`,
     },
     {
       original:

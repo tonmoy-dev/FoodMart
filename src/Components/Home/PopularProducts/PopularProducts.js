@@ -18,7 +18,7 @@ const PopularProducts = ({ products }) => {
             product_price: product_price,
             user_rating: user_rating,
             product_stock: product_stock,
-            product_imageUrl: product_imageUrl.thumbnail,
+            product_imageUrl: product_imageUrl,
             produc_Details: produc_Details
 
         }).then((response) => {
@@ -99,7 +99,7 @@ const PopularProducts = ({ products }) => {
                                 <a href="./">
                                     <Image
                                         className="p-8 rounded-t-lg"
-                                        src={product_imageUrl.thumbnail}
+                                        src={product_imageUrl}
                                         alt="product image"
                                         height="180"
                                         width="200"
