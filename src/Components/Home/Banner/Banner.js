@@ -149,7 +149,7 @@ const Banner = () => {
                 </button>
 
                 <MessengerCustomerChat
-                className='bg-green-700'
+                className='bg-green-600'
     pageId="100697865102030"
     appId="361045412549261"
     // htmlRef="<REF_STRING>"
