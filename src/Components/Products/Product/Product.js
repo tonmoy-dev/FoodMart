@@ -8,20 +8,20 @@ import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
 
-const Product = ({product}) => {
+const Product = ({ product }) => {
   const [control, setControl] = useState(false);
   const user = useSelector((state) => state.states.user);
 
   // add to wishlists
-  const handleAddWishlist = async (product_title,product_price,user_rating,product_stock,product_imageUrl) => {
-    axios.post("/api/wishlists", { 
+  const handleAddWishlist = async (product_title, product_price, user_rating, product_stock, product_imageUrl) => {
+    axios.post("/api/wishlists", {
       product_title: product_title,
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
 
-     }).then((response) => {
+    }).then((response) => {
 
       if (response.data.insertedId) {
         setControl(!control);
@@ -33,7 +33,7 @@ const Product = ({product}) => {
   };
 
   // add to compare lists
-  const handleAddCompare = async (product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details) => {
+  const handleAddCompare = async (product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details) => {
 
     axios.post("/api/compare", {
       product_title: product_title,
@@ -42,7 +42,7 @@ const Product = ({product}) => {
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
       produc_Details: produc_Details
-        
+
     }).then((response) => {
       if (response.data.insertedId) {
         // setControl(!control);
@@ -53,7 +53,7 @@ const Product = ({product}) => {
       // }
     });
   };
- 
+
   // Add to cart a product
   const addToCartHandler = async (title, image, price, description) => {
     axios
@@ -89,7 +89,7 @@ const Product = ({product}) => {
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
             <HeartIcon
-              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail)}
+              onClick={() => handleAddWishlist(product_title, product_price, user_rating, product_stock, product_imageUrl)}
               className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
             />
           </button>
@@ -99,7 +99,7 @@ const Product = ({product}) => {
             </button>
           </Link>
           <button data-tooltip="+ Add to compare">
-            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl.thumbnail,produc_Details)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            <RefreshIcon onClick={() => handleAddCompare(product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
           </button>
         </div>
       </div>
@@ -121,7 +121,7 @@ const Product = ({product}) => {
         {" "}
         <Image
           className="p-8 rounded-t-lg"
-          src={product_imageUrl.thumbnail}
+          src={product_imageUrl}
           alt="product image"
           height="180"
           width="200"
@@ -163,7 +163,7 @@ const Product = ({product}) => {
             onClick={() =>
               addToCartHandler(
                 product_title,
-                product_imageUrl.thumbnail,
+                product_imageUrl,
                 product_price,
                 produc_Details
               )

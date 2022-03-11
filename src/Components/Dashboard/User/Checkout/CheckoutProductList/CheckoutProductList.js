@@ -7,7 +7,7 @@ const CheckoutProductList = ({ products }) => {
 
     // const total_price = TotalProducts.map(product => ( return  ))
 
-    
+
     let sum = 0;
     for (let i = 0; i < TotalProducts.length; i++) {
         sum = parseFloat(TotalProducts[0].product_price) + sum;
@@ -44,7 +44,7 @@ const CheckoutProductList = ({ products }) => {
                                                     <div className="w-1/3">
                                                         <Image
                                                             src={
-                                                                product_imageUrl.thumbnail
+                                                                product_imageUrl
                                                             }
                                                             width="90"
                                                             height="80"
