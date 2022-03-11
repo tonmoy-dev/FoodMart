@@ -95,7 +95,7 @@ const AllVendors = () => {
   ];
   return (
     <>
-      <div className="head-banner mt-4">
+      <div className="head-banner">
         <div className="container mx-auto">
           <div className="banner-inner flex flex-col justify-center items-center">
             <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
