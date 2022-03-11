@@ -7,7 +7,7 @@ const Footer = () => {
   const router = useRouter()
   if (!router?.pathname?.includes('dashboard'))
   return (
-    <div className="bg-gray-100 pt-5">
+    <div className="bg-gray-100 footer-bg pt-5">
       <div className="container px-6 py-4 mx-auto">
         <div className="lg:flex">
           <div className="w-full -mx-6 lg:w-2/5">

@@ -1,9 +1,47 @@
 import Image from "next/image";
 import React from "react";
 import aboutImg from "../../../assets/aboutImg/fdlove.webp";
+import {
+  ChevronRightIcon,
+} from "@heroicons/react/solid";
+import Link from "next/link";
+
 const AboutFoodMart = () => {
   return (
-    <div>
+    <div className="">
+      <div className="head-banner">
+        <div className="container mx-auto">
+          <div className="banner-inner flex flex-col justify-center items-center">
+            <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
+              <span className="">About Us</span>
+            </h1>
+            {/* nav */}
+            <nav className="flex" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <a
+                    href="#"
+                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    <Link href="/">Home</Link>
+                  </a>
+                </li>
+                <li aria-current="page">
+                  <div className="flex items-center">
+                    <ChevronRightIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                      about-us
+                    </span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
       <div className="">
         <section className="text-gray-600 body-font">
           <div className="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
