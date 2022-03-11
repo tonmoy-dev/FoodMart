@@ -88,7 +88,7 @@ const DashAdminMenu = () => {
       {/* top bar */}
       <div
         id="top-bar"
-        className="h-20 bg-white shadow-sm pr-8 lg:pl-80 pl-8 fixed w-full top-0 left-0 flex items-center"
+        className="h-20 z-10 bg-white shadow-sm pr-8 lg:pl-80 pl-8 fixed w-full top-0 left-0 flex items-center"
       >
         {/* menu button */}
         <div

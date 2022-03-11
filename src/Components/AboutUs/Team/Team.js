@@ -7,7 +7,7 @@ import female from '../../../assets/aboutImg/person.jpg';
 
 const Team = () => {
     return (
-        <div className='pt-3'>
+        <div className=''>
                     <section className="bg-white dark:bg-gray-900">
             <div className="h-[32rem] bg-gray-100 dark:bg-gray-800">
                 <div className="container px-6 py-10 mx-auto">

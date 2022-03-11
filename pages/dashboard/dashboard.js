@@ -36,27 +36,6 @@ const Dashboard = () => {
         {/* top bar */}
         <DashAdminMenu />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         {/* main content */}
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
           <WelcomeAdmin></WelcomeAdmin>
