@@ -28,7 +28,7 @@ const BestSells = ({ products }) => {
         <div>
           <div
             style={{
-              backgroundImage: `url('https://i.ibb.co/cc0jgvk/banner-4.png')`,
+              backgroundImage: `url('https://i.ibb.co/r7byKwp/banner16-1.jpg')`,
               height: "26rem",
             }}
             className="dbs-style rounded-lg border-1"

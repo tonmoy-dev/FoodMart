@@ -39,7 +39,7 @@ const Reviews = ({reviews}) => {
                 <div className={reviewStyle.imgBox}>
                   <Image
                     className={reviewStyle.avator}
-                    src="https://i.ibb.co/w77SX8J/ijsi5fzb1nbkbhxa2gc1.png"
+                    src="https://i.ibb.co/5BTm8d4/photo-profil-301783868.jpg"
                     alt=""
                     height={80}
                     width={80}
@@ -63,7 +63,7 @@ const Reviews = ({reviews}) => {
                 <div className={reviewStyle.imgBox}>
                   <Image
                     className={reviewStyle.avator}
-                    src="https://i.ibb.co/0F7zH74/images-q-tbn-ANd9-Gc-Sk-FD7r-VDIsj77-R6-CBhfwmiido-HUQY76-Ze4-Sh-ORlo-VE-ECfb-Yn-DCVri9odp-In-T7e-HX.jpg"
+                    src="https://i.ibb.co/J2z1yM6/18dbd99c8f8166cb175c39506e15aa643856f4f0.jpg"
                     alt=""
                     height={80}
                     width={80}
@@ -87,7 +87,7 @@ const Reviews = ({reviews}) => {
                 <div className={reviewStyle.imgBox}>
                   <Image
                     className={reviewStyle.avator}
-                    src="https://i.ibb.co/4V0Jrk4/avatar-1606914-340.png"
+                    src="https://i.ibb.co/xFfmcMN/Emotional-headshot-of-aspiring-actress-on-white-background-made-by-Headshots-Prague-1-1.jpg"
                     alt=""
                     height={80}
                     width={80}

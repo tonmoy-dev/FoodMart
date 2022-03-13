@@ -2,9 +2,8 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ReactDOM from 'react-dom';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-// import MessengerCustomerChat from 'react-messenger-customer-chat';
+import MessengerCustomerChat from "react-messenger-customer-chat";
+
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/components/navigation/navigation.min.css";
@@ -149,21 +148,18 @@ const Banner = () => {
                 <button className="mt-2 text-sm capitalize text-green-500 hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
                 </button>
-
-
- 
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <MessengerCustomerChat
         // className="bg-green-700"
         pageId="4077509485697177"
         appId="361045412549261"
-      // htmlRef="<REF_STRING>"
-      />,
+        // htmlRef="<REF_STRING>"
+      />
+      ,
     </div>
   );
 };
