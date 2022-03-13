@@ -60,7 +60,7 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $19
+                    Natural Vegetables <br /> from $19
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
@@ -82,7 +82,7 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $10
+                    Fishes with vegetable <br /> from $10
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
@@ -104,7 +104,7 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $11
+                    Organic Nooddles <br /> from $11
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
