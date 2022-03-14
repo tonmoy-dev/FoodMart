@@ -129,7 +129,7 @@ export default function Navigation() {
                                             </button>
                                             <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
                                                 <span className="cursor-pointer">Cart</span>
-                                                <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-auto ">
+                                                <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-96 hidden">
                                                     <Cart></Cart>
                                                 </div>
                                             </div>
