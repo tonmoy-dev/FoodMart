@@ -3,6 +3,7 @@ import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import swal from "sweetalert";
 import React, { useEffect, useState } from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
 import { useSelector } from "react-redux";
@@ -22,6 +23,35 @@ const WishList = () => {
     });
   }, [control, user.email]);
 
+  // const handleDelete = async (id) => {
+  //   axios.delete(`/api/wishlists?product_id=${id}`, {}).then((response) => {
+  //     if (response.data.deletedCount) {
+  //       setControl(!control);
+  //       swal("Oh!", "You removed a product from your cart", "success");
+  //     } else {
+  //       setControl(false);
+  //     }
+  //   });
+  // };
+
+  // Add to cart a product
+  const addToCartHandler = async (title, image, price) => {
+    axios
+      .post("/api/cart", {
+        title: title,
+        image: image,
+        price: price,
+      })
+      .then((response) => {
+        if (response.data.insertedId) {
+          setControl(!control);
+          swal("Wow!", "Product is added to your cart", "success");
+        } else {
+          setControl(false);
+        }
+      });
+  };
+
   const handleDelete = async (id) => {
     axios.delete(`/api/wishlists?product_id=${id}`, {}).then((response) => {
       if (response.data.deletedCount) {
@@ -32,6 +62,7 @@ const WishList = () => {
       }
     });
   };
+
   return (
     <>
       <style jsx>
@@ -328,7 +359,16 @@ const WishList = () => {
                                 </a>
                               </div>
                               <div>
-                                <button className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600">
+                                <button
+                                  onClick={() =>
+                                    addToCartHandler(
+                                      product_title,
+                                      product_imageUrl,
+                                      product_price
+                                    )
+                                  }
+                                  className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                >
                                   Add to cart
                                 </button>
                               </div>

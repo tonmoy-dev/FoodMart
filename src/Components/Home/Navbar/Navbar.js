@@ -1,12 +1,12 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, HeartIcon,FiChevronDown, MenuIcon, RefreshIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
+import { BellIcon, HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 import { Fragment } from 'react';
 import { FaRegUser, FaSearch } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import logo from '../../../../public/logo.png';
+import logo from '../../../../public/logo2.png';
 import helplinePic from '../../../assets/images/navbar/helpline.png';
 import useFirebase from '../../../Authenticaion/hooks/useFirebase';
 import Cart from '../../Cart/Cart';
@@ -260,8 +260,6 @@ export default function Navigation() {
                 {/* Large Screen second bar */}
                 <div className="sticky top-0 z-40 bg-white py-2 hidden md:block max-w-8xl mx-auto px-2 sm:px-6 lg:px-8 shadow-sm transition-all">
                     <div className="relative flex items-center h-10">
-                      {/* all catagories start */}
-                          catagories
                         <div className="hidden sm:block sm:ml-6 justify-center  items-center md:flex grow">
                             {/* Large Screen Navigation */}
                             <div className="flex space-x-4">
