@@ -1,11 +1,11 @@
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import ScrollToTop from "react-scroll-to-top";
 import Footer from "../src/Components/Home/Footer/Footer";
 import Example from "../src/Components/Home/Navbar/Navbar";
-import { Provider } from "react-redux";
+import Preloader from "../src/Components/Preloader/Preloader";
 import { store } from "../src/redux/store";
 import "../styles/globals.css";
-import { useEffect, useState } from "react";
-import Preloader from "../src/Components/Preloader/Preloader";
 
 function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(true);
@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 3000);
   }, []);
 
   return (

@@ -38,7 +38,7 @@ const Cart = () => {
   };
   return (
     <div>
-      <Checkout items={items} control={control} setControl={setControl} loading={loading} setLoading={setLoading} createCheckoutSession={createCheckoutSession}/>
+      <Checkout items={items} control={control} setControl={setControl} loading={loading} setLoading={setLoading} createCheckoutSession={createCheckoutSession} />
     </div>
   );
 };
