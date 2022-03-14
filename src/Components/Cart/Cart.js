@@ -1,4 +1,5 @@
 import axios from "axios";
+import Link from 'next/link';
 import React, { useEffect, useState } from "react";
 import { MdCancel } from 'react-icons/md';
 import { useSelector } from "react-redux";
@@ -50,7 +51,9 @@ const Cart = () => {
 
                     <div className="flex justify-between items-center pt-2 border-t">
                         <div className="flex items-center">
-                            <button className="text-md font-medium text-white hover:bg-orange-500 primary-bg-color px-3 py-2 rounded-md">Proceed to checkout</button>
+                            <button className="text-md font-medium text-white hover:bg-orange-500 primary-bg-color px-3 py-2 rounded-md">
+                                <Link href="/cart"><a>Proceed to checkout</a></Link>
+                            </button>
                         </div>
                         <div className="flex justify-center items-end">
                             <span className="text-sm font-medium text-gray-600 mr-1">Subtotal:</span>
