@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import formStyle from "../../styles/";
+import formStyle from "../../styles/AccountDetails.module.css";
 import swal from "sweetalert";
 
 const AccountDetails = () => {
