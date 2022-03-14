@@ -71,8 +71,8 @@ export default function Navigation() {
                                         {/* Logo */}
                                         <div className="flex-shrink-0 ml-10 md:ml-0 flex items-center">
                                             <Image
-                                                width="180px"
-                                                height="70px"
+                                                width="190px"
+                                                height="60px"
                                                 className="block lg:hidden h-8 w-auto"
                                                 src={logo}
                                                 alt="FoodMart"
