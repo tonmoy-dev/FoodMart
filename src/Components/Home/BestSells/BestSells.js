@@ -2,7 +2,7 @@ import React from "react";
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
-  const allProducts = products.slice(9, 13);
+  const allProducts = products.slice(6, 10);
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
       <div className="flex md:flex-row flex-col justify-between">
