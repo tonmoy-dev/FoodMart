@@ -45,7 +45,7 @@ const Reviews = ({reviews}) => {
                     width={80}
                   />
                 </div>
-                <h2>Person 1</h2>
+                <h2></h2>
               </div>
               <div>
                 <p className={reviewStyle.reviewdetails}>

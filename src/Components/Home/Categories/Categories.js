@@ -54,7 +54,7 @@ const Categories = () => {
       <style>
         {`
             .catagory-overlay{
-                background: rgba(0 , 0, 0, 0.2);
+                background: rgba(0 , 0, 0, 0.1);
             }
             `}
       </style>
@@ -95,7 +95,7 @@ const Categories = () => {
                       height="220"
                       className="object-cover w-full h-full rounded-lg"
                     />
-                    <p className="absolute overflow-hidden w-full h-full top-0 left-0 flex items-center justify-center text-white catagory-overlay font-semibold md:text-xl text-md">
+                    <p className="absolute overflow-hidden w-full h-full top-0 left-0 flex items-center justify-start pl-8 text-gray-700 catagory-overlay font-semibold md:text-xl text-md">
                       {category.title}
                     </p>
                   </div>
