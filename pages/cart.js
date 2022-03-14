@@ -20,7 +20,7 @@ const Cart = ({ createCheckoutSession }) => {
         setProducts(response.data);
       });
   }, [control]);
-
+console.log(products);
   const handleDelete = async (id) => {
     axios.delete(`/api/cart?product_id=${id}`, {
     }).then(response => {
