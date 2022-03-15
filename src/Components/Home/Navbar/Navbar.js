@@ -85,7 +85,7 @@ export default function Navigation() {
                     <div className="hidden w-full sm:block sm:ml-6 items-center md:flex grow">
                       <div className="w-full ml-5 relative mx-auto text-gray-600">
                         <input
-                          className="border-2 border-gray-100 bg-white h-10 w-full px-5 pr-12 rounded-lg text-sm "
+                          className="border-2 border-gray-100 bg-white h-9 w-full px-5 pr-12 rounded-lg text-sm "
                           type="search"
                           name="search"
                           placeholder="Search your food"
@@ -94,7 +94,7 @@ export default function Navigation() {
                           type="submit"
                           className="absolute right-0 top-0 primary-bg-color p-3 rounded-r text-white"
                         >
-                          <FaSearch className="h-4 w-4" />
+                          <FaSearch className="h-3 w-3" />
                         </button>
                       </div>
                     </div>

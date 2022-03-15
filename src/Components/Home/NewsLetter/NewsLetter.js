@@ -7,16 +7,16 @@ const NewsLetter = () => {
             <style jsx>
                 {`
                     .newsletter {
-                        background: #f3f4f6;
-                        // background: url("https://i.ibb.co/82j6Rvf/banner-1-f884a64d-39d6-44a8-882e-dc7e15c332aa.jpg");
+                        // background: #f3f4f6;
+                        background: url("https://i.ibb.co/82j6Rvf/banner-1-f884a64d-39d6-44a8-882e-dc7e15c332aa.jpg");
                         background-size: cover;
                     }
                 `}
             </style>
-            <div className="newsletter py-10 border-b ">
+            <div className="newsletter py-8 border-b ">
                 <div>
                     <div>
-                        <h1 className="text-green-500 mt-4  text-3xl font-semibold text-center">
+                        <h1 className="primary-color mt-4  text-3xl font-semibold text-center">
                             Sign up for the NewsLetter
                         </h1>
                     </div>
@@ -38,7 +38,7 @@ const NewsLetter = () => {
                                         placeholder="Enter your email address"
                                         aria-label="Enter your email address"
                                     />
-                                    <button className="w-full px-3 py-2 m-1  text-sm font-medium tracking-wider text-white uppercase transition-colors duration-200 transform bg-green-500 rounded-full lg:w-auto hover:bg-green-600">
+                                    <button className="w-full px-3 py-2 m-1  text-sm font-medium tracking-wider text-white uppercase transition-colors duration-200 transform primary-bg-color rounded-full lg:w-auto hover:bg-green-600">
                                         subscribe
                                     </button>
                                 </div>
