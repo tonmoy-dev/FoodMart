@@ -1,5 +1,5 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { BellIcon, HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
+import { HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, XIcon } from '@heroicons/react/outline';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from "next/router";
@@ -82,7 +82,7 @@ export default function Navigation() {
                                         <div className="hidden w-full sm:block sm:ml-6 items-center md:flex grow">
                                             <div className="w-full ml-5 relative mx-auto text-gray-600">
                                                 <input
-                                                    className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-12 rounded-lg text-sm "
+                                                    className="border-2 border-gray-200 bg-white h-10 w-full px-5 pr-12 rounded-lg text-sm "
                                                     type="search"
                                                     name="search"
                                                     placeholder="Search your food"
@@ -129,20 +129,20 @@ export default function Navigation() {
                                             </button>
                                             <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
                                                 <span className="cursor-pointer">Cart</span>
-                                                <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-96 hidden">
+                                                <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-sm bg-white w-96 hidden">
                                                     <Cart></Cart>
                                                 </div>
                                             </div>
                                                 
                                         </div>
                                         {/* Notification button */}
-                                        <div className="text-gray-600 right-nav">
+                                        {/* <div className="text-gray-600 right-nav">
                                             <button type="button" className="nav-icon-btn relative">
                                                 <span className="sr-only">View notifications</span>
                                                 <BellIcon className="w-7" aria-hidden="true" />
                                                 <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">1</span>
                                             </button>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     {/* Profile dropdown */}
                                     <Menu as="div" className="relative z-50 ml-0 md:ml-3">
