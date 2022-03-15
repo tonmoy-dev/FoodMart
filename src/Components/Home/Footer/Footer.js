@@ -15,9 +15,9 @@ import {
   faEnvelope,
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
-import logo from "../../../../public/Logo.png";
+import logo from "../../../../public/logo2.png";
 import card from "../../../../public/card.png";
-//import img1 from '../../../../public/'
+
 
 const Footer = () => {
   const router = useRouter();
