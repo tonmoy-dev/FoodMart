@@ -1,6 +1,6 @@
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
-import { FaCartPlus } from 'react-icons/fa';
+import { FaCartPlus } from "react-icons/fa";
+import React, { useState, useRef, useEffect } from "react";
 
 const DealsofDay = () => {
   const [days, setDays] = useState("00");
@@ -85,7 +85,12 @@ const DealsofDay = () => {
   return (
     <div>
       <div className="container mx-auto pt-10 px-4 md:px-0">
-        <p className="text-3xl font-bold text-left mb-4">Deals of the Day</p>
+        <div className="flex md:flex-row  flex-col md:items-center md:justify-between justify-center items-center pb-5">
+          <h1 className="md:text-3xl lg:text-3xl text-3xl font-bold">
+            Deals of the day
+          </h1>
+          <p>Hurry up! limited stocked</p>
+        </div>
         <div className="grid gap-4 grid-cols-1 lg:grid-cols-4 md:grid-cols-2 mb-10 py-4">
           {fakeArr.map((card) => (
             <div
@@ -236,7 +241,7 @@ const DealsofDay = () => {
                       </sub>
                     </h4>
                     <button className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white">
-                    <FaCartPlus className="w-6 h-6"/>
+                      <FaCartPlus className="w-6 h-6" />
                     </button>
                   </div>
                 </div>

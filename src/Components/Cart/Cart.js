@@ -18,7 +18,7 @@ const Cart = () => {
           setItems(response.data);
           setLoading(false);
         });
-    }, [user.email]);
+    }, []);
     return (
         <div className="mx-auto">
             <div className="p-5">

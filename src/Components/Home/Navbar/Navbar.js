@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 import { Fragment } from 'react';
 import { FaRegUser, FaSearch } from 'react-icons/fa';
 import { useSelector } from 'react-redux';
-import logo from '../../../../public/logo.png';
+import logo from '../../../../public/logo2.png';
 import helplinePic from '../../../assets/images/navbar/helpline.png';
 import useFirebase from '../../../Authenticaion/hooks/useFirebase';
 import Cart from '../../Cart/Cart';

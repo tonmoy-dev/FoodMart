@@ -264,7 +264,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 /* page banner style */
 .head-banner {
   background: url("https://i.ibb.co/3hv0fp9/Head-banner.jpg");
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
