@@ -13,7 +13,7 @@ const NewsLetter = () => {
                     }
                 `}
             </style>
-            <div className="newsletter py-16 border-b ">
+            <div className="newsletter py-10 border-b ">
                 <div>
                     <div>
                         <h1 className="text-green-500 mt-4  text-3xl font-semibold text-center">

@@ -217,12 +217,13 @@ const AllVendors = () => {
                         </span>
                       </p>
                     </div>
+                    <Link href="/vendors/vendor-profile">
                     <a
-                      href="#"
                       className="inline-flex items-center p-2 text-sm font-medium text-center bg-green-500 shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
                     >
                       <ArrowSmRightIcon className="h-5 w-5 text-white" />
                     </a>
+                    </Link>
                   </div>
                 </div>
               </div>
