@@ -68,8 +68,8 @@ const vendorProfile = () => {
             }
             .profile-pic{
                 border:5px solid #f1f1f1;
-                width:140px;
-                height:140px;
+                width:160px;
+                height:160px;
             }
             `}
       </style>
@@ -113,20 +113,22 @@ const vendorProfile = () => {
         <div id="profile-wrapper" className="shadow pb-4 bg-gray-100">
           <div className="relative">
             <div className="vendor-cover mt-16 rounded-t-lg"></div>
-            <div className="text-center profile-pic mx-auto rounded-full relative -mt-16">
+            <div className="text-center shadow-lg profile-pic mx-auto rounded-full relative -mt-16">
               <Image
                 className="rounded-full"
                 src="https://i.ibb.co/5BTm8d4/photo-profil-301783868.jpg"
                 alt=""
-                height={140}
-                width={140}
+                height={160}
+                width={160}
               />
             </div>
           </div>
           <div id="vendor-info" className="mt-4 flex justify-center">
             <div className="text-center">
               <h1 className="text-xl mb-4">Mr. Sakib All Hasan</h1>
-              <h1 className="text-3xl my-4">Daily Super Shop</h1>
+              <h1 className="md:text-3xl text-2xl my-4 font-semibold">
+                Daily Super Shop
+              </h1>
               <p>Purbo Shewrapara, Dhaka, Dhaka, Dhaka, Bangladesh</p>
               <div className="flex mt-4 gap-x-1.5 justify-center">
                 <a href="">
@@ -155,8 +157,8 @@ const vendorProfile = () => {
         {/* search bar start */}
         <div className="flex flex-row justify-between items-center rounded pt-4 mx-4 md:mx-0 lg:mx-0">
           <h1 className="text-gray-700 font-semibold ml-1">
-            Total Products showing:
-            <span className="text-green-500"> 10</span>
+            Products showing:
+            <span className="text-green-500"> {vendorProducts.length}</span>
           </h1>
           <div className="vendor-search relative">
             <input
