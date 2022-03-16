@@ -1,13 +1,18 @@
-import { ArrowRightIcon, StarIcon } from '@heroicons/react/solid';
+import { ArrowRightIcon } from '@heroicons/react/solid';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from "react";
 import { AiOutlineEye } from 'react-icons/ai';
 import { FiMessageCircle } from 'react-icons/fi';
+import Rating from 'react-rating';
 
 const Blog = ({blog}) => {
     return (
         <>
+            <Head>
+            <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
+            </Head>
             <style jsx>
                 {`
                     .linear-bg{
@@ -65,12 +70,13 @@ const Blog = ({blog}) => {
                         </Link>
                     </div>
                     <div className="flex align-items justify-between w-full pt-4">
-                        <div className="py-1 flex text-yellow-400">
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
-                            <StarIcon className="h-5 w-5" />
+                        <div className="py-1 flex items-center gap-x-1">
+                        <Rating
+                            initialRating={blog?.user_rating}
+                            emptySymbol="far fa-star text-yellow-400"
+                            fullSymbol="fas fa-star text-yellow-400"
+                                readonly />
+                            <p className="text-sm">({blog?.user_rating})</p>
                         </div>
                         <div className="flex items-center">
                             <span className="text-gray-400 mr-3 inline-flex items-center  text-sm pr-3 py-1 border-r-2 border-gray-200">

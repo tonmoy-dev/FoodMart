@@ -1,8 +1,8 @@
+import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Product from "../../src/Components/Products/Product/Product";
-import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
-import Link from "next/link";
 
 const AllProducts = ({ products }) => {
     const [filterProducts, setFilterProducts] = useState();
@@ -26,18 +26,14 @@ const AllProducts = ({ products }) => {
     };
     // Price wise filter
     const priceFilterHandler = (minPrice, maxPrice) => {
-        console.log(minPrice, maxPrice);
-
         const newPricedProducts = products.filter(
-            (product) =>
-                {(product.product_price > minPrice) &&
-                (product.product_price < maxPrice)}
-        );
-
-        console.log(products, newPricedProducts);
+            (product) => (parseInt(product.product_price) > minPrice) && (parseInt(product.product_price) < maxPrice));
         setFilterProducts(newPricedProducts);
         setLoading(false);
     };
+
+    // slicing
+    const slicedProducts = products.slice(0, 10);
 
     return (
         <div>
@@ -122,7 +118,7 @@ const AllProducts = ({ products }) => {
                     <div className="lg:col-span-3 sm:col-span-2">
                         <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-center align-middle product-grid-style">
                             {loading
-                                ? products.map((product) => (
+                                ? slicedProducts.map((product) => (
                                       <Product
                                           key={product._id}
                                           product={product}
@@ -315,11 +311,11 @@ const AllProducts = ({ products }) => {
                                     ></Image>
                                     <button
                                         onClick={() =>
-                                            priceFilterHandler("5", "200")
+                                            priceFilterHandler(0,50)
                                         }
                                         className="px-2 py-2"
                                     >
-                                        $ 5 - $ 200
+                                        $0 - $50
                                     </button>
                                 </div>
                                 <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-blue-100">
@@ -331,11 +327,11 @@ const AllProducts = ({ products }) => {
                                     ></Image>
                                     <button
                                         onClick={() =>
-                                            priceFilterHandler("200-400")
+                                            priceFilterHandler(50,100)
                                         }
                                         className="px-2 py-2"
                                     >
-                                        $ 200 - $ 400
+                                        $50 - $100
                                     </button>
                                 </div>
                                 <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-blue-100">
@@ -347,11 +343,27 @@ const AllProducts = ({ products }) => {
                                     ></Image>
                                     <button
                                         onClick={() =>
-                                            priceFilterHandler("400-1000")
+                                            priceFilterHandler(100,200)
                                         }
                                         className="px-2 py-2"
                                     >
-                                        $ 400 - $ 1000
+                                        $100 - $200
+                                    </button>
+                                </div>
+                                <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-blue-100">
+                                    <Image
+                                        src="https://i.ibb.co/wW1ypYC/c-pets.png"
+                                        height="30"
+                                        width="30"
+                                        alt=""
+                                    ></Image>
+                                    <button
+                                        onClick={() =>
+                                            priceFilterHandler(200,400)
+                                        }
+                                        className="px-2 py-2"
+                                    >
+                                        $200 - $400
                                     </button>
                                 </div>
                             </div>

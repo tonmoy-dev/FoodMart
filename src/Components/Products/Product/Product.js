@@ -1,9 +1,11 @@
 import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
 import axios from "axios";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaCartPlus, FaRegStar, FaStar } from 'react-icons/fa';
+import { FaCartPlus } from 'react-icons/fa';
+import Rating from "react-rating";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
@@ -84,6 +86,10 @@ const Product = ({ product }) => {
   } = product;
 
   return (
+    <>
+    <Head>
+            <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
+            </Head>
     <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
       <div className="z-50 absolute left-0 right-0 top-40">
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
@@ -138,11 +144,11 @@ const Product = ({ product }) => {
           </h3>
         </a>
         <div className="flex items-center my-2">
-          <FaStar className="w-5 text-yellow-300" />
-          <FaStar className="w-5 text-yellow-300" />
-          <FaStar className="w-5 text-yellow-300" />
-          <FaStar className="w-5 text-yellow-300" />
-          <FaRegStar className="w-5 text-yellow-300" />
+        <Rating
+          initialRating={user_rating}
+          emptySymbol="far fa-star text-yellow-400"
+          fullSymbol="fas fa-star text-yellow-400"
+          readonly />
           <span className=" text-blue-800 text-xs font-semibold mr-2  py-0.5 rounded dark:bg-white dark:text-black ml-1">
             ({user_rating})
           </span>
@@ -174,7 +180,8 @@ const Product = ({ product }) => {
           </a>
         </div>
       </div>
-    </div>
+      </div>
+      </>
   );
 };
 
