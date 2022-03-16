@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import React from "react";
 import { FiChevronDown } from 'react-icons/fi';
 
@@ -47,7 +48,7 @@ const DropdownNavMenu = () => {
                         <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                             <div className="flex items-center">
                                 <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
-                                    Fruit & Vegetables
+                                    Snacks
                                 </h3>
                             </div>
                             <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
@@ -56,7 +57,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Meat & Poultry
+                                        Noodles
                                     </a>
                                 </div>
                                 <div>
@@ -64,7 +65,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Fresh Vegetables
+                                        Candy &amp; Chocolate
                                     </a>
                                 </div>
                                 <div>
@@ -72,8 +73,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Herbs &
-                                        Seasonings
+                                        Noodles
                                     </a>
                                 </div>
                                 <div>
@@ -81,7 +81,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Cuts & Sprouts
+                                        Noodles
                                     </a>
                                 </div>
                                 <div>
@@ -89,8 +89,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Exotic Fruits &
-                                        Veggies
+                                        Noodles
                                     </a>
                                 </div>
                             </div>
@@ -98,7 +97,7 @@ const DropdownNavMenu = () => {
                         <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                             <div className="flex items-center">
                                 <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
-                                    Breakfast & Dairy
+                                Breakfast
                                 </h3>
                             </div>
                             <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
@@ -107,8 +106,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Milk & Flavoured
-                                        Milk
+                                        Local Breakfast
                                     </a>
                                 </div>
                                 <div>
@@ -116,8 +114,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Butter and
-                                        Margarine
+                                        Local Breakfast
                                     </a>
                                 </div>
                                 <div>
@@ -125,7 +122,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Eggs Substitutes
+                                        Local Breakfast
                                     </a>
                                 </div>
                                 <div>
@@ -133,7 +130,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Marmalades
+                                        Local Breakfast
                                     </a>
                                 </div>
                                 <div>
@@ -141,7 +138,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Sour Cream
+                                        Local Breakfast
                                     </a>
                                 </div>
                             </div>
@@ -149,7 +146,7 @@ const DropdownNavMenu = () => {
                         <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                             <div className="flex items-center">
                                 <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
-                                    Meat & Seafood
+                                Beverages
                                 </h3>
                             </div>
                             <div className="grid grid-rows-5 grid-flow-col gap-3 py-3 font-medium">
@@ -158,8 +155,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Breakfast
-                                        Sausage
+                                        Coffee
                                     </a>
                                 </div>
                                 <div>
@@ -167,7 +163,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Dinner Sausage
+                                        Juice
                                     </a>
                                 </div>
                                 <div>
@@ -175,7 +171,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Chicken
+                                        Coffee
                                     </a>
                                 </div>
                                 <div>
@@ -183,7 +179,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Sliced Deli Meat
+                                        Coffee
                                     </a>
                                 </div>
                                 <div>
@@ -191,8 +187,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Wild Caught
-                                        Fillets
+                                        Coffee
                                     </a>
                                 </div>
                             </div>
@@ -214,7 +209,7 @@ const DropdownNavMenu = () => {
                                         trending
                                     </p>
                                     <button className="deals-button bg-green-500 hover:bg-orange-500 text-white font-semibold text-xl rounded-lg px-4 py-2 ">
-                                        Shop Now
+                                        <Link href="products/all-products"><a>Shop Now</a></Link>
                                     </button>
                                 </div>
                                 <Image

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import swal from "sweetalert";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
-import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
+// import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
 
 const AddBlog = () => {
   const [addBlogData, setAddBlogData] = useState({});
@@ -186,7 +186,7 @@ const AddBlog = () => {
                           {" "}
                           Write your blog here{" "}
                         </label>
-                        {/* <div className="mt-1">
+                        <div className="mt-1">
                           <textarea
                             id="blog-description"
                             name="description"
@@ -195,11 +195,11 @@ const AddBlog = () => {
                             className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
                             placeholder="blog details"
                           ></textarea>
-                        </div> */}
-                        <BlogMarkdown
+                        </div>
+                        {/* <BlogMarkdown
                           initialValue=""
                           getValue={getValue}
-                        ></BlogMarkdown>
+                        ></BlogMarkdown> */}
                         <p className="mt-2 text-sm text-gray-500">
                           Write a brief description for your blog.
                         </p>

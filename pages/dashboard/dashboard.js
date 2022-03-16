@@ -1,10 +1,10 @@
-import {
-  BellIcon, HomeIcon, LogoutIcon, MenuIcon, SearchIcon, UserCircleIcon, XIcon
-} from "@heroicons/react/solid";
-import Link from "next/link";
+// import {
+//   BellIcon, HomeIcon, LogoutIcon, MenuIcon, SearchIcon, UserCircleIcon, XIcon
+// } from "@heroicons/react/solid";
+// import Link from "next/link";
 import React, { useState } from "react";
-import WelcomeAdmin from "../../src/Components/Dashboard/Admin/WelcomePage/WelcomeAdmin";
-import DashAdminMenu from "./DashMenu/DashAdminMenu";
+// import DashAdminMenu from "./DashMenu/DashAdminMenu";
+import DashMenu from "./DashMenu/DashMenu";
 const Dashboard = () => {
   const [isActive, setActive] = useState("false");
   const [isAActive, setAActive] = useState("false");
@@ -34,11 +34,12 @@ const Dashboard = () => {
       </style>
       <div id="dashboard-container" className=" bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
+        {/* <DashAdminMenu /> */}
+        <DashMenu></DashMenu>
 
         {/* main content */}
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-          <WelcomeAdmin></WelcomeAdmin>
+          {/* <WelcomeAdmin></WelcomeAdmin> */}
         </div>
 
       </div>
