@@ -126,7 +126,7 @@ const Footer = () => {
                                             help & faqs
                                         </h3>
                                         <button className="block mt-4 text-sm text-black hover:text-green-500  hover:underline">
-                                            <Link href="/">Payment Policy</Link>
+                                            <Link href="/contents/payment-policy">Payment Policy</Link>
                                         </button>
 
                                         <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
@@ -134,12 +134,12 @@ const Footer = () => {
                                         </button>
 
                                         <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
-                                            <Link href="/">
+                                            <Link href="/contents/privacy-policy">
                                                 Privacy & Policy
                                             </Link>
                                         </button>
                                         <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
-                                            <Link href="/">
+                                            <Link href="/contents/terms-conditions">
                                                 Terms & Conditions
                                             </Link>
                                         </button>
@@ -163,9 +163,12 @@ const Footer = () => {
                                                 icon={faEnvelope}
                                                 className="text-xl text-gray-500 hover:text-orange-500 mr-3"
                                             />
-                                            <span className="block text-sm text-green-500 font-semibold   hover:underline">
-                                                foodmart@gmail.com
-                                            </span>
+                                            
+                                            <a href="mailto:food@exampl.com">
+                                              <span className="block text-sm text-green-500 font-semibold   hover:underline">foodmart@gmail.com</span>
+                                              </a>
+                                                
+                                            
                                         </div>
                                         <div className="flex items-center mt-2">
                                             <FontAwesomeIcon

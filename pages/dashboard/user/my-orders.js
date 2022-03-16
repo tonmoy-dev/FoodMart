@@ -18,7 +18,6 @@ const MyOrders = () => {
       setLoading(false);
     });
   }, [user.email]);
-  console.log(items);
   // console.log(items[0].email)
   return (
     <>
