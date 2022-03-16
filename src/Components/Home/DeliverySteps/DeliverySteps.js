@@ -8,12 +8,9 @@ import shipping from "./DeliveryImages/shipping.png";
 const DeliverySteps = () => {
   return (
     <div>
-      <div className="container mx-auto py-4 pb-16">
-        <div id="delivery-title">
-          {/* <p className="text-3xl  font-bold capitalize text-center pb-6">Four steps delivery</p> */}
-        </div>
+      <div className="container delivery-steps mx-auto pb-16">
         <div className="grid mx-2 lg:mx-0 md:mx-0 bg-red-00 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="block rounded-lg shadow bg-white max-w-sm text-center">
+          <div className="block rounded-lg bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image
                 width={50}
@@ -29,7 +26,7 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg shadow bg-white max-w-sm text-center">
+          <div className="block  rounded-lg bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={choose} alt="pay"></Image>
               <h5 className="text-green-500 text-lg font-medium mb-2">
@@ -40,7 +37,7 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg shadow bg-white max-w-sm text-center">
+          <div className="block  rounded-lg bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={pay} alt="pay"></Image>
               <h5 className="text-green-500 text-lg font-medium mb-2">
@@ -51,7 +48,7 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg shadow bg-white max-w-sm text-center">
+          <div className="block  rounded-lg bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={moneback} alt="pay"></Image>
               <h5 className="text-green-500 text-lg font-medium mb-2">

@@ -1,22 +1,22 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
-
+import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
 
 const AddBlog = () => {
   const [addBlogData, setAddBlogData] = useState({});
   const router = useRouter();
 
   // handle input fields onBlur
-  const handleInputOnBlur = e => {
+  const handleInputOnBlur = (e) => {
     const field = e.target.name;
     const value = e.target.value;
     const newBlogData = { ...addBlogData };
     newBlogData[field] = value;
     setAddBlogData(newBlogData);
-  }
+  };
 
   // handle add blog Submit
   const handleSubmission = async (e) => {
@@ -25,17 +25,22 @@ const AddBlog = () => {
     const res = await fetch("/api/blogs", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(addBlogData)
+      body: JSON.stringify(addBlogData),
     });
     const data = await res.json();
     if (data.insertedId) {
       swal("Good job!", "Your add blog request has been received.", "success");
       setAddBlogData("");
-      router.push('/blogs');
+      router.push("/blogs");
     }
-  }
+  };
+
+  const [value, setValue] = useState("");
+  const getValue = (value) => {
+    setValue(value);
+  };
 
   return (
     <>
@@ -56,13 +61,12 @@ const AddBlog = () => {
         {/* top bar */}
         <DashAdminMenu />
 
-
-
         {/* main content */}
-        <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-
+        <div id="main-content" className="pt-10 pr-8 pl-8 lg:pl-64 bg-gray-100">
           <div className="py-16 mx-5 md:mx-20">
-            <h1 className=" text-black font-semibold text-4xl pb-2">Add A Blog</h1>
+            <h1 className=" text-black font-semibold text-4xl pb-2">
+              Add A Blog
+            </h1>
             {/* breadcrumb */}
             <div className="pb-10">
               <nav className="flex" aria-label="Breadcrumb">
@@ -121,14 +125,14 @@ const AddBlog = () => {
                 </ol>
               </nav>
             </div>
-            <div className="container mx-auto w-full md:w-2/4 px-4">
-              <h3 className="text-2xl font-semibold text-center pb-4">
+            <div className="container mx-auto py-4">
+              {/* <h3 className="text-2xl font-semibold text-center pb-4">
                 Add Your Blog
-              </h3>
-              <div className="mt-5 md:mt-0">
+              </h3> */}
+              <div className="mt-5 md:mt-0 ">
                 <form onSubmit={handleSubmission} method="POST">
                   <div className="shadow sm:rounded-md sm:overflow-hidden">
-                    <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
+                    <div className="px-4 py-5 bg-white space-y-6 sm:p-6 w-full">
                       {/* blog title */}
                       <div>
                         <label
@@ -136,7 +140,8 @@ const AddBlog = () => {
                           className="block text-sm font-medium text-gray-700"
                         >
                           {" "}
-                          Your blog title <span className="text-orange-600">*</span>
+                          Your blog title{" "}
+                          <span className="text-orange-600">*</span>
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -157,7 +162,8 @@ const AddBlog = () => {
                           className="block text-sm font-medium text-gray-700"
                         >
                           {" "}
-                          Your blog category <span className="text-orange-600">*</span>
+                          Your blog category{" "}
+                          <span className="text-orange-600">*</span>
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
@@ -180,7 +186,7 @@ const AddBlog = () => {
                           {" "}
                           Write your blog here{" "}
                         </label>
-                        <div className="mt-1">
+                        {/* <div className="mt-1">
                           <textarea
                             id="blog-description"
                             name="description"
@@ -189,7 +195,11 @@ const AddBlog = () => {
                             className="focus:ring-indigo-00 focus:border-indigo-200 flex-1 p-3 block w-full rounded-none rounded-r-md sm:text-sm border-gray-200"
                             placeholder="blog details"
                           ></textarea>
-                        </div>
+                        </div> */}
+                        <BlogMarkdown
+                          initialValue=""
+                          getValue={getValue}
+                        ></BlogMarkdown>
                         <p className="mt-2 text-sm text-gray-500">
                           Write a brief description for your blog.
                         </p>
@@ -251,9 +261,9 @@ const AddBlog = () => {
                     <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
                       <button
                         type="submit"
-                        className="w-full md:w-1/5 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="w-full md:w-1/5 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-green-500 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                       >
-                        Save
+                        Post
                       </button>
                     </div>
                   </div>
@@ -262,15 +272,10 @@ const AddBlog = () => {
             </div>
           </div>
 
-
-
+          {/* editor */}
         </div>
-
       </div>
     </>
-
-
-
   );
 };
 

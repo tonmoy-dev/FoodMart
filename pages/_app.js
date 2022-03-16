@@ -1,52 +1,48 @@
+import { useEffect, useState } from "react";
+import { Provider } from "react-redux";
 import ScrollToTop from "react-scroll-to-top";
-import Footer from '../src/Components/Home/Footer/Footer';
-import Example from '../src/Components/Home/Navbar/Navbar';
-import { Provider } from 'react-redux';
-import { store } from '../src/redux/store';
-import '../styles/globals.css';
-import { NextShield } from 'next-shield'
-import { useRouter } from 'next/router'
-import { useSelector } from 'react-redux';
-import React, { useEffect, useState } from "react";
+import Footer from "../src/Components/Home/Footer/Footer";
+import Example from "../src/Components/Home/Navbar/Navbar";
+import Preloader from "../src/Components/Preloader/Preloader";
+import { store } from "../src/redux/store";
+import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-
-  const [control, setControl] = useState(false);
   const [loading, setLoading] = useState(true);
-  const router = useRouter()
+
+  useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
   return (
-
-    <Provider store={store}>
-      {/* <NextShield
-        isAuth={true}
-        isLoading={false}
-        router={router}
-        privateRoutes={['/dashboard/dashboard', '/control-panel']}
-        publicRoutes={['/', '/login']}
-        accessRoute="/dashboard/dashboard"
-        loginRoute="/login"
-        LoadingComponent={<p>Loading...</p>}
-      > */}
-
-        
-      {/* <NextShield
-        isAuth={true}
-        isLoading={false}
-        router={router}
-        privateRoutes={['/dashboard/dashboard','/dashboard/admin/coupons-list',  '/control-panel']}
-        publicRoutes={[ '/','/login']}
-        accessRoute="/"
-        loginRoute="/login"
-        LoadingComponent={<p>Loading...</p>}
-      > */}
-        <Example></Example>
-        <ScrollToTop smooth />
-        <Component {...pageProps} />
-        <Footer></Footer>
-      {/* </NextShield> */}
-    </Provider>
-
-  )
+    <>
+      {loading ? (
+        <div className="flex flex-col justify-center items-center h-screen loader-body">
+          <Preloader></Preloader>
+          <h1 className="text-green-500 font-bold text-lg uppercase">
+            food<span className="text-orange-500">mart</span>
+          </h1>
+          <style jsx>
+            {`
+              .loader-body {
+                background: #f8f5f0;
+              }
+            `}
+          </style>
+        </div>
+      ) : (
+        <Provider store={store}>
+          <Example></Example>
+          <ScrollToTop smooth />
+          <Component {...pageProps} />
+          <Footer></Footer>
+        </Provider>
+      )}
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

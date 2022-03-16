@@ -10,13 +10,6 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 
-
-
-
-
-
-
-
 const DashMenu = () => {
     const [isActive, setActive] = useState("false");
     const [isAActive, setAActive] = useState("false");

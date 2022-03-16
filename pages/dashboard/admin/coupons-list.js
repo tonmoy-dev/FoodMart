@@ -23,7 +23,7 @@ const CouponsList = ({ coupons }) => {
           }
         `}
             </style>
-            <div id="dashboard-container" className="h-screen bg-gray-100">
+            <div id="dashboard-container" className="h-full bg-gray-100">
                 {/* top bar */}
                 <DashAdminMenu />
 
