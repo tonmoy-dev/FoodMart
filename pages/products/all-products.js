@@ -1,8 +1,8 @@
+import { ChevronRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import Product from "../../src/Components/Products/Product/Product";
-import { ChevronRightIcon } from "@heroicons/react/solid";
-import Link from "next/link";
 
 const AllProducts = ({ products }) => {
   const [filterProducts, setFilterProducts] = useState();
