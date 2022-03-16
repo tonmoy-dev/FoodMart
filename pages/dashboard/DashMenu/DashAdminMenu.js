@@ -6,12 +6,46 @@ import {
   UserCircleIcon,
   XIcon,
 } from "@heroicons/react/solid";
+import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const DashAdminMenu = () => {
   const [isActive, setActive] = useState("false");
   const [isAActive, setAActive] = useState("false");
+  const user = useSelector((state) => state.states.user);
+  const [control, setControl] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    setControl(true);
+    axios.get("/api/users").then(response => {
+      setUsers(response.data);
+      setLoading(false);
+    });
+  }, [control, user?.email]);
+
+
+  // console.log(user.displayName);
+  // console.log(user.email);
+  const email = user?.email
+
+
+  const userNow = users.filter(user => user.email === email)[0]
+  console.log(userNow);
+
+
+
+  // top products
+
+  // const topVendors = users?.slice(0, 5);
+  // console.log(topVendors);
+
+
+
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -21,7 +55,98 @@ const DashAdminMenu = () => {
     setAActive(!isAActive);
   };
 
-  const MenuList = [
+  const adminMenu = [
+    {
+      menuId: 1,
+      menuName: "Coupon List",
+      pageLink: "/dashboard/admin/coupons-list",
+    },
+    {
+      menuId: 2,
+      menuName: "Catagory List",
+      pageLink: "/dashboard/admin/category-list",
+    },
+    // {
+    //   menuId: 3,
+    //   menuName: "Add Product",
+    //   pageLink: "/dashboard/admin/add-product",
+    // },
+    {
+      menuId: 4,
+      menuName: "Add Coupon",
+      pageLink: "/dashboard/admin/add-coupon",
+    },
+    {
+      menuId: 5,
+      menuName: "Add Blog",
+      pageLink: "/dashboard/user/add-blog",
+    },
+    {
+      menuId: 6,
+      menuName: "Add Review",
+      pageLink: "/dashboard/user/add-review",
+    },
+
+    {
+      menuId: 7,
+      menuName: "Account Details",
+      pageLink: "/dashboard/user/account-details",
+    },
+  ];
+
+
+  const vendorMenu = [
+
+    {
+      menuId: 1,
+      menuName: "Add Product",
+      pageLink: "/dashboard/admin/add-product",
+    },
+
+    {
+      menuId: 2,
+      menuName: "Add Blog",
+      pageLink: "/dashboard/user/add-blog",
+    },
+
+    {
+      menuId: 3,
+      menuName: "My order",
+      pageLink: "/dashboard/user/my-orders",
+    },
+
+  ];
+
+
+  const userMenu = [
+
+    {
+      menuId: 1,
+      menuName: "Add Blog",
+      pageLink: "/dashboard/user/add-blog",
+    },
+    {
+      menuId: 2,
+      menuName: "Add Review",
+      pageLink: "/dashboard/user/add-review",
+    },
+    {
+      menuId: 3,
+      menuName: "My order",
+      pageLink: "/dashboard/user/my-orders",
+    },
+    // {
+    //   menuId: 9,
+    //   menuName: "Order Details",
+    //   pageLink: "/dashboard/admin/order-details",
+    // },
+    {
+      menuId: 4,
+      menuName: "Account Details",
+      pageLink: "/dashboard/user/account-details",
+    },
+  ];
+  let MenuList = [
     {
       menuId: 2,
       menuName: "Coupon List",
@@ -68,6 +193,22 @@ const DashAdminMenu = () => {
       pageLink: "/dashboard/user/account-details",
     },
   ];
+
+  console.log(userNow?.role)
+  // const MenuList = adminMenu;
+
+  if (userNow?.role === "admin") {
+    MenuList = adminMenu;
+    console.log(MenuList);
+  }
+  else if (userNow?.role === "vendor") {
+    MenuList = vendorMenu;
+  }
+  else {
+    MenuList = userMenu;
+    console.log(MenuList)
+  }
+
 
   return (
     <div>
@@ -120,13 +261,12 @@ const DashAdminMenu = () => {
                 id="dropdown"
                 className="h-8 w-8 text-green-500 rounded-full"
               />
-              <h1 className="font-medium uppercase">anik nath</h1>
+              <h1 className="font-medium uppercase">admin</h1>
             </div>
             <div
               id="dropdown_settings"
-              className={`absolute ${
-                isActive ? "hidden" : ""
-              } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
+              className={`absolute ${isActive ? "hidden" : ""
+                } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
             >
               <div className="px-4 py-2 text-xs text-gray-400">
                 Manage Account
@@ -158,9 +298,8 @@ const DashAdminMenu = () => {
       {/* side bar */}
       <div
         id="side-bar"
-        className={`${
-          isActive ? "hidden md:block" : "active"
-        } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
+        className={`${isActive ? "hidden md:block" : "active"
+          } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
       >
         <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
           <h1 className="text-green-500">
@@ -175,13 +314,13 @@ const DashAdminMenu = () => {
         <div className="flex overflow-y-auto h-full flex-col justify-between flex-grow">
           <div className="py-5">
             <Link href="/dashboard/dashboard">
-            <a
-              className="flex items-center my-1 px-6 py-3 text-white hover:text-white border-l-4 border-transparent transition border-orange-500 bg-green-500"
-            >
-              Home
-            </a>
+              <a
+                className="flex items-center my-1 px-6 py-3 text-white hover:text-white border-l-4 border-transparent transition border-orange-500 bg-green-500"
+              >
+                Home
+              </a>
             </Link>
-            {MenuList.map((menu) => (
+            {MenuList?.map((menu) => (
               <div key={menu.menuId}>
                 <Link href={`${menu.pageLink}`}>
                   <a className="flex items-center my-1 px-6 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
@@ -218,9 +357,8 @@ const DashAdminMenu = () => {
               >
                 <UserCircleIcon className="h-8 w-8 text-green-500 rounded-full" />
                 <div
-                  className={`absolute ${
-                    isAActive ? "hidden" : ""
-                  } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
+                  className={`absolute ${isAActive ? "hidden" : ""
+                    } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
                 >
                   <div className="px-4 py-2 text-xs text-gray-400">
                     Manage Account
@@ -240,7 +378,7 @@ const DashAdminMenu = () => {
                 </div>
               </div>
               <a href="#" className="text-dark text-md capitalize">
-                Anik Nath
+                Admin
               </a>
               <div className="ml-auto">
                 <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-gray-900" />

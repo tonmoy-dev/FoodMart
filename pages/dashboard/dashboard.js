@@ -32,7 +32,7 @@ const Dashboard = () => {
           }
         `}
       </style>
-      <div id="dashboard-container" className=" bg-gray-100">
+      <div id="dashboard-container" className="">
         {/* top bar */}
         <DashAdminMenu />
 
