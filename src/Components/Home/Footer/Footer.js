@@ -24,7 +24,7 @@ const Footer = () => {
   if (!router?.pathname?.includes("dashboard"))
     return (
       <div>
-        <div className="bg-gray-50 py-12">
+        <div className="bg-gray-50 py-12 overflow-hidden">
           <div className="container py-4 mx-4 md:mx-auto lg:mx-auto">
             <div className="lg:flex">
               <div className="w-full -mx-6 lg:w-2/6">
