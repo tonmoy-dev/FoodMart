@@ -1,5 +1,7 @@
 import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
+import axios from "axios";
 import Link from "next/link";
+
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -7,9 +9,117 @@ import RelatedProducts from "../../src/Components/Products/RelatedProducts/Relat
 import Category from "../../src/Components/Products/SideBar/Category/Category";
 
 const SingleProduct = ({ related, product }) => {
+  console.log(product._id)
+  const [control, setControl] = useState(false);
+  const [cart, setCart] = useState([]);
+
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);
+  };
+
+   // add to increment and decrement function
+
+  //  const count = document.getElementById("count");
+  //  const add = () => {
+  //    count.innerHTML++;
+  //  };
+  //  const remove = () => {
+  //    if (count.innerHTML < 1) {
+  //      return 0;
+  //    } else {
+  //      count.innerHTML--;
+  //    }
+  //  };
+
+  //  const product_qty = document.getElementById('quantityCount').innerHTML
+  //  console.log(product_qty)
+  //  const handleDecrement = (cart_id) =>{
+  //    console.log
+  //    setCart(cart =
+  //      cart.map((product)=>
+  //      cart_id === product._id ? {...product, product_qty: product.product_qty - 1 } : product
+  //      )
+      
+  //    );
+  //    let ab = parseInt(product_qty) - 1;
+  //    console.log(ab)
+ 
+  //  }
+  //  const handleIncrement = (cart_id) =>{
+  //    setCart(cart =
+  //      cart.map((product)=>
+  //      cart_id === product._id ? {...product, product_qty: product.product_qty + 1 } : product
+  //      )
+       
+  //    );
+ 
+  //  }
+
+  // // const handleDecrement=()=>{
+  
+  // // }
+  // document.getElementById('case-minus').addEventListener('click',
+  // function(){
+  //   const caseInput = document.getElementById('case-number');
+  //   const caseNumber = caseInput.value;
+  //   console.log(caseNumber)
+  //   caseInput.value = parseInt(caseNumber) - 1;
+  // })
+  // // const handleIncrement=()=>{
+ 
+  // // }
+
+  // document.getElementById('case-plus').addEventListener('click',
+  // function(){
+  //   const caseInput = document.getElementById('case-number');
+  //   const caseNumber = caseInput.value;
+  //   caseInput.value = parseInt(caseNumber) + 1;
+  // })
+
+
+  // add to wishlist
+  const handleAddWishlist = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
+    //  const Wishlistproduct = product.filter((product) => product._id === id);
+    // const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
+
+    axios.post("/api/wishlists", { 
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl,
+
+     }).then((response) => {
+
+      if (response.data.insertedId) {
+        setControl(!control);
+        swal("WOW!!! wishlist product add successfully");
+      } else {
+        setControl(false);
+      }
+    });
+  };
+
+  // Add to cart a product
+  const addToCartHandler = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
+    axios
+      .post("/api/cart", {
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl,
+        // title: title,
+        // image: image,
+        // price: price,
+        // description: description.slice(0, 50),
+      })
+      .then((response) => {
+        if (response.data.insertedId) {
+          swal("Wow!", "Product is added to your cart", "success");
+        }
+      });
   };
 
   const images = [
@@ -38,7 +148,7 @@ const SingleProduct = ({ related, product }) => {
   ];
 
   return (
-    <div>
+    <div >
       <style jsx>
         {`
           .tabs {
@@ -75,7 +185,7 @@ const SingleProduct = ({ related, product }) => {
         `}
       </style>
       
-      <div>
+      <div  >
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
@@ -143,26 +253,40 @@ const SingleProduct = ({ related, product }) => {
                       150gm
                     </button>
                   </div>
-                  <div id="quantity" className="flex flex-row items-center">
+                  <div id="quantity case-number" className="flex flex-row items-center">
                     <h2 className="text-lg pr-4 text-gray-700 font-semibold capitalize">
                       quantity :{" "}
                     </h2>
-                    <button className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="minus" onClick={remove} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
-                    <div className="quantityCount border shadow bg-white px-4 py-1">
-                      0
+                    <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
+                    <span id="count" className="border px-4 py-2">
+                  0
+                </span>
+                      
                     </div>
-                    <button className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="plus" onClick={add} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
                     </button>
                   </div>
                   <div className="flex items-center flex-row gap-2 py-6">
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       {" "}
-                      <HeartIcon className="h-6 w-6 text-white" />
+                      <HeartIcon
+                       onClick={() => handleAddWishlist(product._id)}
+                      className="h-6 w-6 text-white" />
                     </button>
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button  onClick={() =>
+                        addToCartHandler(
+                          product._id
+                          // product_title,
+                          // product_imageUrl,
+                          // product_price,
+                          // produc_Details
+                        )
+                      }
+                     className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       Add to cart
                     </button>
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
