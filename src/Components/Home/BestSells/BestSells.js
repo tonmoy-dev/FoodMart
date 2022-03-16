@@ -1,22 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
-  const allProducts = products.slice(6, 10);
+  const allProducts = products;
+
+  const [filterProducts, setFilterProducts] = useState();
+  const [loading, setLoading] = useState(true);
+
+  // badge wise filter
+  const filterHandler = (productBadge) => {
+    const newProducts = products.filter(
+      (product) => product.product_badge == productBadge
+    );
+    setFilterProducts(newProducts);
+    setLoading(false);
+  };
+
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
       <div className="flex md:flex-row flex-col justify-between">
         <h1 className="text-3xl font-bold mb-8">Daily Best Sells</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 gap-2 mb-8">
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
-            Featured
-          </p>
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
-            Popular
-          </p>
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
+          <button
+            onClick={() => filterHandler("Hot")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Hot
+          </button>
+          <button
+            onClick={() => filterHandler("Sale")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Sale
+          </button>
+          <button
+            onClick={() => filterHandler("New")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
             New
-          </p>
+          </button>
         </div>
       </div>
 
@@ -65,9 +87,17 @@ const BestSells = ({ products }) => {
             </div>
           </div>
         </div>
-        {allProducts.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {loading
+          ? allProducts
+              .slice(10, 14)
+              .map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))
+          : filterProducts
+              .slice(6, 10)
+              .map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))}
         <div></div>
       </div>
     </div>
