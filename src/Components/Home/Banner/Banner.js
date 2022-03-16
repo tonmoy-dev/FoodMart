@@ -2,8 +2,7 @@ import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import MessengerCustomerChat from "react-messenger-customer-chat";
-
+// import MessengerCustomerChat from "react-messenger-customer-chat";
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/components/navigation/navigation.min.css";
@@ -15,9 +14,9 @@ import "swiper/swiper.min.css";
 // import required images
 import slider1 from "../../../assets/bannerImage/slider-1.jpg";
 import slider3 from "../../../assets/bannerImage/slider-3.jpg";
-import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import side1 from "../../../assets/bannerImage/slider-33.jpg";
 import side2 from "../../../assets/bannerImage/slider9 (1).jpg";
+import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import bannerStyle from "../../../styles/Banner.module.css";
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
@@ -155,12 +154,12 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <MessengerCustomerChat
+      {/* <MessengerCustomerChat
         // className="bg-green-700"
         pageId="4077509485697177"
         appId="361045412549261"
         // htmlRef="<REF_STRING>"
-      />
+      /> */}
       ,
     </div>
   );
