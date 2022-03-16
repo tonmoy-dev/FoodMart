@@ -1,5 +1,5 @@
-import { buffer } from "micro"
 import * as admin from "firebase-admin";
+import { buffer } from "micro";
 
 // secure a connection to firebase from the backend
 const serviceAccount = require('../../permissions.json');
@@ -27,7 +27,7 @@ const fullfilOrder = async (session) => {
     })
 }
 
-export default async (req, res) => {
+export default sessionHandler = async (req, res) => {
     if (req.method === 'POST') {
         const requestBuffer = await buffer(req);
         const payload = requestBuffer.toString();

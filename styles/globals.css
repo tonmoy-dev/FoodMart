@@ -2,8 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
-/* import './Allproducts.module.css' */
 
+/* ..........
+  Common CSS
+  .......... */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important;
+  border-color: #ddd !important;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+    no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+}
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: 0.5;
+  pointer-events: all;
+}
+/* ............
+  Global colors
+  ............. */
+.primary-color {
+  color: #06623b;
+}
+.primary-bg-color {
+  background-color: #4b8106;
+}
+/* ...............
+  Top Bar & Navbar
+  ................ */
+.topbar-dropdown:hover .topbar-dropdown-content {
+  display: block;
+}
+.topbar-dropdown-content {
+  z-index: 100;
+}
+.sticky-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+}
+.cart-modal-button:hover .cart-modal {
+  display: block;
+}
 /* ...Megamenu... */
 .hoverable-menu {
   z-index: 1;
@@ -101,40 +152,125 @@
   }
 }
 
- /* ----------gallery-------------- */
- .image-gallery-thumbnail.active, .image-gallery-thumbnail:focus {
+/* ----------gallery-------------- */
+.image-gallery-thumbnail.active,
+.image-gallery-thumbnail:focus {
   outline: none;
   border: 2px solid #f1f1f1 !important;
   box-shadow: 0px 4px 8px 0px #ccc;
 }
-.image-gallery-thumbnail:hover{
+.image-gallery-thumbnail:hover {
   border: 2px solid #ccc !important;
 }
 /* ---------------dashboard--------------- */
-@media (max-width: 992px){
-  #side-bar{
-      @apply -left-72;
+@media (max-width: 992px) {
+  #side-bar {
+    @apply -left-72;
   }
-  #side-bar.active{
+  #side-bar.active {
     @apply -left-0;
   }
 }
 /* product card overlay */
-.product-card-overlay{
+.product-card-overlay {
   transform: scale(0);
 }
-.product-card:hover .product-card-overlay{
-  cursor:pointer;
+.product-card:hover .product-card-overlay {
+  cursor: pointer;
   transform: scale(1);
-  transition:all 0.7s;
-} 
+  transition: all 0.7s;
+}
 /*slider bullet style */
-.swiper-pagination-bullet-active{
+.swiper-pagination-bullet-active {
   background-color: #0e9f6e !important;
 }
 /* scrool icon */
-.styles_scroll-to-top__2A70v{
+.styles_scroll-to-top__2A70v {
   background-color: #f1f1f1 !important;
   width: 30px !important;
   height: 40px !important;
+  margin-bottom: 60px;
+}
+
+/* ..............
+  Tooltip Styles
+  ............... */
+[data-tooltip] {
+  position: relative;
+  z-index: 100;
+}
+/* Positioning and visibility settings of the tooltip */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  left: 50%;
+  bottom: calc(100% + 4px);
+  pointer-events: none;
+  transition: 0.2s;
+  will-change: transform;
+}
+/* The actual tooltip with a dynamic width */
+[data-tooltip]:before {
+  content: attr(data-tooltip);
+  padding: 8px 12px;
+  width: max-content;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,
+    rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  color: #000;
+  text-align: center;
+  white-space: pre-wrap;
+  transform: translate(-50%, -6px) scale(0.5);
+}
+/* Tooltip arrow */
+[data-tooltip]:after {
+  content: "";
+  border-style: solid;
+  border-width: 7px 7px 0px 7px; /* CSS triangle */
+  border-color: #0e9f6e transparent transparent transparent;
+  transition-duration: 0s; /* If the mouse leaves the element, 
+                                the transition effects for the 
+                                tooltip arrow are "turned off" */
+  transform-origin: top; /* Orientation setting for the
+                                slide-down effect */
+  transform: translateX(-50%) scaleY(0);
+}
+/* Tooltip becomes visible at hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+/* Scales from 0.5 to 1 -> grow effect */
+[data-tooltip]:hover:before {
+  transition-delay: 0.3s;
+  transform: translate(-50%, -7px) scale(1);
+}
+/* 
+    Arrow slide down effect only on mouseenter (NOT on mouseleave)
+  */
+[data-tooltip]:hover:after {
+  transition-delay: 0.5s; /* Starting after the grow effect */
+  transition-duration: 0.2s;
+  transform: translateX(-50%) scaleY(1);
+}
+.jodit-status-bar {
+  visibility: collapse;
+}
+/* page banner style */
+.head-banner {
+  background: url("https://i.ibb.co/3hv0fp9/Head-banner.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.banner-inner {
+  min-height: 200px;
+}
+.vendor-banner {
+  height: 240px;
 }

@@ -1,6 +1,9 @@
 import { ArrowRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import MessengerCustomerChat from "react-messenger-customer-chat";
+
 // import required modules
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/components/navigation/navigation.min.css";
@@ -11,16 +14,17 @@ import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
 // import required images
 import slider1 from "../../../assets/bannerImage/slider-1.jpg";
-import slider2 from "../../../assets/bannerImage/slider9.jpg";
 import slider3 from "../../../assets/bannerImage/slider-3.jpg";
+import slider2 from "../../../assets/bannerImage/slider9.jpg";
+import side1 from "../../../assets/bannerImage/slider-33.jpg";
+import side2 from "../../../assets/bannerImage/slider9 (1).jpg";
 import bannerStyle from "../../../styles/Banner.module.css";
-import Link from "next/link";
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 const Banner = () => {
   return (
-    <div className="py-10 banner">
+    <div className="banner">
       <style jsx>{`
         .swiper-pagination-bullet-active {
           background-color: red !important;
@@ -57,12 +61,12 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $19
+                    Natural Vegetables <br /> from $19
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="border px-4 py-1 lg:px-6 lg:py-2 md:px-6 md:py-2 rounded-full text-md capitalize text-gray-100 font-medium bg-green-500 hover:bg-green-600">
-                        Shop now
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                        Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
                   </div>
@@ -79,12 +83,12 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $10
+                    Fishes with vegetable <br /> from $10
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="border px-4 py-1 lg:px-6 lg:py-2 md:px-6 md:py-2 rounded-full text-md capitalize text-gray-100 font-medium bg-green-500 hover:bg-green-600">
-                        Shop now
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                        Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
                   </div>
@@ -101,12 +105,12 @@ const Banner = () => {
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
-                    Supper broccoli <br /> from $11
+                    Organic Nooddles <br /> from $11
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="border px-4 py-1 lg:px-6 lg:py-2 md:px-6 md:py-2 rounded-full text-md capitalize text-gray-100 font-medium bg-green-500 hover:bg-green-600">
-                        Shop now
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                        Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
                   </div>
@@ -119,14 +123,14 @@ const Banner = () => {
             className="grid grid-rows-2 gap-2 ml-2 lg:ml-0 md:ml-0"
           >
             <div className="relative flex justify-center items-center">
-              <Image src={slider3} alt="banner1"></Image>
+              <Image src={side2} alt="banner1"></Image>
               <div className="absolute left-6">
                 <p className="text-sm capitalize text-gray-400 mb-1">
-                  Fresh vegetable
+                  Fresh Snacks
                 </p>
-                <p className="text-lg font-bold text-gray-700">Vege Chili</p>
+                <p className="text-lg font-bold text-gray-700">Nestle Maggi</p>
                 <p className="text-lg text-gray-500 font-medium">
-                  Start from $9
+                  Start from $10
                 </p>
                 <button className="mt-2 text-sm capitalize text-green-500 hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
@@ -134,12 +138,12 @@ const Banner = () => {
               </div>
             </div>
             <div className="relative flex justify-center items-center">
-              <Image src={slider2} alt="banner1"></Image>
+              <Image src={side1} alt="banner1"></Image>
               <div className="absolute left-6">
                 <p className="text-sm capitalize text-gray-400 mb-1">
-                  Fresh vegetable
+                Our Breverge
                 </p>
-                <p className="text-lg font-bold text-gray-700">Fishes</p>
+                <p className="text-lg font-bold text-gray-700">Nestle Nescafe</p>
                 <p className="text-lg text-gray-500 font-medium">
                   Start from $12
                 </p>
@@ -151,6 +155,13 @@ const Banner = () => {
           </div>
         </div>
       </div>
+      <MessengerCustomerChat
+        // className="bg-green-700"
+        pageId="4077509485697177"
+        appId="361045412549261"
+        // htmlRef="<REF_STRING>"
+      />
+      ,
     </div>
   );
 };

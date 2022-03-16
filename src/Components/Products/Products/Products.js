@@ -14,14 +14,14 @@ const Products = ({ products }) => {
     const Wishlistproduct = products.filter((product) => product._id === id);
     const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
 
-    axios.post("/api/wishlists", { 
+    axios.post("/api/wishlists", {
       product_title: product_title,
       product_price: product_price,
       user_rating: user_rating,
       product_stock: product_stock,
-      product_imageUrl: product_imageUrl.thumbnail,
+      product_imageUrl: product_imageUrl,
 
-     }).then((response) => {
+    }).then((response) => {
 
       if (response.data.insertedId) {
         setControl(!control);
@@ -31,6 +31,31 @@ const Products = ({ products }) => {
       }
     });
   };
+
+  const handleAddCompare = async (id) => {
+    const compareProduct = products.filter((product) => product._id === id);
+    console.log(compareProduct[0]);
+    const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
+
+    axios.post("/api/compare", {
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl,
+      produc_Details: produc_Details
+
+    }).then((response) => {
+      if (response.data.insertedId) {
+        // setControl(!control);
+        swal("WOW!!! Compare product add successfully");
+      }
+      // else {
+      //     setControl(false);
+      // }
+    });
+  };
+
 
   // Add to cart a product
   const addToCartHandler = async (title, image, price, description) => {
@@ -113,7 +138,7 @@ const Products = ({ products }) => {
                         <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                       </a>
                     </Link>
-                    <RefreshIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <RefreshIcon onClick={() => handleAddCompare(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
                   </div>
                 </div>
 
@@ -134,7 +159,7 @@ const Products = ({ products }) => {
                   {" "}
                   <Image
                     className="p-8 rounded-t-lg"
-                    src={product_imageUrl.thumbnail}
+                    src={product_imageUrl}
                     alt="product image"
                     height="180"
                     width="200"
@@ -257,14 +282,14 @@ const Products = ({ products }) => {
                       onClick={() =>
                         addToCartHandler(
                           product_title,
-                          product_imageUrl.thumbnail,
+                          product_imageUrl,
                           product_price,
                           produc_Details
                         )
                       }
                       className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
                     >
-                      Add to cart
+                      Add
                     </a>
                   </div>
                 </div>

@@ -14,32 +14,27 @@ const SingleProduct = ({ related, product }) => {
 
   const images = [
     {
-      original:`${product.product_imageUrl.thumbnail}`,
+      original:`${product.product_imageUrl}`,
       thumbnail:
         "https://i.ibb.co/28dHMTv/25-525c2823-683a-445e-b187-6fe7ca3f5a8e-159x202.jpg",
     },
     {
-      original:
-        "https://i.ibb.co/DLf4KB6/1-da8f6f9f-7e5f-4601-ab50-8cfde5005293.jpg",
-      thumbnail:
-        "https://i.ibb.co/KK4mDdw/1-da8f6f9f-7e5f-4601-ab50-8cfde5005293-159x202.jpg",
+      original:`${product.product_imageUrl}`,
+      thumbnail:`${product.product_imageUrl}`,
     },
     {
-      original: "https://i.ibb.co/xLprhyw/18-1024x1024.jpg",
-      thumbnail: "https://i.ibb.co/b1G5N7h/18-159x202.jpg",
+      original:`${product.product_imageUrl}`,
+      thumbnail:`${product.product_imageUrl}`,
     },
     {
-      original:
-        "https://i.ibb.co/NZ3M6Xy/25-525c2823-683a-445e-b187-6fe7ca3f5a8e.jpg",
-      thumbnail:
-        "https://i.ibb.co/28dHMTv/25-525c2823-683a-445e-b187-6fe7ca3f5a8e-159x202.jpg",
+      original:`${product.product_imageUrl}`,
+      thumbnail:`${product.product_imageUrl}`,
     },
     {
-      original:
-        "https://i.ibb.co/DLf4KB6/1-da8f6f9f-7e5f-4601-ab50-8cfde5005293.jpg",
-      thumbnail:
-        "https://i.ibb.co/KK4mDdw/1-da8f6f9f-7e5f-4601-ab50-8cfde5005293-159x202.jpg",
+      original:`${product.product_imageUrl}`,
+      thumbnail:`${product.product_imageUrl}`,
     },
+    
   ];
 
   return (
@@ -79,66 +74,14 @@ const SingleProduct = ({ related, product }) => {
           }
         `}
       </style>
-      <div className="border border-l-0 border-r-0 py-4">
-        <nav className="flex px-8" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <a className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
-                <HomeIcon
-                  className="h-4 w-4 text-gray-700 mr-2"
-                  aria-hidden="true"
-                />
-                <Link href="/">Home</Link>
-              </a>
-            </li>
-            <li>
-              <div className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-gray-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <a className="ml-1 text-sm font-sm text-green-500 hover:text-orange-500 md:ml-2">
-                  <Link href="/products/all-products">Products</Link>
-                </a>
-              </div>
-            </li>
-            <li aria-current="page">
-              <div className="flex items-center">
-                <svg
-                  className="w-6 h-6 text-gray-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span className="ml-1 text-sm font-sm text-gray-400 md:ml-2">
-                  Product Details
-                </span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-      </div>
+      
       <div>
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
               <div
                 id="GalleryAndDetailsContainer"
-                className="grid lg:grid-cols-2 grid-cols-1 gap-4"
+                className="grid lg:grid-cols-2 grid-cols-1 gap-4 border rounded"
               >
                 <div className="pt-2" id="productGallry">
                   <ImageGallery
@@ -399,11 +342,11 @@ export async function getStaticProps({ params }) {
 export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);
   const product = await data.json();
-  
+
   const related_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/`);
   const related = await related_res.json();
 
   return {
-      props:{product,related}
+    props: { product, related }
   }
 }

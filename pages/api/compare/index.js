@@ -8,7 +8,8 @@ export default async function compareProductHandler(req, res) {
 
     // load compare products in ui
     if (method === "GET") {
-        const compare = await db.collection("compare").find({}).toArray();
+        const email = req.query.email;
+        const compare = await db.collection("compare").find({email}).toArray();
         res.json(compare);
     }
     // store compare product in database
@@ -23,7 +24,7 @@ export default async function compareProductHandler(req, res) {
     // compare product delete form database
     else if (method === 'DELETE') {
         const id = req.query._id;
-        console.log(id)
+        //console.log(id)
         const query = { _id: ObjectId(id) };
         const result = await db.collection("compare").deleteOne(query);
         res.json(result);

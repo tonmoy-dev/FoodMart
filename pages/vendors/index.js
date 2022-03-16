@@ -1,152 +1,237 @@
-import { ArrowSmRightIcon, LocationMarkerIcon, PhoneIcon, StarIcon } from '@heroicons/react/solid';
+import {
+  ArrowSmRightIcon,
+  ChevronRightIcon,
+  LocationMarkerIcon,
+  PhoneIcon,
+  StarIcon,
+} from "@heroicons/react/solid";
+import Link from "next/link";
 import React from "react";
-import { AiOutlineSearch } from 'react-icons/ai';
+import { AiOutlineSearch } from "react-icons/ai";
+import { FaCartPlus } from "react-icons/fa";
 
 const AllVendors = () => {
-    const vendors = [
-        {
-            name: "Nature Food",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/RTdBnft/nature-food-vendor-1.png",
-            products_added: "380 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "Red Baron",
-            subtitle:"2015",
-            icon: "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png",
-            products_added: "280 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "TotinosPizza",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/RTdBnft/nature-food-vendor-1.png",
-            products_added: "380 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "Nature Shop",
-            subtitle:"2016",
-            icon: "https://i.ibb.co/hcHht4W/totino-pizza-vendor-9.png",
-            products_added: "500 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "Nature Foods 5",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
-            products_added: "380 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-        {
-            name: "Nature Foods 6",
-            subtitle:"2012",
-            icon: "https://i.ibb.co/PtzJCPp/vendor-2.png",
-            products_added: "380 products",
-            address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-            contact: "(+91) - 540-025-124553",
-            user_rating:"4" 
-        },
-    ]
-    return (
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="py-3">
-                <h2 className="text-4xl mb-4 text-center font-semibold text-gray-900">Vendors</h2>
-                <div className="w-3/4 md:w-1/3 relative mx-auto text-gray-600 mb-10">
-                    <input className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
-                        type="search" name="search" placeholder="Search vendors" />
-                    <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
-                        <AiOutlineSearch className="h-5 w-5" />
-                    </button>
-                </div>
-                <div className='flex flex-col my-2 justify-between  md:flex-row lg:flex-row p-4 '>
-                    <h2 className="" >We have found <span className="font-semibold text-green-700">{vendors.length}</span> Vendors </h2>
-
-                    <div>
-                        <form className="flex justify-between my-3 md:my-0" action="">
-                            <div>
-                                <label htmlFor="">Show:</label>
-                                <select className="mx-2" name="Sort by" id="numbers">
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="100">100</option>
-                                    <option value="200">200</option>
-
-                                </select>
-                            </div>
-                            <div>
-                                <label htmlFor="">Category:</label>
-                                <select className="mx-2" name="category" id="category">
-                                    <option value="Drinks">Drinks</option>
-                                    <option value="Fruits">Fruits</option>
-                                    <option value="Snacks">Snacks</option>
-                                    <option value="Fastfood">Fastfood</option>
-                                </select>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-                <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4">
-                
-                    {
-                        vendors.map(vendor => (
-                    
-                            <div vendor={vendor} key={vendor.name} className="max-w-sm mx-auto bg-white rounded-lg border border-gray-200 shadow-md ">
-                                <a href="#">
-                                    <img className="rounded-t-lg" src={vendor.icon} alt="" />
-                                </a>
-                                <div className="p-5">
-                                    <p className="text-sm">Since {vendor.subtitle}</p>
-                                    <div>
-                                        <a href="#">
-                                            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">{vendor.name}</h5>
-                                        </a>
-                                    </div>
-                                    <div className="flex mb-3">
-                                        <StarIcon className="h-5 w-5 text-yellow-500" />
-                                        <StarIcon className="h-5 w-5 text-yellow-500" />
-                                        <StarIcon className="h-5 w-5 text-yellow-500" />
-                                        <StarIcon className="h-5 w-5 text-yellow-500" />
-                                        <StarIcon className="h-5 w-5 text-yellow-500" />
-                                    </div>
-                                    
-                                    <p className="mb-3 font-normal text-gray-500 ">
-                                        <LocationMarkerIcon className="inline-block mb-2 mr-2 h-5 w-5 text-orange-500" />
-                                        Address: {vendor.address}</p>
-                                    <p className="mb-3 font-normal text-gray-500 ">
-                                        <PhoneIcon className="inline-block mb-2 mr-2 h-5 w-5 text-orange-500" />
-                                        Call Us: {vendor.contact}</p>
-                                    <div className="flex justify-between items-center">
-                                        <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-blue-300 ">
-                                            Visit Store
-                                            <ArrowSmRightIcon className="h-5 w-5 text-white" />
-                                        </a>
-                                        <div>
-                                            <p className="bg-green-200 p-2 text-green-600 rounded-md">{vendor.products_added}</p>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                            </div>
-                        
-                        ))
-                    }
-                </div>
-            </div>
+  const vendors = [
+    {
+      name: "Nature Food",
+      icon: "https://i.ibb.co/tqF3ZXP/logo-1.png",
+      subtitle: "2012",
+      banner: "https://i.ibb.co/gMVdYpM/gettyimages-1212810931-612x612.jpg",
+      products_added: "380",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "Red Baron",
+      icon: "https://i.ibb.co/qs9nzKT/logo-2.jpg",
+      subtitle: "2015",
+      banner: "https://i.ibb.co/ZG6HsVt/gettyimages-139468977-612x612.jpg",
+      products_added: "280",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "TotinosPizza",
+      subtitle: "2012",
+      icon: "https://i.ibb.co/QPbwWTH/logo-3.jpg",
+      banner: "https://i.ibb.co/JvzCqfD/gettyimages-530743809-612x612.jpg",
+      products_added: "380",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "Nature Shop",
+      subtitle: "2016",
+      banner: "https://i.ibb.co/kQ9bPCf/gettyimages-476803857-612x612.jpg",
+      icon: "https://i.ibb.co/2Zs1BsX/logo-4.jpg",
+      products_added: "500",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "Red Baron 2",
+      icon: "https://i.ibb.co/qs9nzKT/logo-2.jpg",
+      subtitle: "2015",
+      banner: "https://i.ibb.co/ZG6HsVt/gettyimages-139468977-612x612.jpg",
+      products_added: "280",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "Nature Foods 5",
+      subtitle: "2012",
+      banner: "https://i.ibb.co/94sfvKy/gettyimages-532270528-612x612.jpg",
+      icon: "https://i.ibb.co/NKDTxKR/wcfmmp-blue.png",
+      products_added: "380",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "Nature Foods 6",
+      subtitle: "2012",
+      banner: "https://i.ibb.co/MRX0hjs/gettyimages-463246795-612x612.jpg",
+      icon: "https://i.ibb.co/47cj8m4/logo-6.jpg",
+      products_added: "380",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+    {
+      name: "TotinosPizza 2",
+      subtitle: "2012",
+      icon: "https://i.ibb.co/QPbwWTH/logo-3.jpg",
+      banner: "https://i.ibb.co/JvzCqfD/gettyimages-530743809-612x612.jpg",
+      products_added: "380",
+      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
+      contact: "(+91) - 540-025-124553",
+      user_rating: "4",
+    },
+  ];
+  return (
+    <>
+      <div className="head-banner">
+        <div className="container mx-auto">
+          <div className="banner-inner flex flex-col justify-center items-center">
+            <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
+              <span className="">Vendor List</span>
+            </h1>
+            {/* nav */}
+            <nav className="flex" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <a
+                    href="#"
+                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    <Link href="/">Home</Link>
+                  </a>
+                </li>
+                <li aria-current="page">
+                  <div className="flex items-center">
+                    <ChevronRightIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                      Vendors
+                    </span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+          </div>
         </div>
-    );
+      </div>
+
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="py-3">
+          <div className="flex flex-row justify-between items-center rounded pt-3">
+            <h1 className="text-gray-700 font-semibold ml-1">
+              Total vendors showing:{" "}
+              <span className="text-green-500">{vendors.length}</span>
+            </h1>
+            <div className="vendor-search relative">
+              <input
+                className="border-gray-200 focus:border-green-500 rounded-full focus:ring-0"
+                type="text"
+                placeholder="Search a vendor"
+              />
+              <button
+                type="submit"
+                className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-lg bg-white"
+              >
+                <AiOutlineSearch className="h-6 w-6 text-green-500" />
+              </button>
+            </div>
+          </div>
+
+          <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 py-8">
+            {vendors.map((vendor) => (
+              <div
+                vendor={vendor}
+                key={vendor.name}
+                className="mx-auto bg-white rounded-lg  border-gray-200 border shadow"
+              >
+                <div className="relative">
+                  <a href="#">
+                    <img
+                      className="rounded-t-lg mx-auto w-full vendor-banner"
+                      src={vendor.banner}
+                      alt="logo"
+                    />
+                  </a>
+                  <div className="absolute bg-white shadow-lg rounded-full bottom-0 w-16 h-16">
+                    <img
+                      className="rounded-full p-1"
+                      src={vendor.icon}
+                      alt="icon"
+                    />
+                  </div>
+                </div>
+                <div className="p-5">
+                  {/* <p className="text-sm text-gray-500">Since {vendor.subtitle}</p> */}
+                  <div>
+                    <a href="#">
+                      <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 ">
+                        {vendor.name}{" "}
+                        <span className="text-sm font-normal">
+                          ( Since {vendor.subtitle} )
+                        </span>
+                      </h5>
+                    </a>
+                  </div>
+
+                  <div className="flex items-center">
+                    <StarIcon className="h-5 w-5 text-yellow-300" />
+                    <StarIcon className="h-5 w-5 text-yellow-300" />
+                    <StarIcon className="h-5 w-5 text-yellow-300" />
+                    <StarIcon className="h-5 w-5 text-yellow-300" />
+                    <StarIcon className="h-5 w-5 text-yellow-300" />
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <LocationMarkerIcon className="mr-2 h-5 w-5 text-green-500" />
+                    <p className="my-2 w-full text-gray-500 ">
+                      Address: {vendor.address}
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between mb-4">
+                    <PhoneIcon className="mr-2 h-5 w-5 text-green-500" />
+                    <p className="w-full text-gray-500 ">
+                      Call Us: {vendor.contact}
+                    </p>
+                  </div>
+
+                  <div className="flex justify-between items-center">
+                    <div className="">
+                      <p className="flex items-center py-2 text-green-600 rounded-md">
+                        <FaCartPlus />
+                        <span className="ml-2 text-gray-500">
+                          Products: {vendor.products_added}
+                        </span>
+                      </p>
+                    </div>
+                    <a
+                      href="#"
+                      className="inline-flex items-center p-2 text-sm font-medium text-center bg-green-500 shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
+                    >
+                      <ArrowSmRightIcon className="h-5 w-5 text-white" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
 };
 
-export default AllVendors ;
+export default AllVendors;

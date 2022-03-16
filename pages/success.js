@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 const Success = () => {
     const router = useRouter();
+     
     return (
         <div className="bg-gray-100 h-screen">
             <main className="max-w-screen-lg mx-auto">
@@ -14,7 +15,7 @@ const Success = () => {
                     <p className="mb-3">
                        Thank you for shopping with us. We will send a confirmation  once your item has shipped, if you would like to check the status of your orders, press the link below.
                     </p>
-                    <button onClick={()=>router.push("/")} className="bg-green-500 text-white font-semibold py-1 rounded">Go to your orders</button>
+                    <button onClick={()=>router.push("/dashboard/user/my-orders")} className="bg-green-500 text-white font-semibold py-1 rounded">Go to your orders</button>
                 </div>
             </main>
         </div>
