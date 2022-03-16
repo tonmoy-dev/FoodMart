@@ -26,12 +26,12 @@ const DashAdminMenu = () => {
       setUsers(response.data);
       setLoading(false);
     });
-  }, [control]);
+  }, [control, user?.email]);
 
 
-  console.log(user.displayName);
-  console.log(user.email);
-  const email = user.email
+  // console.log(user.displayName);
+  // console.log(user.email);
+  const email = user?.email
 
 
   const userNow = users.filter(user => user.email === email)[0]
@@ -66,11 +66,11 @@ const DashAdminMenu = () => {
       menuName: "Catagory List",
       pageLink: "/dashboard/admin/category-list",
     },
-    {
-      menuId: 3,
-      menuName: "Add Product",
-      pageLink: "/dashboard/admin/add-product",
-    },
+    // {
+    //   menuId: 3,
+    //   menuName: "Add Product",
+    //   pageLink: "/dashboard/admin/add-product",
+    // },
     {
       menuId: 4,
       menuName: "Add Coupon",
@@ -86,16 +86,7 @@ const DashAdminMenu = () => {
       menuName: "Add Review",
       pageLink: "/dashboard/user/add-review",
     },
-    // {
-    //   menuId: 8,
-    //   menuName: "My order",
-    //   pageLink: "/dashboard/user/my-orders",
-    // },
-    // {
-    //   menuId: 9,
-    //   menuName: "Order Details",
-    //   pageLink: "/dashboard/admin/order-details",
-    // },
+
     {
       menuId: 7,
       menuName: "Account Details",
@@ -105,75 +96,30 @@ const DashAdminMenu = () => {
 
 
   const vendorMenu = [
-    // {
-    //   menuId: 2,
-    //   menuName: "Coupon List",
-    //   pageLink: "/dashboard/admin/coupons-list",
-    // },
-    // {
-    //   menuId: 3,
-    //   menuName: "Catagory List",
-    //   pageLink: "/dashboard/admin/category-list",
-    // },
+
     {
       menuId: 1,
       menuName: "Add Product",
       pageLink: "/dashboard/admin/add-product",
     },
-    // {
-    //   menuId: 5,
-    //   menuName: "Add Coupon",
-    //   pageLink: "/dashboard/admin/add-coupon",
-    // },
+
     {
       menuId: 2,
       menuName: "Add Blog",
       pageLink: "/dashboard/user/add-blog",
     },
-    // {
-    //   menuId: 7,
-    //   menuName: "Add Review",
-    //   pageLink: "/dashboard/user/add-review",
-    // },
+
     {
       menuId: 3,
       menuName: "My order",
       pageLink: "/dashboard/user/my-orders",
     },
-    // {
-    //   menuId: 9,
-    //   menuName: "Order Details",
-    //   pageLink: "/dashboard/admin/order-details",
-    // },
-    // {
-    //   menuId: 10,
-    //   menuName: "Account Details",
-    //   pageLink: "/dashboard/user/account-details",
-    // },
+
   ];
 
 
   const userMenu = [
-    // {
-    //   menuId: 2,
-    //   menuName: "Coupon List",
-    //   pageLink: "/dashboard/admin/coupons-list",
-    // },
-    // {
-    //   menuId: 3,
-    //   menuName: "Catagory List",
-    //   pageLink: "/dashboard/admin/category-list",
-    // },
-    // {
-    //   menuId: 4,
-    //   menuName: "Add Product",
-    //   pageLink: "/dashboard/admin/add-product",
-    // },
-    // {
-    //   menuId: 5,
-    //   menuName: "Add Coupon",
-    //   pageLink: "/dashboard/admin/add-coupon",
-    // },
+
     {
       menuId: 1,
       menuName: "Add Blog",
@@ -200,21 +146,7 @@ const DashAdminMenu = () => {
       pageLink: "/dashboard/user/account-details",
     },
   ];
-
-  console.log(userNow?.role)
-  // const MenuList = adminMenu;
-
-  if (userNow?.role === "admin") {
-    const MenuList = adminMenu;
-  }
-  else if (userNow?.role === "vendor") {
-    const MenuList = vendorMenu;
-  }
-  else {
-    const MenuList = userMenu;
-  }
-
-  const MenuList = [
+  let MenuList = [
     {
       menuId: 2,
       menuName: "Coupon List",
@@ -261,6 +193,22 @@ const DashAdminMenu = () => {
       pageLink: "/dashboard/user/account-details",
     },
   ];
+
+  console.log(userNow?.role)
+  // const MenuList = adminMenu;
+
+  if (userNow?.role === "admin") {
+    MenuList = adminMenu;
+    console.log(MenuList);
+  }
+  else if (userNow?.role === "vendor") {
+    MenuList = vendorMenu;
+  }
+  else {
+    MenuList = userMenu;
+    console.log(MenuList)
+  }
+
 
   return (
     <div>

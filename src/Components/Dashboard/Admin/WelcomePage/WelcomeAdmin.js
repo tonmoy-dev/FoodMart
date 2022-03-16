@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Pie, defaults } from 'react-chartjs-2'
-import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import axios from "axios";
 import { css } from "@emotion/react";
@@ -17,7 +15,7 @@ import Link from "next/link";
 import DotLoader from "react-spinners/DotLoader";
 import swal from "sweetalert";
 
-
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
 
 
 const WelcomeAdmin = () => {
@@ -86,6 +84,43 @@ const WelcomeAdmin = () => {
     // const userNow = users.filter()
 
 
+    // Recharts
+    const pdata = [
+        {
+            month: 'October',
+            Sells: 10,
+            Profit: 5
+        },
+        {
+            month: 'November',
+            Sells: 9,
+            Profit: 4
+        },
+        {
+            month: 'December',
+            Sells: 10,
+            Profit: 8
+        },
+        {
+            month: 'January',
+            Sells: 13,
+            Profit: 10
+        },
+        {
+            month: 'February',
+            Sells: 15,
+            Profit: 12
+        },
+        {
+            month: 'March',
+            Sells: 5,
+            Profit: 10
+        },
+        
+    ];
+
+
+
     return (
         <div>
             <h1 className="text-center text-3xl font-bold py-5">Welcome to Admin dashboard</h1>
@@ -126,6 +161,28 @@ const WelcomeAdmin = () => {
             </div>
 
 
+            {/* Chart */}
+
+            <div className="mx-auto flex flex-row pt-10 ">
+                
+                <div className='flex flex-col justify-center items-center py-10'>
+                    
+                    <ResponsiveContainer width="100%" aspect={3}>
+                        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="month" interval={'preserveStartEnd'} tickFormatter={(value) => value + ""} />
+                            <YAxis />
+                            <Tooltip contentStyle={{ backgroundColor: 'yellow' }} />
+                            <Legend />
+                            <Line type="monotone" dataKey="Sells" stroke="red" activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="Profit" stroke="green" activeDot={{ r: 8 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+
+                   
+                </div>
+
+            </div>
             {/* top product and vendors */}
 
             <div className='py-5'>
