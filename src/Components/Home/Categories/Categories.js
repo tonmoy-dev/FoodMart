@@ -49,6 +49,11 @@ const categoriess = [
   },
 ];
 const Categories = () => {
+
+  const categoryProductHandler = () => {
+      console.log('category hitted');
+      const categoryFilter = products.filter(product)
+  }
   return (
     <>
       <style>
@@ -86,6 +91,7 @@ const Categories = () => {
                 <div
                   key={category.id}
                   className="relative overflow-hidden w-full h-full rounded-lg"
+                  onClick={() => categoryProductHandler(category.title)}
                 >
                   <div>
                     <Image

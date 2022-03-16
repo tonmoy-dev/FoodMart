@@ -1,159 +1,157 @@
-import React from 'react';
+import Image from "next/image";
+import React from "react";
 
-const PrivacyPolicy = () => {
+const PaymentPolicy = () => {
     return (
-        <div className='mt-6'>
-            {/* <h1 className='text-center text-black text-4xl font-bold'>Privacy  Policy</h1> */}
-            
-    <section className="bg-white dark:bg-gray-900">
-        <div className="container max-w-4xl px-6 py-10 mx-auto">
-            <h1 className="text-4xl font-semibold text-center text-gray-800 dark:text-white">Payment  Policy</h1>
+        <div className="mt-6">
+            <h1 className="text-center text-black text-4xl font-bold">
+                Privacy Policy
+            </h1>
 
-            <div className="mt-12 space-y-8">
-                <div className="border-2 border-green-400 rounded-lg dark:border-gray-700">
-                   
-                <button className="flex items-center justify-between w-full p-8">
-                        <div className=''>
-                        <h1 className="font-bold text-yellow-400  dark:text-white">Q1: Type Here For Question?</h1>
+            <section className="text-gray-600 body-font">
+                <div className="container px-5 py-24 mx-auto">
+                    <div className="md:flex w-full justify-center">
+                        <div className="lg:w-2/5 md:w-1/2 md:pr-10 md:py-6">
+                            <div className="flex relative pb-12">
+                                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                    <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                                </div>
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    1
+                                </div>
+                                <div className="flex-grow pl-4 h-full w-full">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        STEP 1
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        Delivery charge varies with each
+                                        product. Most of product FREE delivery
+                                        in India. Some items may have a shipping
+                                        cost depending on the product. .
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex relative pb-12">
+                                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                    <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                                </div>
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    2
+                                </div>
+                                <div className="flex-grow pl-4 h-full w-full">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        STEP 2
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        The estimated time of delivery is within
+                                        7 working days for domestic orders and
+                                        15-20 working days for international
+                                        orders. All orders get shipped within 4
+                                        to 5 days from the our warehouse.
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex relative pb-12">
+                                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                    <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                                </div>
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    3
+                                </div>
+                                <div className="flex-grow pl-4 mx-auto">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        STEP 3
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        We try to process all deliveries through
+                                        reputed courier companies like Bluedart,
+                                        Aramex, E-come, DTDC, DHL and Fedex. In
+                                        some cases, your pincode is not
+                                        serviceable by these courier companies,
+                                        we use Indian Speed Post for those
+                                        deliveries. .
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex relative pb-12">
+                                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                    <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                                </div>
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    4
+                                </div>
+                                <div className="flex-grow pl-4">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        STEP 4
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        Basket offers you multiple payment
+                                        methods. Whatever your online mode of
+                                        payment, you can trust assured that
+                                        Basket trusted payment gateway partners
+                                        use secure encryption technology to keep
+                                        your transaction details confidential at
+                                        all times. .
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex relative pb-12">
+                                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                                    <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                                </div>
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    5
+                                </div>
+                                <div className="flex-grow pl-4">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        STEP 5
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        Basket does not collect or store your
+                                        account information at all. Your
+                                        transaction is authorized at multiple
+                                        points, first by EBS/CCavenue and
+                                        subsequently by Visa/MasterCard/Amex
+                                        secure directly without any information
+                                        passing through us. .
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex relative">
+                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                                    6
+                                </div>
+                                <div className="flex-grow pl-4">
+                                    <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                                        FINISH
+                                    </h2>
+                                    <p className="leading-relaxed">
+                                        You may use Internet Banking, Debit
+                                        Card, Credit Card and Cash on Delivery
+                                        to make your purchase. We also accept
+                                        payments made using Visa, MasterCard,
+                                        American Express and Any Club
+                                        credit/debit cards. .
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                   
-                         <span className="text-gray-400 bg-gray-200 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path  d="M18 12H6" />
-                            </svg>
-                        </span>
-                     </button>
 
-                    <hr className="border-gray-200 dark:border-gray-700"/>
-
-                    <p className="p-8 text-sm  text-gray-500 dark:text-gray-300">
-                    There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.
-                    </p>
-                </div>
-                <div className="border-2 border-green-400 rounded-lg dark:border-gray-700">
-                   
-                <button className="flex items-center justify-between w-full p-8">
-               
-                        
-                        <h1 className="font-bold text-yellow-400  dark:text-white">Q2: Type Here For Question?</h1>
-                        
-                   
-                         <span className="text-gray-400 bg-gray-200 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path  d="M18 12H6" />
-                            </svg>
-                        </span> 
-                     </button> 
-
-                    <hr className="border-gray-200 dark:border-gray-700"/>
-
-                    <p className="p-8 text-sm  text-gray-500 dark:text-gray-300">
-                    There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.
-                    </p>
-                    
-                </div>
-                <div className="border-2 border-green-400 rounded-lg dark:border-gray-700">
-                   
-                <button className="flex items-center justify-between w-full p-8">
-                        <div className=''>
-                        <h1 className="font-bold text-yellow-400  dark:text-white">Q3: Type Here For Question?</h1>
+                        <div className="md:w-1/2 pt-6">
+                        <Image
+                            className="object-cover"
+                            src="https://i.ibb.co/Dp9j0sy/privacy-policy.jpg"
+                            alt="Picture of the author"
+                            width={700}
+                            height={1200}
+                            priority
+                        />
                         </div>
-                   
-                         <span className="text-gray-400 bg-gray-200 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path  d="M18 12H6" />
-                            </svg>
-                        </span>
-                     </button>
-
-                    <hr className="border-gray-200 dark:border-gray-700"/>
-
-                    <p className="p-8 text-sm  text-gray-500 dark:text-gray-300">
-                    There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.
-                    </p>
+                    </div>
                 </div>
-                <div className="border-2 border-green-400 rounded-lg dark:border-gray-700">
-                   
-                <button className="flex items-center justify-between w-full p-8">
-                        <div className=''>
-                        <h1 className="font-bold text-yellow-400  dark:text-white">Q4: Type Here For Question?</h1>
-                        </div>
-                   
-                         <span className="text-gray-400 bg-gray-200 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path  d="M18 12H6" />
-                            </svg>
-                        </span>
-                     </button>
-
-                    <hr className="border-gray-200 dark:border-gray-700"/>
-
-                    <p className="p-8 text-sm  text-gray-500 dark:text-gray-300">
-                    There is something about the saree that makes a woman look dignified, glorifying and every bit stylish. Mikshaa was set up in the year 2017 with a motive to offer its designer collection at competitive price and merchantable quality to its whole seller and worldwide online customer.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel ex maximus vulputate nec eu ligula. Vestibulum elementum nisi ut fermentum lobortis. Sed quis iaculis felis.
-                    </p>
-                </div>
-
-                {/* <div class="border-2 border-gray-100 rounded-lg dark:border-gray-700">
-                    <button class="flex items-center justify-between w-full p-8">
-                        <h1 class="font-semibold text-gray-700 dark:text-white">Is the cost of the appoinment covered by private health insurance?</h1>
-
-                        <span class="text-white bg-blue-500 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div class="border-2 border-gray-100 rounded-lg dark:border-gray-700">
-                    <button class="flex items-center justify-between w-full p-8">
-                        <h1 class="font-semibold text-gray-700 dark:text-white">Do i need a referral?</h1>
-
-                        <span class="text-white bg-blue-500 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div class="border-2 border-gray-100 rounded-lg dark:border-gray-700">
-                    <button class="flex items-center justify-between w-full p-8">
-                        <h1 class="font-semibold text-gray-700 dark:text-white">What are your opening house?</h1>
-
-                        <span class="text-white bg-blue-500 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                        </span>
-                    </button>
-                </div>
-
-                <div class="border-2 border-gray-100 rounded-lg dark:border-gray-700">
-                    <button class="flex items-center justify-between w-full p-8">
-                        <h1 class="font-semibold text-gray-700 dark:text-white">What can i expect at my first consultation?</h1>
-
-                        <span class="text-white bg-blue-500 rounded-full">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
-                            </svg>
-                        </span>
-                    </button>
-                </div> */}
-            </div>
-        </div>
-    </section>
-
+            </section>
         </div>
     );
 };
 
-export default PrivacyPolicy;
+export default PaymentPolicy;

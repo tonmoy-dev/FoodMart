@@ -13,7 +13,7 @@ const Compare = () => {
     useEffect(() => {
         setControl(true);
         setLoading(true);
-        axios.get(`/api/compare?email=${user.email}`).then(response => {
+        axios.get(`/api/compare?email=${user.email}`).then((response) => {
             setProducts(response.data);
             setLoading(false);
         });
@@ -61,8 +61,10 @@ const Compare = () => {
             <div className="">
                 {/* wishlist table */}
                 <div className="pt-10 overflow-auto">
-                <table className="w-full">
+                    <table className="w-full">
+                        
                         <tbody className="flex border rounded p-4 overflow-auto w-full">
+                        {products.length !== 0 && (
                             <tr className="flex flex-col w-1/4  border">
                                 <td className="p-3 h-32 md:h-48 border-b">
                                     <p className="text-sm font-semibold text-gray-500">
@@ -105,8 +107,13 @@ const Compare = () => {
                                     </h3>
                                 </td>
                             </tr>
-                            { (products==false) &&
-                            <h2 className="text-2xl text-center m-auto py-12">You have no Compare Products! Please add Products.</h2>}
+                             )}
+                            {products == false && (
+                                <h2 className="text-2xl text-center m-auto py-12">
+                                    You have no Compare Products! Please add
+                                    Products.
+                                </h2>
+                            )}
                             {products?.slice(0, 3).map((product) => {
                                 const {
                                     _id,
@@ -191,7 +198,6 @@ const Compare = () => {
                 </div>
             </div>
         </div>
-        
     );
 };
 
@@ -205,4 +211,3 @@ export async function getServerSideProps() {
         props: { compareProducts },
     };
 }
-
