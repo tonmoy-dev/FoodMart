@@ -37,7 +37,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent sed libero vel
                 <button className="flex items-center justify-between w-full p-8">
                
                         
-                        <h1 className="font-bold text-white text-yellow-400  dark:text-white">Q2: Type Here For Question?</h1>
+                        <h1 className="font-bold text-yellow-400  dark:text-white">Q2: Type Here For Question?</h1>
                         
                    
                          <span className="text-gray-400 bg-gray-200 rounded-full">
