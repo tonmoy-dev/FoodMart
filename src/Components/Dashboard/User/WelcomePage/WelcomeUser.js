@@ -16,9 +16,7 @@ import DotLoader from "react-spinners/DotLoader";
 import swal from "sweetalert";
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
-
-
-const WelcomeAdmin = () => {
+const WelcomeUser = () => {
     // Hello
     const user = useSelector((state) => state.states.user);
     const [products, setProducts] = useState([]);
@@ -123,39 +121,39 @@ const WelcomeAdmin = () => {
 
     return (
         <div>
-            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role || "user" }</span> dashboard</h1>
+            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role || "User"}</span> dashboard</h1>
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
                 <div className='bg-green-400  rounded-xl'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
-                        <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
+                        <h1 className='text-xl font-bold text-center  pb-2'>Total Oders</h1>
                         {/* total products */}
-                        <h1 className='text-4xl text-center '>50</h1>
+                        <h1 className='text-4xl text-center '>30</h1>
                     </div>
                 </div>
                 <div className='bg-red-400  rounded-xl'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
-                        <h1 className='text-xl font-bold text-center  pb-2'>Total sales</h1>
+                        <h1 className='text-xl font-bold text-center  pb-2'>Total Reviews</h1>
                         {/* total products */}
-                        <h1 className='text-4xl text-center '>100k</h1>
+                        <h1 className='text-4xl text-center '>25</h1>
                     </div>
                 </div>
                 <div className='bg-orange-400  rounded-xl'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
-                        <h1 className='text-xl font-bold text-center  pb-2'>Total revenue (mn)</h1>
+                        <h1 className='text-xl font-bold text-center  pb-2'>Total Blogs</h1>
                         {/* total products */}
-                        <h1 className='text-4xl text-center '>100</h1>
+                        <h1 className='text-4xl text-center '>20</h1>
                     </div>
                 </div>
                 <div className='bg-pink-400  rounded-xl'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
-                        <h1 className='text-xl font-bold text-center  pb-2'>Total Growth</h1>
+                        <h1 className='text-xl font-bold text-center  pb-2'>User Ranking</h1>
                         {/* total products */}
-                        <h1 className='text-4xl text-center '>20%</h1>
+                        <h1 className='text-4xl text-center '>120</h1>
                     </div>
                 </div>
             </div>
@@ -163,46 +161,7 @@ const WelcomeAdmin = () => {
 
             {/* Chart */}
 
-            <div className="grid grid-cols-1 justify-center items-center">
-
-                <div className="py-10 ">
-                    <h1 className="chart-heading text-center text-xl font-bold">Sales and Profit graph</h1>
-                    <ResponsiveContainer width="100%" aspect={3}>
-                        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="month" interval={'preserveStartEnd'} tickFormatter={(value) => value + " "} />
-                            <YAxis />
-                            <Tooltip contentStyle={{ backgroundColor: 'yellow' }} />
-                            <Legend />
-                            <Line type="monotone" dataKey="Sells" stroke="red" activeDot={{ r: 8 }} />
-                            <Line type="monotone" dataKey="Profit" stroke="green" activeDot={{ r: 8 }} />
-                        </LineChart>
-                    </ResponsiveContainer>
-
-
-                </div>
-
-            </div>
-            {/* <div className="mx-auto flex flex-row pt-10 ">
-                <h1>Line chart</h1>
-                <div className='flex flex-col justify-center items-center py-10'>
-
-                    <ResponsiveContainer width="100%" aspect={3}>
-                        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="month" interval={'preserveStartEnd'} tickFormatter={(value) => value + ""} />
-                            <YAxis />
-                            <Tooltip contentStyle={{ backgroundColor: 'yellow' }} />
-                            <Legend />
-                            <Line type="monotone" dataKey="Sells" stroke="red" activeDot={{ r: 8 }} />
-                            <Line type="monotone" dataKey="Profit" stroke="green" activeDot={{ r: 8 }} />
-                        </LineChart>
-                    </ResponsiveContainer>
-
-
-                </div>
-
-            </div> */}
+           
             {/* top product and vendors */}
 
             <div className='py-5'>
@@ -388,5 +347,4 @@ const WelcomeAdmin = () => {
     );
 };
 
-export default WelcomeAdmin;
-
+export default WelcomeUser;
