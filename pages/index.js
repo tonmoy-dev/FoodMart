@@ -21,7 +21,7 @@ export default function Home({ reviews, products, blogs }) {
     setOpenModal(true);
     setTimeout(() => {
       setOpenModal(false);
-    }, 3000);
+    }, 1000);
   }, []);
   const handleModal = () => {
     setOpenModal(true);

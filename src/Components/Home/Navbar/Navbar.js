@@ -3,12 +3,13 @@ import { HeartIcon, MenuIcon, RefreshIcon, ShoppingCartIcon, XIcon } from '@hero
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from "next/router";
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import { FaRegUser, FaSearch } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../../../public/logo2.png';
 import helplinePic from '../../../assets/images/navbar/helpline.png';
 import useFirebase from '../../../Authenticaion/hooks/useFirebase';
+import { fetchProducts } from '../../../redux/slices/cartSlice';
 import Cart from '../../Cart/Cart';
 import DropdownNavMenu from './DropdownNavMenu/DropdownNavMenu';
 import TopBar from './TopBar/TopBar';
@@ -27,6 +28,9 @@ function classNames(...classes) {
 }
 
 export default function Navigation() {
+    const [hidden, setHidden] = useState(true);
+    const dispatch = useDispatch();
+    const items = useSelector((state) => state.cartProducts.products);
     const user = useSelector((state) => state.states.user);
     const router = useRouter();
     const { logOut } = useFirebase();
@@ -101,20 +105,20 @@ export default function Navigation() {
                                     <div className="hidden absolute inset-y-0 right-0 md:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-x-4">
                                         {/* Compare button */}
                                         <div className="text-gray-600 right-navr">
-                                            <button type="button" className="nav-icon-btn relative">
+                                            <span type="button" className="inline-block nav-icon-btn relative">
                                                 <RefreshIcon className="w-7" />
-                                                <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">1</span>
-                                            </button>
+                                                <span className="text-white text-xs primary-bg-color leading-5 w-5 h-5 rounded-full absolute -top-1 left-4 text-center">1</span>
+                                            </span>
                                             <Link href="/compare">
                                                 <a className="text-sm font-medium">Compare</a>
                                             </Link>
                                         </div>
                                         {/* Wishlist button */}
                                         <div className="text-gray-600 right-nav">
-                                            <button type="button" className="nav-icon-btn relative">
+                                            <span type="button" className="nav-icon-btn relative">
                                                 <HeartIcon className="w-7" />
-                                                <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">1</span>
-                                            </button>
+                                                <span className="text-white text-xs primary-bg-color leading-5 w-5 h-5 rounded-full absolute -top-1 left-4 text-center">1</span>
+                                            </span>
                                             <Link href="/dashboard/user/wish-list">
                                                 <a className="text-sm font-semibold text-gray-600">
                                                     Wishlist
@@ -123,17 +127,21 @@ export default function Navigation() {
                                         </div>
                                         {/* Cart button */}
                                         <div className="text-gray-600 right-nav">
-                                            <button type="button" className="nav-icon-btn relative">
+                                            <span type="button" className="nav-icon-btn relative">
                                                 <ShoppingCartIcon className="w-7" />
-                                                <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">1</span>
-                                            </button>
-                                            <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
-                                                <span className="cursor-pointer">Cart</span>
-                                                <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-sm bg-white w-96 hidden">
+                                                <span className="text-white text-xs primary-bg-color leading-5 w-5 h-5 rounded-full absolute -top-1 left-4 text-center">{items.length}</span>
+                                            </span>
+                                            <div onClick={() => setHidden(hidden => !hidden)} className="cursor-pointer relative text-sm inline ">
+                                                <button onClick={() => dispatch(fetchProducts(user))} className="cursor-pointer font-semibold text-gray-600">Cart</button>
+                                                {
+                                                    !hidden ? (
+                                                        <div className="rounded-md absolute top-6 -right-2 z-50 border-2 shadow-sm bg-white w-96">
                                                     <Cart></Cart>
                                                 </div>
-                                            </div>
+                                                    ) : null
+                                                }
                                                 
+                                            </div>
                                         </div>
                                         {/* Notification button */}
                                         {/* <div className="text-gray-600 right-nav">

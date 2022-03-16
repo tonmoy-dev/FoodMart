@@ -16,12 +16,12 @@ const TopBar = () => {
                         <a href=""> <FaInstagram /> </a>
                     </div>
                     {/* language dropdown */}
-                    <div class="topbar-dropdown relative inline-block">
-                        <button class="topbar-dropbtn p-1 border-none flex items-center">
+                    <div className="topbar-dropdown relative inline-block">
+                        <button className="topbar-dropbtn p-1 border-none flex items-center">
                             <span>English</span>
                             <MdKeyboardArrowDown />
                         </button>
-                        <div class="topbar-dropdown-content shadow-lg w-32 absolute hidden top-7 right-0 rounded bg-white">
+                        <div className="topbar-dropdown-content shadow-lg w-32 absolute hidden top-7 right-0 rounded bg-white">
                             <div className="flex flex-col gap-y-2 text-sm items-end py-2 px-3 text-gray-600">
                                 <a className="hover:text-black no-underline" href="#">Bangla</a>
                                 <a className="hover:text-black no-underline" href="#">English</a>
