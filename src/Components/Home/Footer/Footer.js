@@ -16,7 +16,7 @@ import {
   faLocationDot,
 } from "@fortawesome/free-solid-svg-icons";
 import logo from "../../../../public/logo2.png";
-import card from "../../../../public/card.png";
+import card from "../../../assets/payment.png";
 
 
 const Footer = () => {
@@ -24,13 +24,13 @@ const Footer = () => {
   if (!router?.pathname?.includes("dashboard"))
     return (
       <div>
-        <div className="bg-gray-100 pt-5">
-          <div className="container px-6 py-4 mx-auto">
+        <div className="bg-gray-50 py-12">
+          <div className="container py-4 mx-4 md:mx-auto lg:mx-auto">
             <div className="lg:flex">
               <div className="w-full -mx-6 lg:w-2/6">
-                <div className="px-6">
+                <div className="px-4">
                   <div className="text-left md:pr-6 pr-0">
-                    <div className="flex flex-row gap-2">
+                    <div className="flex flex-row gap-2 mb-4 ml-1 md:ml-0">
                       <Image
                         src={logo}
                         alt="Picture of the author"
@@ -39,13 +39,14 @@ const Footer = () => {
                         priority
                       />
                     </div>
-                    <p className="max-w-md md:pr-10 mt-2 text-black ">
+                    <p className="max-w-md ml-2 md:ml-0 md:pr-10 mt-2 text-black ">
                       With more than 15 years of experience we can proudly say
                       we are one of the best in business, a trusted supplier for
                       more than 1000 companies...
                     </p>
                   </div>
-                  <div className="flex mt-4 -mx-2">
+                  <h2 className="text-xl font-semibold mt-4 ml-2 md:ml-0">Get in touch</h2>
+                  <div className="flex mt-4">
                     <FontAwesomeIcon
                       icon={faFacebook}
                       className="text-2xl text-gray-500 hover:text-orange-500 ml-2 mr-3"
@@ -171,34 +172,29 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-row items-center my-8">
+            {/* <div className="flex flex-row items-center my-8">
               <div className="border-b-0 border-green-700 opacity-20 w-3/6 mr-4"></div>
               <div className="flex flex-row gap-2">
                 <div className="text-right">
-                  <Image src={card} alt="" width={590} height={35} />
+                  <Image src={card} alt="" width={500} height={50} />
                 </div>
-                {/* <div className="text-right">
-                                    <Image
-                                        src={card}
-                                        alt=""
-                                        width={590}
-                                        height={35}
-                                    />
-                                </div> */}
               </div>
               <div className="border-b-0 border-green-700 opacity-20 w-3/6 ml-4"></div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div>
-          <div className="md:flex justify-center bg-gray-100 border-t-2 py-4">
-            <p className="text-center text-sm text-gray-500">
+          <div className="flex md:flex-row flex-col justify-between items-center px-6 primary-bg-color border-t-2 py-4">
+            <div className="flex md:flex-row flex-col">
+            <p className="text-center text-sm text-white">
               Copyright© FoodMart 2022 - All rights reserved
             </p>
-            <h3 className="text-center text-sm text-gray-500 font-semibold md:pl-3">
+            <h3 className="text-center text-sm text-white font-semibold md:pl-3 mb-4 md:mb-0">
               <span className="pr-2">||</span> Powered by{" "}
-              <span className="text-green-500">FoodMart Team</span>
+              <span className="text-white">FoodMart Team</span>
             </h3>
+            </div>
+            <Image src={card} alt="payment image" width={400} height={35} />
           </div>
         </div>
       </div>

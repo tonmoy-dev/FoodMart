@@ -134,7 +134,7 @@ const AllVendors = () => {
           <div className="flex flex-row justify-between items-center rounded pt-3">
             <h1 className="text-gray-700 font-semibold ml-1">
               Total vendors showing:{" "}
-              <span className="text-green-500">{vendors.length}</span>
+              <span className="primary-color">{vendors.length}</span>
             </h1>
             <div className="vendor-search relative">
               <input
@@ -146,7 +146,7 @@ const AllVendors = () => {
                 type="submit"
                 className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-lg bg-white"
               >
-                <AiOutlineSearch className="h-6 w-6 text-green-500" />
+                <AiOutlineSearch className="h-6 w-6 primary-color" />
               </button>
             </div>
           </div>
@@ -175,7 +175,6 @@ const AllVendors = () => {
                   </div>
                 </div>
                 <div className="p-5">
-                  {/* <p className="text-sm text-gray-500">Since {vendor.subtitle}</p> */}
                   <div>
                     <a href="#">
                       <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 ">
@@ -196,13 +195,13 @@ const AllVendors = () => {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <LocationMarkerIcon className="mr-2 h-5 w-5 text-green-500" />
+                    <LocationMarkerIcon className="mr-2 h-5 w-5 primary-color" />
                     <p className="my-2 w-full text-gray-500 ">
                       Address: {vendor.address}
                     </p>
                   </div>
                   <div className="flex items-center justify-between mb-4">
-                    <PhoneIcon className="mr-2 h-5 w-5 text-green-500" />
+                    <PhoneIcon className="mr-2 h-5 w-5 primary-color" />
                     <p className="w-full text-gray-500 ">
                       Call Us: {vendor.contact}
                     </p>
@@ -210,19 +209,20 @@ const AllVendors = () => {
 
                   <div className="flex justify-between items-center">
                     <div className="">
-                      <p className="flex items-center py-2 text-green-600 rounded-md">
+                      <p className="flex items-center py-2 primary-color rounded-md">
                         <FaCartPlus />
                         <span className="ml-2 text-gray-500">
                           Products: {vendor.products_added}
                         </span>
                       </p>
                     </div>
+                    <Link href="/vendors/vendor-profile">
                     <a
-                      href="#"
-                      className="inline-flex items-center p-2 text-sm font-medium text-center bg-green-500 shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
+                      className="inline-flex items-center p-2 text-sm font-medium text-center primary-bg-color shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
                     >
                       <ArrowSmRightIcon className="h-5 w-5 text-white" />
                     </a>
+                    </Link>
                   </div>
                 </div>
               </div>
