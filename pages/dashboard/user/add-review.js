@@ -7,7 +7,6 @@ import addreviewStyle from "../../../src/styles/AddReview.module.css";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
 
 const ratingChanged = (newRating) => {
-  console.log(newRating);
 };
 
 const AddReview = () => {

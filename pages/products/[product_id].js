@@ -9,7 +9,6 @@ import RelatedProducts from "../../src/Components/Products/RelatedProducts/Relat
 import Category from "../../src/Components/Products/SideBar/Category/Category";
 
 const SingleProduct = ({ related, product }) => {
-  console.log(product._id)
   const [control, setControl] = useState(false);
   const [cart, setCart] = useState([]);
 
