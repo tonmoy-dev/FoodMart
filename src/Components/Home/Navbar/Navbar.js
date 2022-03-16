@@ -1,11 +1,10 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
-  BellIcon,
   HeartIcon,
   MenuIcon,
   RefreshIcon,
   ShoppingCartIcon,
-  XIcon,
+  XIcon
 } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -138,13 +137,13 @@ export default function Navigation() {
                       </button>
                       <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
                         <span className="cursor-pointer">Cart</span>
-                        <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-96 hidden">
+                        <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-md bg-white w-96 hidden">
                           <Cart></Cart>
                         </div>
                       </div>
                     </div>
                     {/* Notification button */}
-                    <div className="text-gray-600 right-nav">
+                    {/* <div className="text-gray-600 right-nav">
                       <button type="button" className="nav-icon-btn relative">
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="w-7" aria-hidden="true" />
@@ -152,7 +151,7 @@ export default function Navigation() {
                           1
                         </span>
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative z-50 ml-0 md:ml-3">
