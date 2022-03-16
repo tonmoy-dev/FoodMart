@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from "next/link";
 import React from "react";
 import { FiChevronDown } from 'react-icons/fi';
 
@@ -208,7 +209,7 @@ const DropdownNavMenu = () => {
                                         trending
                                     </p>
                                     <button className="deals-button bg-green-500 hover:bg-orange-500 text-white font-semibold text-xl rounded-lg px-4 py-2 ">
-                                        Shop Now
+                                        <Link href="products/all-products"><a>Shop Now</a></Link>
                                     </button>
                                 </div>
                                 <Image
