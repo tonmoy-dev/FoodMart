@@ -260,7 +260,7 @@ const AllProducts = ({ products }) => {
 
 export default AllProducts;
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
     const products = await res.json();
     return {
@@ -268,12 +268,11 @@ export async function getStaticProps() {
         products,
       },
     }
-  }
-/* export const getServerSideProps = async () => {
+  } */
+export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
     return {
         props: { products },
     };
 };
- */
