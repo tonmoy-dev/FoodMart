@@ -90,7 +90,7 @@ const Product = ({ product }) => {
     <Head>
             <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
             </Head>
-    <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
+    <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg p-3">
       <div className="z-50 absolute left-0 right-0 top-40">
         <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
@@ -110,37 +110,35 @@ const Product = ({ product }) => {
         </div>
       </div>
 
-      <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+      <span className="absolute left-0 top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
         {product_badge}
       </span>
       {product_badge == "Sale" && (
-        <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+        <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
           {product_badge}
         </span>
       )}
       {product_badge == "New" && (
-        <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+        <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
           {product_badge}
         </span>
       )}
-      <a>
-        {" "}
+      <div className="w-40 p-2 mx-auto">
         <Image
-          className="p-8 rounded-t-lg"
+          className="rounded-t-lg"
           src={product_imageUrl}
-          alt="product image"
-          height="180"
-          width="200"
-          layout="responsive"
+            alt="product image"
+            width="150"
+            height="150"
         />
-      </a>
-      <div className="px-2 pb-5 pt-2">
+      </div>
+      <div className="px-2">
         <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
           {product_category}
         </span>
         <a href="./">
           <h3 className="text-md font-semibold tracking-tight text-gray-900">
-            {product_title.slice(0, 18)}..
+            {product_title.slice(0, 20)}..
           </h3>
         </a>
         <div className="flex items-center my-2">
