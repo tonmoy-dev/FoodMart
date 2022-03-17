@@ -4,7 +4,7 @@ import {
     MenuIcon,
     SearchIcon,
     UserCircleIcon,
-    XIcon,
+    XIcon
 } from "@heroicons/react/solid";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -74,7 +74,7 @@ const DashMenu = () => {
 
 
     const adminMenuList =    [
-        {
+        /* {
             menuId: 2,
             menuName: "Coupon List",
             pageLink: "/dashboard/admin/coupons-list",
@@ -89,7 +89,7 @@ const DashMenu = () => {
             menuId: 5,
             menuName: "Add Coupon",
             pageLink: "/dashboard/admin/add-coupon",
-        },
+        }, */
         {
             menuId: 6,
             menuName: "Add Blog",

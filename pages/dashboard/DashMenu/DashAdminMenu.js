@@ -4,7 +4,7 @@ import {
   MenuIcon,
   SearchIcon,
   UserCircleIcon,
-  XIcon,
+  XIcon
 } from "@heroicons/react/solid";
 import axios from "axios";
 import Link from "next/link";
