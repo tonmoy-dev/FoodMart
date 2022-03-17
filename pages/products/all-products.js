@@ -6,28 +6,6 @@ import { useState } from "react";
 import Rating from "react-rating";
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
-
-// Products filters
-const productsFilters = [
-    // category
-    [
-        { name: "Snacks", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { name: "Breakfast", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
-        { name: "Beverages", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
-    ],
-    // rating
-    [
-        { rating: "5", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { rating: "4", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
-        { rating: "3", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
-    ],
-    // price
-    [
-        { index:"1", minPrice:0, maxPrice:100, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { index:"2", minPrice:100, maxPrice:200, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { index:"3", minPrice:200, maxPrice:400, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-    ],
-  ];
   
 const AllProducts = ({ products }) => {
     const [filterProducts, setFilterProducts] = useState();
@@ -35,6 +13,28 @@ const AllProducts = ({ products }) => {
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
     
+    // Products filters
+    const productsFilters = [
+        // category
+        [
+            { name: "Snacks", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
+            { name: "Breakfast", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
+            { name: "Beverages", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
+        ],
+        // rating
+        [
+            { rating: "5", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
+            { rating: "4", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
+            { rating: "3", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
+        ],
+        // price
+        [
+            { index:"1", minPrice:0, maxPrice:100, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
+            { index:"2", minPrice:100, maxPrice:200, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
+            { index:"3", minPrice:200, maxPrice:400, icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
+        ],
+        ];
+        
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -244,14 +244,14 @@ const AllProducts = ({ products }) => {
                     </div>
                 )
             }
-            {/* pagination */} 
+            {/* pagination */}
         </div>
     );
 };
 
 export default AllProducts;
 
-/* export async function getStaticProps() {
+export async function getStaticProps() {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
     const products = await res.json();
     return {
@@ -259,11 +259,12 @@ export default AllProducts;
         products,
       },
     }
-  } */
-export const getServerSideProps = async () => {
+  }
+/* export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
     return {
         props: { products },
     };
 };
+ */
