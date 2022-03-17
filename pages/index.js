@@ -50,10 +50,8 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
-      {/* <MessengerCustomerChat
-        pageId="100697865102030"
-        appId="361045412549261"
-      /> */}
+
+    
     </div>
   );
 }

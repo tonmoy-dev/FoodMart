@@ -1,6 +1,5 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
-  // BellIcon,
   HeartIcon,
   MenuIcon,
   RefreshIcon,
@@ -141,10 +140,12 @@ export default function Navigation() {
                         </span>
                       </button>
                       <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
-                        <span className="cursor-pointer">
-                          <Link href="/cart"><a>Cart</a></Link>
-                        </span>
-                        {/* <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-96 hidden">
+                        <Link href="/cart">
+                          <a className="text-sm font-semibold text-gray-600">
+                            Cart
+                          </a>
+                        </Link>
+                        {/* <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-md bg-white w-96 hidden">
                           <Cart></Cart>
                         </div> */}
                       </div>
@@ -162,9 +163,9 @@ export default function Navigation() {
                   </div>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative z-50 ml-0 md:ml-3">
-                    <div className="flex items-center text-sm gap-x-1 rounded-lg border p-2">
+                    <div className="flex items-center text-sm gap-x-1 rounded-lg border p-1">
                       <Menu.Button className="">
-                        <FaRegUser className="h-5 w-5" />
+                        <FaRegUser className="h-7 w-7 bg-gray-300 p-1 rounded-md" />
                       </Menu.Button>
                       <div className="md:flex gap-x-1 font-medium hidden">
                         <Link href="/register">
@@ -200,52 +201,52 @@ export default function Navigation() {
                         {
                           user?.email && (
                             <>
-                            <Menu.Item>
-                          {({ active }) => (
-                            <Link href="/dashboard/dashboard">
-                              <a
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <Link href="/dashboard/dashboard">
+                                    <a
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </Link>
                                 )}
-                              >
-                                Dashboard
-                              </a>
-                            </Link>
-                          )}
-                            </Menu.Item>
-                            <Menu.Item>
-                            {({ active }) => (
-                              <button
-                                onClick={logOut}
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
-                                )}
-                              >
-                                Logout
-                              </button>
-                            )}
                               </Menu.Item>
-                              </>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    onClick={logOut}
+                                    className={classNames(
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
+                                    )}
+                                  >
+                                    Logout
+                                  </button>
+                                )}
+                              </Menu.Item>
+                            </>
                           )
                         }
                         {
                           !user?.email && (
                             <Menu.Item>
-                          {({ active }) => (
-                            <Link href="/login">
-                              <a
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
-                                )}
-                              >
-                                Login
-                              </a>
-                            </Link>
-                          )}
-                        </Menu.Item>
+                              {({ active }) => (
+                                <Link href="/login">
+                                  <a
+                                    className={classNames(
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
+                                    )}
+                                  >
+                                    Login
+                                  </a>
+                                </Link>
+                              )}
+                            </Menu.Item>
                           )
                         }
                         

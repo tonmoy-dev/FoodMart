@@ -1,5 +1,4 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
-import Link from "next/link";
 import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import swal from "sweetalert";
@@ -7,7 +6,6 @@ import addreviewStyle from "../../../src/styles/AddReview.module.css";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
 
 const ratingChanged = (newRating) => {
-  console.log(newRating);
 };
 
 const AddReview = () => {
@@ -128,12 +126,14 @@ const AddReview = () => {
                 <div className={addreviewStyle.reviewcontainer}>
                   <form onSubmit={handleSubmission}>
                     <div className="">
+                    {/* <img className=" h-56 w-full" src="https://i.ibb.co/9p093bH/102518-Blog-Post.jpg" alt=""/> */}
                       <div className="flex ">
                         <div className="flex flex-col">
+                          
                           <div>
                             <label htmlFor="search" className="">
                               {" "}
-                              <p className="text-black mt-2">Your Name</p>{" "}
+                              <p className="text-black mt-2 w-28">Your Name</p>{" "}
                             </label>
                             <input
                               className={addreviewStyle.sss}
@@ -208,7 +208,7 @@ const AddReview = () => {
                           <p className="text-black mt-2">Image Url</p>{" "}
                         </label>
                         <input
-                          className={addreviewStyle.sss}
+                          className="w-full rounded-md p-4"
                           id="search"
                           type="text"
                           name="imageUrl"

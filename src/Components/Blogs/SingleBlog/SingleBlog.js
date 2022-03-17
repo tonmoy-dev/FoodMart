@@ -13,9 +13,27 @@ import Trending from "../../../Components/Blogs/SingleBlog/Trending.js";
 import singlePage from "../../../styles/SingleBlog.module.css";
 
 const SingleBlog = ({ blog }) => {
+
+
+  const [blogs, setBlogs] = useState([]);
+    
+    useEffect(() => {
+        axios.get('/api/blogs').then(response => {
+            setBlogs(response.data);
+        });
+    }, []);
+
+    const arr =[]
+blogs.map(blog => arr.push(blog.category));
+const newArr = [...new Set(arr)];
+
+
+
   const [comments, setComments] = useState([]);
   const [addCommentData, setAddCommentData] = useState({});
   const [control, setControl] = useState(false);
+
+  const popularComments = comments.slice(-3);
 
   useEffect(() => {
     setControl(true);
@@ -31,7 +49,6 @@ const SingleBlog = ({ blog }) => {
     newCommentData[field] = value;
     setAddCommentData(newCommentData);
   };
-
   const handleSubmission = async (e) => {
     e.preventDefault();
     // post blog data
@@ -58,38 +75,6 @@ const SingleBlog = ({ blog }) => {
 
   return (
     <>
-      {/* <div className="py-10">
-        <h2 className="text-4xl mb-3 font-semibold text-gray-900">
-          Blog Details
-        </h2>
-        <nav className="flex" aria-label="Breadcrumb">
-          <ol className="inline-flex items-center space-x-1 md:space-x-3">
-            <li className="inline-flex items-center">
-              <a
-                href="#"
-                className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-              >
-                <HomeIcon
-                  className="h-4 w-4 text-gray-700 mr-2"
-                  aria-hidden="true"
-                />
-                <Link href="/">Home</Link>
-              </a>
-            </li>
-            <li aria-current="page">
-              <div className="flex items-center">
-                <ChevronRightIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
-                <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                  Blogs
-                </span>
-              </div>
-            </li>
-          </ol>
-        </nav>
-      </div> */}
       <div className=""></div>
       <div className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-3">
@@ -224,17 +209,6 @@ const SingleBlog = ({ blog }) => {
             <hr />
 
             <div className="flex p-4 md:flex-row flex-col">
-              <div className="gap-3">
-                <button className="bg-green-500 leading-5 text-sm font-semibold px-7 py-3 rounded hover:bg-green-600 text-white mx-3">
-                  sfsdf
-                </button>
-                <button className="bg-green-500 leading-5 text-sm font-semibold px-7 py-3 rounded hover:bg-green-600 text-white mx-3">
-                  sfsdf
-                </button>
-                <button className="bg-green-500 leading-5 text-sm font-semibold px-7 py-3 rounded hover:bg-green-600 text-white">
-                  sfsdf
-                </button>
-              </div>
 
               <div className="flex mt-4 -mx-2 md:ml-auto">
                 <p className="text-gray-700 mt-2">Share This</p>
@@ -313,7 +287,7 @@ const SingleBlog = ({ blog }) => {
             <div>
               <h2 className="px-4 text-4xl font-extralight mt-3">Comments</h2>
               <div className="px-4 pb-4">
-                {comments?.map((user) => (
+                {popularComments?.map((user) => (
                   <div key={user.name} className="border-2 p-2 mt-2 rounded-xl hover:shadow-md">
                     <div className="rounded-full h-10 w-10">
                       <Image
@@ -341,63 +315,31 @@ const SingleBlog = ({ blog }) => {
             </div>
           </div>
 
+         
           {/* left side category */}
           <div className="w-full mt-3">
+          <div className="py-6">
+            <div className="bg-white shadow-sm rounded-sm p-4">
+              <input className="rounded w-full " type="text" placeholder="Search Blog"/>
+            </div>
+          </div>
             <div className="bg-white shadow-sm rounded-sm p-4">
               <h3 className="text-xl font-semibold text-gray-700 mb-3">
                 Categories
               </h3>
-              <div className="text-gray-700 space-y-2">
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(12)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(7)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(5)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(10)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(11)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(7)</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex item-center font-semibold leading-4 text-gray-700 uppercase text-sm hover:text-green-500"
-                >
-                  <span>Fruit &#38; Vegetables</span>
-                  <span className=" font-normal ml-auto">(6)</span>
-                </a>
+              <div className="flex flex-wrap gap-x-4 gap-y-6">
+              {
+                newArr.map((category => (
+                <div key={category} className="">
+                <a href="#" className="px-3 py-2 text-sm border border-gray-200 rounded-md
+                bg-gray-200
+                hover:bg-green-500 hover:text-white transition">{category}</a>
               </div>
+                )))
+              }
+              </div>
+
+
             </div>
 
             {/* Recent post */}
@@ -409,98 +351,21 @@ const SingleBlog = ({ blog }) => {
             {/* gallery */}
             <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
               <h3 className="text-xl font-semibold text-gray-700 mb-3">
-                Gallery
+                Tags
               </h3>
-              <div>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/pyGJxQ4/thumbnail-3.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    // layout= 'responsive'
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <Image
-                        src="https://i.ibb.co/pyGJxQ4/thumbnail-3.jpg"
-                        className="rounded object-cover"
-                        alt=""
-                        width={140}
-                        height={80}
-                      />
-                    </div>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/jW6QqhP/thumbnail-4.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <Image
-                        src="https://i.ibb.co/jW6QqhP/thumbnail-4.jpg"
-                        className="rounded object-cover"
-                        alt=""
-                        width={140}
-                        height={80}
-                      />
-                    </div>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/KVVdLKN/thumbnail-5.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <Image
-                        src="https://i.ibb.co/KVVdLKN/thumbnail-5.jpg"
-                        className="rounded object-cover"
-                        alt=""
-                        width={140}
-                        height={80}
-                      />
-                    </div>
-                  </div>
-                </a>
-                <a href="#" className="flex group mt-4">
-                  <div className="flex-shrink-0">
-                    <Image
-                      src="https://i.ibb.co/hyPZ8Qw/thumbnail-6.jpg"
-                      className="rounded object-cover"
-                      alt=""
-                      width={140}
-                      height={80}
-                    />
-                  </div>
-                  <div className="flex-grow pl-3">
-                    <div className="flex text-gray-700 text-sm items-center">
-                      <Image
-                        src="https://i.ibb.co/hyPZ8Qw/thumbnail-6.jpg"
-                        className="rounded object-cover"
-                        alt=""
-                        width={140}
-                        height={80}
-                      />
-                    </div>
-                  </div>
-                </a>
+              <div className="flex flex-warp gap-4">
+                {/* <a onClick={() => handleclick("food")}href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Fruits</a> */}
+                <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Pizza</a>
+                <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Chicken</a>
+                <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Recipe</a>
+                <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Pie</a>
+                {/* <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">Egg</a> */}
               </div>
             </div>
 

@@ -5,7 +5,7 @@ import {
   AccordionItem,
   AccordionItemButton,
   AccordionItemHeading,
-  AccordionItemPanel,
+  AccordionItemPanel
 } from "react-accessible-accordion";
 import "react-accessible-accordion/dist/fancy-example.css";
 
@@ -23,7 +23,7 @@ const Faq = () => {
             <hr className="my-6 border-gray-400 dark:border-gray-700" />
 
             <div className="flex flex-col md:flex-row space-x-4">
-              <div className="px-2 w-2/4">
+              <div className="">
                 <Image
                   className=""
                   src="https://i.ibb.co/CPMfDrx/FAQs.gif"
@@ -33,7 +33,7 @@ const Faq = () => {
                   priority
                 />
               </div>
-              <div className="px-2 w-2/4">
+              <div className="">
                 <Accordion preExpanded={["a"]} allowZeroExpanded>
                   <AccordionItem uuid="a">
                     <AccordionItemHeading>

@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ product }) => {
     const { price } = product;
-    console.log(price)
     const stripe = useStripe();
     const elements = useElements();
 
@@ -55,7 +54,7 @@ const CheckoutForm = ({ product }) => {
         }
         else {
             setError('');
-            console.log(paymentMethod);
+            // console.log(paymentMethod);
         }
 
         
