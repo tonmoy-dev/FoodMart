@@ -18,7 +18,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <div className="overflow-hidden">
       {loading ? (
         <div className="flex flex-col justify-center items-center h-screen loader-body">
           <Preloader></Preloader>
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps }) {
           <Footer></Footer>
         </Provider>
       )}
-    </>
+    </div>
   );
 }
 
