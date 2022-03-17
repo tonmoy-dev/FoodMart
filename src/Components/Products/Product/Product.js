@@ -92,20 +92,20 @@ const Product = ({ product }) => {
             </Head>
     <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg p-3">
       <div className="z-50 absolute left-0 right-0 top-40">
-        <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
+        <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-500 md:text-gray-600 bg-white w-3/5 py-3 md:py-2 mx-auto rounded-full shadow-lg relative">
           <button data-tooltip="+ Add to wishlist">
             <HeartIcon
               onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl,user.email)}
-              className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
+              className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
             />
           </button>
           <Link href={`/products/${_id}`}>
             <button data-tooltip="Quick view">
-              <EyeIcon className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+              <EyeIcon className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
             </button>
           </Link>
           <button data-tooltip="+ Add to compare">
-            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,user.email)} className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
           </button>
         </div>
       </div>
