@@ -3,7 +3,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { FaRegStar, FaStar, FaCartPlus } from 'react-icons/fa';
+import { FaCartPlus, FaRegStar, FaStar } from 'react-icons/fa';
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
 
@@ -61,7 +61,7 @@ const Product = ({ product }) => {
         title: title,
         image: image,
         price: price,
-        description: description.slice(0, 20),
+        description: description,
         email: user.email
       })
       .then((response) => {

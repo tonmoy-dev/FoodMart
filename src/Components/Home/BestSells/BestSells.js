@@ -1,26 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
-  const allProducts = products.slice(9, 13);
-  <style jsx>
-    {`
-      .dbs-style {
-        background-color: red;
-      }
-    `}
-  </style>;
+  const allProducts = products;
+
+  const [filterProducts, setFilterProducts] = useState();
+  const [loading, setLoading] = useState(true);
+
+  // badge wise filter
+  const filterHandler = (productBadge) => {
+    const newProducts = products.filter(
+      (product) => product.product_badge == productBadge
+    );
+    setFilterProducts(newProducts);
+    setLoading(false);
+  };
 
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
-      <div className="flex justify-between pb-5">
-        <div>
-          <h1 className="text-3xl font-bold mb-4">Daily Best Sells</h1>
-        </div>
-        <div>
-          <p className=" inline-block ">Featured</p>
-          <p className=" inline-block px-2 ">Popular</p>
-          <p className=" inline-block  ">New added</p>
+      <div className="flex md:flex-row flex-col justify-between">
+        <h1 className="text-3xl font-bold mb-8">Daily Best Sells</h1>
+        <div className="grid grid-cols-3 md:grid-cols-3 gap-2 mb-8">
+          <button
+            onClick={() => filterHandler("Hot")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Hot
+          </button>
+          <button
+            onClick={() => filterHandler("Sale")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Sale
+          </button>
+          <button
+            onClick={() => filterHandler("New")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            New
+          </button>
         </div>
       </div>
 
@@ -28,26 +46,28 @@ const BestSells = ({ products }) => {
         <div>
           <div
             style={{
-              backgroundImage: `url('https://i.ibb.co/cc0jgvk/banner-4.png')`,
+              backgroundImage: `url('https://i.ibb.co/SxmdMRx/photo-1524222835726-8e7d453fa83c.jpg')`,
               height: "26rem",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
             }}
-            className="dbs-style rounded-lg border-1"
+            className="rounded-lg border-1"
           >
-            <div className="py-10 px-10 ">
-              <p className="text-3xl font-semibold text-gray-700">
-                Bring nature{" "}
+            <div className="py-10 px-10">
+              <p className="text-3xl font-semibold text-gray-600">
+                Buy your goods{" "}
                 <span>
                   <br />
                 </span>{" "}
-                into your{" "}
+                from our{" "}
                 <span>
                   <br />
                 </span>{" "}
-                home
+                Shop
               </p>
             </div>
-            <div className=" px-10  ">
-              <button className="bg-green-700 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded">
+            <div className="px-10">
+              <button className="bg-green-500 text-white font-bold py-2 px-4 rounded">
                 See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -67,11 +87,17 @@ const BestSells = ({ products }) => {
             </div>
           </div>
         </div>
-        {
-          allProducts.map((product) => (
-            <Product key={product._id} product={product} />
-          ))
-        }
+        {loading
+          ? allProducts
+              .slice(10, 14)
+              .map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))
+          : filterProducts
+              .slice(6, 10)
+              .map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))}
         <div></div>
       </div>
     </div>

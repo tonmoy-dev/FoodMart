@@ -9,7 +9,6 @@ import Link from "next/link";
 const ContactUs = () => {
   const [state, handleSubmit] = useForm("xgedkber");
   if (state.succeeded) {
-    console.log("email sent");
     return <ContactUsPage></ContactUsPage>;
   }
 

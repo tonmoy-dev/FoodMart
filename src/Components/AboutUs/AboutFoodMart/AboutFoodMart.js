@@ -1,14 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import aboutImg from "../../../assets/aboutImg/fdlove.webp";
-import {
-  ChevronRightIcon,
-} from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 const AboutFoodMart = () => {
   return (
-    <div className="">
+    <div className="mx-4 md:mx-0 lg:mx-0">
       <div className="head-banner">
         <div className="container mx-auto">
           <div className="banner-inner flex flex-col justify-center items-center">
@@ -42,31 +39,26 @@ const AboutFoodMart = () => {
           </div>
         </div>
       </div>
-      <div className="">
+      <div className="pb-4">
         <section className="text-gray-600 body-font">
-          <div className="container mx-auto flex px-5 py-10 md:flex-row flex-col items-center">
-            <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+          <div className="container mx-auto flex gap-6 px-2 py-10 md:flex-row flex-col items-center">
+            <div className="w-full my-8 md:mb-0 shadow rounded-lg">
               <Image
-                src={aboutImg}
+                src="https://i.ibb.co/vcDgZqn/vegist-image.png"
+                // src="https://i.ibb.co/QYM19LC/cover-Capture.png"
+                // src="https://i.ibb.co/mySfxJB/moc2.png"
                 alt="Picture of the author"
-                width={1200}
-                height={1000}
+                width={600}
+                height={350}
+                fill="responsive"
                 priority
               />
-              {/* <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600"> */}
             </div>
-            <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900">
-                Welcome to FoodMart
+            <div className="lg:flex-grow w-full flex flex-col md:items-start md:text-left items-center text-center">
+              <h1 className="sm:text-4xl text-3xl mb-4 font-bold text-green-500">
+                What We Provide?
               </h1>
-              <br className="hidden lg:inline-block" />
-              <h2>
-                <span className="text-green-600 font-bold  ">
-                  What We Provide?
-                </span>
-              </h2>
-
-              <p className="mb-8 leading-relaxed">
+              <p className="mb-8 leading-relaxed text-justify">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
                 enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -81,7 +73,7 @@ const AboutFoodMart = () => {
                 amet. Commodo consequat.
               </p>
               <div className="flex  mx-0 justify-center">
-                <button className="inline-flex text-white bg-green-600 py-2 px-6 border-0 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+                <button className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg">
                   Get Booking
                 </button>
                 {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Get Booking</button> */}

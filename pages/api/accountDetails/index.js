@@ -7,8 +7,8 @@ export default async function AccountHandler(req, res) {
 
     // load Accountdetails
     if (method === "GET") {
-        const Account = await db.collection("Account").find({}).toArray();
-        res.json(Account);
+        const Accountinfo = await db.collection("Accountdetails").find({}).toArray();
+        res.json(Accountinfo);
     }
 
     else if (method === "POST") {

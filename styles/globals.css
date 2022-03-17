@@ -2,8 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 @import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);
-/* import './Allproducts.module.css' */
 
+/* ..........
+  Common CSS
+  .......... */
+input:focus,
+textarea:focus,
+select:focus {
+  box-shadow: none !important;
+  border-color: #ddd !important;
+}
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1em;
+  width: 1em;
+  border-radius: 50em;
+  background: url(https://pro.fontawesome.com/releases/v5.10.0/svgs/solid/times-circle.svg)
+    no-repeat 50% 50%;
+  background-size: contain;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+}
+input[type="search"]:focus::-webkit-search-cancel-button {
+  opacity: 0.5;
+  pointer-events: all;
+}
+/* ............
+  Global colors
+  ............. */
+.primary-color {
+  color: #4b8106;
+}
+.primary-bg-color {
+  background-color: #4b8106;
+}
+/* ...............
+  Top Bar & Navbar
+  ................ */
+.topbar-dropdown:hover .topbar-dropdown-content {
+  display: block;
+}
+.topbar-dropdown-content {
+  z-index: 100;
+}
+.sticky-box {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  background-color: yellow;
+}
+.cart-modal-button:hover .cart-modal {
+  display: block;
+}
 /* ...Megamenu... */
 .hoverable-menu {
   z-index: 1;
@@ -146,7 +197,7 @@
   ............... */
 [data-tooltip] {
   position: relative;
-  z-index: 9999;
+  z-index: 100;
 }
 /* Positioning and visibility settings of the tooltip */
 [data-tooltip]:before,
@@ -211,15 +262,15 @@
   visibility: collapse;
 }
 /* page banner style */
-.head-banner{
+.head-banner {
   background: url("https://i.ibb.co/3hv0fp9/Head-banner.jpg");
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
-.banner-inner{
-  min-height:200px;
+.banner-inner {
+  min-height: 200px;
 }
-.vendor-banner{
+.vendor-banner {
   height: 240px;
 }
