@@ -87,101 +87,99 @@ const Product = ({ product }) => {
 
   return (
     <>
-      <Head>
-        <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
-      </Head>
-      <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
-        <div className="z-50 absolute left-0 right-0 top-40">
-          <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
-            <button data-tooltip="+ Add to wishlist">
-              <HeartIcon
-                onClick={() => handleAddWishlist(product_title, product_price, user_rating, product_stock, product_imageUrl, user.email)}
-                className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
-              />
+    <Head>
+            <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
+            </Head>
+    <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg p-3">
+      <div className="z-50 absolute left-0 right-0 top-40">
+        <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-600 bg-white w-3/5 mx-auto rounded-full py-2 shadow-lg relative">
+          <button data-tooltip="+ Add to wishlist">
+            <HeartIcon
+              onClick={() => handleAddWishlist(product_title,product_price,user_rating,product_stock,product_imageUrl,user.email)}
+              className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
+            />
+          </button>
+          <Link href={`/products/${_id}`}>
+            <button data-tooltip="Quick view">
+              <EyeIcon className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
             </button>
-            <Link href={`/products/${_id}`}>
-              <button data-tooltip="Quick view">
-                <EyeIcon className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
-              </button>
-            </Link>
-            <button data-tooltip="+ Add to compare">
-              <RefreshIcon onClick={() => handleAddCompare(product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details, user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
-            </button>
-          </div>
-        </div>
-
-        <span className="absolute top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
-          {product_badge}
-        </span>
-        {product_badge == "Sale" && (
-          <span className="absolute top-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
-            {product_badge}
-          </span>
-        )}
-        {product_badge == "New" && (
-          <span className="absolute top-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
-            {product_badge}
-          </span>
-        )}
-        <a>
-          {" "}
-          <Image
-            className="p-8 rounded-t-lg"
-            src={product_imageUrl}
-            alt="product image"
-            height="180"
-            width="200"
-            layout="responsive"
-          />
-        </a>
-        <div className="px-2 pb-5 pt-2">
-          <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
-            {product_category}
-          </span>
-          <a href="./">
-            <h3 className="text-md font-semibold tracking-tight text-gray-900">
-              {product_title.slice(0, 18)}..
-            </h3>
-          </a>
-          <div className="flex items-center my-2">
-            <Rating
-              initialRating={user_rating}
-              emptySymbol="far fa-star text-yellow-400"
-              fullSymbol="fas fa-star text-yellow-400"
-              readonly />
-            <span className=" text-blue-800 text-xs font-semibold mr-2  py-0.5 rounded dark:bg-white dark:text-black ml-1">
-              ({user_rating})
-            </span>
-          </div>
-
-          <div className=" mb-2 text-xs font-semibold">
-            <span>By </span>
-            <span className="text-green-600">{vendor_name}</span>
-          </div>
-          <div className="flex justify-between items-center">
-            <div className="flex justify-between items-center">
-              <span className="text-xl font-bold text-dark">
-                ${product_price}
-              </span>
-            </div>
-            <a
-              href="#"
-              onClick={() =>
-                addToCartHandler(
-                  product_title,
-                  product_imageUrl,
-                  product_price,
-                  produc_Details
-                )
-              }
-              className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
-            >
-              <FaCartPlus className="w-6 h-6" />
-            </a>
-          </div>
+          </Link>
+          <button data-tooltip="+ Add to compare">
+            <RefreshIcon onClick={() => handleAddCompare(product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,user.email)} className="w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+          </button>
         </div>
       </div>
-    </>
+
+      <span className="absolute left-0 top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+        {product_badge}
+      </span>
+      {product_badge == "Sale" && (
+        <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+          {product_badge}
+        </span>
+      )}
+      {product_badge == "New" && (
+        <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+          {product_badge}
+        </span>
+      )}
+      <div className="w-40 p-2 mx-auto">
+        <Image
+          className="rounded-t-lg"
+          src={product_imageUrl}
+            alt="product image"
+            width="150"
+            height="150"
+        />
+      </div>
+      <div className="px-2">
+        <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
+          {product_category}
+        </span>
+        <a href="./">
+          <h3 className="text-md font-semibold tracking-tight text-gray-900">
+            {product_title.slice(0, 20)}..
+          </h3>
+        </a>
+        <div className="flex items-center my-2">
+        <Rating
+          initialRating={user_rating}
+          emptySymbol="far fa-star text-yellow-400"
+          fullSymbol="fas fa-star text-yellow-400"
+          readonly />
+          <span className=" text-blue-800 text-xs font-semibold mr-2  py-0.5 rounded dark:bg-white dark:text-black ml-1">
+            ({user_rating})
+          </span>
+        </div>
+
+        <div className=" mb-2 text-xs font-semibold">
+          <span>By </span>
+          <span className="text-green-600">{vendor_name}</span>
+        </div>
+        <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center">
+            <span className="text-xl font-bold text-dark">
+              ${product_price}
+            </span>
+          </div>
+          <a
+            href="#"
+            onClick={() =>
+              addToCartHandler(
+                product_title,
+                product_imageUrl,
+                product_price,
+                produc_Details
+              )
+            }
+            className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
+          >
+            <FaCartPlus className="w-6 h-6"/>
+          </a>
+        </div>
+      </div>
+      </div>
+      </>
   );
 };
 

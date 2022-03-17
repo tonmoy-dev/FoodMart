@@ -1,16 +1,15 @@
-import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
-import Link from "next/link";
-
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
 import Category from "../../src/Components/Products/SideBar/Category/Category";
 
+
 const SingleProduct = ({ related, product }) => {
   const [control, setControl] = useState(false);
-  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(0);
 
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
@@ -18,69 +17,31 @@ const SingleProduct = ({ related, product }) => {
   };
 
    // add to increment and decrement function
+    
+   const handleDecrement = () => {
+  if(quantity < 1){
+     return setQuantity(quantity);
 
-  //  const count = document.getElementById("count");
-  //  const add = () => {
-  //    count.innerHTML++;
-  //  };
-  //  const remove = () => {
-  //    if (count.innerHTML < 1) {
-  //      return 0;
-  //    } else {
-  //      count.innerHTML--;
-  //    }
-  //  };
+  }
+  else{
+    return setQuantity(quantity - 1);
 
-  //  const product_qty = document.getElementById('quantityCount').innerHTML
-  //  console.log(product_qty)
-  //  const handleDecrement = (cart_id) =>{
-  //    console.log
-  //    setCart(cart =
-  //      cart.map((product)=>
-  //      cart_id === product._id ? {...product, product_qty: product.product_qty - 1 } : product
-  //      )
-      
-  //    );
-  //    let ab = parseInt(product_qty) - 1;
-  //    console.log(ab)
- 
-  //  }
-  //  const handleIncrement = (cart_id) =>{
-  //    setCart(cart =
-  //      cart.map((product)=>
-  //      cart_id === product._id ? {...product, product_qty: product.product_qty + 1 } : product
-  //      )
-       
-  //    );
- 
-  //  }
+  }
+    
+   }
+   const handleIncrement = () => {
+    if(quantity < 10){
+    return setQuantity(quantity + 1);
 
-  // // const handleDecrement=()=>{
+    }
+    
+   }
   
-  // // }
-  // document.getElementById('case-minus').addEventListener('click',
-  // function(){
-  //   const caseInput = document.getElementById('case-number');
-  //   const caseNumber = caseInput.value;
-  //   console.log(caseNumber)
-  //   caseInput.value = parseInt(caseNumber) - 1;
-  // })
-  // // const handleIncrement=()=>{
- 
-  // // }
-
-  // document.getElementById('case-plus').addEventListener('click',
-  // function(){
-  //   const caseInput = document.getElementById('case-number');
-  //   const caseNumber = caseInput.value;
-  //   caseInput.value = parseInt(caseNumber) + 1;
-  // })
 
 
   // add to wishlist
   const handleAddWishlist = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
-    //  const Wishlistproduct = product.filter((product) => product._id === id);
-    // const { product_title, product_price, user_rating, product_stock, product_imageUrl } = Wishlistproduct[0];
+    
 
     axios.post("/api/wishlists", { 
       product_title: product_title,
@@ -109,10 +70,7 @@ const SingleProduct = ({ related, product }) => {
       user_rating: user_rating,
       product_stock: product_stock,
       product_imageUrl: product_imageUrl,
-        // title: title,
-        // image: image,
-        // price: price,
-        // description: description.slice(0, 50),
+        
       })
       .then((response) => {
         if (response.data.insertedId) {
@@ -256,16 +214,15 @@ const SingleProduct = ({ related, product }) => {
                     <h2 className="text-lg pr-4 text-gray-700 font-semibold capitalize">
                       quantity :{" "}
                     </h2>
-                    <button id="minus" onClick={remove} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="minus" onClick={handleDecrement} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
-                    <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
-                    <span id="count" className="border px-4 py-2">
-                  0
-                </span>
-                      
-                    </div>
-                    <button id="plus" onClick={add} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                     {/* <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
+                    <input type='text'  ></input>
+                    </div>  */}
+                     <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div> 
+                    
+                    <button id="plus" onClick={handleIncrement} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
                     </button>
                   </div>
@@ -437,29 +394,7 @@ const SingleProduct = ({ related, product }) => {
 };
 
 export default SingleProduct;
-/* 
-export async function getStaticPaths() {
-  return {
-    paths: ["/products/[product_id]"],
-    fallback: false
-  };
-}
 
-export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `http://localhost:3000/api/products/productDetails?product_id=${params.product_id}`
-  );
-  const product = await data.json();
-
-  const related_res = await fetch("http://localhost:3000/api/products/");
-  const related = await related_res.json();
-
-  return {
-    props: { related, product },
-    revalidate: false,
-  };
-}
- */
 
 
 export async function getServerSideProps(context) {

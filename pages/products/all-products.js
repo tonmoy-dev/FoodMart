@@ -2,11 +2,23 @@ import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 
 const AllProducts = ({ products }) => {
     const [filterProducts, setFilterProducts] = useState();
     const [loading, setLoading] = useState(true);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [postsPerPage] = useState(12);
+    
+    // Get current posts
+    const indexOfLastPost = currentPage * postsPerPage;
+    const indexOfFirstPost = indexOfLastPost - postsPerPage;
+    const currentAllProducts = products?.slice(indexOfFirstPost, indexOfLastPost);
+    const currentProducts = filterProducts?.slice(indexOfFirstPost, indexOfLastPost);
+    
+    // Change page
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     // category wise filter
     const filterHandler = (categoryName) => {
@@ -32,8 +44,6 @@ const AllProducts = ({ products }) => {
         setLoading(false);
     };
 
-    // slicing
-    const slicedProducts = products.slice(0, 10);
 
     return (
         <div>
@@ -73,63 +83,32 @@ const AllProducts = ({ products }) => {
 
             <div>
                 <div className="flex p-2 mx-8 mb-2 mt-8 rounded-lg flex-row justify-between items-center shadow">
-                    <h2 className=" text-black">
-                        We have found
-                        <span className="font-semibold text-green-700">
-                            {" "}
-                            {products.length}{" "}
+                    <h2 className="text-black">
+                        We have found 
+                        <span className="inline-block mx-1 font-semibold text-green-700">
+                            {loading && products.length}
+                            {!loading && filterProducts.length}
                         </span>
                         products for you
                     </h2>
 
-                    <div>
-                        <form>
-                            <select
-                                className="mx-2 border-none shadow-sm"
-                                name="Sort by"
-                                id="cars"
-                            >
-                                <option selected disabled>
-                                    Show
-                                </option>
-                                <option value="50">50</option>
-                                <option value="100">100</option>
-                                <option value="200">200</option>
-                            </select>
-                            <select
-                                className="mx-2 border-none shadow-sm"
-                                name="cars"
-                                id="cars"
-                            >
-                                <option selected disabled>
-                                    Sub Category
-                                </option>
-                                <option value="snacks">Noodles</option>
-                                <option value="saab">
-                                    Candy &amp; Chocolate
-                                </option>
-                                <option value="opel">Local Breakfast</option>
-                                <option value="opel">Coffee</option>
-                            </select>
-                        </form>
-                    </div>
                 </div>
                 <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
                     <div className="lg:col-span-3 sm:col-span-2">
-                        <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-center align-middle product-grid-style">
+                        <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 justify-center align-middle">
                             {loading
-                                ? slicedProducts.map((product) => (
+                                ? currentAllProducts.map((product) => (
                                       <Product
                                           key={product._id}
                                           product={product}
                                       ></Product>
                                   ))
-                                : filterProducts.map((product) => (
+                                : currentProducts.map((product) => (
                                       <Product
                                           key={product._id}
                                           product={product}
                                       ></Product>
-                                  ))}
+                                ))}
                         </div>
                     </div>
                     <div className="px-4 mt-2">
@@ -264,35 +243,6 @@ const AllProducts = ({ products }) => {
                                         </p>
                                     </button>
                                 </div>
-                                <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-orange-100">
-                                    <Image
-                                        src="https://i.ibb.co/wW1ypYC/c-pets.png"
-                                        height="30"
-                                        width="30"
-                                        alt=""
-                                    ></Image>
-                                    <button
-                                        onClick={() => ratingFilterHandler("3")}
-                                        className="px-2 py-2"
-                                    >
-                                        <p className="flex pl-4">
-                                            <StarIcon
-                                                className="h-5 w-5 text-orange-500"
-                                                aria-hidden="true"
-                                            />
-                                            <StarIcon
-                                                className="h-5 w-5 text-orange-500"
-                                                aria-hidden="true"
-                                            />
-                                            <StarIcon
-                                                className="h-5 w-5 text-orange-500"
-                                                aria-hidden="true"
-                                            />
-
-                                            <span>(3)</span>
-                                        </p>
-                                    </button>
-                                </div>
                             </div>
                         </div>
                         <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
@@ -311,7 +261,7 @@ const AllProducts = ({ products }) => {
                                     ></Image>
                                     <button
                                         onClick={() =>
-                                            priceFilterHandler(0,50)
+                                            priceFilterHandler(0,100)
                                         }
                                         className="px-2 py-2"
                                     >
@@ -321,22 +271,6 @@ const AllProducts = ({ products }) => {
                                 <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-blue-100">
                                     <Image
                                         src="https://i.ibb.co/JcBmCJM/c-clothing.png"
-                                        height="30"
-                                        width="30"
-                                        alt=""
-                                    ></Image>
-                                    <button
-                                        onClick={() =>
-                                            priceFilterHandler(50,100)
-                                        }
-                                        className="px-2 py-2"
-                                    >
-                                        $50 - $100
-                                    </button>
-                                </div>
-                                <div className="flex flex-row justify-start p-3 align-middle border border-gray-300 drop-shadow-md rounded my-4  bg-blue-100">
-                                    <Image
-                                        src="https://i.ibb.co/wW1ypYC/c-pets.png"
                                         height="30"
                                         width="30"
                                         alt=""
@@ -370,17 +304,55 @@ const AllProducts = ({ products }) => {
                         </div>
                     </div>
                 </div>
+                
             </div>
+            {/* pagination */}
+            {
+                loading && (
+                    <div className="container mt-2">
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={products.length}
+              paginate={paginate}
+                />
+                <p>pagination</p>
+          </div>
+                )
+         }
+            {
+                !loading && (
+                    <div className="container mt-2">
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={filterProducts.length}
+              paginate={paginate}
+                />
+                <p>pagination</p>
+          </div>
+                )
+         }
+          {/* pagination */}
+            
         </div>
     );
 };
 
 export default AllProducts;
 
-export const getServerSideProps = async () => {
+export async function getStaticProps() {
+    const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
+    const products = await res.json();
+    return {
+      props: {
+        products,
+      },
+    }
+  }
+/* export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
     return {
         props: { products },
     };
 };
+ */
