@@ -1,9 +1,9 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
-import Link from "next/link";
 
 const BestSells = ({ products }) => {
-  const allProducts = products;
+  const allProducts = products.slice(10, 14);
 
   const [filterProducts, setFilterProducts] = useState();
   const [loading, setLoading] = useState(true);
@@ -13,7 +13,7 @@ const BestSells = ({ products }) => {
     const newProducts = products.filter(
       (product) => product.product_badge == productBadge
     );
-    setFilterProducts(newProducts);
+    setFilterProducts(newProducts.slice(6, 10));
     setLoading(false);
   };
 
@@ -91,14 +91,10 @@ const BestSells = ({ products }) => {
           </div>
         </div>
         {loading
-          ? allProducts
-              .slice(10, 14)
-              .map((product) => (
+          ? allProducts.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))
-          : filterProducts
-              .slice(6, 10)
-              .map((product) => (
+          : filterProducts.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))}
         <div></div>

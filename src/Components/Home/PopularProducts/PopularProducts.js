@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
-import { useState } from "react";
 
 const PopularProducts = ({ products }) => {
   const allProducts = products?.filter(
     (topProduct) => topProduct.user_rating == 5
-  );
+  ).slice(1, 6);
 
   const [filterProducts, setFilterProducts] = useState();
   const [loading, setLoading] = useState(true);
@@ -19,9 +18,7 @@ const PopularProducts = ({ products }) => {
     setLoading(false);
   };
   // filter by rating
-  const ratingfilter = filterProducts?.filter(
-    (topProduct) => topProduct.user_rating == 5
-  );
+  const ratingfilter = filterProducts?.filter((topProduct) => topProduct.user_rating == 5).slice(0, 5);
 
   return (
     <div className="container mx-auto px-4 md:px-0 py-10">
@@ -67,14 +64,10 @@ const PopularProducts = ({ products }) => {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
         {loading
-          ? allProducts
-              .slice(1, 6)
-              .map((product) => (
+          ? allProducts.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))
-          : ratingfilter
-              .slice(0, 5)
-              .map((product) => (
+          : ratingfilter.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))}
       </div>

@@ -56,7 +56,7 @@ export default function Home({ reviews, products, blogs }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
 
