@@ -1,9 +1,11 @@
+import { css } from "@emotion/react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Rating from "react-rating";
+import DotLoader from "react-spinners/DotLoader";
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 
@@ -30,10 +32,12 @@ const productsFilters = [
   ];
   
 const AllProducts = ({ products }) => {
+    const [color, setColor] = useState("green");
+    const [control, setControl] = useState(false);
     const [filterProducts, setFilterProducts] = useState();
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(12);
+    const [postsPerPage] = useState(8);
     
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
@@ -46,28 +50,39 @@ const AllProducts = ({ products }) => {
 
     // category wise filter
     const filterHandler = (categoryName) => {
+        setControl(true);
         const newProducts = products.filter(
             (product) => product.product_category == categoryName
         );
         setFilterProducts(newProducts);
         setLoading(false);
+        setControl(false);
     };
     // Rating wise filter
     const ratingFilterHandler = (rating) => {
+        setControl(true);
         const newRatedProducts = products.filter(
             (product) => product.user_rating == rating
         );
         setFilterProducts(newRatedProducts);
         setLoading(false);
+        setControl(false);
     };
     // Price wise filter
     const priceFilterHandler = (minPrice, maxPrice) => {
+        setControl(true);
         const newPricedProducts = products.filter(
             (product) => (parseInt(product.product_price) > minPrice) && (parseInt(product.product_price) < maxPrice));
         setFilterProducts(newPricedProducts);
         setLoading(false);
+        setControl(false);
     };
 
+    // Dot loader css
+    const override = css`
+    display: block;
+    margin: 0 auto;
+    `;  
 
     return (
         <div>
@@ -122,6 +137,9 @@ const AllProducts = ({ products }) => {
                 <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
                     <div className="lg:col-span-3 sm:col-span-2 order-last md:order-first">
                         <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 justify-center align-middle">
+                            {
+                                control && <DotLoader color={color} loading={loading} css={override} size={60} />
+                            }
                             {loading
                                 ? currentAllProducts.map((product) => (
                                     <Product
@@ -136,6 +154,30 @@ const AllProducts = ({ products }) => {
                                     ></Product>
                                 ))}
                         </div>
+                        {/* pagination */}
+                        {
+                            loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={products.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {
+                            !loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={filterProducts.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {/* pagination */}
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
                         <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
@@ -219,32 +261,7 @@ const AllProducts = ({ products }) => {
                 </div>
                 
             </div>
-            {/* pagination */}
-            {
-                loading && (
-                    <div className="container mt-2">
-                        <Pagination
-                            postsPerPage={postsPerPage}
-                            totalPosts={products.length}
-                            paginate={paginate}
-                        />
-                        <p>pagination</p>
-                    </div>
-                )
-            }
-            {
-                !loading && (
-                    <div className="container mt-2">
-                        <Pagination
-                            postsPerPage={postsPerPage}
-                            totalPosts={filterProducts.length}
-                            paginate={paginate}
-                        />
-                        <p>pagination</p>
-                    </div>
-                )
-            }
-            {/* pagination */} 
+            
         </div>
     );
 };
