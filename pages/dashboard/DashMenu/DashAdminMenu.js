@@ -76,22 +76,7 @@ const DashAdminMenu = () => {
       menuName: "Add Coupon",
       pageLink: "/dashboard/admin/add-coupon",
     },
-    {
-      menuId: 5,
-      menuName: "Add Blog",
-      pageLink: "/dashboard/user/add-blog",
-    },
-    {
-      menuId: 6,
-      menuName: "Add Review",
-      pageLink: "/dashboard/user/add-review",
-    },
 
-    {
-      menuId: 7,
-      menuName: "Account Details",
-      pageLink: "/dashboard/user/account-details",
-    },
   ];
 
 
@@ -103,17 +88,9 @@ const DashAdminMenu = () => {
       pageLink: "/dashboard/admin/add-product",
     },
 
-    {
-      menuId: 2,
-      menuName: "Add Blog",
-      pageLink: "/dashboard/user/add-blog",
-    },
 
-    {
-      menuId: 3,
-      menuName: "My order",
-      pageLink: "/dashboard/user/my-orders",
-    },
+
+   
 
   ];
 
@@ -240,18 +217,18 @@ const DashAdminMenu = () => {
           <MenuIcon className="text-green-500" />
         </div>
         {/* menu button */}
-        <div className="relative hidden lg:block">
+        {/* <div className="relative hidden lg:block">
           <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
           <input
             type="text"
             placeholder="Search for products"
             className="block pl-11 pr-2 w-72 border-none rounded-3xl focus:ring-gray-400 focus:outline-none py-2 bg-gray-100 text-base text-gray-600"
           />
-        </div>
+        </div> */}
         <div className="ml-auto lg:flex hidden items-center">
-          <div>
+          {/* <div>
             <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-green-400" />
-          </div>
+          </div> */}
           <div className="ml-4 relative">
             <div
               onClick={handleToggle}
@@ -261,7 +238,7 @@ const DashAdminMenu = () => {
                 id="dropdown"
                 className="h-8 w-8 text-green-500 rounded-full"
               />
-              <h1 className="font-medium uppercase">admin</h1>
+              <h1 className="font-medium uppercase">{userNow?.name}</h1>
             </div>
             <div
               id="dropdown_settings"

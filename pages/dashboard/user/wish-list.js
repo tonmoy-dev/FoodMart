@@ -143,6 +143,7 @@ const WishList = () => {
                             {!loading && (
                                 <div className="mt-6 overflow-auto rounded-lg shadow hidden md:block">
                                     <table className="w-full">
+                                        { wishlists.length !== 0 &&
                                         <thead className="bg-gray-50 border-b-2 border-gray-200">
                                             <tr>
                                                 <th
@@ -183,7 +184,8 @@ const WishList = () => {
                                                     Manage
                                                 </th>
                                             </tr>
-                                        </thead>
+                                        </thead>}
+                                            { wishlists.length == 0 && (<div className="flex justify-center"><h3 className="text-2xl text-gray-600 m-auto py-10">You have no Wishlist product. Please add product in Wishlist.</h3></div>)}
                                         <tbody className="divide-y divide-gray-200">
                                             {wishlists.map((wish) => {
                                                 const {

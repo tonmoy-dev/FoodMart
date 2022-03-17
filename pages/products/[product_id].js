@@ -1,12 +1,11 @@
-import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
-import Link from "next/link";
-
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
 import Category from "../../src/Components/Products/SideBar/Category/Category";
+
 
 const SingleProduct = ({ related, product }) => {
   const [control, setControl] = useState(false);
@@ -37,7 +36,6 @@ const SingleProduct = ({ related, product }) => {
     }
     
    }
-console.log(quantity)
   
 
 
@@ -396,29 +394,7 @@ console.log(quantity)
 };
 
 export default SingleProduct;
-/* 
-export async function getStaticPaths() {
-  return {
-    paths: ["/products/[product_id]"],
-    fallback: false
-  };
-}
 
-export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `http://localhost:3000/api/products/productDetails?product_id=${params.product_id}`
-  );
-  const product = await data.json();
-
-  const related_res = await fetch("http://localhost:3000/api/products/");
-  const related = await related_res.json();
-
-  return {
-    props: { related, product },
-    revalidate: false,
-  };
-}
- */
 
 
 export async function getServerSideProps(context) {

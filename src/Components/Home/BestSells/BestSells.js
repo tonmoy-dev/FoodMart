@@ -1,8 +1,9 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
-  const allProducts = products;
+  const allProducts = products.slice(10, 14);
 
   const [filterProducts, setFilterProducts] = useState();
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ const BestSells = ({ products }) => {
     const newProducts = products.filter(
       (product) => product.product_badge == productBadge
     );
-    setFilterProducts(newProducts);
+    setFilterProducts(newProducts.slice(6, 10));
     setLoading(false);
   };
 
@@ -67,7 +68,8 @@ const BestSells = ({ products }) => {
               </p>
             </div>
             <div className="px-10">
-              <button className="bg-green-500 text-white font-bold py-2 px-4 rounded">
+              <Link href="/products/all-products">
+              <a className="bg-green-500 text-white font-bold py-2 px-4 rounded">
                 See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -83,19 +85,16 @@ const BestSells = ({ products }) => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </button>
+              </a>
+              </Link>
             </div>
           </div>
         </div>
         {loading
-          ? allProducts
-              .slice(10, 14)
-              .map((product) => (
+          ? allProducts.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))
-          : filterProducts
-              .slice(6, 10)
-              .map((product) => (
+          : filterProducts.map((product) => (
                 <Product key={product._id} product={product}></Product>
               ))}
         <div></div>

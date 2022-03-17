@@ -1,11 +1,10 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
-  BellIcon,
   HeartIcon,
   MenuIcon,
   RefreshIcon,
   ShoppingCartIcon,
-  XIcon,
+  XIcon
 } from "@heroicons/react/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,7 +15,7 @@ import { useSelector } from "react-redux";
 import logo from "../../../../public/logo2.png";
 import helplinePic from "../../../assets/images/navbar/helpline.png";
 import useFirebase from "../../../Authenticaion/hooks/useFirebase";
-import Cart from "../../Cart/Cart";
+// import Cart from "../../Cart/Cart";
 import AllCatagories from "./AllCatagories/AllCatagories";
 import DropdownNavMenu from "./DropdownNavMenu/DropdownNavMenu";
 import TopBar from "./TopBar/TopBar";
@@ -137,14 +136,18 @@ export default function Navigation() {
                         </span>
                       </button>
                       <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
-                        <span className="cursor-pointer">Cart</span>
-                        <div className="cart-modal rounded-md absolute top-5 -right-56 z-50 border-2 shadow-md bg-white w-96 hidden">
+                        <Link href="/cart">
+                          <a className="text-sm font-semibold text-gray-600">
+                            Cart
+                          </a>
+                        </Link>
+                        {/* <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-md bg-white w-96 hidden">
                           <Cart></Cart>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                     {/* Notification button */}
-                    <div className="text-gray-600 right-nav">
+                    {/* <div className="text-gray-600 right-nav">
                       <button type="button" className="nav-icon-btn relative">
                         <span className="sr-only">View notifications</span>
                         <BellIcon className="w-7" aria-hidden="true" />
@@ -152,13 +155,13 @@ export default function Navigation() {
                           1
                         </span>
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative z-50 ml-0 md:ml-3">
-                    <div className="flex items-center text-sm gap-x-1 rounded-lg border p-2">
+                    <div className="flex items-center text-sm gap-x-1 rounded-lg border p-1">
                       <Menu.Button className="">
-                        <FaRegUser className="h-5 w-5" />
+                        <FaRegUser className="h-7 w-7 bg-gray-300 p-1 rounded-md" />
                       </Menu.Button>
                       <div className="md:flex gap-x-1 font-medium hidden">
                         <Link href="/register">
@@ -191,47 +194,58 @@ export default function Navigation() {
                             </p>
                           )}
                         </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <Link href="/dashboard/dashboard">
-                              <a
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
+                        {
+                          user?.email && (
+                            <>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <Link href="/dashboard/dashboard">
+                                    <a
+                                      className={classNames(
+                                        active ? "bg-gray-100" : "",
+                                        "block px-4 py-2 text-sm text-gray-700"
+                                      )}
+                                    >
+                                      Dashboard
+                                    </a>
+                                  </Link>
                                 )}
-                              >
-                                Dashboard
-                              </a>
-                            </Link>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <Link href="/login">
-                              <a
-                                className={classNames(
-                                  active ? "bg-gray-100" : "",
-                                  "block px-4 py-2 text-sm text-gray-700"
+                              </Menu.Item>
+                              <Menu.Item>
+                                {({ active }) => (
+                                  <button
+                                    onClick={logOut}
+                                    className={classNames(
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
+                                    )}
+                                  >
+                                    Logout
+                                  </button>
                                 )}
-                              >
-                                Login
-                              </a>
-                            </Link>
-                          )}
-                        </Menu.Item>
-                        <Menu.Item>
-                          {({ active }) => (
-                            <button
-                              onClick={logOut}
-                              className={classNames(
-                                active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm text-gray-700"
+                              </Menu.Item>
+                            </>
+                          )
+                        }
+                        {
+                          !user?.email && (
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link href="/login">
+                                  <a
+                                    className={classNames(
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700"
+                                    )}
+                                  >
+                                    Login
+                                  </a>
+                                </Link>
                               )}
-                            >
-                              Logout
-                            </button>
-                          )}
-                        </Menu.Item>
+                            </Menu.Item>
+                          )
+                        }
+                        
                       </Menu.Items>
                     </Transition>
                   </Menu>
