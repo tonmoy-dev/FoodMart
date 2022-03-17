@@ -36,7 +36,7 @@ const AllProducts = ({ products }) => {
     const [filterProducts, setFilterProducts] = useState();
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(8);
+    const [postsPerPage] = useState(12);
     
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
@@ -150,30 +150,7 @@ const AllProducts = ({ products }) => {
                                     ></Product>
                                 ))}
                         </div>
-                        {/* pagination */}
-                        {
-                            loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={products.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {
-                            !loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={filterProducts.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {/* pagination */}
+                        
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
                         <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
@@ -218,9 +195,6 @@ const AllProducts = ({ products }) => {
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
                                                 <StarRating initialRating={item.rating}/>
-                                            {/* <StarIcon
-                                                        className="h-4 w-4 text-orange-500"
-                                                        aria-hidden="true" /> */}
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
@@ -254,7 +228,30 @@ const AllProducts = ({ products }) => {
                         </div>
                     </div>
                 </div>
-                
+                {/* pagination */}
+                {
+                            loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={products.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {
+                            !loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={filterProducts.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {/* pagination */}
             </div>
             
         </div>
