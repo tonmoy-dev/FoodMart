@@ -1,12 +1,11 @@
-import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
+import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
-import Link from "next/link";
-
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
 import Category from "../../src/Components/Products/SideBar/Category/Category";
+
 
 const SingleProduct = ({ related, product }) => {
   const [control, setControl] = useState(false);
@@ -16,65 +15,6 @@ const SingleProduct = ({ related, product }) => {
   const toggleTab = (index) => {
     setToggleState(index);
   };
-
-   // add to increment and decrement function
-
-  //  const count = document.getElementById("count");
-  //  const add = () => {
-  //    count.innerHTML++;
-  //  };
-  //  const remove = () => {
-  //    if (count.innerHTML < 1) {
-  //      return 0;
-  //    } else {
-  //      count.innerHTML--;
-  //    }
-  //  };
-
-  //  const product_qty = document.getElementById('quantityCount').innerHTML
-  //  console.log(product_qty)
-  //  const handleDecrement = (cart_id) =>{
-  //    console.log
-  //    setCart(cart =
-  //      cart.map((product)=>
-  //      cart_id === product._id ? {...product, product_qty: product.product_qty - 1 } : product
-  //      )
-      
-  //    );
-  //    let ab = parseInt(product_qty) - 1;
-  //    console.log(ab)
- 
-  //  }
-  //  const handleIncrement = (cart_id) =>{
-  //    setCart(cart =
-  //      cart.map((product)=>
-  //      cart_id === product._id ? {...product, product_qty: product.product_qty + 1 } : product
-  //      )
-       
-  //    );
- 
-  //  }
-
-  // // const handleDecrement=()=>{
-  
-  // // }
-  // document.getElementById('case-minus').addEventListener('click',
-  // function(){
-  //   const caseInput = document.getElementById('case-number');
-  //   const caseNumber = caseInput.value;
-  //   console.log(caseNumber)
-  //   caseInput.value = parseInt(caseNumber) - 1;
-  // })
-  // // const handleIncrement=()=>{
- 
-  // // }
-
-  // document.getElementById('case-plus').addEventListener('click',
-  // function(){
-  //   const caseInput = document.getElementById('case-number');
-  //   const caseNumber = caseInput.value;
-  //   caseInput.value = parseInt(caseNumber) + 1;
-  // })
 
 
   // add to wishlist
@@ -256,7 +196,7 @@ const SingleProduct = ({ related, product }) => {
                     <h2 className="text-lg pr-4 text-gray-700 font-semibold capitalize">
                       quantity :{" "}
                     </h2>
-                    <button id="minus" onClick={remove} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="minus" className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
                     <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
@@ -265,7 +205,7 @@ const SingleProduct = ({ related, product }) => {
                 </span>
                       
                     </div>
-                    <button id="plus" onClick={add} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="plus" className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
                     </button>
                   </div>
