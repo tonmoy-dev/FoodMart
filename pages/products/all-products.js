@@ -1,11 +1,12 @@
 import { css } from "@emotion/react";
-import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DotLoader from "react-spinners/DotLoader";
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
+import StarRating from "../../src/Components/StarRating/StarRating";
 
 // Products filters
 const productsFilters = [
@@ -216,9 +217,10 @@ const AllProducts = ({ products }) => {
                                                 alt=""
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                            <StarIcon
+                                                <StarRating initialRating={item.rating}/>
+                                            {/* <StarIcon
                                                         className="h-4 w-4 text-orange-500"
-                                                        aria-hidden="true" />
+                                                        aria-hidden="true" /> */}
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
