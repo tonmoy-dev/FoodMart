@@ -1,9 +1,7 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
-import Head from "next/head";
+import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import Rating from "react-rating";
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 
@@ -18,8 +16,7 @@ const productsFilters = [
     // rating
     [
         { rating: "5", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { rating: "4", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
-        { rating: "3", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
+        { rating: "4", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"}
     ],
     // price
     [
@@ -71,9 +68,6 @@ const AllProducts = ({ products }) => {
 
     return (
         <>
-            <Head>
-                <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
-            </Head>
             <div>
                 <div className="head-banner">
                     <div className="container mx-auto">
@@ -180,11 +174,21 @@ const AllProducts = ({ products }) => {
                                                     alt=""
                                                 ></Image>
                                                 <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                                    <Rating
-                                                        initialRating={item.rating}
-                                                        emptySymbol="far fa-star text-red-500"
-                                                        fullSymbol="fas fa-star text-red-500"
-                                                        readonly />
+                                                    <StarIcon
+                                                        className="h-4 w-4 text-orange-500"
+                                                        aria-hidden="true" />
+                                                    <StarIcon
+                                                        className="h-4 w-4 text-orange-500"
+                                                        aria-hidden="true" />
+                                                    <StarIcon
+                                                        className="h-4 w-4 text-orange-500"
+                                                        aria-hidden="true" />
+                                                    <StarIcon
+                                                        className="h-4 w-4 text-orange-500"
+                                                        aria-hidden="true" />
+                                                    <StarIcon
+                                                        className="h-4 w-4 text-orange-500"
+                                                        aria-hidden="true" />
                                                     <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                                 </div>
                                             </div>
