@@ -1,22 +1,54 @@
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "../../src/Components/Products/Product/Product";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
+import Pagination from "../../src/Components/Pagination/Pagination";
+import axios from "axios";
 
 const AllProducts = ({ products }) => {
   const [filterProducts, setFilterProducts] = useState();
   const [loading, setLoading] = useState(true);
+  
+  const [posts, setPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(8);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const res = await axios.get("http://localhost:3000/api/products");
+      setPosts(res.data);
+      setLoading(false);
+      console.log(res.data);
+    };
+   
+    fetchPosts();
+  }, []);
+
+
+  // // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+
+  const currentProduct = posts.slice(indexOfFirstPost, indexOfLastPost);
+
+  // // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
   // category wise filter
   const filterHandler = (categoryName) => {
-    const newProducts = products.filter(
+    const newProducts = posts.filter(
       (product) => product.product_category == categoryName
     );
-    setFilterProducts(newProducts);
-    setLoading(false);
+    // setFilterProducts(newProducts);
+    setPosts(newProducts);
+    setLoading(true);
+    
   };
 
+ 
   return (
     <div>
       <div className="head-banner">
@@ -52,13 +84,6 @@ const AllProducts = ({ products }) => {
           </div>
         </div>
       </div>
-      {/* <div className="flex flex-col justify-center align-middle items-center">
-        <div className="pt-10">
-          <h1 className="text-gray-700 font-bold text-3xl mb-6">
-            All Fresh Products
-          </h1>
-        </div>
-      </div> */}
       <div>
         <div className="flex p-2 mx-8 mb-2 mt-8 rounded-lg flex-row justify-between items-center shadow">
           <h2 className=" text-black">
@@ -103,13 +128,23 @@ const AllProducts = ({ products }) => {
         <div className="AllProducts-style grid lg:grid-cols-4 sm:grid-cols-3 grid-cols-1 px-4">
           <div className="lg:col-span-3 sm:col-span-2">
             <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 justify-center align-middle product-grid-style">
-              {loading
-                ? products.map((product) => (
+              {!loading
+                ? currentProduct.map((product) => (
                     <Product key={product._id} product={product}></Product>
                   ))
-                : filterProducts.map((product) => (
+                : posts?.map((product) => (
                     <Product key={product._id} product={product}></Product>
-                  ))}
+                  ))
+              }
+              
+              
+              {/* {
+
+              currentProduct.map((product) => (
+                    <Product key={product._id} product={product}></Product>
+                  ))
+
+               } */}
             </div>
           </div>
           <div className="px-4 mt-2">
@@ -166,6 +201,15 @@ const AllProducts = ({ products }) => {
             </div>
           </div>
         </div>
+         {/* pagination */}
+         <div className="container mt-2">
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={posts.length}
+              paginate={paginate}
+            />
+          </div>
+          {/* pagination */}
       </div>
     </div>
   );

@@ -6,11 +6,35 @@ import {
   StarIcon,
 } from "@heroicons/react/solid";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { FaCartPlus } from "react-icons/fa";
+import Pagination from "../../src/Components/Pagination/Pagination";
+import axios from "axios";
 
 const AllVendors = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage] = useState(2);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      setLoading(true);
+      const res = await axios.get("http://localhost:3000/api/vendors");
+      setPosts(res.data);
+      setLoading(false);
+    };
+
+    fetchPosts();
+  }, []);
+  // Get current posts
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentProduct = posts.slice(indexOfFirstPost, indexOfLastPost);
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   const vendors = [
     {
       name: "Nature Food",
@@ -93,6 +117,10 @@ const AllVendors = () => {
       user_rating: "4",
     },
   ];
+
+  if (loading) {
+    return <h2>Loading...</h2>;
+  }
   return (
     <>
       <div className="head-banner">
@@ -152,7 +180,7 @@ const AllVendors = () => {
           </div>
 
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 py-8">
-            {vendors.map((vendor) => (
+            {currentProduct.map((vendor) => (
               <div
                 vendor={vendor}
                 key={vendor.name}
@@ -218,17 +246,24 @@ const AllVendors = () => {
                       </p>
                     </div>
                     <Link href="/vendors/vendor-profile">
-                    <a
-                      className="inline-flex items-center p-2 text-sm font-medium text-center bg-green-500 shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
-                    >
-                      <ArrowSmRightIcon className="h-5 w-5 text-white" />
-                    </a>
+                      <a className="inline-flex items-center p-2 text-sm font-medium text-center bg-green-500 shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 ">
+                        <ArrowSmRightIcon className="h-5 w-5 text-white" />
+                      </a>
                     </Link>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+          {/* pagination */}
+          <div className="container mt-2">
+            <Pagination
+              postsPerPage={postsPerPage}
+              totalPosts={posts.length}
+              paginate={paginate}
+            />
+          </div>
+          {/* pagination */}
         </div>
       </div>
     </>
