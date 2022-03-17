@@ -36,7 +36,7 @@ const DropdownNavMenu = () => {
                     href="#"
                     className="relative block py-6 px-4 lg:p-6 text-sm lg:text-base font-semibold"
                 >
-                    <div className='flex flex-row items-center'>Menu <FiChevronDown className='pt-1 w-5 h-5' /></div>
+                    <div className='flex flex-row items-center text-gray-500 hover:text-green-700'>Menu <FiChevronDown className='pt-1 w-5 h-5' /></div>
                 </a>
 
                 <div className="megaMenu transition px-5 bg-white mb-16 rounded-lg shadow-md">
