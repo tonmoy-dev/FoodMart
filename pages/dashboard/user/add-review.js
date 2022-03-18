@@ -208,7 +208,7 @@ const AddReview = () => {
                           <p className="text-black mt-2">Image Url</p>{" "}
                         </label>
                         <input
-                          className="w-full rounded-md p-4"
+                          className="w-full rounded-md p-4 text-black"
                           id="search"
                           type="text"
                           name="imageUrl"
