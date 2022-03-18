@@ -1,8 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Pie, defaults } from 'react-chartjs-2'
-import { Bar } from 'react-chartjs-2';
 import { useSelector } from 'react-redux';
 import axios from "axios";
 import { css } from "@emotion/react";
@@ -17,13 +15,12 @@ import Link from "next/link";
 import DotLoader from "react-spinners/DotLoader";
 import swal from "sweetalert";
 
-
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from 'recharts';
 
 
 const WelcomeAdmin = () => {
     // Hello
     const user = useSelector((state) => state.states.user);
-    console.log(user);
     const [products, setProducts] = useState([]);
     const [vendors, setVendors] = useState([]);
     const [control, setControl] = useState(false);
@@ -36,7 +33,6 @@ const WelcomeAdmin = () => {
         axios.get("/api/products").then(response => {
 
             setProducts(response?.data);
-            console.log(response.data);
             setLoading(false);
         });
     }, [control]);
@@ -63,13 +59,71 @@ const WelcomeAdmin = () => {
 
     // top products
 
-    const topVendors = products?.slice(0, 5);
+    const topVendors = vendors?.slice(0, 5);
+
+
+    // users
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        setControl(true);
+        axios.get("/api/users").then(response => {
+            setUsers(response.data);
+            setLoading(false);
+        });
+    }, [control]);
+
+
+    console.log(user.displayName);
+    console.log(user.email);
+    const email = user.email
+
+
+    const userNow = users.filter(user => user.email === email)[0]
+    console.log(userNow?.role);
+    // const userNow = users.filter()
+
+
+    // Recharts
+    const pdata = [
+        {
+            month: 'October',
+            Sells: 10,
+            Profit: 5
+        },
+        {
+            month: 'November',
+            Sells: 9,
+            Profit: 4
+        },
+        {
+            month: 'December',
+            Sells: 10,
+            Profit: 8
+        },
+        {
+            month: 'January',
+            Sells: 13,
+            Profit: 10
+        },
+        {
+            month: 'February',
+            Sells: 15,
+            Profit: 12
+        },
+        {
+            month: 'March',
+            Sells: 15,
+            Profit: 13
+        },
+
+    ];
 
 
 
     return (
         <div>
-            <h1 className="text-center text-3xl font-bold py-5">Welcome to Admin dashboard</h1>
+            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role || "user" }</span> dashboard</h1>
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
                 <div className='bg-green-400  rounded-xl'>
@@ -107,6 +161,48 @@ const WelcomeAdmin = () => {
             </div>
 
 
+            {/* Chart */}
+
+            <div className="grid grid-cols-1 justify-center items-center">
+
+                <div className="py-10 ">
+                    <h1 className="chart-heading text-center text-xl font-bold">Sales and Profit graph</h1>
+                    <ResponsiveContainer width="100%" aspect={3}>
+                        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="month" interval={'preserveStartEnd'} tickFormatter={(value) => value + " "} />
+                            <YAxis />
+                            <Tooltip contentStyle={{ backgroundColor: 'yellow' }} />
+                            <Legend />
+                            <Line type="monotone" dataKey="Sells" stroke="red" activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="Profit" stroke="green" activeDot={{ r: 8 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+
+
+                </div>
+
+            </div>
+            {/* <div className="mx-auto flex flex-row pt-10 ">
+                <h1>Line chart</h1>
+                <div className='flex flex-col justify-center items-center py-10'>
+
+                    <ResponsiveContainer width="100%" aspect={3}>
+                        <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
+                            <CartesianGrid strokeDasharray="3 3" />
+                            <XAxis dataKey="month" interval={'preserveStartEnd'} tickFormatter={(value) => value + ""} />
+                            <YAxis />
+                            <Tooltip contentStyle={{ backgroundColor: 'yellow' }} />
+                            <Legend />
+                            <Line type="monotone" dataKey="Sells" stroke="red" activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="Profit" stroke="green" activeDot={{ r: 8 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+
+
+                </div>
+
+            </div> */}
             {/* top product and vendors */}
 
             <div className='py-5'>
@@ -126,9 +222,7 @@ const WelcomeAdmin = () => {
                                 {/* Cart is not empty */}
 
                                 <div>
-                                    {/* <div>
-                                <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
-                            </div> */}
+
                                     <div className="flex flex-col">
                                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                             <div className="inline-block min-w-full sm:px-6 lg:px-8">
@@ -167,12 +261,12 @@ const WelcomeAdmin = () => {
                                                                         <td className="flex flex-row gap-2 items-center px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
 
                                                                             <div className="border ">
-                                                                                {/* <Image
+                                                                                <Image
                                                                                     width={80}
                                                                                     height={80}
                                                                                     src={product?.product_imageUrl}
                                                                                     alt="image"
-                                                                                ></Image> */}
+                                                                                ></Image>
                                                                             </div>
                                                                             <h1>{product_title}</h1>
                                                                         </td>
@@ -212,9 +306,7 @@ const WelcomeAdmin = () => {
                                 {/* Cart is not empty */}
 
                                 <div>
-                                    {/* <div>
-                                <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
-                            </div> */}
+
                                     <div className="flex flex-col">
                                         <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                             <div className="inline-block min-w-full sm:px-6 lg:px-8">
@@ -244,7 +336,6 @@ const WelcomeAdmin = () => {
 
                                                                 const image = icon;
 
-
                                                                 return (
                                                                     <tr
                                                                         key={_id}
@@ -253,18 +344,18 @@ const WelcomeAdmin = () => {
                                                                         <td className="flex flex-row gap-2 items-center px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
 
                                                                             <div className="border z-0">
-                                                                                {/* <Image
+                                                                                <Image
                                                                                     className='z-0'
                                                                                     width={80}
                                                                                     height={80}
                                                                                     src={image}
                                                                                     alt="image"
-                                                                                ></Image> */}
+                                                                                ></Image>
                                                                             </div>
                                                                             <h1>{name}</h1>
                                                                         </td>
                                                                         <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                                                            $ <span>{products_added}</span>
+                                                                            <span>{products_added}</span>
                                                                         </td>
                                                                     </tr>
                                                                 )

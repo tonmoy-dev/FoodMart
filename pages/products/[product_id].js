@@ -1,15 +1,82 @@
-import { HeartIcon, HomeIcon } from "@heroicons/react/solid";
-import Link from "next/link";
+import { HeartIcon } from "@heroicons/react/solid";
+import axios from "axios";
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
 import Category from "../../src/Components/Products/SideBar/Category/Category";
 
+
 const SingleProduct = ({ related, product }) => {
+  const [control, setControl] = useState(false);
+  const [quantity, setQuantity] = useState(0);
+
   const [toggleState, setToggleState] = useState(1);
   const toggleTab = (index) => {
     setToggleState(index);
+  };
+
+   // add to increment and decrement function
+    
+   const handleDecrement = () => {
+  if(quantity < 1){
+     return setQuantity(quantity);
+
+  }
+  else{
+    return setQuantity(quantity - 1);
+
+  }
+    
+   }
+   const handleIncrement = () => {
+    if(quantity < 10){
+    return setQuantity(quantity + 1);
+
+    }
+    
+   }
+  
+
+
+  // add to wishlist
+  const handleAddWishlist = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
+    
+
+    axios.post("/api/wishlists", { 
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl,
+
+     }).then((response) => {
+
+      if (response.data.insertedId) {
+        setControl(!control);
+        swal("WOW!!! wishlist product add successfully");
+      } else {
+        setControl(false);
+      }
+    });
+  };
+
+  // Add to cart a product
+  const addToCartHandler = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
+    axios
+      .post("/api/cart", {
+      product_title: product_title,
+      product_price: product_price,
+      user_rating: user_rating,
+      product_stock: product_stock,
+      product_imageUrl: product_imageUrl,
+        
+      })
+      .then((response) => {
+        if (response.data.insertedId) {
+          swal("Wow!", "Product is added to your cart", "success");
+        }
+      });
   };
 
   const images = [
@@ -38,7 +105,7 @@ const SingleProduct = ({ related, product }) => {
   ];
 
   return (
-    <div>
+    <div >
       <style jsx>
         {`
           .tabs {
@@ -75,7 +142,7 @@ const SingleProduct = ({ related, product }) => {
         `}
       </style>
       
-      <div>
+      <div  >
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
@@ -143,26 +210,39 @@ const SingleProduct = ({ related, product }) => {
                       150gm
                     </button>
                   </div>
-                  <div id="quantity" className="flex flex-row items-center">
+                  <div id="quantity case-number" className="flex flex-row items-center">
                     <h2 className="text-lg pr-4 text-gray-700 font-semibold capitalize">
                       quantity :{" "}
                     </h2>
-                    <button className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                    <button id="minus" onClick={handleDecrement} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
-                    <div className="quantityCount border shadow bg-white px-4 py-1">
-                      0
-                    </div>
-                    <button className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
+                     {/* <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
+                    <input type='text'  ></input>
+                    </div>  */}
+                     <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div> 
+                    
+                    <button id="plus" onClick={handleIncrement} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
                     </button>
                   </div>
                   <div className="flex items-center flex-row gap-2 py-6">
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       {" "}
-                      <HeartIcon className="h-6 w-6 text-white" />
+                      <HeartIcon
+                       onClick={() => handleAddWishlist(product._id)}
+                      className="h-6 w-6 text-white" />
                     </button>
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button  onClick={() =>
+                        addToCartHandler(
+                          product._id
+                          // product_title,
+                          // product_imageUrl,
+                          // product_price,
+                          // produc_Details
+                        )
+                      }
+                     className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       Add to cart
                     </button>
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
@@ -314,29 +394,7 @@ const SingleProduct = ({ related, product }) => {
 };
 
 export default SingleProduct;
-/* 
-export async function getStaticPaths() {
-  return {
-    paths: ["/products/[product_id]"],
-    fallback: false
-  };
-}
 
-export async function getStaticProps({ params }) {
-  const data = await fetch(
-    `http://localhost:3000/api/products/productDetails?product_id=${params.product_id}`
-  );
-  const product = await data.json();
-
-  const related_res = await fetch("http://localhost:3000/api/products/");
-  const related = await related_res.json();
-
-  return {
-    props: { related, product },
-    revalidate: false,
-  };
-}
- */
 
 
 export async function getServerSideProps(context) {

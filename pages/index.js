@@ -1,4 +1,4 @@
-import MessengerCustomerChat from "react-messenger-customer-chat";
+// import MessengerCustomerChat from "react-messenger-customer-chat";
 import { useEffect, useState } from "react";
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
@@ -50,15 +50,13 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
-      <MessengerCustomerChat
-        pageId="100697865102030"
-        appId="361045412549261"
-      />
+
+    
     </div>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
 

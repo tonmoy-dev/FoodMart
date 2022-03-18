@@ -1,22 +1,45 @@
-import React from "react";
+import Link from "next/link";
+import React, { useState } from "react";
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
-  const allProducts = products.slice(9, 13);
+  const allProducts = products.slice(10, 14);
+
+  const [filterProducts, setFilterProducts] = useState();
+  const [loading, setLoading] = useState(true);
+
+  // badge wise filter
+  const filterHandler = (productBadge) => {
+    const newProducts = products.filter(
+      (product) => product.product_badge == productBadge
+    );
+    setFilterProducts(newProducts.slice(6, 10));
+    setLoading(false);
+  };
+
   return (
     <div className="container mx-auto pt-10 px-4 md:px-0">
       <div className="flex md:flex-row flex-col justify-between">
         <h1 className="text-3xl font-bold mb-8">Daily Best Sells</h1>
         <div className="grid grid-cols-3 md:grid-cols-3 gap-2 mb-8">
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
-            Featured
-          </p>
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
-            Popular
-          </p>
-          <p className="border py-1 rounded-full flex items-center justify-center px-3 hover:bg-green-500 hover:text-white cursor-pointer transition">
+          <button
+            onClick={() => filterHandler("Hot")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Hot
+          </button>
+          <button
+            onClick={() => filterHandler("Sale")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
+            Sale
+          </button>
+          <button
+            onClick={() => filterHandler("New")}
+            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+          >
             New
-          </p>
+          </button>
         </div>
       </div>
 
@@ -45,7 +68,8 @@ const BestSells = ({ products }) => {
               </p>
             </div>
             <div className="px-10">
-              <button className="bg-green-500 text-white font-bold py-2 px-4 rounded">
+              <Link href="/products/all-products">
+              <a className="bg-green-500 text-white font-bold py-2 px-4 rounded">
                 See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -61,13 +85,18 @@ const BestSells = ({ products }) => {
                     d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
-              </button>
+              </a>
+              </Link>
             </div>
           </div>
         </div>
-        {allProducts.map((product) => (
-          <Product key={product._id} product={product} />
-        ))}
+        {loading
+          ? allProducts.map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))
+          : filterProducts.map((product) => (
+                <Product key={product._id} product={product}></Product>
+              ))}
         <div></div>
       </div>
     </div>
