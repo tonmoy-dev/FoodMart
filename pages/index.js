@@ -46,7 +46,7 @@ export default function Home({ reviews, products, blogs }) {
       <Categories></Categories>
       <ProductOffer></ProductOffer>
       <DeliverySteps></DeliverySteps>
-      {/* <Reviews reviews={reviews}></Reviews> */}
+      <Reviews reviews={reviews}></Reviews>
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
