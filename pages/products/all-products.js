@@ -1,11 +1,12 @@
 import { css } from "@emotion/react";
-import { ChevronRightIcon, StarIcon } from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/solid";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DotLoader from "react-spinners/DotLoader";
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
+import StarRating from "../../src/Components/StarRating/StarRating";
 
 // Products filters
 const productsFilters = [
@@ -35,7 +36,7 @@ const AllProducts = ({ products }) => {
     const [filterProducts, setFilterProducts] = useState();
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [postsPerPage] = useState(8);
+    const [postsPerPage] = useState(12);
     
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
@@ -149,30 +150,7 @@ const AllProducts = ({ products }) => {
                                     ></Product>
                                 ))}
                         </div>
-                        {/* pagination */}
-                        {
-                            loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={products.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {
-                            !loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={filterProducts.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {/* pagination */}
+                        
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
                         <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
@@ -216,9 +194,7 @@ const AllProducts = ({ products }) => {
                                                 alt=""
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                            <StarIcon
-                                                        className="h-4 w-4 text-orange-500"
-                                                        aria-hidden="true" />
+                                                <StarRating initialRating={item.rating}/>
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
@@ -252,7 +228,30 @@ const AllProducts = ({ products }) => {
                         </div>
                     </div>
                 </div>
-                
+                {/* pagination */}
+                {
+                            loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={products.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {
+                            !loading && (
+                                <div className="container mt-2">
+                                    <Pagination
+                                        postsPerPage={postsPerPage}
+                                        totalPosts={filterProducts.length}
+                                        paginate={paginate}
+                                    />
+                                </div>
+                            )
+                        }
+                        {/* pagination */}
             </div>
             
         </div>
@@ -261,7 +260,7 @@ const AllProducts = ({ products }) => {
 
 export default AllProducts;
 
-export async function getStaticProps() {
+/* export async function getStaticProps() {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
     const products = await res.json();
     return {
@@ -269,12 +268,11 @@ export async function getStaticProps() {
         products,
       },
     }
-  }
-/* export const getServerSideProps = async () => {
+  } */
+export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
     return {
         props: { products },
     };
 };
- */
