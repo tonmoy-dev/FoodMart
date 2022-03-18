@@ -49,6 +49,7 @@ const AllProducts = ({ products }) => {
 
     // category wise filter
     const filterHandler = (categoryName) => {
+        setCurrentPage(1);
         setControl(true);
         const newProducts = products.filter(
             (product) => product.product_category == categoryName
@@ -59,6 +60,7 @@ const AllProducts = ({ products }) => {
     };
     // Rating wise filter
     const ratingFilterHandler = (rating) => {
+        setCurrentPage(1);
         setControl(true);
         const newRatedProducts = products.filter(
             (product) => product.user_rating == rating
@@ -69,6 +71,7 @@ const AllProducts = ({ products }) => {
     };
     // Price wise filter
     const priceFilterHandler = (minPrice, maxPrice) => {
+        setCurrentPage(1);
         setControl(true);
         const newPricedProducts = products.filter(
             (product) => (parseInt(product.product_price) > minPrice) && (parseInt(product.product_price) < maxPrice));

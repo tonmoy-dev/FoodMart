@@ -338,8 +338,6 @@ const newArr = [...new Set(arr)];
                 )))
               }
               </div>
-
-
             </div>
 
             {/* Recent post */}
