@@ -2,13 +2,7 @@ import React from "react";
 import contacts from '../../styles/Contact.module.css';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
-
-
-
 const ContactUs = () => {
-
-
   return (
 <>
     <div>
