@@ -1,98 +1,12 @@
-import {
-  ArrowSmRightIcon,
-  ChevronRightIcon,
-  LocationMarkerIcon,
-  PhoneIcon,
-  StarIcon,
-} from "@heroicons/react/solid";
+import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { FaCartPlus } from "react-icons/fa";
+import VendorCard from "../../src/Components/VendorCard/VendorCard";
+//{vendors}
+const AllVendors = ({ vendors }) => {
+  const [searchItem, setSearchItem] = useState("");
 
-const AllVendors = () => {
-  const vendors = [
-    {
-      name: "Nature Food",
-      icon: "https://i.ibb.co/tqF3ZXP/logo-1.png",
-      subtitle: "2012",
-      banner: "https://i.ibb.co/gMVdYpM/gettyimages-1212810931-612x612.jpg",
-      products_added: "380",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "Red Baron",
-      icon: "https://i.ibb.co/qs9nzKT/logo-2.jpg",
-      subtitle: "2015",
-      banner: "https://i.ibb.co/ZG6HsVt/gettyimages-139468977-612x612.jpg",
-      products_added: "280",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "TotinosPizza",
-      subtitle: "2012",
-      icon: "https://i.ibb.co/QPbwWTH/logo-3.jpg",
-      banner: "https://i.ibb.co/JvzCqfD/gettyimages-530743809-612x612.jpg",
-      products_added: "380",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "Nature Shop",
-      subtitle: "2016",
-      banner: "https://i.ibb.co/kQ9bPCf/gettyimages-476803857-612x612.jpg",
-      icon: "https://i.ibb.co/2Zs1BsX/logo-4.jpg",
-      products_added: "500",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "Red Baron 2",
-      icon: "https://i.ibb.co/qs9nzKT/logo-2.jpg",
-      subtitle: "2015",
-      banner: "https://i.ibb.co/ZG6HsVt/gettyimages-139468977-612x612.jpg",
-      products_added: "280",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "Nature Foods 5",
-      subtitle: "2012",
-      banner: "https://i.ibb.co/94sfvKy/gettyimages-532270528-612x612.jpg",
-      icon: "https://i.ibb.co/NKDTxKR/wcfmmp-blue.png",
-      products_added: "380",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "Nature Foods 6",
-      subtitle: "2012",
-      banner: "https://i.ibb.co/MRX0hjs/gettyimages-463246795-612x612.jpg",
-      icon: "https://i.ibb.co/47cj8m4/logo-6.jpg",
-      products_added: "380",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-    {
-      name: "TotinosPizza 2",
-      subtitle: "2012",
-      icon: "https://i.ibb.co/QPbwWTH/logo-3.jpg",
-      banner: "https://i.ibb.co/JvzCqfD/gettyimages-530743809-612x612.jpg",
-      products_added: "380",
-      address: "5171 W Campbell Ave undefined Kent, Utah 53127 United States",
-      contact: "(+91) - 540-025-124553",
-      user_rating: "4",
-    },
-  ];
   return (
     <>
       <div className="head-banner">
@@ -132,13 +46,17 @@ const AllVendors = () => {
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-3">
           <div className="flex flex-row justify-between items-center rounded pt-3">
-            <h1 className="text-gray-700 font-semibold ml-1">
+            <h1 className="text-gray-700 text-sm md:text-md font-semibold ml-1">
               Total vendors showing:{" "}
               <span className="primary-color">{vendors.length}</span>
             </h1>
             <div className="vendor-search relative">
               <input
-                className="border-gray-200 focus:border-green-500 rounded-full focus:ring-0"
+                onChange={(event) => {
+                  setSearchItem(event.target.value);
+                }}
+                id="searchValue"
+                className="border-gray-200 focus:border-green-500 rounded-full focus:ring-0 py-1 px-1 md:px-2"
                 type="text"
                 placeholder="Search a vendor"
               />
@@ -146,87 +64,27 @@ const AllVendors = () => {
                 type="submit"
                 className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-lg bg-white"
               >
-                <AiOutlineSearch className="h-6 w-6 primary-color" />
+                <AiOutlineSearch className="md:h-6 md:w-6 w-5 h-5 primary-color" />
               </button>
             </div>
           </div>
 
           <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-4 py-8">
-            {vendors.map((vendor) => (
-              <div
-                vendor={vendor}
-                key={vendor.name}
-                className="mx-auto bg-white rounded-lg  border-gray-200 border shadow"
-              >
-                <div className="relative">
-                  <a href="#">
-                    <img
-                      className="rounded-t-lg mx-auto w-full vendor-banner"
-                      src={vendor.banner}
-                      alt="logo"
-                    />
-                  </a>
-                  <div className="absolute bg-white shadow-lg rounded-full bottom-0 w-16 h-16">
-                    <img
-                      className="rounded-full p-1"
-                      src={vendor.icon}
-                      alt="icon"
-                    />
-                  </div>
-                </div>
-                <div className="p-5">
-                  <div>
-                    <a href="#">
-                      <h5 className="mb-2 text-xl font-semibold tracking-tight text-gray-900 ">
-                        {vendor.name}{" "}
-                        <span className="text-sm font-normal">
-                          ( Since {vendor.subtitle} )
-                        </span>
-                      </h5>
-                    </a>
-                  </div>
-
-                  <div className="flex items-center">
-                    <StarIcon className="h-5 w-5 text-yellow-300" />
-                    <StarIcon className="h-5 w-5 text-yellow-300" />
-                    <StarIcon className="h-5 w-5 text-yellow-300" />
-                    <StarIcon className="h-5 w-5 text-yellow-300" />
-                    <StarIcon className="h-5 w-5 text-yellow-300" />
-                  </div>
-
-                  <div className="flex items-center justify-between">
-                    <LocationMarkerIcon className="mr-2 h-5 w-5 primary-color" />
-                    <p className="my-2 w-full text-gray-500 ">
-                      Address: {vendor.address}
-                    </p>
-                  </div>
-                  <div className="flex items-center justify-between mb-4">
-                    <PhoneIcon className="mr-2 h-5 w-5 primary-color" />
-                    <p className="w-full text-gray-500 ">
-                      Call Us: {vendor.contact}
-                    </p>
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div className="">
-                      <p className="flex items-center py-2 primary-color rounded-md">
-                        <FaCartPlus />
-                        <span className="ml-2 text-gray-500">
-                          Products: {vendor.products_added}
-                        </span>
-                      </p>
-                    </div>
-                    <Link href="/vendors/vendor-profile">
-                    <a
-                      className="inline-flex items-center p-2 text-sm font-medium text-center primary-bg-color shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
-                    >
-                      <ArrowSmRightIcon className="h-5 w-5 text-white" />
-                    </a>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
+            {vendors
+              .filter((vendor) => {
+                if (searchItem == "") {
+                  return vendor;
+                } else if (
+                  vendor.name
+                    .toLowerCase()
+                    .includes(searchItem.toLocaleLowerCase())
+                ) {
+                  return vendor;
+                }
+              })
+              .map((vendor) => (
+                <VendorCard key={vendor._id} vendor={vendor}></VendorCard>
+              ))}
           </div>
         </div>
       </div>
@@ -235,3 +93,13 @@ const AllVendors = () => {
 };
 
 export default AllVendors;
+
+export async function getStaticProps() {
+  const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/vendors`);
+  const vendors = await res.json();
+  return {
+    props: {
+      vendors,
+    },
+  };
+}
