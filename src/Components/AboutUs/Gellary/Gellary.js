@@ -1,7 +1,8 @@
 
-import React from "react";
+import React, { useState } from "react";
 
 const Gellary = () => {
+  const [openMore, setOpenMore] = useState(false);
   return (
     <div>
       {/* <!-- This example requires Tailwind CSS v2.0+ --> */}
@@ -14,7 +15,15 @@ const Gellary = () => {
                 Your Partner for e-commerce grocery solution
               </h1>
               <p className="mt-4 text-lg text-gray-500 text-justify" >
-              Food First envisions a world in which all people have access to healthy, ecologically produced, and culturally appropriate food. After 40 years of analysis of the global food system, we know that making this vision a reality involves more than technical solutions—it requires political transformation. That’s why Food First supports activists, social movements, alliances, and coalitions working for systemic change.
+              Food First envisions a world in which all people have access to healthy, ecologically produced, and culturally appropriate food. After 40 years of analysis of the global food system, we know that making this vision a reality involves more than technical solutions—it requires political transformation. Thats why Food First supports activists, social movements, alliances, and coalitions working for systemic change.
+              <br /><br />
+                {openMore ? (
+                  <span className="">
+                Be that as it may, regardless of where you discover us, quality will dependably be our formula.We Believe in Quality. All around. Quality food cant be made without quality initiative. Find out about the general population driving The Foodmart.
+                  </span>
+                ) : (
+                  ""
+                )}
               </p>
             </div>
             <div>
@@ -56,13 +65,21 @@ const Gellary = () => {
                     </div>
                   </div>
                 </div>
-
-                <a
-                  href="#"
-                  className="inline-block text-center bg-green-500 border border-transparent rounded-md py-2 px-6 font-medium text-white hover:bg-green-700"
-                >
-                  See More
-                </a>
+                {!openMore ? (
+                  <button
+                    onClick={() => setOpenMore(true)}
+                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    Read More
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setOpenMore(false)}
+                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    Read Less
+                  </button>
+                )}
               </div>
             </div>
           </div>
@@ -73,10 +90,3 @@ const Gellary = () => {
 };
 
 export default Gellary;
-
-/* https://i.ibb.co/fSj5dYv/photo-1609842947419-ba4f04d5d60f.jpg
-https://i.ibb.co/PNgKYgh/photo-1550411294-b3b1bd5fce1b.jpg
-https://i.ibb.co/tQkQTqq/photo-1594282486756-06f49bb34c05.jpg
-https://i.ibb.co/mC43tKs/photo-1582284540020-8acbe03f4924.jpg
-https://i.ibb.co/M1nWCcT/photo-1543076659-9380cdf10613.jpg
-https://i.ibb.co/bdRZVmT/photo-1547514701-42782101795e.jpg */
