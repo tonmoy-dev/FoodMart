@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
 const AboutFoodMart = () => {
+  const [openMore, setOpenMore] = useState(false);
   return (
     <div className="mx-4 md:mx-0 lg:mx-0">
       <div className="head-banner">
@@ -59,24 +60,34 @@ const AboutFoodMart = () => {
                 What We Provide?
               </h1>
               <p className="mb-8 leading-relaxed text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate id est laborum.
+              At Foodmart , we are tied in with presenting crisp food, regardless of whether it implies going the additional mile. When you stroll through our entryways, we do what we can to make everybody feel comfortable in light of the fact that our family stretches out through your locale.
                 <br />
-                Ius ferri velit sanctus cu, sed at soleat accusata. Dictas
-                prompta et Ut placerat legendos interpre.Donec vitae sapien ut
-                libero venenatis faucibus. Nullam quis ante Etiam sit amet orci
-                eget. Quis commodo odio aenean sed adipiscing. Turpis massa
-                tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit
-                amet. Commodo consequat.
+                It is an organization that is continually developing. From the principal eatery in 2020, we have kept on extending vision to help other individuals end up effective entrepreneurs by owning an foodmart establishment. We search for franchisees who are focused on quality, not compromising.
+                <br /><br />
+                {openMore ? (
+                  <span className="">
+                    Today, we can be found in numerous nations and have our sights on extending much more. Be that as it may, regardless of where you discover us, quality will dependably be our formula.We Believe in Quality. All around. Quality food cant be made without quality initiative. Find out about the general population driving The Foodmart.
+                  </span>
+                ) : (
+                  ""
+                )}
               </p>
               <div className="flex  mx-0 justify-center">
-                <button className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg">
-                  Get Booking
-                </button>
-                {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Get Booking</button> */}
+                {!openMore ? (
+                  <button
+                    onClick={() => setOpenMore(true)}
+                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    Read More
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setOpenMore(false)}
+                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    Read Less
+                  </button>
+                )}
               </div>
             </div>
           </div>
