@@ -33,12 +33,18 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navigation() {
+export default function Navigation({products}) {
   const user = useSelector((state) => state.states.user);
   const router = useRouter();
   const { logOut } = useFirebase();
 
-  if (!router?.pathname?.includes("dashboard"))
+  if (!router?.pathname?.includes("dashboard"));
+
+  const handleSearch = e => {
+    const searchText=e.target.value;
+    const matchedProducts = products.filter(product => product.product_title.includes(searchText));
+    console.log(matchedProducts.length)
+  }
     return (
       <>
         <style jsx>{`
@@ -87,6 +93,7 @@ export default function Navigation() {
                           className="border-2 border-gray-100 bg-white h-9 w-full px-5 pr-12 rounded-lg text-sm "
                           type="search"
                           name="search"
+                          onChange={handleSearch}
                           placeholder="Search your food"
                         />
                         <button
@@ -306,4 +313,12 @@ export default function Navigation() {
       </>
     );
   return null;
+}
+export async function getServerSideProps() {
+  // load all compare products
+  const product_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
+  const Products = await product_res.json();
+  return {
+      props: { Products },
+  };
 }

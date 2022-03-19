@@ -28,6 +28,7 @@ export default function Home({ reviews, products, blogs }) {
   };
 
   return (
+    <>
     <div className="">
       {!openModal && (
         <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
@@ -53,6 +54,7 @@ export default function Home({ reviews, products, blogs }) {
 
     
     </div>
+    </>
   );
 }
 
