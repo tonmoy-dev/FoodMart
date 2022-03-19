@@ -4,10 +4,10 @@ import { MdKeyboardArrowDown } from 'react-icons/md';
 
 const TopBar = () => {
     return (
-        <div className="py-1.5 primary-bg-color">
+        <div className="py-2 md:py-1.5 primary-bg-color">
             <div className="flex flex-col md:flex-row justify-between items-center md:mx-10">
                 <p className="hidden md:block text-sm text-white animate-pulse">Welcome to FoodMart Shop!</p>
-                <p className="text-white text-center text-sm font-normal">Get Special Deal today! Get 3 products for 2. Limited offer. <span className="underline">Read More</span> </p>
+                <p className="text-white text-center text-xs md:text-sm font-normal">Get Special Deal today! Get 3 products for 2. Limited offer. <span className="underline">Read More</span> </p>
                 <div className="hidden md:flex text-sm text-white items-center gap-x-2">
                     <div className="flex gap-x-1.5">
                         <a href=""> <FaFacebookSquare /> </a>
