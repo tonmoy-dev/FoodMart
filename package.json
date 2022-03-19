@@ -21,7 +21,7 @@
     "@reduxjs/toolkit": "^1.8.0",
     "@stripe/react-stripe-js": "^1.7.0",
     "@stripe/stripe-js": "^1.23.0",
-    "axios": "^0.26.0",
+    "axios": "^0.26.1",
     "chart.js": "^3.7.1",
     "faker": "^6.6.6",
     "firebase": "^9.6.6",

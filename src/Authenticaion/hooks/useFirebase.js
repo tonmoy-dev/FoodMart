@@ -118,7 +118,7 @@ const useFirebase = () => {
   // save user information
   const saveUser = (user, method) => {
     if (method === "POST") {
-      axios.post(`${process.env.MY_APP_DOMAIN}/api/users`, {
+      axios.post('http://localhost:3000/api/users', {
         email: user.email,
         name: user.displayName,
         role: "user"
@@ -127,7 +127,7 @@ const useFirebase = () => {
       });
     }
     else if (method === "PUT") {
-      axios.put(`${process.env.MY_APP_DOMAIN}/api/users`, {
+      axios.put('http://localhost:3000/api/users', {
         email: user.email,
         name: user.displayName,
         role: "user"

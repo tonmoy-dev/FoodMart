@@ -121,7 +121,7 @@ const AddCoupon = () => {
                         <div id="main-content" className="pt-24 pl-8 lg:pl-72">
                             {/* <div> */}
 
-                            <div className=" bg-gray-100 bg-opacity-70">
+                            <div className="  bg-opacity-70">
                                 <div className="py-16 mx-5 md:mx-20">
                                     <h1 className=" text-black font-semibold text-4xl pb-2">
                                         Add Coupon

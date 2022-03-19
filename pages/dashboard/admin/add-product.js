@@ -123,7 +123,7 @@ const AddProduct = () => {
                         {/* main content */}
 
                         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-72">
-                            <div className="bg-gray-100">
+                            <div className="">
                                 <div className="pb-16 mx-5">
                                     <h1 className=" text-black font-semibold text-4xl pb-2 ml-4">
                                         Add Product

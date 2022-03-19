@@ -5,7 +5,6 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import DashVendorMenu from "../DashMenu/DashVendorMenu";
 import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const MyOrders = () => {
