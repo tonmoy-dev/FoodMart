@@ -36,7 +36,7 @@ const Dashboard = () => {
 
 
 
-  const email = user?.email
+  const email = user?.email;
 
 
   const userNow = users.filter(user => user?.email === email)[0]
@@ -65,12 +65,12 @@ const Dashboard = () => {
       </style>
       <div>
         {
-          loading && (
+          loading && !user.email && (
             <DotLoader color={color} loading={loading} css={override} size={60} />
           )
         }
       </div>
-      {!loading && userNow && (
+      {!loading && user?.email && (
 
         <div >
 

@@ -27,12 +27,12 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
-        saveUser(user, "PUT");
+        saveUser(user, "POST");
         router.push("/");
         dispatch(setUser(user));
       })
       .catch((error) => {
-        const errorMessage = error.message;
+        // const errorMessage = error.message;
       })
       .finally(() => dispatch(setIsLoading(false)));
   };
