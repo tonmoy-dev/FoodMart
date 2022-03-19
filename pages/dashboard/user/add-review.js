@@ -1,14 +1,51 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
-import React, { useState } from "react";
+import axios from "axios";
 import ReactStars from "react-rating-stars-component";
 import swal from "sweetalert";
 import addreviewStyle from "../../../src/styles/AddReview.module.css";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import { useRouter } from "next/router";
+import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const ratingChanged = (newRating) => {
 };
 
 const AddReview = () => {
+
+  const [isActive, setActive] = useState("false");
+  const [isAActive, setAActive] = useState("false");
+  const user = useSelector((state) => state.states.user);
+
+
+  const [users, setUsers] = useState([]);
+  useEffect(() => {
+    setLoading(true);
+    setControl(true);
+    axios.get("/api/users").then(response => {
+      setUsers(response.data);
+      setLoading(false);
+    });
+  }, [control, user?.email]);
+
+  const email = user?.email
+  const userNow = users.filter(user => user.email === email)[0]
+  console.log(userNow);
+
+  const handleToggle = () => {
+    setActive(!isActive);
+  };
+  // for mobile device
+  const handleMenu = () => {
+    setAActive(!isAActive);
+  };
+
+
+
   const [addReview, setAddReview] = useState({});
 
   const handleInputOnBlur = (e) => {
@@ -19,26 +56,27 @@ const AddReview = () => {
     setAddReview(newReviewData);
   };
 
+
+  const [loading, setLoading] = useState(true);
+  const [control, setControl] = useState(false);
   const handleSubmission = async (e) => {
     e.preventDefault();
-    // post blog data
-    const res = await fetch("/api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addReview),
-    });
-    const data = await res.json();
-    if (data.insertedId) {
-      swal("Good job!", "SUBMITED", "success");
-      // router.push('/');
-      // const newComments = comments;
-      // newComments.push(addReview);
-      // setComments(newComments);
-      e.target.reset();
-    }
+
+    axios.post("/api/reviews", addReview)
+      .then((response) => {
+        if (response.data.insertedId) {
+          setControl(!control);
+          swal("Good job!", "SUBMITED", "success");
+          setAddReview("");
+          
+          e.target.reset();
+        } else {
+          setControl(false);
+        }
+      });
   };
+
+
 
   return (
     <>
@@ -57,7 +95,7 @@ const AddReview = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
+        <DashUserMenu />
 
         {/* main content */}
         <div id="main-content" className="pt-24 pl-8 lg:pl-72 bg-gray-100">
@@ -208,7 +246,7 @@ const AddReview = () => {
                           <p className="text-black mt-2">Image Url</p>{" "}
                         </label>
                         <input
-                          className="w-full rounded-md p-4"
+                          className="w-full text-black rounded-md p-4"
                           id="search"
                           type="text"
                           name="imageUrl"

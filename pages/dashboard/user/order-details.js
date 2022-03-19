@@ -6,6 +6,8 @@ import {
 import Image from "next/image";
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const OrderDetails = () => {
     const fakeCart = [
@@ -42,8 +44,10 @@ const OrderDetails = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
-
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+                <DashUserMenu />
 
 
         {/* main content */}

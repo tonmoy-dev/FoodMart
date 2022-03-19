@@ -77,7 +77,7 @@ const useFirebase = () => {
         user.displayName = name;
         saveUser(user, "POST");
         dispatch(setRegisterError(""));
-        const newUser = { email, displayName: name };
+        const newUser = { email, displayName: name , role: "user"};
         dispatch(setUser(newUser));
         router.push("/");
 
@@ -120,7 +120,8 @@ const useFirebase = () => {
     if (method === "POST") {
       axios.post('http://localhost:3000/api/users', {
         email: user.email,
-        name: user.displayName
+        name: user.displayName,
+        role: "user"
       })
       .then(response => {
       });
@@ -128,7 +129,8 @@ const useFirebase = () => {
     else if (method === "PUT") {
       axios.put('http://localhost:3000/api/users', {
         email: user.email,
-        name: user.displayName
+        name: user.displayName,
+        role: "user"
       })
       .then(response => {
       });

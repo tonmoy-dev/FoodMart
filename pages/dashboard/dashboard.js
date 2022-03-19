@@ -7,31 +7,21 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import WelcomeAdmin from "../../src/Components/Dashboard/Admin/WelcomePage/WelcomeAdmin";
 import WelcomeUser from "../../src/Components/Dashboard/User/WelcomePage/WelcomeUser";
-// import WelcomeAdmin from "../../src/Components/Dashboard/Admin/WelcomePage/WelcomeAdmin";
 import DashAdminMenu from "./DashMenu/DashAdminMenu";
-const Dashboard = () => {
-  const [isActive, setActive] = useState("false");
-  const [isAActive, setAActive] = useState("false");
+import DotLoader from "react-spinners/DotLoader"
+import { css } from "@emotion/react";
+import DashUserMenu from "./DashMenu/DashUserMenu";
+import DashVendorMenu from "./DashMenu/DashVendorMenu";
+import WelcomeVendor from "../../src/Components/Dashboard/Vendor/WelcomePage/WelcomeVendor";
 
-  const handleToggle = () => {
-    setActive(!isActive);
-  };
-  // for mobile device
-  const handleMenu = () => {
-    setAActive(!isAActive);
-  };
+const Dashboard = () => {
+  const [color, setColor] = useState("green");
+
 
   const user = useSelector((state) => state.states.user);
 
   const [control, setControl] = useState(false);
   const [loading, setLoading] = useState(true);
-
- 
-
-
-
-
-
 
   // users
   const [users, setUsers] = useState([]);
@@ -45,14 +35,18 @@ const Dashboard = () => {
   }, [control]);
 
 
-  console.log(user.displayName);
-  console.log(user.email);
-  const email = user.email
+
+  const email = user?.email
 
 
-  const userNow = users.filter(user => user.email === email)[0]
+  const userNow = users.filter(user => user?.email === email)[0]
   console.log(userNow?.role);
   let role = userNow?.role
+
+  const override = css`
+  display: block;
+  margin: 0 auto;
+  `;
 
   return (
     <div>
@@ -69,22 +63,42 @@ const Dashboard = () => {
           }
         `}
       </style>
-      <div id="dashboard-container" className="">
-        {/* top bar */}
-        <DashAdminMenu />
-
-        {/* main content */}
-        <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-          {role === 'admin' || role === 'vendor' ? <WelcomeAdmin></WelcomeAdmin> : <WelcomeUser/>
-
-          }
-          {/* <WelcomeAdmin></WelcomeAdmin> */}
-        </div>
-
+      <div>
+        {
+          loading && (
+            <DotLoader color={color} loading={loading} css={override} size={60} />
+          )
+        }
       </div>
+      {!loading && userNow && (
 
-    </div>
+        <div >
+
+
+          <div id="dashboard-container" className="">
+            {/* top bar */}
+            {userNow?.role === 'admin' && <DashAdminMenu />}
+            {userNow?.role === 'vendor' && <DashVendorMenu />}
+            {userNow?.role === 'user' && <DashUserMenu />}
+
+            {/* main content */}
+            <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
+              {/* {role === 'admin' || role === 'vendor' ? <WelcomeAdmin></WelcomeAdmin> : <WelcomeUser />} */}
+              {role === 'admin' && <WelcomeAdmin></WelcomeAdmin>}
+              {role === 'vendor' && <WelcomeVendor></WelcomeVendor>}
+              {role === 'user' && <WelcomeUser />}
+
+
+              {/* <WelcomeAdmin></WelcomeAdmin> */}
+            </div>
+
+          </div>
+        </div>
+      )
+      }
+    </div >
   );
+
 };
 
 export default Dashboard;

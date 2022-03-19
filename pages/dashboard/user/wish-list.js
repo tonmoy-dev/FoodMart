@@ -7,6 +7,8 @@ import swal from "sweetalert";
 import React, { useEffect, useState } from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
 import { useSelector } from "react-redux";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const WishList = () => {
     const [wishlists, setWishlists] = useState([]);
@@ -69,7 +71,10 @@ const WishList = () => {
             </style>
             <div id="dashboard-container" className="h-screen bg-gray-100">
                 {/* top bar */}
-                <DashAdminMenu />
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+                <DashUserMenu />
                 {/* main content */}
                 <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
                     <div className="py-16 mx-5 md:mx-20">
