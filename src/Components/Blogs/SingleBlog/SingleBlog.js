@@ -75,13 +75,12 @@ const newArr = [...new Set(arr)];
 
   return (
     <>
-      <div className=""></div>
       <div className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-3">
           {/* Main content  */}
           <div className="w-full bg-white md:col-span-2 ">
             <div>
-              <h2 className="text-xl md:text-3xl text-black p-3 font-bold text-left">
+              <h2 className="text-xl md:text-3xl text-black p-3 font-semibold text-left">
                 {blog.title}
               </h2>
             </div>
@@ -98,60 +97,7 @@ const newArr = [...new Set(arr)];
                 />
               </div>
               <div className="flex items-center justify-center">
-                <span>By Sugar Rosie</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mt-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>2 hours ago</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mt-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <span>8 mins read</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 mt-1"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    d="M4.293 15.707a1 1 0 010-1.414L8.586 10 4.293 5.707a1 1 0 011.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <span>Posted by : Safira Adnan/ On : Apr 06, 2021</span>
               </div>
               <div className="flex gap-2 ml-auto px-5">
                 <svg
@@ -211,23 +157,23 @@ const newArr = [...new Set(arr)];
             <div className="flex p-4 md:flex-row flex-col">
 
               <div className="flex mt-4 -mx-2 md:ml-auto">
-                <p className="text-gray-700 mt-2">Share This</p>
+                <p className="text-gray-700 mt-2">Share This Post:</p>
                 <button
-                  className="mx-2 bg-green-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-green-600 text-white"
+                  className="mx-2 bg-gray-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-gray-600 text-white"
                   aria-label="Linkden"
                 >
                   <AiFillFacebook className="w-5 h-5" />
                 </button>
 
                 <button
-                  className="mx-2 bg-green-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-green-600 text-white"
+                  className="mx-2 bg-gray-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-gray-600 text-white"
                   aria-label="Facebook"
                 >
                   <AiFillLinkedin className="w-5 h-5" />
                 </button>
 
                 <button
-                  className="mx-2  bg-green-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-green-600 text-white"
+                  className="mx-2  bg-gray-500 leading-5 text-sm font-semibold px-3 py-3 rounded-full hover:bg-gray-600 text-white"
                   aria-label="Twitter"
                 >
                   <AiFillTwitterCircle className="w-5 h-5" />
@@ -239,34 +185,17 @@ const newArr = [...new Set(arr)];
 
             <RelatedBlog></RelatedBlog>
 
-            <h2 className="mt-20 px-4 text-4xl font-extralight ">
+            <h2 className="mt-20 px-8 text-2xl font-extralight ">
               Leave a Comment
             </h2>
 
             <form onSubmit={handleSubmission}>
-              <div className="flex mt-10 gap-4 px-8">
-                <input
-                  className={singlePage.formcontrol}
-                  name="name"
-                  id="user_name"
-                  placeholder="Your Name"
-                  required
-                  type="text"
-                  onBlur={handleInputOnBlur}
-                ></input>
-                <input
-                  className={singlePage.formcontrol}
-                  name="email"
-                  required
-                  id="user_email"
-                  type="email"
-                  placeholder="Your Email"
-                  onBlur={handleInputOnBlur}
-                ></input>
-              </div>
-
-              <div className="px-8">
+            <div className="px-8">
+              
                 <div className={singlePage.commentform}>
+                <div className="pt-5">
+                <label>Comment</label>
+                </div>
                   <textarea
                     className={singlePage.formcontrol}
                     name="comment"
@@ -275,41 +204,81 @@ const newArr = [...new Set(arr)];
                     onBlur={handleInputOnBlur}
                   ></textarea>
                 </div>
+              </div>
+
+
+
+              <div className="px-8 my-4 grid md:grid-cols-2 grid-cols-1 gap-2" >
+              <div>
+                <label>Name</label>
+              <input
+                  // className={singlePage.formcontrol}
+                  className="rounded-lg w-full"
+                  name="name"
+                  id="user_name"
+                  placeholder="Your Name"
+                  required
+                  type="text"
+                  onBlur={handleInputOnBlur}
+                ></input>
+              </div>
+              <div>
+                <label>Email</label>
+              <input
+                  // className={singlePage.formcontrol}
+                  className="rounded-lg w-full"
+                  name="name"
+                  id="user_name"
+                  placeholder="Your Email"
+                  required
+                  type="text"
+                  onBlur={handleInputOnBlur}
+                ></input>
+              </div>
+
+              </div>
+
+              <div className="px-8">
                 <button
                   type="submit"
-                  className="cursor-pointer px-4 py-2 text-xl font-semibold text-white bg-green-600"
+                  className="cursor-pointer px-8 py-2 mt-3 text-lg font-semibold rounded-lg text-white bg-green-500"
                 >
-                  Submit
+                  Comment
                 </button>
               </div>
             </form>
 
             <div>
-              <h2 className="px-4 text-4xl font-extralight mt-3">Comments</h2>
               <div className="px-4 pb-4">
+              <h2 className="px-4 text-1xl font-extralight mt-4">{popularComments.length}  COMMENTS</h2>
                 {popularComments?.map((user) => (
-                  <div key={user.name} className="border-2 p-2 mt-2 rounded-xl hover:shadow-md">
-                    <div className="rounded-full h-10 w-10">
+                  
+                <div className="px-4" key={user.name} >
+                  <div  className="flex justify-center items-center gap-3">
+                  <div className="rounded-full h-10 w-10">
                       <Image
                         src="https://i.ibb.co/kQ1T9TN/d737946d153beb56555ed95ab0af1ee1-key-west-vacations-couple-photography.jpg"
                         alt="UserPhoto"
                         className="rounded-full object-cover"
-                        width={40}
-                        height={40}
-                      // className="bg-green-400"
-                      // layout='responsive'
+                        width={80}
+                        height={80}
                       />
                     </div>
-                    <p className="text-sm font-semibold pt-2 ">
+                    <div  className=" flex w-full border p-5 mt-2 rounded-sm hover:shadow-md">
+                   <div>
+                   <p className="text-sm font-extralight pt-2 ">
                       {user.name}
                     </p>
-                    <h3 className="text-sm font-semibold pt-1">
+                    <h3 className="text-sm font-extralight pt-1">
                       {user.email}
                     </h3>
-                    <h5 className="text-md font-light pt-2 text-justify">
+                    <h5 className="text-md font-extralight pt-2 text-justify">
                       {user.comment}
                     </h5>
+                   </div>
                   </div>
+                </div>
+                </div>
                 ))}
               </div>
             </div>
@@ -317,10 +286,10 @@ const newArr = [...new Set(arr)];
 
          
           {/* left side category */}
-          <div className="w-full mt-3">
-          <div className="py-6">
+          <div className="w-full">
+          <div className="pb-6">
             <div className="bg-white shadow-sm rounded-sm p-4">
-              <input className="rounded w-full " type="text" placeholder="Search Blog"/>
+              <input className="rounded w-full" type="text" placeholder="Search Blog"/>
             </div>
           </div>
             <div className="bg-white shadow-sm rounded-sm p-4">
@@ -338,8 +307,6 @@ const newArr = [...new Set(arr)];
                 )))
               }
               </div>
-
-
             </div>
 
             {/* Recent post */}

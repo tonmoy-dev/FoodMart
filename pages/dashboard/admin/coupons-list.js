@@ -2,6 +2,8 @@ import { SearchIcon, TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const CouponsList = ({ coupons }) => {
     const handleCouponDelete = (id) => {
@@ -23,10 +25,12 @@ const CouponsList = ({ coupons }) => {
           }
         `}
             </style>
-            <div id="dashboard-container" className="h-full bg-gray-100">
+            <div id="dashboard-container" className="">
                 {/* top bar */}
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
                 <DashAdminMenu />
-
 
 
                 {/* main content */}

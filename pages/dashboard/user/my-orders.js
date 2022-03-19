@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const MyOrders = () => {
   const [loading, setLoading] = useState(true);
@@ -36,9 +38,11 @@ const MyOrders = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
+        {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+        {userNow?.role === 'vendor' && <DashVendorMenu />}
+        {userNow?.role === 'user' && <DashUserMenu />} */}
 
-
+        <DashUserMenu />
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
           <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">My Orders</h2>

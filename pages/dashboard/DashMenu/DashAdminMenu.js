@@ -4,17 +4,19 @@ import {
   MenuIcon,
   SearchIcon,
   UserCircleIcon,
-  XIcon
+  XIcon,
 } from "@heroicons/react/solid";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import useFirebase from "../../../src/Authenticaion/hooks/useFirebase";
 
 const DashAdminMenu = () => {
   const [isActive, setActive] = useState("false");
   const [isAActive, setAActive] = useState("false");
   const user = useSelector((state) => state.states.user);
+  const { logOut } = useFirebase();
   const [control, setControl] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -80,111 +82,7 @@ const DashAdminMenu = () => {
   ];
 
 
-  const vendorMenu = [
 
-    {
-      menuId: 1,
-      menuName: "Add Product",
-      pageLink: "/dashboard/admin/add-product",
-    },
-
-
-
-   
-
-  ];
-
-
-  const userMenu = [
-
-    {
-      menuId: 1,
-      menuName: "Add Blog",
-      pageLink: "/dashboard/user/add-blog",
-    },
-    {
-      menuId: 2,
-      menuName: "Add Review",
-      pageLink: "/dashboard/user/add-review",
-    },
-    {
-      menuId: 3,
-      menuName: "My order",
-      pageLink: "/dashboard/user/my-orders",
-    },
-    // {
-    //   menuId: 9,
-    //   menuName: "Order Details",
-    //   pageLink: "/dashboard/admin/order-details",
-    // },
-    {
-      menuId: 4,
-      menuName: "Account Details",
-      pageLink: "/dashboard/user/account-details",
-    },
-  ];
-  let MenuList = [
-    {
-      menuId: 2,
-      menuName: "Coupon List",
-      pageLink: "/dashboard/admin/coupons-list",
-    },
-    {
-      menuId: 3,
-      menuName: "Catagory List",
-      pageLink: "/dashboard/admin/category-list",
-    },
-    {
-      menuId: 4,
-      menuName: "Add Product",
-      pageLink: "/dashboard/admin/add-product",
-    },
-    {
-      menuId: 5,
-      menuName: "Add Coupon",
-      pageLink: "/dashboard/admin/add-coupon",
-    },
-    {
-      menuId: 6,
-      menuName: "Add Blog",
-      pageLink: "/dashboard/user/add-blog",
-    },
-    {
-      menuId: 7,
-      menuName: "Add Review",
-      pageLink: "/dashboard/user/add-review",
-    },
-    {
-      menuId: 8,
-      menuName: "My order",
-      pageLink: "/dashboard/user/my-orders",
-    },
-    // {
-    //   menuId: 9,
-    //   menuName: "Order Details",
-    //   pageLink: "/dashboard/admin/order-details",
-    // },
-    {
-      menuId: 10,
-      menuName: "Account Details",
-      pageLink: "/dashboard/user/account-details",
-    },
-  ];
-
-  console.log(userNow?.role)
-  // const MenuList = adminMenu;
-
-  if (userNow?.role === "admin") {
-    MenuList = adminMenu;
-    console.log(MenuList);
-  }
-  else if (userNow?.role === "vendor") {
-    MenuList = vendorMenu;
-  }
-  else {
-    MenuList = userMenu;
-    console.log(MenuList)
-  }
 
 
   return (
@@ -262,6 +160,7 @@ const DashAdminMenu = () => {
               </a>
               <div className="border-t border-gray-100"></div>
               <a
+                onClick={logOut}
                 href="#"
                 className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
               >
@@ -297,7 +196,7 @@ const DashAdminMenu = () => {
                 Home
               </a>
             </Link>
-            {MenuList?.map((menu) => (
+            {adminMenu?.map((menu) => (
               <div key={menu.menuId}>
                 <Link href={`${menu.pageLink}`}>
                   <a className="flex items-center my-1 px-6 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
