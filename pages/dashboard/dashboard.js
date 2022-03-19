@@ -77,18 +77,28 @@ const Dashboard = () => {
 
           <div id="dashboard-container" className="">
             {/* top bar */}
+            {/* <DashAdminMenu />  */}
+            {/* <DashUserMenu /> */}
+            {/* {userNow.role === "admin" ? <DashAdminMenu /> : <DashUserMenu />}
+            {role === 'vendor' ? <DashVendorMenu /> : <DashUserMenu />} */}
             {userNow?.role === 'admin' && <DashAdminMenu />}
             {userNow?.role === 'vendor' && <DashVendorMenu />}
-            {userNow?.role === 'user' && <DashUserMenu />}
+            {/* <DashUserMenu /> */}
+
+            {userNow.role == 'user'  && <DashUserMenu />}
+            {!userNow.role && <DashUserMenu />}
+
+
 
             {/* main content */}
             <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
               {/* {role === 'admin' || role === 'vendor' ? <WelcomeAdmin></WelcomeAdmin> : <WelcomeUser />} */}
-              {role === 'admin' && <WelcomeAdmin></WelcomeAdmin>}
-              {role === 'vendor' && <WelcomeVendor></WelcomeVendor>}
-              {role === 'user' && <WelcomeUser />}
-
-
+              {/* <WelcomeUser /> */}
+              {userNow.role === 'admin'&&  <WelcomeAdmin/> }
+              {userNow.role=== 'vendor' && <WelcomeVendor/> }
+              {!userNow.role  && <WelcomeUser />}
+              {userNow.role == 'user'  && <WelcomeUser />}
+              {/* <WelcomeUser /> */}
               {/* <WelcomeAdmin></WelcomeAdmin> */}
             </div>
 

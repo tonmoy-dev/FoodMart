@@ -17,16 +17,16 @@ const RelatedBlog = () => {
   }, []);
 
     return (
-        <div className="grid grid-cols-1  md:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
        {
                 relatedBlogs.map((rBlog) => (
-                  <div key={rBlog._Id} className="bg-white p-4 shadow-lg rounded-sm">
-                  <a href="#" className="overflow-hidden block">
+                  <div key={rBlog._Id} className="bg-white p-3 shadow-lg rounded-sm">
+                  <a href="#" className="overflow-hidden block flex justify-center items-center">
                     <Image
                       src={rBlog.thumbnail}
                       className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
                       alt=""
-                      width={400}
+                      width={300}
                       height={300}
                     />
                   </a>

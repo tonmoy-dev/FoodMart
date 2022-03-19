@@ -60,7 +60,7 @@ const RecentPost = () => {
                       {b?.title.slice(0, 20)}
                   </Link>
                     </h5>
-                  </div>
+                  </div>           
                 </a>
               </div>
                 ))

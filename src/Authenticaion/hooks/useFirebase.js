@@ -121,7 +121,7 @@ const useFirebase = () => {
       axios.post('http://localhost:3000/api/users', {
         email: user.email,
         name: user.displayName,
-        role: "user"
+        
       })
       .then(response => {
       });
@@ -130,7 +130,7 @@ const useFirebase = () => {
       axios.put('http://localhost:3000/api/users', {
         email: user.email,
         name: user.displayName,
-        role: "user"
+        
       })
       .then(response => {
       });

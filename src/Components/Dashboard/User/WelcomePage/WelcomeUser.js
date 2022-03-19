@@ -121,7 +121,7 @@ const WelcomeUser = () => {
 
     return (
         <div>
-            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role || "User"}</span> dashboard</h1>
+            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">user</span> dashboard</h1>
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
                 <div className='bg-green-400  rounded-xl'>
