@@ -1,18 +1,14 @@
-import {
-  BellIcon, HomeIcon, LogoutIcon, MenuIcon, SearchIcon, UserCircleIcon, XIcon
-} from "@heroicons/react/solid";
+import { css } from "@emotion/react";
 import axios from "axios";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import DotLoader from "react-spinners/DotLoader";
 import WelcomeAdmin from "../../src/Components/Dashboard/Admin/WelcomePage/WelcomeAdmin";
 import WelcomeUser from "../../src/Components/Dashboard/User/WelcomePage/WelcomeUser";
+import WelcomeVendor from "../../src/Components/Dashboard/Vendor/WelcomePage/WelcomeVendor";
 import DashAdminMenu from "./DashMenu/DashAdminMenu";
-import DotLoader from "react-spinners/DotLoader"
-import { css } from "@emotion/react";
 import DashUserMenu from "./DashMenu/DashUserMenu";
 import DashVendorMenu from "./DashMenu/DashVendorMenu";
-import WelcomeVendor from "../../src/Components/Dashboard/Vendor/WelcomePage/WelcomeVendor";
 
 const Dashboard = () => {
   const [color, setColor] = useState("green");
@@ -70,6 +66,19 @@ const Dashboard = () => {
           )
         }
       </div>
+      {
+        !loading && user?.email && (
+          <div>
+            <div id="dashboard-container" className="">
+            <DashUserMenu />
+            </div>
+            <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
+            <WelcomeUser />
+              </div>
+          </div>
+
+        )
+      }
       {!loading && userNow && (
 
         <div >
@@ -85,7 +94,7 @@ const Dashboard = () => {
             {userNow?.role === 'vendor' && <DashVendorMenu />}
             {/* <DashUserMenu /> */}
 
-            {userNow.role == 'user' && <DashUserMenu />}
+            {userNow.role === 'user' && <DashUserMenu />}
             {!userNow.role && <DashUserMenu />}
 
 
@@ -97,7 +106,7 @@ const Dashboard = () => {
               {userNow.role === 'admin' && <WelcomeAdmin />}
               {userNow.role === 'vendor' && <WelcomeVendor />}
               {!userNow.role && <WelcomeUser />}
-              {userNow.role == 'user' && <WelcomeUser />}
+              {userNow.role === 'user' && <WelcomeUser />}
               {/* <WelcomeUser /> */}
               {/* <WelcomeAdmin></WelcomeAdmin> */}
             </div>
