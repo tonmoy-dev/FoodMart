@@ -13,6 +13,7 @@ import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import OfferModal from "../src/Components/OfferModal/OfferModal";
+import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
   const [openModal, setOpenModal] = useState(false);
@@ -37,6 +38,9 @@ export default function Home({ reviews, products, blogs }) {
             background: rgba(0, 0, 0, 0.5);
           }`}
           </style>
+          <TawkMessengerReact
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
         </div>
       )}
       <Banner></Banner>
