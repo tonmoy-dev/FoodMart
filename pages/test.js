@@ -6,8 +6,8 @@ const test = () => {
         <div>
             <h2>Test</h2>
             <TawkMessengerReact
-                propertyId="5f8874962901b9207693c6bb"
-                widgetId="5f8874962901b9207693c6bb"/>
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
         </div>
     );
 };
