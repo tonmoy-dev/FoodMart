@@ -272,9 +272,10 @@ export default AllProducts;
       },
     }
   } */
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
-    const products = await res.json();
+    const allProducts = await res.json();
+    const products = allProducts.slice(0, 60);
     return {
         props: { products },
     };

@@ -12,7 +12,7 @@ import PopularProducts from "../src/Components/Home/PopularProducts/PopularProdu
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import OfferModal from "../src/Components/OfferModal/OfferModal";
+// import OfferModal from "../src/Components/OfferModal/OfferModal";
 
 export default function Home({ reviews, products, blogs }) {
   const [openModal, setOpenModal] = useState(false);
@@ -29,7 +29,7 @@ export default function Home({ reviews, products, blogs }) {
 
   return (
     <div className="">
-      {!openModal && (
+      {/* {!openModal && (
         <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
           <OfferModal handleModal={handleModal}></OfferModal>
           <style>
@@ -38,7 +38,7 @@ export default function Home({ reviews, products, blogs }) {
           }`}
           </style>
         </div>
-      )}
+      )} */}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
