@@ -1,4 +1,3 @@
-// import MessengerCustomerChat from "react-messenger-customer-chat";
 import { useEffect, useState } from "react";
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
@@ -11,8 +10,9 @@ import NewsLetter from "../src/Components/Home/NewsLetter/NewsLetter";
 import PopularProducts from "../src/Components/Home/PopularProducts/PopularProducts";
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
+import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import OfferModal from "../src/Components/OfferModal/OfferModal";
+import OfferModal from "../src/Components/OfferModal/OfferModal";
 
 export default function Home({ reviews, products, blogs }) {
   const [openModal, setOpenModal] = useState(false);
@@ -29,7 +29,7 @@ export default function Home({ reviews, products, blogs }) {
 
   return (
     <div className="">
-      {/* {!openModal && (
+      {!openModal && (
         <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
           <OfferModal handleModal={handleModal}></OfferModal>
           <style>
@@ -38,7 +38,7 @@ export default function Home({ reviews, products, blogs }) {
           }`}
           </style>
         </div>
-      )} */}
+      )}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
@@ -51,7 +51,10 @@ export default function Home({ reviews, products, blogs }) {
       <Brands></Brands>
       <NewsLetter></NewsLetter>
 
-    
+      {/* Messenger App */}
+      <TawkMessengerReact
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
     </div>
   );
 }
