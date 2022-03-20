@@ -13,6 +13,7 @@ module.exports = {
             spacing: "margin, padding",
             width: "width",
         },
+        
     },
     minHeight: {
         "1/2": "50%",
