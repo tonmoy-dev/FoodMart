@@ -19,7 +19,7 @@ const Dashboard = () => {
   const [control, setControl] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // users
+/*   // users
   const [users, setUsers] = useState([]);
   useEffect(() => {
     setLoading(true);
@@ -28,16 +28,16 @@ const Dashboard = () => {
       setUsers(response.data);
       setLoading(false);
     });
-  }, [control]);
+  }, [control]); */
 
 
 
   const email = user?.email
 
 
-  const userNow = users.filter(user => user?.email === email)[0]
+ /*  const userNow = users.filter(user => user?.email === email)[0]
   console.log(userNow?.role);
-  let role = userNow?.role
+  let role = userNow?.role */
 
   const override = css`
   display: block;
@@ -60,14 +60,14 @@ const Dashboard = () => {
         `}
       </style>
       <div>
-        {
+        {/* {
           loading && (
             <DotLoader color={color} loading={loading} css={override} size={60} />
           )
-        }
+        } */}
       </div>
       {
-        !loading && user?.email && (
+        user?.email && (
           <div>
             <div id="dashboard-container" className="">
             <DashUserMenu />
@@ -79,42 +79,31 @@ const Dashboard = () => {
 
         )
       }
-      {!loading && userNow && (
+      {/* {!loading && userNow && (
 
         <div >
 
 
           <div id="dashboard-container" className="">
-            {/* top bar */}
-            {/* <DashAdminMenu />  */}
-            {/* <DashUserMenu /> */}
-            {/* {userNow.role === "admin" ? <DashAdminMenu /> : <DashUserMenu />}
-            {role === 'vendor' ? <DashVendorMenu /> : <DashUserMenu />} */}
             {userNow?.role === 'admin' && <DashAdminMenu />}
             {userNow?.role === 'vendor' && <DashVendorMenu />}
-            {/* <DashUserMenu /> */}
 
             {userNow.role === 'user' && <DashUserMenu />}
             {!userNow.role && <DashUserMenu />}
 
 
 
-            {/* main content */}
             <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-              {/* {role === 'admin' || role === 'vendor' ? <WelcomeAdmin></WelcomeAdmin> : <WelcomeUser />} */}
-              {/* <WelcomeUser /> */}
               {userNow.role === 'admin' && <WelcomeAdmin />}
               {userNow.role === 'vendor' && <WelcomeVendor />}
               {!userNow.role && <WelcomeUser />}
               {userNow.role === 'user' && <WelcomeUser />}
-              {/* <WelcomeUser /> */}
-              {/* <WelcomeAdmin></WelcomeAdmin> */}
             </div>
 
           </div>
         </div>
       )
-      }
+      } */}
     </div >
   );
 
