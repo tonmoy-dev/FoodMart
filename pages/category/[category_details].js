@@ -79,7 +79,7 @@ const CategoryDetails = (filteredProducts) => {
 
 export default CategoryDetails;
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
     const categoryName = context.query.category_details;
 
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
