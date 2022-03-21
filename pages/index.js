@@ -13,10 +13,9 @@ import Reviews from "../src/Components/Home/Reviews/Reviews";
 import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import OfferModal from "../src/Components/OfferModal/OfferModal";
-
 export default function Home({ reviews, products, blogs }) {
+   
   const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
     setOpenModal(true);
     setTimeout(() => {
