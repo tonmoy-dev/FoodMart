@@ -4,13 +4,13 @@ import { useRouter } from 'next/router';
 import Product from "../../src/Components/Products/Product/Product";
 
 const CategoryDetails = (filteredProducts) => {
-    const router = useRouter();
-    const categoryName = router.query.category_details;
-    
-    const products = filteredProducts.filteredProducts;
-    return (
-        <div>
-            <style jsx>
+  const router = useRouter();
+  const categoryName = router.query.category_details;
+  
+  const products = filteredProducts.filteredProducts;
+  return (
+    <div>
+      <style jsx>
         {`
                     .linear-bg{
                         background: linear-gradient(180deg, rgba(53, 66, 103, 0.0001) 0%, #1d1d1df0 95.04%);
@@ -21,7 +21,7 @@ const CategoryDetails = (filteredProducts) => {
         <div className="container mx-auto">
           <div className="banner-inner flex flex-col justify-center items-center">
             <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
-                            <span className="">{categoryName}</span>
+              <span className="">{categoryName}</span>
             </h1>
             {/* nav */}
             <nav className="flex" aria-label="Breadcrumb">
@@ -50,31 +50,31 @@ const CategoryDetails = (filteredProducts) => {
           </div>
         </div>
       </div>
-            <div className="col-span-2 md:col-span-3">
-                <div className="p-4 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 justify-center align-middle">
+      <div className="col-span-2 md:col-span-3">
+        <div className="p-4 grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-3 justify-center align-middle">
                     
-                    {
-                        (products.length === 0) && (
-                            <div className="p-3">
-                                <p className="text-xl">This category has no products</p>
-                            </div>
+          {
+            (products.length === 0) && (
+              <div className="p-3">
+                <p className="text-xl">This category has no products</p>
+              </div>
 
-                        )
-                    }
-                    {
-                        (products.length !== 0) && (
-                        products.map(product => (
-                            <Product key={product._id} product={product}/>
-                        ))
-                        )
-                    }
+            )
+          }
+          {
+            (products.length !== 0) && (
+              products.map(product => (
+                <Product key={product._id} product={product} />
+              ))
+            )
+          }
                     
                     
-                    </div>
-                        </div>
-            
         </div>
-    )
+      </div>
+            
+    </div>
+  );
 }
 
 export default CategoryDetails;
