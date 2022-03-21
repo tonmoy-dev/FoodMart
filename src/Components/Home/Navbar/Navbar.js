@@ -35,15 +35,13 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function Navigation() {
+const Navigation = ()=> {
     const [searchItem, setSearchItem] = useState("");
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState();
     const user = useSelector((state) => state.states.user);
     const router = useRouter();
     const { logOut } = useFirebase();
-
-    if (!router?.pathname?.includes("dashboard"));
 
     useEffect(() => {
         setLoading(true);
@@ -54,6 +52,7 @@ export default function Navigation() {
         });
     }, []);
 
+    if (!router?.pathname?.includes("dashboard"))
     return (
         <>
             <style jsx>{`
@@ -398,3 +397,5 @@ export default function Navigation() {
     );
     return null;
 }
+
+export default Navigation;

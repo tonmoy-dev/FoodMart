@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from 'next/router';
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -36,6 +37,9 @@ const catagorylist = [
 
 
 const SingleProduct = ({ related, product }) => {
+  const router = useRouter()
+  console.log(router.pathname, router.query);
+
   const [control, setControl] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
@@ -435,8 +439,6 @@ const SingleProduct = ({ related, product }) => {
 };
 
 export default SingleProduct;
-
-
 
 export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);
