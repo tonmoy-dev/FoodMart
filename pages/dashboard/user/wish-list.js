@@ -9,12 +9,19 @@ import DashAdminMenu from "../DashMenu/DashAdminMenu";
 import { useSelector } from "react-redux";
 import DashVendorMenu from "../DashMenu/DashVendorMenu";
 import DashUserMenu from "../DashMenu/DashUserMenu";
+import { useRouter } from 'next/router';
 
 const WishList = () => {
     const [wishlists, setWishlists] = useState([]);
     const [loading, setLoading] = useState(true);
     const [control, setControl] = useState(false);
     const user = useSelector((state) => state.states.user);
+
+    // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
 
     useEffect(() => {
         setControl(true);
@@ -23,7 +30,7 @@ const WishList = () => {
             setWishlists(response.data);
             setLoading(false);
         });
-    }, [control, user.email]);
+    }, [control, user?.email]);
 
     // Add to cart a product
     const addToCartHandler = async (title, image, price) => {
