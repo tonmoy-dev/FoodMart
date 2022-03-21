@@ -37,7 +37,6 @@ export default function Navigation() {
   const user = useSelector((state) => state.states.user);
   const router = useRouter();
   const { logOut } = useFirebase();
-
   if (!router?.pathname?.includes("dashboard"))
     return (
       <>
@@ -322,3 +321,5 @@ export default function Navigation() {
     );
   return null;
 }
+
+
