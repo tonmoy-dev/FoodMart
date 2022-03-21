@@ -12,10 +12,11 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { Fragment, useEffect, useState } from "react";
 import { FaRegUser, FaSearch } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../../../../public/logo2.png";
 import helplinePic from "../../../assets/images/navbar/helpline.png";
 import useFirebase from "../../../Authenticaion/hooks/useFirebase";
+import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
 import NavSearchProduct from "../../navSearchproduct/NavSearchProduct";
 // import Cart from "../../Cart/Cart";
 import AllCatagories from "./AllCatagories/AllCatagories";
@@ -42,6 +43,20 @@ const Navigation = ()=> {
     const user = useSelector((state) => state.states.user);
     const router = useRouter();
     const { logOut } = useFirebase();
+
+    // redux fetch
+    const dispatch = useDispatch();
+    const wish = useSelector((state) => state.products.wishlistProducts);
+    const cart = useSelector((state) => state.products.cartProducts);
+    const compare = useSelector((state) => state.products.compareProducts);
+
+    useEffect(() => {
+        dispatch(setloading(true));
+        dispatch(fetchWishlistProducts(user));
+        dispatch(fetchCompareProducts(user));
+        dispatch(fetchCartProducts(user));
+        
+    }, [dispatch,loading, user?.email]);
 
     useEffect(() => {
         setLoading(true);
@@ -161,7 +176,7 @@ const Navigation = ()=> {
                                         >
                                             <RefreshIcon className="w-7" />
                                             <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                                {compare?.length}
                                             </span>
                                         </button>
                                         <Link href="/compare">
@@ -178,7 +193,7 @@ const Navigation = ()=> {
                                         >
                                             <HeartIcon className="w-7" />
                                             <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                            {wish?.length}
                                             </span>
                                         </button>
                                         <Link href="/dashboard/user/wish-list">
@@ -195,7 +210,7 @@ const Navigation = ()=> {
                                         >
                                             <ShoppingCartIcon className="w-7" />
                                             <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                            {cart?.length}
                                             </span>
                                         </button>
                                         <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
