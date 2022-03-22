@@ -1,11 +1,47 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
 import swal from "sweetalert";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
 import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
+import axios from "axios";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 const AddBlog = () => {
+    const [isActive, setActive] = useState("false");
+    const [isAActive, setAActive] = useState("false");
+    const user = useSelector((state) => state.states.user);
+
+
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        setControl(true);
+        axios.get("/api/users").then(response => {
+            setUsers(response.data);
+            setLoading(false);
+        });
+    }, [control, user?.email]);
+
+    const email = user?.email
+    const userNow = users.filter(user => user.email === email)[0]
+    console.log(userNow);
+
+    const handleToggle = () => {
+        setActive(!isActive);
+    };
+    // for mobile device
+    const handleMenu = () => {
+        setAActive(!isAActive);
+    };
+
+
+
+
+
     const [addBlogData, setAddBlogData] = useState({});
     const router = useRouter();
 
@@ -17,28 +53,24 @@ const AddBlog = () => {
         newBlogData[field] = value;
         setAddBlogData(newBlogData);
     };
-
-    // handle add blog Submit
+    
+    const [loading, setLoading] = useState(true);
+    const [control, setControl] = useState(false);
     const handleSubmission = async (e) => {
         e.preventDefault();
-        // post blog data
-        const res = await fetch("/api/blogs", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(addBlogData),
-        });
-        const data = await res.json();
-        if (data.insertedId) {
-            swal(
-                "Good job!",
-                "Your add blog request has been received.",
-                "success"
-            );
-            setAddBlogData("");
-            router.push("/blogs");
-        }
+        
+        axios.post("/api/blogs", addBlogData)
+            .then((response) => {
+                if (response.data.insertedId) {
+                    setControl(!control);
+                    swal("Wow!", "Your add blog request has been received.", "success");
+                    setAddBlogData("");
+                    router.push("/blogs");
+                    e.target.reset();
+                } else {
+                    setControl(false);
+                }
+            });
     };
 
     const [value, setValue] = useState("");
@@ -63,7 +95,10 @@ const AddBlog = () => {
             </style>
             <div id="dashboard-container" className="h-screen bg-gray-100">
                 {/* top bar */}
-                <DashAdminMenu />
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+                <DashUserMenu />
 
                 {/* main content */}
                 <div

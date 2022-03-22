@@ -1,13 +1,45 @@
 import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
+import Link from "next/link";
+import { useRouter } from 'next/router';
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
-import Category from "../../src/Components/Products/SideBar/Category/Category";
+
+const catagorylist = [
+  {
+    key: 1,
+    name: "Fruits & Vegetables",
+    icon: "https://i.ibb.co/ZVJF7xP/cat7-25x25-crop-center.jpg",
+  },
+  {
+    key: 2,
+    name: "Snacks",
+    icon: "https://i.ibb.co/BG2y3sV/noodles-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 3,
+    name: "Beverages",
+    icon: "https://i.ibb.co/BftdYCG/juice-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 4,
+    name: "Breakfast",
+    icon: "https://i.ibb.co/txMh3MW/local-breakfast-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 5,
+    name: "Frozen & Canned",
+    icon: "https://i.ibb.co/k0q3d94/frozen-snacks-src-https-eggyolk-chaldal.webp",
+  },
+];
 
 
 const SingleProduct = ({ related, product }) => {
+  const router = useRouter()
+  console.log(router.pathname, router.query);
+
   const [control, setControl] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
@@ -217,10 +249,10 @@ const SingleProduct = ({ related, product }) => {
                     <button id="minus" onClick={handleDecrement} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
-                     {/* <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
+                    {/* <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
                     <input type='text'  ></input>
                     </div>  */}
-                     <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div> 
+                    <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div>
                     
                     <button id="plus" onClick={handleIncrement} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
@@ -230,19 +262,19 @@ const SingleProduct = ({ related, product }) => {
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       {" "}
                       <HeartIcon
-                       onClick={() => handleAddWishlist(product._id)}
-                      className="h-6 w-6 text-white" />
+                        onClick={() => handleAddWishlist(product._id)}
+                        className="h-6 w-6 text-white" />
                     </button>
-                    <button  onClick={() =>
-                        addToCartHandler(
-                          product._id
-                          // product_title,
-                          // product_imageUrl,
-                          // product_price,
-                          // produc_Details
-                        )
-                      }
-                     className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button onClick={() =>
+                      addToCartHandler(
+                        product._id
+                        // product_title,
+                        // product_imageUrl,
+                        // product_price,
+                        // produc_Details
+                      )
+                    }
+                      className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
                       Add to cart
                     </button>
                     <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
@@ -379,7 +411,20 @@ const SingleProduct = ({ related, product }) => {
 
             <div id="catagory" className="md:pl-12 ">
               <div className="shadow rounded-lg p-4 mx-4 md:mx-0">
-                <Category></Category>
+                <div>
+                  <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-xl">Category</h1>
+                </div>
+                <div>
+                  {
+                    catagorylist.map(item => (
+                      <div key={item.key} className="flex flex-row justify-start p-3 align-middle  border border-gray-400 drop-shadow-md rounded my-4  bg-green-100">
+                        <img src="https://i.ibb.co/pz3dsR0/c-milk.png" height="30" width="30" alt=''/>
+                        <Link href={`/category/${item.name}`}><a className='px-2 py-2'>{item.name}</a></Link>
+                      </div>
+                    ))
+                  }
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -394,8 +439,6 @@ const SingleProduct = ({ related, product }) => {
 };
 
 export default SingleProduct;
-
-
 
 export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);

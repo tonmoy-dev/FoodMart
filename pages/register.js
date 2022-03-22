@@ -59,7 +59,7 @@ return (
     <div className="flex justify-center m-10 sm:mx-auto md:flex-row flex-col w-5/6">
       <div className="md:w-3/6">
         <Image
-          src="https://i.ibb.co/9YxD538/122154446-104392108127200-4918932120265177979-n.jpg"
+          src="https://i.ibb.co/zNTPWcd/online-registration-sign-up-concept-people-signing-login-to-account-user-interface-secure-password-v.jpg"
           height="600"
           width="700"
           alt="register image"

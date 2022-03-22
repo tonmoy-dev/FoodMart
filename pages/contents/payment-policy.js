@@ -4,7 +4,7 @@ import Image from "next/image";
 const PaymentPolicy = () => {
     return (
         <div className='mt-6'>
-              <h1 className='text-center text-black text-4xl font-bold'>Privacy Policy</h1>
+              <h1 className='text-center text-black text-4xl font-bold'>Payment Policy</h1>
 
               <section className="text-gray-600 body-font">
   <div className="container px-5 py-24 mx-auto flex flex-wrap">
@@ -18,7 +18,7 @@ const PaymentPolicy = () => {
            
           </div>
           <div className="flex-grow pl-4 h-full w-full">
-            <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1</h2>
+            <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">STEP 1()</h2>
             <p className="leading-relaxed">Delivery charge varies with each product. Most of product FREE delivery in India. Some items may have a shipping cost depending on the product.
 .</p>
           </div>

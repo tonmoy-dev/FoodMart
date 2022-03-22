@@ -1,5 +1,7 @@
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const Address = () => {
     return (
@@ -21,7 +23,7 @@ const Address = () => {
             </style>
             <div id="dashboard-container" className="h-screen bg-gray-100">
                 {/* top bar */}
-                <DashAdminMenu />
+                <DashUserMenu />
 
 
 

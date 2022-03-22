@@ -1,13 +1,7 @@
 import React from "react";
 import contacts from '../../styles/Contact.module.css';
 
-const AnyReactComponent = ({ text }) => <div>{text}</div>;
-
 const ContactUs = () => {
-/*   const [state, handleSubmit] = useForm("xgedkber");
-  if (state.succeeded) {
-    return <ContactUsPage></ContactUsPage>;
-  } */
 
   return (
 <>
@@ -26,15 +20,10 @@ const ContactUs = () => {
                     href="#"
                     className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                   >
-                    {/* <Link href="/">Home</Link> */}
                   </a>
                 </li>
                 <li aria-current="page">
                   <div className="flex items-center">
-                    {/* <ChevronRightIcon
-                      className="h-5 w-5 text-gray-400"
-                      aria-hidden="true"
-                    /> */}
                     <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
                       contact-us
                     </span>

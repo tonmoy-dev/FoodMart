@@ -41,7 +41,7 @@ const Login = () => {
       <div className="flex justify-center py-10 mx-5 sm:mx-auto md:flex-row flex-col w-5/6">
         <div className="md:w-3/6">
           <Image
-            src="https://i.ibb.co/9YxD538/122154446-104392108127200-4918932120265177979-n.jpg"
+            src="https://i.ibb.co/7rQDMHy/login.jpg"
             height="700"
             width="700"
             alt="Login image"

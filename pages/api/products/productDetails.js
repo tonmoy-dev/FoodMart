@@ -14,6 +14,14 @@ export default async function handler(req, res) {
         .findOne({ _id: new ObjectId(query) });
       res.json(product);
       break;
+
+    case "GET":
+      const catagory = await db
+        .collection("products")
+        .findOne(req.query.product_category);
+      res.json(catagory);
+      break;
+
     case "DELETE":
       const result = await db
         .collection("products")

@@ -1,5 +1,6 @@
-import { HomeIcon, EyeIcon } from "@heroicons/react/outline";
+import { EyeIcon } from "@heroicons/react/outline";
 import Image from "next/image";
+import Link from "next/link";
 
 const categoriess = [
   {
@@ -14,7 +15,7 @@ const categoriess = [
   },
   {
     id: 103,
-    title: "Vegetables",
+    title: "Fruits & Vegetables",
     pic: "https://i.ibb.co/Phpf5Tq/banner-3.png",
   },
   {
@@ -29,7 +30,7 @@ const categoriess = [
   },
   {
     id: 106,
-    title: "Pea-Nuts",
+    title: "Frozen & Canned",
     pic: "https://i.ibb.co/jf6gb5Y/banner-6.jpg",
   },
   {
@@ -50,10 +51,6 @@ const categoriess = [
 ];
 const Categories = () => {
 
-  const categoryProductHandler = () => {
-      console.log('category hitted');
-      const categoryFilter = products.filter(product)
-  }
   return (
     <>
       <style>
@@ -61,7 +58,7 @@ const Categories = () => {
             .catagory-overlay{
                 background: rgba(0 , 0, 0, 0.1);
             }
-            `}
+        `}
       </style>
       <div className="py-16">
         <div className="flex md:flex-row flex-col md:gap-y-0 gap-y-2 mb-8 justify-between items-center container mx-auto">
@@ -91,7 +88,6 @@ const Categories = () => {
                 <div
                   key={category.id}
                   className="relative overflow-hidden w-full h-full rounded-lg"
-                  onClick={() => categoryProductHandler(category.title)}
                 >
                   <div>
                     <Image
@@ -106,12 +102,14 @@ const Categories = () => {
                     </p>
                   </div>
                   <div className="absolute overflow-hidden hover:overflow-hidden w-full h-full top-0 left-0 bg-gray-100 text-white text-xs flex flex-col justify-center items-center transition-all duration-500 -translate-x-12 hover:translate-x-0 opacity-0 hover:opacity-90">
-                    <button className="text-xl text-gray-200 bg-orange-400 py-2 px-4 rounded opacity-100 hover:text-white hover:bg-orange-500">
+                    <Link href={`/category/${category.title}`}>
+                    <a className="text-xl text-gray-200 bg-orange-400 py-2 px-4 cursor-pointer rounded opacity-100 hover:text-white hover:bg-orange-500">
                       <EyeIcon
                         className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
-                    </button>
+                    </a>
+                    </Link>
                   </div>
                 </div>
               ))}
