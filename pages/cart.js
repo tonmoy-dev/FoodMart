@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Checkout from "../src/Components/Cart/Checkout";
+import { useRouter } from 'next/router';
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
@@ -11,6 +12,13 @@ const Cart = () => {
   const [control, setControl] = useState(false);
   const [loading, setLoading] = useState(true);
   const user = useSelector((state) => state.states.user);
+  
+  // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
+
 
   // cart data
   useEffect(() => {
@@ -20,7 +28,7 @@ const Cart = () => {
         setItems(response.data);
         setLoading(false);
       });
-  }, [control,user.email]);
+  }, [control,user?.email]);
   
   const createCheckoutSession = async () => {
     const stripe = await stripePromise;

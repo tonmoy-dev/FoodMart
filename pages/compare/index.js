@@ -1,5 +1,6 @@
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import swal from "sweetalert";
@@ -9,6 +10,12 @@ const Compare = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const user = useSelector((state) => state.states.user);
+
+    // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
 
     useEffect(() => {
         setControl(true);
