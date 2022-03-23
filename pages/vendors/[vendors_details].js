@@ -84,27 +84,38 @@ const VendorsDetails = (filteredProducts) => {
                                     </span>
                                 </h1>
                                 <p>{profile.address}</p>
-                                {/* <div className="flex mt-4 gap-x-1.5 justify-center">
-                                    <Link href="www.facebook.com">
-                                        <a target="_blank"><FaFacebookSquare className="w-6 h-6 text-blue-500" /></a>
-                                    </Link>
-                                    <a href="www.facebook.com" target="_blank">
-                                        {" "}
-                                        <FaFacebookSquare className="w-6 h-6 text-blue-500" />{" "}
+                                <div className="flex mt-4 gap-x-1.5 justify-center">
+                                <a
+                                        target="_blank"
+                                        href="https://facebook.com/"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaFacebookSquare className="w-6 h-6 text-blue-500" />
                                     </a>
-                                    <a href="twitter.com">
-                                        {" "}
-                                        <FaTwitterSquare className="w-6 h-6 text-blue-400" />{" "}
+                                    <a
+                                        target="_blank"
+                                        href="https://twitter.com/"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaTwitterSquare className="w-6 h-6 text-blue-400" />
                                     </a>
-                                    <a href="linkedin.com">
-                                        {" "}
-                                        <FaLinkedin className="w-6 h-6 text-gray-500" />{" "}
+                                    
+                                    <a
+                                        target="_blank"
+                                        href="https://linkedin.com/"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaLinkedin className="w-6 h-6 text-gray-500" />
                                     </a>
-                                    <a href="instagram.com">
-                                        {" "}
-                                        <FaInstagram className="w-6 h-6 text-red-500" />{" "}
+                                    <a
+                                        target="_blank"
+                                        href="https://instagram.com/"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <FaInstagram className="w-6 h-6 text-red-500" />
                                     </a>
-                                </div> */}
+                                    </div>
+                                    
                                 {/* <button className="border rounded-full mt-4  text-white px-4 py-1 bg-green-500 hover:bg-green-400">
                                     <Link href="contents/contact-us">
                                         Contact
@@ -149,6 +160,6 @@ export async function getServerSideProps(context) {
     );
 
     return {
-        props: { filteredProducts },
+        props: { filteredProducts }
     };
 }
