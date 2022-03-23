@@ -75,7 +75,8 @@ const VendorCard = ({vendor}) => {
                         </span>
                       </p>
                     </div>
-                    <Link href="/vendors/vendor-profile">
+                    <Link href={`/vendors/${vendor.name}`}>
+                    
                     <a
                       className="inline-flex items-center p-2 text-sm font-medium text-center primary-bg-color shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
                     >
