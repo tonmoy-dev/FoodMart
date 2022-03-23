@@ -1,4 +1,4 @@
-import { css } from "@emotion/react";
+// import { css } from "@emotion/react";
 import {
   ArchiveIcon,
   ArrowLeftIcon,
@@ -8,28 +8,35 @@ import {
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
-import DotLoader from "react-spinners/DotLoader";
-import swal from "sweetalert";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts, loading, setloading } from "../../redux/slices/productSlice";
 
-const Cart = ({ createCheckoutSession, items, control, setControl, loading, setLoading}) => {
+const Cart = ({ createCheckoutSession}) => {
   const [color, setColor] = useState("green");
   const user = useSelector((state) => state.states.user);
-  const products = items;
+  const dispatch = useDispatch();
+  const items = useSelector((state) => state.products.cartProducts);
+  
+   // redux fetch
+  useEffect(() => {
+     dispatch(fetchCartProducts(user));
+     dispatch(setloading(false));
+  }, [dispatch, loading]);
 
   const handleDelete = async (id) => {
     axios.delete(`/api/cart?product_id=${id}`, {
     }).then(response => {
-        if (response.data.deletedCount) {
-          setControl(!control);
-          setLoading(false);
-            swal("Oh!", "You removed a product from your cart", "success");
-        } else {
-          setControl(false);
-          setLoading(false);
-        } 
-    })
+      if (response.data.deletedCount) {
+        toast.warn('Removed a product.', {
+          position: "bottom-left"
+        });
+        dispatch(fetchCartProducts(user));
+      }
+    });
+    dispatch(setloading(false));
   };
 
   // send items to the orders
@@ -43,33 +50,33 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
   };
   
   let sum = 0;
-    for (let i = 0; i < products.length; i++) {
-          sum = parseInt(products[i].price) + sum;
+    for (let i = 0; i < items.length; i++) {
+          sum = parseInt(items[i].price) + sum;
   }
   const totalPrice = sum;
 
-  const override = css`
+/*   const override = css`
   display: block;
   margin: 0 auto;
-  `;  
+  `;  */ 
 
   return (
     <div>
       <div className="container mx-auto py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="col-span-2 bg-gray-100 rounded-lg border">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr,550px] gap-3">
+          <div className="bg-gray-100 rounded-lg border">
             <h1 className="text-2xl text-center font-semibold py-4">
               Shopping Cart
             </h1>
             <hr />
-            {
-              loading && (
+           {/*  {
+              setloading(true) && (
                 <DotLoader color={color} loading={loading} css={override} size={60} />
               )
-            }
+            } */}
             {/* Cart is empty */}
             {
-              !loading && (products.length === 0)  && (
+              !loading && (items.length === 0)  && (
                 <div className="py-10 px-5">
                   <p className="text-center text-orange-500 font-semibold text-2xl">You have no product to your cart. Please add a product!</p>
                 </div>
@@ -77,7 +84,7 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
             }
             {/* Cart is not empty */}
             {
-              !loading && (products.length !== 0)  && (
+              !loading && (items.length !== 0)  && (
                   <div>
                   <div className="flex flex-col">
                     <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -88,69 +95,64 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
                               <tr>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase "
+                                  className="text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Product
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase "
+                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Unit Price
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase "
+                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Quantity
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase "
+                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Total
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase "
+                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Remove
                                 </th>
                               </tr>
                             </thead>
                             <tbody>
-                              {products.map((product) => (
+                              {items.map((item) => (
                                 <tr
-                                  key={product._id}
+                                  key={item._id}
                                   className="border-b odd:bg-white even:bg-gray-50"
                                 >
                                   <td className="flex flex-row gap-2 items-center py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                                    <input
-                                      id="checkbox"
-                                      type="checkbox"
-                                      className="w-4 h-4"
-                                    />
                                     <div className="border">
                                       <Image
                                         width={80}
                                         height={80}
-                                        src={product.image}
+                                        src={item.image}
                                         alt="image"
                                       ></Image>
                                     </div>
-                                    <h1>{product.title}</h1>
+                                    <h1>{item.title.slice(0,10)}..</h1>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                    $ <span>{product.price}</span>
+                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                    $ <span>{item.price}</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
+                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
                                     <span>1</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                    $ <span>{product.price}</span>
+                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                    $ <span>{item.price}</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap ">
-                                    <button onClick={() => handleDelete(product._id)}><ArchiveIcon className="w-5 mt-1 text-red-500 mx-auto" /></button>
+                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                    <button onClick={() => handleDelete(item._id)}><ArchiveIcon className="w-5 mt-1 text-red-500 mx-auto" /></button>
                                   </td>
                                 </tr>
                               ))}
@@ -186,7 +188,7 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
             <div>
               <div className="flex flex-row justify-between py-4">
                 <h2 className="text-lg font-semibold">
-                  Items <span>{products.length}</span>
+                  Items <span>{items.length}</span>
                 </h2>
                 <h2>
                   $ <span>{totalPrice}</span>
@@ -222,12 +224,12 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
               </div>
               <div className="py-4 mb-2">
                 {
-                  products.length === 0 ? (
+                  items.length === 0 ? (
                     <button disabled className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                     </button>
                   ) : (
-                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(products,totalPrice,user.email)]} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(items,totalPrice,user.email)]} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                   <LogoutIcon className="w-4" />
                       </button>
@@ -238,6 +240,8 @@ const Cart = ({ createCheckoutSession, items, control, setControl, loading, setL
           </div>
         </div>
       </div>
+      {/* Toast Notification */}
+      <ToastContainer/> 
     </div>
   );
 };

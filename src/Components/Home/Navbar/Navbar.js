@@ -51,12 +51,11 @@ const Navigation = ()=> {
     const compare = useSelector((state) => state.products.compareProducts);
 
     useEffect(() => {
-        dispatch(setloading(true));
         dispatch(fetchWishlistProducts(user));
         dispatch(fetchCompareProducts(user));
         dispatch(fetchCartProducts(user));
-        
-    }, [dispatch,loading, user?.email]);
+        dispatch(setloading(false));
+    }, [dispatch, loading]);
 
     useEffect(() => {
         setLoading(true);
@@ -172,11 +171,11 @@ const Navigation = ()=> {
                                     <div className="text-gray-600 right-navr">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <RefreshIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                {compare?.length}
+                                            <span className="text-white font-base text-xs  primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
+                                            {!loading && compare?.length}
                                             </span>
                                         </button>
                                         <Link href="/compare">
@@ -189,11 +188,11 @@ const Navigation = ()=> {
                                     <div className="text-gray-600 right-nav">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <HeartIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                            {wish?.length}
+                                            <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 pt-0.5 left-4">
+                                            {!loading && wish?.length}
                                             </span>
                                         </button>
                                         <Link href="/dashboard/user/wish-list">
@@ -206,11 +205,11 @@ const Navigation = ()=> {
                                     <div className="text-gray-600 right-nav">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <ShoppingCartIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                            {cart?.length}
+                                            <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
+                                            {!loading && cart?.length}
                                             </span>
                                         </button>
                                         <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
@@ -242,7 +241,7 @@ const Navigation = ()=> {
                                 >
                                     <div className="flex items-center text-sm gap-x-1 rounded-lg border p-1">
                                         <Menu.Button className="">
-                                            <FaRegUser className="h-7 w-7 bg-gray-300 p-1 rounded-md" />
+                                            <FaRegUser className="h-7 w-7 bg-gray-200 hover:bg-gray-300 p-1 rounded-md" />
                                         </Menu.Button>
                                         <div className="md:flex gap-x-1 font-medium hidden">
                                             <Link href="/register">

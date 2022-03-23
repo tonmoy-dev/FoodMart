@@ -1,9 +1,9 @@
 import { loadStripe } from "@stripe/stripe-js";
 import axios from "axios";
+import { useRouter } from 'next/router';
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Checkout from "../src/Components/Cart/Checkout";
-import { useRouter } from 'next/router';
 
 const stripePromise = loadStripe(process.env.stripe_public_key);
 
@@ -46,7 +46,7 @@ const Cart = () => {
   };
   return (
     <div>
-      <Checkout items={items} control={control} setControl={setControl} loading={loading} setLoading={setLoading} createCheckoutSession={createCheckoutSession} />
+      <Checkout createCheckoutSession={createCheckoutSession} />
     </div>
   );
 };

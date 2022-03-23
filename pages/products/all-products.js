@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DotLoader from "react-spinners/DotLoader";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 import StarRating from "../../src/Components/StarRating/StarRating";
@@ -37,6 +39,7 @@ const AllProducts = ({ products }) => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
+
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -84,6 +87,7 @@ const AllProducts = ({ products }) => {
     display: block;
     margin: 0 auto;
     `;  
+    
 
     return (
         <div>
@@ -196,7 +200,7 @@ const AllProducts = ({ products }) => {
                                                 alt=""
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                                <StarRating initialRating={item.rating}/>
+                                                <StarRating initialRating={item.rating} />
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
@@ -232,30 +236,32 @@ const AllProducts = ({ products }) => {
                 </div>
                 {/* pagination */}
                 {
-                            loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={products.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {
-                            !loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={filterProducts.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {/* pagination */}
+                    loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={products.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {
+                    !loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={filterProducts.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {/* pagination */}
             </div>
             
+            {/* Toast Notification */}
+            <ToastContainer/> 
         </div>
     );
 };
