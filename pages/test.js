@@ -1,30 +1,58 @@
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts } from "../src/redux/slices/productSlice";
-
-const Test = () => {
-    const dispatch = useDispatch();
-    const wish = useSelector((state) => state.products.wishlistProducts);
-    const cart = useSelector((state) => state.products.cartProducts);
-    const compare = useSelector((state) => state.products.compareProducts);
-    const user = useSelector((state) => state.states.user);
-
-    useEffect(() => {
-        dispatch(fetchWishlistProducts(user));
-        dispatch(fetchCompareProducts(user));
-        dispatch(fetchCartProducts(user));
-        
-    }, [dispatch,user?.email]);
+import Link from "next/link";
+const subCategoryList = [
+    {
+        subCategory_id: 1,
+        subCategory_name: "Noodles",
+    },
+    {
+        subCategory_id: 2,
+        subCategory_name: "Local Breakfast",
+    },
+    {
+        subCategory_id: 3,
+        subCategory_name: "Juice",
+    },
+    {
+        subCategory_id: 4,
+        subCategory_name: "Candy & Chocolate",
+    },
+    {
+        subCategory_id: 5,
+        subCategory_name: "Coffee",
+    },
+    {
+        subCategory_id: 6,
+        subCategory_name: "Frozen Snacks",
+    },
+    {
+        subCategory_id: 7,
+        subCategory_name: "Soft Drinks",
+    },
+    {
+        subCategory_id: 8,
+        subCategory_name: "Fresh Fruits",
+    },
+    {
+        subCategory_id: 9,
+        subCategory_name: "Fresh Vegetables",
+    },
+    {
+        subCategory_id: 10,
+        subCategory_name: "Cakes",
+    },
+];
+const test = () => {
     return (
         <div>
-            <h1>go there</h1>
-            <p>lets begin</p>
-            {user?.email}
-            <p>{wish?.length} products</p>
-            <p>{cart?.length} products</p>
-            <p>{compare?.length} products</p>
+            {subCategoryList.slice(0, 4).map((subCategory) => (
+                <div key={subCategory.subCategory_id}>
+                    <Link href={`/subCategory/${subCategory.subCategory_name}`}>
+                        <a>{subCategory.subCategory_name}</a>
+                    </Link>
+                </div>
+            ))}
         </div>
-    )
-}
+    );
+};
 
-export default Test;
+export default test;
