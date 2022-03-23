@@ -158,7 +158,7 @@ const AddBlog = () => {
         <div id="main-content" className="pt-10 pr-8 pl-8 lg:pl-64 bg-gray-100">
           <div className="py-16 mx-5 md:mx-20">
             <h1 className=" text-black font-semibold text-4xl pb-2">
-              Add a blog
+            Add A Blog
             </h1>
             {/* breadcrumb */}
             <div className="pb-10">
@@ -204,7 +204,7 @@ const AddBlog = () => {
                 </ol>
               </nav>
             </div>
-            <div className="container mx-auto py-4">
+            <div className="container mx-auto">
               <div className="mt-5 md:mt-0 ">
                 <form
                   onSubmit={handleSubmit}
@@ -228,7 +228,7 @@ const AddBlog = () => {
                               name="title"
                               id="blog_title"
                               onBlur={(e) => handleChange(e)}
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               placeholder="Your blog title here"
                             />
                           </div>
@@ -250,7 +250,7 @@ const AddBlog = () => {
                               name="category"
                               id="blog_category"
                               onBlur={(e) => handleChange(e)}
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               placeholder="Give blog catagory"
                             />
                           </div>
@@ -274,7 +274,7 @@ const AddBlog = () => {
                               name="image_alt"
                               id="image-alt-text"
                               onBlur={(e) => handleChange(e)}
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               placeholder="Write your blog alternative image text"
                             />
                           </div>
@@ -289,7 +289,7 @@ const AddBlog = () => {
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               required
                               type="text"
                               name="tags"
@@ -316,7 +316,7 @@ const AddBlog = () => {
                             rows="3"
                             // onBlur={handleInputOnBlur}
                             onBlur={(e) => handleChange(e)}
-                            className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                            className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                             placeholder="Share your experience here"
                           ></textarea>
                         </div>
@@ -340,7 +340,7 @@ const AddBlog = () => {
                         </label>
                         <div className="mt-1 flex rounded-md shadow-sm">
                           <input
-                            className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                            className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                             required
                             type="file"
                             name="thumbnail"
@@ -361,7 +361,7 @@ const AddBlog = () => {
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               required
                               type="text"
                               name="date"
@@ -382,7 +382,7 @@ const AddBlog = () => {
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               required
                               type="text"
                               name="time"
@@ -404,7 +404,7 @@ const AddBlog = () => {
                           </label>
                           <div className="mt-1 flex rounded-md shadow-sm">
                             <input
-                              className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                              className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                               required
                               type="text"
                               name="reading_time"
@@ -427,7 +427,7 @@ const AddBlog = () => {
                           <span className="text-orange-600">*</span>
                         </label>
                         <input
-                          className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                          className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                           type="text"
                           name="author_name"
                           id="blog_author_name"
@@ -444,7 +444,7 @@ const AddBlog = () => {
                           Blog Author Image
                         </label>
                         <input
-                          className="focus:ring-0 focus:border p-3 w-full rounded sm:text-sm focus:outline-none border"
+                          className="focus:ring-0 focus:border bg-gray-50 focus:bg-white p-3 w-full rounded sm:text-sm focus:outline-none border"
                           type="file"
                           name="author_PhotoUrl"
                           id="author_PhotoUrl"
