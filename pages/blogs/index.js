@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@heroicons/react/solid';
+ import { ChevronRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { React, useState } from "react";
 import Blog from '../../src/Components/Blogs/Blog';
