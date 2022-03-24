@@ -3,11 +3,12 @@ import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import swal from "sweetalert";
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from "react";
-import DashAdminMenu from "../DashMenu/DashAdminMenu";
-import { useSelector } from "react-redux";
-import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts, fetchWishlistProducts } from "../../../src/redux/slices/productSlice";
 import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const WishList = () => {
@@ -15,6 +16,13 @@ const WishList = () => {
     const [loading, setLoading] = useState(true);
     const [control, setControl] = useState(false);
     const user = useSelector((state) => state.states.user);
+    const dispatch = useDispatch();
+
+    // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
 
     useEffect(() => {
         setControl(true);
@@ -23,20 +31,24 @@ const WishList = () => {
             setWishlists(response.data);
             setLoading(false);
         });
-    }, [control, user.email]);
+    }, [control]);
 
     // Add to cart a product
     const addToCartHandler = async (title, image, price) => {
-        axios
-            .post("/api/cart", {
-                title: title,
-                image: image,
-                price: price,
-            })
+        axios.post("/api/cart", {
+            title: title,
+            image: image,
+            price: price,
+            description: title,
+            email: user.email
+          })
             .then((response) => {
                 if (response.data.insertedId) {
                     setControl(!control);
-                    swal("Wow!", "Product is added to your cart", "success");
+                    dispatch(fetchCartProducts(user));
+                    toast.success('Wow! Added to your cart.', {
+                        position: "bottom-left"
+                      });
                 } else {
                     setControl(false);
                 }
@@ -47,7 +59,10 @@ const WishList = () => {
         axios.delete(`/api/wishlists?product_id=${id}`, {}).then((response) => {
             if (response.data.deletedCount) {
                 setControl(!control);
-                swal("Oh!", "You removed a product from your cart", "success");
+                dispatch(fetchWishlistProducts(user));
+                toast.warn('Removed a product.', {
+                    position: "bottom-left"
+                  });
             } else {
                 setControl(false);
             }
@@ -148,49 +163,43 @@ const WishList = () => {
                             {!loading && (
                                 <div className="mt-6 overflow-auto rounded-lg shadow hidden md:block">
                                     <table className="w-full">
-                                        { wishlists.length !== 0 &&
-                                        <thead className="bg-gray-50 border-b-2 border-gray-200">
-                                            <tr>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-left"
-                                                >
-                                                    <p className="">Select</p>
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    colSpan="2"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    <p>Product</p>
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Price
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Stock Status
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Action
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Manage
-                                                </th>
-                                            </tr>
-                                        </thead>}
-                                            { wishlists.length == 0 && (<div className="flex justify-center"><h3 className="text-2xl text-gray-600 m-auto py-10">You have no Wishlist product. Please add product in Wishlist.</h3></div>)}
+                                        {wishlists.length !== 0 &&
+                                            <thead className="bg-gray-50 border-b-2 border-gray-200">
+                                                <tr>
+                                                    <th
+                                                        scope="col"
+                                                        colSpan="2"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        <p>Product</p>
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Price
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Stock Status
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Action
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Manage
+                                                    </th>
+                                                </tr>
+                                            </thead>}
+                                        {wishlists.length == 0 && (<div className="flex justify-center"><h3 className="text-2xl text-gray-600 m-auto py-10">You have no Wishlist product. Please add product in Wishlist.</h3></div>)}
                                         <tbody className="divide-y divide-gray-200">
                                             {wishlists.map((wish) => {
                                                 const {
@@ -203,12 +212,6 @@ const WishList = () => {
                                                 } = wish;
                                                 return (
                                                     <tr key={_id}>
-                                                        <td className="p-4 whitespace-nowrap">
-                                                            <input
-                                                                type="checkbox"
-                                                                className="ml-4"
-                                                            />
-                                                        </td>
                                                         <td className="py-4 whitespace-nowrap">
                                                             <p className="w-36"></p>
                                                             <Image
@@ -422,6 +425,8 @@ const WishList = () => {
                     </div>
                 </div>
             </div>
+            {/* Toast Notification */}
+            <ToastContainer />
         </>
     );
 };

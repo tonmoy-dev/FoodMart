@@ -33,7 +33,7 @@ const DashUserMenu = () => {
 
     const email = user?.email
     const userNow = users.filter(user => user.email === email)[0]
-    console.log(userNow);
+    // console.log(userNow);
 
     const handleToggle = () => {
         setActive(!isActive);

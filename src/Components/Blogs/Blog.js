@@ -2,6 +2,7 @@ import { ArrowRightIcon } from '@heroicons/react/solid';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 import React from "react";
 import { AiOutlineEye } from 'react-icons/ai';
 import { FiMessageCircle } from 'react-icons/fi';
@@ -10,9 +11,10 @@ import Rating from 'react-rating';
 const Blog = ({blog}) => {
     return (
         <>
-            <Head>
-            <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
-            </Head>
+        <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
+  {/*           <Head>
+            <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
+            </Head> */}
             <style jsx>
                 {`
                     .linear-bg{

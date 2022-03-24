@@ -1,27 +1,27 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import React, { useEffect, useState } from "react";
 import {
     HeartIcon,
     MenuIcon,
     RefreshIcon,
     ShoppingCartIcon,
-    XIcon,
+    XIcon
 } from "@heroicons/react/outline";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { FaRegUser, FaSearch } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import logo from "../../../../public/logo2.png";
 import helplinePic from "../../../assets/images/navbar/helpline.png";
 import useFirebase from "../../../Authenticaion/hooks/useFirebase";
+import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
+import NavSearchProduct from "../../navSearchproduct/NavSearchProduct";
 // import Cart from "../../Cart/Cart";
 import AllCatagories from "./AllCatagories/AllCatagories";
 import DropdownNavMenu from "./DropdownNavMenu/DropdownNavMenu";
 import TopBar from "./TopBar/TopBar";
-import axios from "axios";
-import NavSearchProduct from "../../navSearchproduct/NavSearchProduct";
 
 const navigation = [
     { name: "Home", href: "/", current: true },
@@ -36,7 +36,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-export default function Navigation() {
+const Navigation = ()=> {
     const [searchItem, setSearchItem] = useState("");
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState();
@@ -44,7 +44,18 @@ export default function Navigation() {
     const router = useRouter();
     const { logOut } = useFirebase();
 
-    if (!router?.pathname?.includes("dashboard"));
+    // redux fetch
+    const dispatch = useDispatch();
+    const wish = useSelector((state) => state.products.wishlistProducts);
+    const cart = useSelector((state) => state.products.cartProducts);
+    const compare = useSelector((state) => state.products.compareProducts);
+
+    useEffect(() => {
+        dispatch(fetchWishlistProducts(user));
+        dispatch(fetchCompareProducts(user));
+        dispatch(fetchCartProducts(user));
+        dispatch(setloading(false));
+    }, [dispatch, loading]);
 
     useEffect(() => {
         setLoading(true);
@@ -55,6 +66,7 @@ export default function Navigation() {
         });
     }, []);
 
+    if (!router?.pathname?.includes("dashboard"))
     return (
         <>
             <style jsx>{`
@@ -159,11 +171,11 @@ export default function Navigation() {
                                     <div className="text-gray-600 right-navr">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <RefreshIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                            <span className="text-white font-base text-xs  primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
+                                            {!loading && compare?.length}
                                             </span>
                                         </button>
                                         <Link href="/compare">
@@ -176,11 +188,11 @@ export default function Navigation() {
                                     <div className="text-gray-600 right-nav">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <HeartIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                            <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 pt-0.5 left-4">
+                                            {!loading && wish?.length}
                                             </span>
                                         </button>
                                         <Link href="/dashboard/user/wish-list">
@@ -193,11 +205,11 @@ export default function Navigation() {
                                     <div className="text-gray-600 right-nav">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative"
+                                            className="nav-icon-btn relative cursor-default"
                                         >
                                             <ShoppingCartIcon className="w-7" />
-                                            <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                                                1
+                                            <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
+                                            {!loading && cart?.length}
                                             </span>
                                         </button>
                                         <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
@@ -229,7 +241,7 @@ export default function Navigation() {
                                 >
                                     <div className="flex items-center text-sm gap-x-1 rounded-lg border p-1">
                                         <Menu.Button className="">
-                                            <FaRegUser className="h-7 w-7 bg-gray-300 p-1 rounded-md" />
+                                            <FaRegUser className="h-7 w-7 bg-gray-200 hover:bg-gray-300 p-1 rounded-md" />
                                         </Menu.Button>
                                         <div className="md:flex gap-x-1 font-medium hidden">
                                             <Link href="/register">
@@ -399,3 +411,5 @@ export default function Navigation() {
     );
     return null;
 }
+
+export default Navigation;

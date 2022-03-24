@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Product from "../../Products/Product/Product";
 
 const PopularProducts = ({ products }) => {
@@ -71,6 +73,8 @@ const PopularProducts = ({ products }) => {
                 <Product key={product._id} product={product}></Product>
               ))}
       </div>
+      {/* Toast Notification */}
+      <ToastContainer/>
     </div>
   );
 };

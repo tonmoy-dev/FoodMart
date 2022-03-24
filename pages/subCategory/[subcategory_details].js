@@ -3,10 +3,13 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Product from "../../src/Components/Products/Product/Product";
 
-const CategoryDetails = (filteredProducts) => {
+const SubCategoryDetails = (filteredProduct) => {
     const router = useRouter();
-    const categoryName = router.query.category_details;
-    const products = filteredProducts.filteredProducts;
+    const subCategoryName = router.query.subcategory_details;
+    //console.log(filteredProduct);
+    const products = filteredProduct.filteredProduct;
+    //console.log(products);
+
     return (
         <div>
             <style jsx>
@@ -24,14 +27,14 @@ const CategoryDetails = (filteredProducts) => {
                 <div className="container mx-auto">
                     <div className="banner-inner flex flex-col justify-center items-center">
                         <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
-                            <span className="">{categoryName}</span>
+                            <span className="">{subCategoryName}</span>
                         </h1>
                         {/* nav */}
                         <nav className="flex" aria-label="Breadcrumb">
                             <ol className="inline-flex items-center space-x-1 md:space-x-3">
                                 <li className="inline-flex items-center">
                                     <a
-                                        href="#"
+                                        
                                         className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900"
                                     >
                                         <Link href="/">Home</Link>
@@ -44,7 +47,7 @@ const CategoryDetails = (filteredProducts) => {
                                             aria-hidden="true"
                                         />
                                         <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                            {categoryName}
+                                            {subCategoryName}
                                         </span>
                                     </div>
                                 </li>
@@ -58,7 +61,7 @@ const CategoryDetails = (filteredProducts) => {
                     {products.length === 0 && (
                         <div className="p-3">
                             <p className="text-xl">
-                                This category has no products
+                                This sub-category has no products
                             </p>
                         </div>
                     )}
@@ -72,17 +75,16 @@ const CategoryDetails = (filteredProducts) => {
     );
 };
 
-export default CategoryDetails;
+export default SubCategoryDetails;
 
 export async function getServerSideProps(context) {
-    const categoryName = context.query.category_details;
+    const subCategoryName = context.query.subcategory_details;
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
-    const filteredProducts = products.filter(
-        (product) => product.product_category == categoryName
+    const filteredProduct = products.filter(
+        (product) => product.sub_category == subCategoryName
     );
-
     return {
-        props: { filteredProducts },
+        props: { filteredProduct },
     };
 }
