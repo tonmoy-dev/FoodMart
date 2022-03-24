@@ -70,7 +70,7 @@ const Address = ({ products }) => {
                                 </div>
 
                                 <div className="pt-10">
-                                    <button className="block w-full max-w-xs mx-auto bg-green-500 hover:bg-green-700 focus:bg-green-700 text-white rounded-lg px-3 py-3 font-semibold">
+                                    <button className="block w-full max-w-xs mx-auto primary-bg-color hover:bg-green-700 focus:bg-green-700 text-white rounded-md px-3 py-3 font-semibold">
                                         {" "}
                                         Continue to Payment
                                     </button>

@@ -118,7 +118,7 @@ const Navigation = ()=> {
                                         <div className="relative">
                                             <div className="w-full ml-5 z-50 relative mx-auto text-gray-600">
                                                 <input
-                                                    className="border-2 border-gray-100 bg-white h-9 w-full px-5 pr-12 rounded-lg text-sm "
+                                                    className="border-2 border-gray-100 bg-white h-9 w-full px-5 pr-12 rounded-md text-sm "
                                                     type="search"
                                                     name="search"
                                                     onChange={(event) => {
@@ -239,7 +239,7 @@ const Navigation = ()=> {
                                     as="div"
                                     className="relative z-50 ml-0 md:ml-3"
                                 >
-                                    <div className="flex items-center text-sm gap-x-1 rounded-lg border p-1">
+                                    <div className="flex items-center text-sm gap-x-1 rounded-md border p-1">
                                         <Menu.Button className="">
                                             <FaRegUser className="h-7 w-7 bg-gray-200 hover:bg-gray-300 p-1 rounded-md" />
                                         </Menu.Button>

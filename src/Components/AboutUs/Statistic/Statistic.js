@@ -24,7 +24,7 @@ const Statistic = ({t}) => {
         <section className="text-gray-800">
             <div className="grid md:gap-y-0 lg:gap-y-0 gap-y-6 md:grid-cols-4 grid-cols-2">
               <div className="p-2 bg-white border-2 border-lime-600 counter-card mx-auto rounded-r-full rounded-b-full flex flex-col items-center justify-center">
-                <h1 className="title-font font-bold sm:text-4xl text-3xl text-green-500">
+                <h1 className="title-font font-bold sm:text-4xl text-3xl primary-color">
                   <CountUp end={100} duration={3} />
                   K+{" "}
                 </h1>
@@ -42,7 +42,7 @@ const Statistic = ({t}) => {
                 </p>
               </div>
               <div className="p-2 bg-white border-2 border-lime-600 counter-card mx-auto rounded-r-full rounded-b-full flex flex-col items-center justify-center">
-                <h1 className="title-font font-bold sm:text-4xl text-3xl text-green-500">
+                <h1 className="title-font font-bold sm:text-4xl text-3xl primary-color">
                   <CountUp end={77} duration={3} />
                   k+
                 </h1>

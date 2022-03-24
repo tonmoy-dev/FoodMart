@@ -126,7 +126,7 @@ const AllProducts = ({ products }) => {
             </div>
 
             <div>
-                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-lg flex-row justify-between items-center shadow">
+                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-md flex-row justify-between items-center shadow">
                     <h2 className="text-black">
                         We have found
                         <span className="inline-block mx-1 font-semibold text-green-700">
@@ -159,7 +159,7 @@ const AllProducts = ({ products }) => {
                         
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
-                        <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-2 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Category
@@ -183,7 +183,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by Rating
@@ -208,7 +208,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by price

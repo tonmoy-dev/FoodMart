@@ -83,9 +83,9 @@ const DropdownNavMenu = () => {
                     </div>
                 </a>
 
-                <div className="megaMenu transition px-5 bg-white mb-16 rounded-lg shadow-md">
+                <div className="megaMenu transition px-5 bg-white mb-16 rounded-md shadow-md">
                     <div className="container w-full flex flex-wrap justify-between sm:mb-0 bg-white ">
-                        <div className="w-full text-green-500 mb-2">
+                        <div className="w-full primary-color mb-2">
                             <h2 className=" hidden font-semibold text-3xl">
                                 FoodMart Mega Menu
                             </h2>
@@ -93,7 +93,7 @@ const DropdownNavMenu = () => {
                         <div className="container w-full flex flex-wrap justify-between sm:mb-0 bg-white ">
                             <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                                 <div className="flex items-center">
-                                    <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
+                                    <h3 className="text-xl primary-color hover:text-orange-400 font-semibold mb-2">
                                         {" "}
                                         Fruit &amp; Vegetables
                                     </h3>
@@ -121,7 +121,7 @@ const DropdownNavMenu = () => {
                             </ul>
                             <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                                 <div className="flex items-center">
-                                    <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
+                                    <h3 className="text-xl primary-color hover:text-orange-400 font-semibold mb-2">
                                         Beverages
                                     </h3>
                                 </div>
@@ -148,7 +148,7 @@ const DropdownNavMenu = () => {
                             </ul>
                             <ul className="px-4 w-full sm:w-1/2 lg:w-1/5 pb-6 pt-6 lg:pt-3">
                                 <div className="flex items-center">
-                                    <h3 className="text-xl text-green-500 hover:text-orange-400 font-semibold mb-2">
+                                    <h3 className="text-xl primary-color hover:text-orange-400 font-semibold mb-2">
                                         Snacks
                                     </h3>
                                 </div>
@@ -216,7 +216,7 @@ const DropdownNavMenu = () => {
                                 <div className="w-full relative">
                                     <div className="deals z-10 absolute top-0 left-0 p-6 w-full">
                                         <div className="flex items-center justify-between w-full">
-                                            <h2 className="deals-text text-2xl font-semibold text-green-500 ">
+                                            <h2 className="deals-text text-2xl font-semibold primary-color ">
                                                 Hot Deals
                                             </h2>
                                             <div className="text-lg text-white  w-20 h-20 mx-4 rounded-full flex items-center justify-center font-semibold bg-orange-500">
@@ -226,7 +226,7 @@ const DropdownNavMenu = () => {
                                         <p className="w-32 text-2xl text-gray-600 font-semibold mb-5">
                                             Dont miss trending
                                         </p>
-                                        <button className="deals-button bg-green-500 hover:bg-orange-500 text-white font-semibold text-xl rounded-lg px-4 py-2 ">
+                                        <button className="deals-button primary-bg-color hover:bg-orange-500 text-white font-semibold text-xl rounded-md px-4 py-2 ">
                                             <Link href="products/all-products">
                                                 <a>Shop Now</a>
                                             </Link>

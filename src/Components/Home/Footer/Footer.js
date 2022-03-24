@@ -41,29 +41,23 @@ const Footer = () => {
                                             companies...
                                         </p>
                                     </div>
-                                    <h2 className="text-xl font-semibold mt-4 ml-2 md:ml-0">
-                                        Get in touch
-                                    </h2>
+                                    
                                     <div className="flex mt-4">
                                         <FontAwesomeIcon
                                             icon={faFacebook}
-                                            className="text-2xl text-gray-500 hover:text-orange-500 ml-2 mr-3"
+                                            className="text-2xl w-5 h-5 text-blue-600 hover:text-orange-500 md:ml-0 ml-2 mr-3"
                                         />
                                         <FontAwesomeIcon
                                             icon={faLinkedin}
-                                            className="text-2xl text-gray-500 hover:text-orange-500 mr-3"
+                                            className="text-2xl w-5 h-5 text-gray-600 hover:text-orange-500 mr-3"
                                         />
                                         <FontAwesomeIcon
                                             icon={faTwitter}
-                                            className="text-2xl text-gray-500 hover:text-orange-500 mr-3"
-                                        />
-                                        <FontAwesomeIcon
-                                            icon={faYoutube}
-                                            className="text-2xl text-gray-500 hover:text-orange-500 mr-3"
+                                            className="text-2xl w-5 h-5 text-blue-400 hover:text-orange-500 mr-3"
                                         />
                                         <FontAwesomeIcon
                                             icon={faInstagram}
-                                            className="text-2xl text-gray-500 hover:text-orange-500 mr-3"
+                                            className="text-2xl w-5 h-5 text-red-500 hover:text-orange-500 mr-3"
                                         />
                                     </div>
                                 </div>
@@ -72,7 +66,7 @@ const Footer = () => {
                             <div className="mt-6 lg:mt-0 lg:flex-1">
                                 <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4">
                                     <div className="pt-6">
-                                        <h3 className="text-green-500 font-bold capitalize  text-left ">
+                                        <h3 className="primary-color font-bold capitalize  text-left ">
                                             information
                                         </h3>
                                         <button className="block mt-4 text-sm text-black hover:text-green-500  hover:underline">
@@ -81,59 +75,59 @@ const Footer = () => {
                                             </Link>
                                         </button>
 
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/about-us">
                                                 About Us
                                             </Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/contact-us">
                                                 Contact Us
                                             </Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/login">Login</Link>
                                         </button>
                                     </div>
 
                                     <div className="pt-6">
-                                        <h3 className="text-green-500 font-bold capitalize  text-left ">
+                                        <h3 className="primary-color font-bold capitalize  text-left ">
                                             services
                                         </h3>
                                         <button className="block mt-4 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/">Categories</Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/products/all-products">
                                                 Products
                                             </Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/vendors">Vendors</Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/blogs">Blogs</Link>
                                         </button>
                                     </div>
 
                                     <div className="pt-6">
-                                        <h3 className="text-green-500 font-bold capitalize text-left ">
+                                        <h3 className="primary-color font-bold capitalize text-left ">
                                             help & faqs
                                         </h3>
                                         <button className="block mt-4 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/payment-policy">Payment Policy</Link>
                                         </button>
 
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/faq">Faqs</Link>
                                         </button>
 
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/privacy-policy">
                                                 Privacy & Policy
                                             </Link>
                                         </button>
-                                        <button className="block mt-2 text-sm text-black hover:text-green-500  hover:underline">
+                                        <button className="block mt-3 text-sm text-black hover:text-green-500  hover:underline">
                                             <Link href="/contents/terms-conditions">
                                                 Terms & Conditions
                                             </Link>
@@ -141,7 +135,7 @@ const Footer = () => {
                                     </div>
 
                                     <div className="pt-6">
-                                        <h3 className="text-green-500 font-bold capitalize">
+                                        <h3 className="primary-color font-bold capitalize">
                                             contact info
                                         </h3>
                                         <div className="flex items-center mt-4">
@@ -160,7 +154,7 @@ const Footer = () => {
                                             />
                                             
                                             <a href="mailto:food@exampl.com">
-                                              <span className="block text-sm text-green-500 font-semibold   hover:underline">foodmart@gmail.com</span>
+                                              <span className="block text-sm primary-color font-semibold   hover:underline">foodmart@gmail.com</span>
                                               </a>
                                         </div>
                                         <div className="flex items-center mt-4">
@@ -168,8 +162,8 @@ const Footer = () => {
                                                 icon={faLocationDot}
                                                 className="text-xl w-5 h-5 text-gray-500 hover:text-orange-500 mr-3"
                                             />
-                                            <span className="block text-sm text-green-500 font-semibold   hover:underline">
-                                                33-Dhanmondi, Dhaka, Bangladesh
+                                            <span className="block text-sm primary-color font-semibold   hover:underline">
+                                                Dhaka, Bangladesh
                                             </span>
                                         </div>
                                     </div>

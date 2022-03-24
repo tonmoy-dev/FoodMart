@@ -116,11 +116,7 @@ const VendorsDetails = (filteredProducts) => {
                                     </a>
                                     </div>
                                     
-                                {/* <button className="border rounded-full mt-4  text-white px-4 py-1 bg-green-500 hover:bg-green-400">
-                                    <Link href="contents/contact-us">
-                                        Contact
-                                    </Link>
-                                </button> */}
+                            
                             </div>
                         </div>
                     </div>

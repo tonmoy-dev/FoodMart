@@ -52,7 +52,7 @@ const BestSells = ({ products }) => {
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
-            className="rounded-lg border-1"
+            className="rounded-md border-1"
           >
             <div className="py-10 px-10">
               <p className="text-3xl font-semibold text-gray-600">
@@ -69,7 +69,7 @@ const BestSells = ({ products }) => {
             </div>
             <div className="px-10">
               <Link href="/products/all-products">
-              <a className="bg-green-500 text-white font-bold py-2 px-4 rounded">
+              <a className="primary-bg-color text-white font-bold py-2 px-4 rounded">
                 See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

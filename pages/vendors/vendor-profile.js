@@ -148,7 +148,7 @@ const vendorProfile = () => {
                   <FaInstagram className="w-6 h-6 text-red-500" />{" "}
                 </a>
               </div>
-              <button className="border rounded-full mt-4  text-white px-4 py-1 bg-green-500 hover:bg-green-400">
+              <button className="border rounded-full mt-4  text-white px-4 py-1 primary-bg-color hover:bg-green-400">
                 Contact
               </button>
             </div>
@@ -158,7 +158,7 @@ const vendorProfile = () => {
         <div className="flex flex-row justify-between items-center rounded pt-4 mx-4 md:mx-0 lg:mx-0">
           <h1 className="text-gray-700 font-semibold ml-1">
             Products showing:
-            <span className="text-green-500"> {vendorProducts.length}</span>
+            <span className="primary-color"> {vendorProducts.length}</span>
           </h1>
           <div className="vendor-search relative">
             <input
@@ -168,9 +168,9 @@ const vendorProfile = () => {
             />
             <button
               type="submit"
-              className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-lg bg-white"
+              className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-md bg-white"
             >
-              <SearchIcon className="h-6 w-6 text-green-500" />
+              <SearchIcon className="h-6 w-6 primary-color" />
             </button>
           </div>
         </div>
@@ -179,7 +179,7 @@ const vendorProfile = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 py-8 mx-4 md:mx-0 lg:mx-0">
           {vendorProducts.map((venProduct) => (
             <div key={venProduct._id}>
-              <div className="w-full h-full bg-white rounded-lg border">
+              <div className="w-full h-full bg-white rounded-md border">
                 <div className="relative">
                   <Image
                     width={250}
@@ -203,7 +203,7 @@ const vendorProfile = () => {
                   </p>
                   <a
                     href="#"
-                    className="inline-flex items-center py-1 px-4 text-sm font-medium text-center text-white bg-green-500 rounded-full hover:bg-green-800 focus:ring-4 focus:ring-green-300"
+                    className="inline-flex items-center py-1 px-4 text-sm font-medium text-center text-white primary-bg-color rounded-full hover:bg-green-800 focus:ring-4 focus:ring-green-300"
                   >
                     Buy Now
                   </a>

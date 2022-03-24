@@ -19,7 +19,7 @@ const Blog = ({blog}) => {
                     }
                 `}
             </style>
-            <div key={blog._id} className="group relative flex-col shadow-md rounded-lg">
+            <div key={blog._id} className="group relative flex-col shadow-md rounded-md">
                 <div className="relative w-full h-56 bg-white rounded-t-lg rounded-b-md overflow-hidden group-hover:opacity-75 sm:aspect-w-2 sm:aspect-h-1 lg:aspect-w-1 lg:aspect-h-1">
                     <img
                         src={blog?.thumbnail}
@@ -63,7 +63,7 @@ const Blog = ({blog}) => {
                         </h3>
                         <p className="text-sm md:text-base mb-3 text-gray-500">{blog?.description.slice(0, 130)}..</p>
                         <Link href={`/blogs/${encodeURIComponent(blog._id)}`}>
-                            <a className="text-green-500 font-semibold flex items-center">
+                            <a className="primary-color font-semibold flex items-center">
                                 <span>Learn More</span> <ArrowRightIcon className="ml-1 w-4" />
                             </a>
                         </Link>

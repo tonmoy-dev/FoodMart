@@ -43,7 +43,7 @@ const AboutFoodMart = ({t}) => {
       <div className="pb-4">
         <section className="text-gray-600 body-font">
           <div className="container mx-auto flex gap-6 px-2 py-10 md:flex-row flex-col items-center">
-            <div className="w-full my-8 md:mb-0 shadow rounded-lg">
+            <div className="w-full my-8 md:mb-0 shadow rounded-md">
               <Image
                 src="https://i.ibb.co/vcDgZqn/vegist-image.png"
                 alt="Picture of the author"

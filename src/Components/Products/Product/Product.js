@@ -131,7 +131,7 @@ const Product = ({ product }) => {
   
         <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
 
-      <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg p-3">
+      <div className="product-card bg-white relative border-gray-200 border rounded-md hover:drop-shadow-lg p-3">
         <div className="z-50 absolute left-0 right-0 top-40">
           <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-500 md:text-gray-600 bg-white w-3/5 py-3 md:py-2 mx-auto rounded-full shadow-lg relative">
             <button data-tooltip="+ Add to wishlist">
@@ -213,7 +213,7 @@ const Product = ({ product }) => {
                   produc_Details
                 )
               }
-              className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
+              className="primary-color bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
             >
               <FaCartPlus className="w-6 h-6" />
             </a>

@@ -81,7 +81,7 @@ const SingleBlog = ({ blog }) => {
                             </h2>
                         </div>
 
-                        <div className="flex justify-center gap-1 px-5 text-green-500 items-center">
+                        <div className="flex justify-center gap-1 px-5 primary-color items-center">
                             <div className="rounded-full h-9 w-9">
                                 <Image
                                     className="object-cover rounded-full"
@@ -209,7 +209,7 @@ const SingleBlog = ({ blog }) => {
                                     <label>Name</label>
                                     <input
                                         // className={singlePage.formcontrol}
-                                        className="rounded-lg w-full"
+                                        className="rounded-md w-full"
                                         name="name"
                                         id="user_name"
                                         placeholder="Your Name"
@@ -222,7 +222,7 @@ const SingleBlog = ({ blog }) => {
                                     <label>Email</label>
                                     <input
                                         // className={singlePage.formcontrol}
-                                        className="rounded-lg w-full"
+                                        className="rounded-md w-full"
                                         name="name"
                                         id="user_name"
                                         placeholder="Your Email"
@@ -236,7 +236,7 @@ const SingleBlog = ({ blog }) => {
                             <div className="px-8">
                                 <button
                                     type="submit"
-                                    className="cursor-pointer px-8 py-2 mt-3 text-lg font-semibold rounded-lg text-white bg-green-500"
+                                    className="cursor-pointer px-8 py-2 mt-3 text-lg font-semibold rounded-md text-white primary-bg-color"
                                 >
                                     Comment
                                 </button>

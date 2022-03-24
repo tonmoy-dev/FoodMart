@@ -188,7 +188,7 @@ const AddProduct = () => {
                                     </div>
                                     {/* <h1 className="text-xl pb-3 font-semibold">Add New Product</h1> */}
                                     <div className="md:flex flex-wrap items-center justify-center ">
-                                        <div className="md:w-full bg-white rounded-lg p-8 md:m-8">
+                                        <div className="md:w-full bg-white rounded-md p-8 md:m-8">
                                             <form onSubmit={handleSubmission}>
                                                 <div className="flex flex-col mb-2">
                                                     <label
@@ -202,7 +202,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_badge"
@@ -223,7 +223,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_title"
@@ -243,7 +243,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_subTitle"
@@ -263,7 +263,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_category"
@@ -283,7 +283,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="sub_category"
@@ -304,7 +304,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_imageUrl"
@@ -324,7 +324,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="product_category_img"
@@ -345,7 +345,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="number"
                                                         name="product_price"
@@ -365,7 +365,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="weight"
@@ -385,7 +385,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="number"
                                                         name="product_stock"
@@ -405,7 +405,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="text"
                                                         name="vendor_name"
@@ -425,7 +425,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <input
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         required
                                                         type="number"
                                                         name="user_rating"
@@ -446,7 +446,7 @@ const AddProduct = () => {
                                                         </span>
                                                     </label>
                                                     <textarea
-                                                        className="border rounded-lg border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
+                                                        className="border rounded-md border-slate-300 focus:border-slate-400 focus:outline-none focus:ring-0 text-slate-700"
                                                         type="productDetails"
                                                         name="produc_Details"
                                                         id="produc_Details"
@@ -456,7 +456,7 @@ const AddProduct = () => {
                                                 </div>
                                                 <div className="pt-3">
                                                     <button
-                                                        className="w-full block font-semibold rounded-lg bg-green-500 hover:bg-green-600 text-white uppercase text-lg mx-auto px-4 py-2"
+                                                        className="w-full block font-semibold rounded-md primary-bg-color hover:bg-green-600 text-white uppercase text-lg mx-auto px-4 py-2"
                                                         type="submit"
                                                     >
                                                         Add Product

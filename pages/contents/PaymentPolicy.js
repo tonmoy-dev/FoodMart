@@ -107,7 +107,7 @@ const PaymentPolicy = () => {
                   height={200}
                   priority
                 />
-      {/* <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-lg md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step"> */}
+      {/* <img class="lg:w-3/5 md:w-1/2 object-cover object-center rounded-md md:mt-0 mt-12" src="https://dummyimage.com/1200x500" alt="step"> */}
     </div>
   </div>
 </section>

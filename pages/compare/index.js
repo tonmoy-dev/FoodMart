@@ -174,7 +174,7 @@ const Compare = () => {
                                             </h3>
                                         </td> */}
                                         <td className="p-4 border-b">
-                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                 {product_stock}
                                             </span>
                                         </td>
@@ -187,7 +187,7 @@ const Compare = () => {
                                                         product_price
                                                     )
                                                 }
-                                                className="p-2 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                                className="p-2 text-xs font-medium uppercase tracking-wider primary-color bg-green-300 rounded-md bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
                                             >
                                                 Add to cart
                                             </button>
@@ -199,7 +199,7 @@ const Compare = () => {
                                                         product._id
                                                     )
                                                 }
-                                                className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-lg"
+                                                className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-md"
                                             >
                                                 Delete
                                             </button>

@@ -192,7 +192,7 @@ const SingleProduct = ({ related, product }) => {
                   />
                 </div>
                 <div id="productDetails" className="lg:px-0 md:px-0 px-4">
-                  <h2 className="text-2xl text-green-500 font-semibold">
+                  <h2 className="text-2xl primary-color font-semibold">
                     {product.product_title}
                   </h2>
                   <div id="rating" className="py-2">
@@ -209,7 +209,7 @@ const SingleProduct = ({ related, product }) => {
                     </span>
                   </h2>
                   <div id="price">
-                    <h2 className="text-2xl font-bold text-green-500 py-4">
+                    <h2 className="text-2xl font-bold primary-color py-4">
                       $ <span>{product.product_price}</span>
                     </h2>
                   </div>
@@ -229,16 +229,16 @@ const SingleProduct = ({ related, product }) => {
                     <h2 className="text-lg text-gray-700 font-semibold capitalize">
                       size :
                     </h2>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
                       50gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
                       75gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
                       100gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
                       150gm
                     </button>
                   </div>
@@ -259,7 +259,7 @@ const SingleProduct = ({ related, product }) => {
                     </button>
                   </div>
                   <div className="flex items-center flex-row gap-2 py-6">
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600">
                       {" "}
                       <HeartIcon
                         onClick={() => handleAddWishlist(product._id)}
@@ -274,17 +274,17 @@ const SingleProduct = ({ related, product }) => {
                         // produc_Details
                       )
                     }
-                      className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                      className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600">
                       Add to cart
                     </button>
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600">
                       Buy now
                     </button>
                   </div>
                 </div>
               </div>
               <div
-                className="py-10 px-4 shadow border rounded-lg mt-4 mx-4 md:mx-0"
+                className="py-10 px-4 shadow border rounded-md mt-4 mx-4 md:mx-0"
                 id="alldetails"
               >
                 <div className="flex lg:flex-row flex-row text-sm gap-4 mb-4">
@@ -410,7 +410,7 @@ const SingleProduct = ({ related, product }) => {
             </div>
 
             <div id="catagory" className="md:pl-12 ">
-              <div className="shadow rounded-lg p-4 mx-4 md:mx-0">
+              <div className="shadow rounded-md p-4 mx-4 md:mx-0">
                 <div>
                   <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-xl">Category</h1>
                 </div>

@@ -64,7 +64,7 @@ const Cart = ({ createCheckoutSession}) => {
     <div>
       <div className="container mx-auto py-4">
         <div className="grid grid-cols-1 md:grid-cols-[1fr,550px] gap-3">
-          <div className="bg-gray-100 rounded-lg border">
+          <div className="bg-gray-100 rounded-md border">
             <h1 className="text-2xl text-center font-semibold py-4">
               Shopping Cart
             </h1>
@@ -166,13 +166,13 @@ const Cart = ({ createCheckoutSession}) => {
              )
             }
                 <div className="flex flex-row justify-between items-center py-4 px-4">
-                  <button className="bg-green-500 flex flex-row gap-1 items-center hover:bg-green-600 text-white px-2 py-2 rounded">
+                  <button className="primary-bg-color flex flex-row gap-1 items-center hover:bg-green-600 text-white px-2 py-2 rounded">
                     <ArrowLeftIcon className="w-4" />
                     <Link href="/products/all-products">
                       Continue Shopping
                     </Link>
                   </button>
-                  <button className="bg-green-500 flex flex-row gap-1 items-center  hover:bg-green-600 text-white px-2 py-2 rounded">
+                  <button className="primary-bg-color flex flex-row gap-1 items-center  hover:bg-green-600 text-white px-2 py-2 rounded">
                     {" "}
                     <RefreshIcon className="w-4 " />
                     Update Cart
@@ -180,7 +180,7 @@ const Cart = ({ createCheckoutSession}) => {
                 </div>
             
           </div>
-          <div className="bg-gray-100 px-4 rounded-lg border">
+          <div className="bg-gray-100 px-4 rounded-md border">
             <h1 className="text-2xl text-center font-semibold py-4">
               Order Summery
             </h1>
@@ -210,7 +210,7 @@ const Cart = ({ createCheckoutSession}) => {
                     type="text"
                     placeholder="Give coupon code"
                   />
-                  <button className="bg-green-500 flex flex-row items-center gap-2 hover:bg-green-600 text-white font-semibold py-2 px-4">
+                  <button className="primary-bg-color flex flex-row items-center gap-2 hover:bg-green-600 text-white font-semibold py-2 px-4">
                     <ClipboardIcon className="w-4" /> Apply
                   </button>
                 </div>
@@ -225,11 +225,11 @@ const Cart = ({ createCheckoutSession}) => {
               <div className="py-4 mb-2">
                 {
                   items.length === 0 ? (
-                    <button disabled className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button disabled className="primary-bg-color flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                     </button>
                   ) : (
-                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(items,totalPrice,user.email)]} role="link" type="submit" className="bg-green-500 flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(items,totalPrice,user.email)]} role="link" type="submit" className="primary-bg-color flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
                   Proceed To Checkout
                   <LogoutIcon className="w-4" />
                       </button>

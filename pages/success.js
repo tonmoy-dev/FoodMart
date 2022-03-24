@@ -9,13 +9,13 @@ const Success = () => {
             <main className="max-w-screen-lg mx-auto">
                 <div className="flex flex-col p-10 bg-white">
                     <div className="flex items-start space-x-2 mb-5">
-                        <CheckCircleIcon className="text-green-500 h-10" />
+                        <CheckCircleIcon className="primary-color h-10" />
                         <h1 className="text-3xl">Yeh! your order has been confirmed</h1>
                     </div>
                     <p className="mb-3">
                        Thank you for shopping with us. We will send a confirmation  once your item has shipped, if you would like to check the status of your orders, press the link below.
                     </p>
-                    <button onClick={()=>router.push("/dashboard/user/my-orders")} className="bg-green-500 text-white font-semibold py-1 rounded">Go to your orders</button>
+                    <button onClick={()=>router.push("/dashboard/user/my-orders")} className="primary-bg-color text-white font-semibold py-1 rounded">Go to your orders</button>
                 </div>
             </main>
         </div>

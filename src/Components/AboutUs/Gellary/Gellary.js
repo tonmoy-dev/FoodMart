@@ -36,29 +36,29 @@ const Gellary = ({t}) => {
                   <div className="absolute transform sm:left-1/2 sm:top-0 sm:translate-x-8 lg:left-1/2 lg:top-1/2 lg:-translate-y-1/2 lg:translate-x-8">
                     <div className="flex items-center space-x-6 lg:space-x-8">
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden sm:opacity-0 lg:opacity-100">
+                        <div className="w-44 h-64 rounded-md overflow-hidden sm:opacity-0 lg:opacity-100">
                           <img src="https://i.ibb.co/Chc2j3J/food-background-fruits-collection-portrait-2912840.jpg" className="w-full h-full object-center object-cover" alt="image gellary"/>
                         </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <div className="w-44 h-64 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/bdRZVmT/photo-1547514701-42782101795e.jpg" alt="" className="w-full h-full object-center object-cover" /> 
                         </div>
                       </div>
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <div className="w-44 h-64 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/M1nWCcT/photo-1543076659-9380cdf10613.jpg" alt="" className="w-full h-full object-center object-cover" />
                         </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <div className="w-44 h-64 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/mC43tKs/photo-1582284540020-8acbe03f4924.jpg" alt="" className="w-full h-full object-center object-cover" />
                         </div>
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <div className="w-44 h-64 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/tQkQTqq/photo-1594282486756-06f49bb34c05.jpg" alt="" className="w-full h-full object-center object-cover" />
                         </div>
                       </div>
                       <div className="flex-shrink-0 grid grid-cols-1 gap-y-6 lg:gap-y-8">
-                        <div className="w-44 h-64 rounded-lg overflow-hidden">
+                        <div className="w-44 h-64 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/PNgKYgh/photo-1550411294-b3b1bd5fce1b.jpg" alt="" className="w-full h-full object-center object-cover" />
                         </div>
-                        <div className="w-44 h-72 rounded-lg overflow-hidden">
+                        <div className="w-44 h-72 rounded-md overflow-hidden">
                           <img src="https://i.ibb.co/fSj5dYv/photo-1609842947419-ba4f04d5d60f.jpg" alt="" className="w-full h-full object-center object-cover" />
                         </div>
                       </div>

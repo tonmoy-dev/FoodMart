@@ -40,7 +40,7 @@ const { t } = useTranslation('faqpage');
                   <AccordionItem uuid="a">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibold text-green-500">
+                        <span className="text-xl font-semibold primary-color">
                           {t("question1")}
                         </span>
                       </AccordionItemButton>
@@ -60,7 +60,7 @@ const { t } = useTranslation('faqpage');
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
+                        <span className="text-xl font-semibol primary-color">
                         {t("question2")}
                         </span>
                       </AccordionItemButton>
@@ -80,7 +80,7 @@ const { t } = useTranslation('faqpage');
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
+                        <span className="text-xl font-semibol primary-color">
                         {t("question3")}
                         </span>
                       </AccordionItemButton>
@@ -100,7 +100,7 @@ const { t } = useTranslation('faqpage');
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
+                        <span className="text-xl font-semibol primary-color">
                           {" "}
                           {t("question4")}
                         </span>

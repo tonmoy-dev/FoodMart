@@ -15,7 +15,7 @@ const VendorCard = ({vendor}) => {
         <div
                 vendor={vendor}
                 key={vendor.name}
-                className="mx-auto bg-white rounded-lg  border-gray-200 border shadow"
+                className="mx-auto bg-white rounded-md  border-gray-200 border shadow"
               >
                 <div className="relative">
                   <a href="#">
