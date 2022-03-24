@@ -28,7 +28,7 @@ const Login = () => {
   };
 
   return (
-    <div className="">
+    <div className="px-4">
       <Head>
         <link
           rel="stylesheet"
@@ -38,35 +38,47 @@ const Login = () => {
           referrerPolicy="no-referrer"
         />
       </Head>
-      <div className="flex justify-center py-10 mx-5 sm:mx-auto md:flex-row flex-col w-5/6">
-        <div className="md:w-3/6">
+      <div className="flex my-12 md:mx-auto md:flex-row flex-col container shadow-md md:bg-white" >
+        <div className="md:w-full md:table hidden bg-gray-50">
           <Image
-            src="https://i.ibb.co/9YxD538/122154446-104392108127200-4918932120265177979-n.jpg"
+            src="https://i.ibb.co/zbdQbkP/Mobile-login-rafiki.png"
             height="700"
             width="700"
             alt="Login image"
           />
         </div>
-        <div className="md:w-2/5 w-11/12 mx-auto flex flex-col gap-y-4">
+        <div className="md:w-full py-2 md:py-0 border md:border-0 px-8 w-full mx-auto flex flex-col gap-y-4 md:border-l">
           <div className="text-center">
-          <h2 className="md:text-3xl text-2xl font-semibold mb-3">
-            Login
+          <h2 className="md:text-3xl text-2xl font-semibold mb-3 text-gray-700">
+            Get&apos;s Start
           </h2>
-          <p>Please login using account detail bellow.</p>
+          <p className="text-gray-700">Please login using account detail bellow.</p>
           </div>
           {/* login-form */}
           <form onSubmit={handleSubmit(onSubmit)}>
+              <label
+                  htmlFor="email"
+                  className="text-gray-700"
+                >
+                 Email Adress
+                </label>
             <input
               {...register("email", { required: true })}
-              className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md"
-              placeholder="Your Email address"
+              className="w-full border focus:outline-0 focus:bg-gray-50 border-gray-300 dark:bg-white dark:text-black h-12 py-4 pl-4 rounded-md"
+              placeholder="emajhon@gmail.com"
             ></input>
-            <div className="relative">
+            <div className="relative mt-4">
+            <label
+                  htmlFor="password"
+                  className="text-gray-700"
+                >
+                 Password
+                </label>
               <input
                 {...register("password", { required: true })}
                 type={showPass ? "text" : "password"}
-                className="w-full border border-gray-400 dark:bg-white dark:text-black h-14 py-4 pl-4 rounded-md mt-5"
-                placeholder="Password"
+                className="w-full border focus:outline-0 focus:bg-gray-50 border-gray-300 dark:bg-white dark:text-black h-12 py-4 pl-4 rounded-md"
+                placeholder="********************"
               ></input>
               <i
                 onClick={showPass ? handleShowPass : handleHidePass}
@@ -78,7 +90,7 @@ const Login = () => {
               />
             </div>
 
-            <div className="flex flex-col md:flex-row justify-between py-3">
+            <div className="flex items-center md:flex-row justify-between py-3 my-2">
               <span>
                 <input
                   id="remember"
@@ -87,20 +99,20 @@ const Login = () => {
                 />
                 <label
                   htmlFor="remember"
-                  className="text-gray-400 font-semibold pl-2"
+                  className="text-gray-700 pl-2"
                 >
                   Remember me
                 </label>
               </span>
               <span>
-                <a className="text-gray-400 pl-6 font-semibold" href="#">
+                <a className="text-gray-700 pl-6" href="#">
                   Forgot your Password?
                 </a>
               </span>
             </div>
             <button
               type="submit"
-              className="w-full h-14 py-4 font-bold rounded-md bg-green-600 text-white"
+              className="w-full h-12 font-semibold rounded primary-bg-color text-white"
             >
               Login
             </button>

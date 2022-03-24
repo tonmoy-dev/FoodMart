@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchCartProducts = createAsyncThunk(
-    'product/fetchCartProducts',
+    '/product/fetchCartProducts',
     async (user) => {
         const response = await fetch(`/api/cart?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchCompareProducts = createAsyncThunk(
-    'product/fetchCompareProducts',
+    '/product/fetchCompareProducts',
     async (user) => {
         const response = await fetch(`/api/compare?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchWishlistProducts = createAsyncThunk(
-    'product/fetchWishlistProducts',
+    '/product/fetchWishlistProducts',
     async (user) => {
         const response = await fetch(`/api/wishlists?email=${user.email}`)
             .then(res => res.json())
