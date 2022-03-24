@@ -3,21 +3,21 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 export const fetchCartProducts = createAsyncThunk(
     'product/fetchCartProducts',
     async (user) => {
-        const response = await fetch(`https://food-mart-web.vercel.app/api/cart?email=${user.email}`)
+        const response = await fetch(`/api/cart?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchCompareProducts = createAsyncThunk(
     'product/fetchCompareProducts',
     async (user) => {
-        const response = await fetch(`https://food-mart-web.vercel.app/api/compare?email=${user.email}`)
+        const response = await fetch(`/api/compare?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchWishlistProducts = createAsyncThunk(
     'product/fetchWishlistProducts',
     async (user) => {
-        const response = await fetch(`https://food-mart-web.vercel.app/api/wishlists?email=${user.email}`)
+        const response = await fetch(`/api/wishlists?email=${user.email}`)
             .then(res => res.json())
         return response
     });

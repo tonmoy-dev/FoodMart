@@ -30,6 +30,26 @@ const catagorilist = [
     catagory_name: "Frozen & Canned",
     catagory_icon: "https://i.ibb.co/k0q3d94/frozen-snacks-src-https-eggyolk-chaldal.webp",
   },
+  {
+    catagory_id: 6,
+    catagory_name: "Dairy",
+    catagory_icon: "https://i.ibb.co/30599Tg/candy-chocolate-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    catagory_id: 7,
+    catagory_name: "Cooking",
+    catagory_icon: "https://i.ibb.co/QkRdZL1/rice-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    catagory_id: 8,
+    catagory_name: "Baking",
+    catagory_icon: "https://i.ibb.co/4SXw3b6/nuts-dried-fruits-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    catagory_id: 9,
+    catagory_name: "Bread & Bakery",
+    catagory_icon: "https://i.ibb.co/wrLqNbx/cakes-src-https-eggyolk-chaldal.webp",
+  },
 ];
 
 const AllCatagories = () => {
@@ -51,10 +71,10 @@ const AllCatagories = () => {
       <div
         id="allCatagories"
         onClick={handleAllCatagories}
-        className="transition primary-bg-color rounded-sm flex flex-row justify-between items-center cursor-pointer w-44 relative text-white px-2 py-2"
+        className="transition primary-bg-color rounded-sm flex flex-row justify-between items-center cursor-pointer w-52 relative text-white px-2 py-2 text-sm"
       >
         <MenuIcon className="w-4 h-4" />
-        <h1 className="text-sm"> All Catagories</h1>
+        <h1> All Catagories</h1>
         <FiChevronDown
           className={`pt-1 w-5 h-5 ${openCatagori ? "down-icon-rotate" : ""} `}
         />

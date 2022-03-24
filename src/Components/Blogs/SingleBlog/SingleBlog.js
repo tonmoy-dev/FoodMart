@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import {
     AiFillFacebook,
     AiFillLinkedin,
-    AiFillTwitterCircle,
+    AiFillTwitterCircle
 } from "react-icons/ai";
 import swal from "sweetalert";
 import RecentPost from "../../../Components/Blogs/SingleBlog/RecentPost.js";
@@ -85,8 +85,7 @@ const SingleBlog = ({ blog }) => {
                             <div className="rounded-full h-9 w-9">
                                 <Image
                                     className="object-cover rounded-full"
-                                    src="https://i.ibb.co/kQ1T9TN/d737946d153beb56555ed95ab0af1ee1-key-west-vacations-couple-photography.jpg"
-                                    alt="AuthorPhoto"
+                                    src={blog.author_PhotoUrl}
                                     width={36}
                                     height={36}
                                     // layout='responsive'
@@ -94,7 +93,7 @@ const SingleBlog = ({ blog }) => {
                             </div>
                             <div className="flex items-center justify-center">
                                 <span>
-                                    Posted by : Safira Adnan/ On : Apr 06, 2021
+                                    Posted by {blog.author_name}, {blog.date}
                                 </span>
                             </div>
                             <div className="flex gap-2 ml-auto px-5">
@@ -319,46 +318,6 @@ const SingleBlog = ({ blog }) => {
                         {/* Trending */}
                         <Trending></Trending>
 
-                        {/* gallery */}
-                        <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
-                            <h3 className="text-xl font-semibold text-gray-700 mb-3">
-                                Tags
-                            </h3>
-                            <div className="flex flex-warp gap-4">
-                                {/* <a onClick={() => handleclick("food")}href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition">Fruits</a> */}
-                                <a
-                                    href="#"
-                                    className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition"
-                                >
-                                    Pizza
-                                </a>
-                                <a
-                                    href="#"
-                                    className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition"
-                                >
-                                    Chicken
-                                </a>
-                                <a
-                                    href="#"
-                                    className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition"
-                                >
-                                    Recipe
-                                </a>
-                                <a
-                                    href="#"
-                                    className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition"
-                                >
-                                    Pie
-                                </a>
-                                {/* <a href="#" className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition">Egg</a> */}
-                            </div>
-                        </div>
 
                         {/* One Image  */}
                         <div className="bg-white shadow-sm rounded-sm p-4 mt-8">
