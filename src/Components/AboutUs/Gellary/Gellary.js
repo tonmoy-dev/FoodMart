@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 
-const Gellary = () => {
+const Gellary = ({t}) => {
   const [openMore, setOpenMore] = useState(false);
   return (
     <div>
@@ -10,16 +10,16 @@ const Gellary = () => {
         <div className="pt-16 pb-80 sm:pt-24 sm:pb-40 lg:pt-40 lg:pb-48">
           <div className="relative max-w-7xl mx-auto px-2 sm:static">
             <div className="sm:max-w-lg">
-              <h3 className="text-green-600 text-2xl">Foodmart Gallery</h3>
+              <h3 className="text-green-600 text-2xl">{t("gallerySubTitle")}</h3>
               <h1 className="font font-bold  text-3xl">
-                Your Partner for e-commerce grocery solution
+                {t("galleryTitle")}
               </h1>
               <p className="mt-4 text-lg text-gray-500 text-justify" >
-              Food First envisions a world in which all people have access to healthy, ecologically produced, and culturally appropriate food. After 40 years of analysis of the global food system, we know that making this vision a reality involves more than technical solutions—it requires political transformation. Thats why Food First supports activists, social movements, alliances, and coalitions working for systemic change.
+              {t("galleryDetails")}
               <br /><br />
                 {openMore ? (
                   <span className="">
-                Be that as it may, regardless of where you discover us, quality will dependably be our formula.We Believe in Quality. All around. Quality food cant be made without quality initiative. Find out about the general population driving The Foodmart.
+               {t("galleryMoreDetails")}
                   </span>
                 ) : (
                   ""
@@ -68,16 +68,16 @@ const Gellary = () => {
                 {!openMore ? (
                   <button
                     onClick={() => setOpenMore(true)}
-                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                    className="inline-flex text-white primary-bg-color py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
                   >
-                    Read More
+                    {t("readMore")}
                   </button>
                 ) : (
                   <button
                     onClick={() => setOpenMore(false)}
-                    className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                    className="inline-flex text-white primary-bg-color py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
                   >
-                    Read Less
+              {t("readLess")}
                   </button>
                 )}
               </div>

@@ -3,6 +3,7 @@
   "defaultLocale": "en",
   "pages": {
     "*": ["common"],
-    "/contents/faq": ["faqpage"]
+    "/contents/faq": ["faqpage"],
+    "/contents/about-us": ["about"]
   }
 }

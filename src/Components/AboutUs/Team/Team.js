@@ -1,38 +1,38 @@
 import Image from "next/image";
 import React from "react";
 
-const Team = () => {
+const Team = ({t}) => {
   const teamMember = [
     {
       memberId: 1,
-      fullname: "Tonmoy Roy",
+      fullname: `${t("tonmoyTitle")}`,
       developer: "",
-      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
-      facebook: "",
-      Linkedin: "",
-      github: "",
+      profileImage: "https://i.ibb.co/X2BkGkv/tonmoy.jpg",
+      facebook: "https://www.facebook.com/ronodip.bd/",
+      Linkedin: "https://github.com/Rx-devs",
+      github: "https://www.linkedin.com/in/tonmoy-roy-11a395227/",
     },
     {
       memberId: 2,
-      fullname: "Anik Deb Nath",
+      fullname: `${t("anikTitle")}`,
       developer: "",
-      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
-      facebook: "",
-      Linkedin: "",
-      github: "",
+      profileImage: "https://i.ibb.co/xXLknr6/anik.jpg",
+      facebook: "https://www.facebook.com/aaroon.fince/",
+      Linkedin: "https://www.linkedin.com/in/anik-deb-nath-26aa22190/",
+      github: "https://github.com/Anik-nath",
     },
     {
       memberId: 3,
-      fullname: "Apu Kumar Debnath",
+      fullname: `${t("apuTitle")}`,
       developer: "",
-      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
-      facebook: "",
-      Linkedin: "",
-      github: "",
+      profileImage: "https://i.ibb.co/Hzx6r7Y/apu.png",
+      facebook: "https://www.facebook.com/apu.dm.967",
+      Linkedin: "https://www.linkedin.com/in/apudevnath/",
+      github: "https://github.com/apudebnath",
     },
     {
       memberId: 4,
-      fullname: "Showrav Das",
+      fullname: `${t("showravTitle")}`,
       developer: "",
       profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
@@ -41,7 +41,7 @@ const Team = () => {
     },
     {
       memberId: 5,
-      fullname: "Anamika Sharma",
+      fullname: `${t("anamikaTitle")}`,
       developer: "",
       profileImage: "https://i.ibb.co/Gpfp6bv/istockphoto-1132926013-612x612.jpg",
       facebook: "",
@@ -50,7 +50,7 @@ const Team = () => {
     },
     {
       memberId: 6,
-      fullname: "Avishek Devnath",
+      fullname: `${t("avishekTitle")}`,
       developer: "",
       profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
@@ -58,31 +58,28 @@ const Team = () => {
       github: "",
     },
   ];
-  /* https://i.ibb.co/Gpfp6bv/istockphoto-1132926013-612x612.jpg
-https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg */
+
   return (
-    <div className="mt-10 mx-4 md:mx-0 lg:mx-0">
+    <div className="mt-20 mx-4 md:mx-0 lg:mx-0">
       <section className="bg-white">
         <div className="container mx-auto">
-          <h2 className="text-3xl font-semibold text-center text-green-500 capitalize lg:text-4xl ">
-            Meet Our Experts
+          <h2 className="text-3xl font-semibold text-center primary-color capitalize lg:text-3xl ">
+           {t("meetTeamTitle")}
           </h2>
           <p className="max-w-2xl mt-4 mb-6 mx-auto text-center text-gray-500 ">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
-            incidunt ex placeat modi magni quia error alias, adipisci rem
-            similique, at omnis eligendi optio eos harum.
+         {t("meetTeamSubTitle")}
           </p>
           <div className="grid grid-cols-2 md:gap-12 gap-6 py-4 md:grid-cols-2 xl:grid-cols-3">
             {teamMember.map((team) => (
               <div
                 key={team.memberId}
-                className="flex pt-4 flex-col items-center rounded-t-full shadow-xl border-t-2 border-gray-100"
+                className="flex pt-4 flex-col items-center rounded-tt-full shadow-xl border-t-2 border-gray-100"
               >
                 <Image
                   src={team.profileImage}
                   alt="Picture of the author"
-                  width={300}
-                  height={300}
+                  width={200}
+                  height={200}
                   priority
                   className="rounded-full"
                 />
@@ -90,7 +87,7 @@ https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg */
                   {team.fullname}
                 </h1>
                 <p className="mt-2 text-gray-500 capitalize ">Developer</p>
-                <div className="flex mt-3 bg-green-500 py-2 w-full justify-center">
+                <div className="flex mt-3 primary-bg-color py-2 w-full justify-center">
                   <a
                     href="#"
                     className="mx-2 text-white  hover:text-gray-500"
