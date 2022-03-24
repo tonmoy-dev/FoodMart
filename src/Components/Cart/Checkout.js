@@ -85,7 +85,10 @@ const Cart = ({ createCheckoutSession}) => {
             {
               !loading && (items.length === 0)  && (
                 <div className="py-10 px-5">
-                  <p className="text-center text-orange-500 font-semibold text-2xl">You have no product to your cart. Please add a product!</p>
+                  <h2 className="text-2xl text-center m-auto py-12">
+                                    You have no Compare Products! Please add
+                                    Products.
+                  </h2>
                 </div>
               )
             }
@@ -176,13 +179,15 @@ const Cart = ({ createCheckoutSession}) => {
                   <button className="primary-bg-color flex flex-row gap-1 items-center hover:bg-green-600 text-white px-2 py-2 rounded">
                     <ArrowLeftIcon className="w-4" />
                     <Link href="/products/all-products">
-                      Continue Shopping
+                      <a>Continue Shopping</a>
                     </Link>
                   </button>
                   <button className="primary-bg-color flex flex-row gap-1 items-center  hover:bg-green-600 text-white px-2 py-2 rounded">
-                    {" "}
+                {" "}
                     <RefreshIcon className="w-4 " />
-                    Update Cart
+                    <Link href="/products/all-products">
+                      <a>Update Cart</a>
+                    </Link>
                   </button>
                 </div>
             
