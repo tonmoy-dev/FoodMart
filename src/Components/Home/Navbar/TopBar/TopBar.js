@@ -18,10 +18,10 @@ const TopBar = () => {
                 </div>
                 <div className="hidden md:flex text-sm text-white items-center gap-x-2">
                     <div className="flex gap-x-1.5">
-                        <a href="https://www.facebook.com/" target="_blank"> <FaFacebookSquare /> </a>
-                        <a href="https://twitter.com/" target="_blank"> <FaTwitterSquare /> </a>
-                        <a href="https://www.linkedin.com/" target="_blank"> <FaLinkedin /> </a>
-                        <a href="https://www.instagram.com/" target="_blank"> <FaInstagram /> </a>
+                        <a href="https://www.facebook.com/" rel="noreferrer" target="_blank"> <FaFacebookSquare /> </a>
+                        <a href="https://twitter.com/" rel="noreferrer" target="_blank"> <FaTwitterSquare /> </a>
+                        <a href="https://www.linkedin.com/" rel="noreferrer" target="_blank"> <FaLinkedin /> </a>
+                        <a href="https://www.instagram.com/" rel="noreferrer" target="_blank"> <FaInstagram /> </a>
                     </div>
                     {/* language dropdown */}
                     <div className="topbar-dropdown relative inline-block">
