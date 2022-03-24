@@ -12,9 +12,6 @@ const Blog = ({blog}) => {
     return (
         <>
         <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
-  {/*           <Head>
-            <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
-            </Head> */}
             <style jsx>
                 {`
                     .linear-bg{

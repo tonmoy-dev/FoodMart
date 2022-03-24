@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
-
+import Script from 'next/script';
 
 const Product = ({ product }) => {
   const [control, setControl] = useState(false);
@@ -128,9 +128,9 @@ const Product = ({ product }) => {
 
   return (
     <>
-      <Head>
-        <script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></script>
-      </Head>
+  
+        <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
+
       <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg p-3">
         <div className="z-50 absolute left-0 right-0 top-40">
           <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-500 md:text-gray-600 bg-white w-3/5 py-3 md:py-2 mx-auto rounded-full shadow-lg relative">
