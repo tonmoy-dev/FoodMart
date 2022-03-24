@@ -154,7 +154,7 @@ const Products = ({ products }) => {
                     {product_badge}
                   </span>
                 )}
-                <a>
+                <div>
                   {" "}
                   <Image
                     className="p-8 rounded-t-lg"
@@ -164,7 +164,7 @@ const Products = ({ products }) => {
                     width="200"
                     layout="responsive"
                   />
-                </a>
+                </div>
                 <div className="px-2 pb-5 pt-2">
                   <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
                     {product_category}

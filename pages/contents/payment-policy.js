@@ -1,12 +1,43 @@
 import React from "react";
-import Image from "next/image";
+import { ChevronRightIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 
 const PaymentPolicy = () => {
   return (
-    <div className="mt-6">
-      <h1 className="text-center text-black text-4xl font-bold">
-        Payment Policy
-      </h1>
+    <div>
+      <div className="head-banner">
+        <div className="container mx-auto">
+          <div className="banner-inner flex flex-col justify-center items-center">
+            <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
+              <span className="">Payment Policy</span>
+            </h1>
+            {/* nav */}
+            <nav className="flex" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <a
+                    href="#"
+                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    <Link href="/">Home</Link>
+                  </a>
+                </li>
+                <li aria-current="page">
+                  <div className="flex items-center">
+                    <ChevronRightIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                    Payment Policy
+                    </span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
 
       <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto flex flex-wrap">
@@ -14,9 +45,9 @@ const PaymentPolicy = () => {
             <div className="lg:w-full md:w-1/2 md:pr-10 md:py-6">
               <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
-                  <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
                 </div>
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   1
                 </div>
                 <div className="flex-grow pl-4 h-full w-full">
@@ -32,9 +63,9 @@ const PaymentPolicy = () => {
               </div>
               <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
-                  <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
                 </div>
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   2
                 </div>
                 <div className="flex-grow pl-4 h-full w-full">
@@ -51,9 +82,9 @@ const PaymentPolicy = () => {
               </div>
               <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
-                  <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                  <div className="h-full w-1 pointer-events-none"></div>
                 </div>
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   3
                 </div>
                 <div className="flex-grow pl-4 mx-auto">
@@ -71,8 +102,8 @@ const PaymentPolicy = () => {
               </div>
               <div className="w-full image">
                       <img
-                          className="w-full h-1/2 mx-auto"
-                          src="https://i.ibb.co/7n0xy7z/Privacy.png"
+                          className="w-1/2 h-1/2 mx-auto md:table hidden"
+                          src="https://i.ibb.co/pdXPZMC/Online-payment-Monochromatic-1.png"
                           alt="Picture of the author"
                         />
               </div>
@@ -81,16 +112,16 @@ const PaymentPolicy = () => {
              <div id="right-part">
              <div className="w-full image">
                       <img
-                          className="w-full h-1/2 mx-auto"
-                          src="https://i.ibb.co/7n0xy7z/Privacy.png"
+                          className="w-1/2 h-1/2 mx-auto"
+                          src="https://i.ibb.co/6PzQhry/Card-Payment-Monochromatic-1.png"
                           alt="Picture of the author"
                         />
               </div>
             <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
-                  <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
                 </div>
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   4
                 </div>
                 <div className="flex-grow pl-4">
@@ -108,9 +139,9 @@ const PaymentPolicy = () => {
               </div>
               <div className="flex relative pb-12">
                 <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
-                  <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
                 </div>
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   5
                 </div>
                 <div className="flex-grow pl-4">
@@ -127,7 +158,7 @@ const PaymentPolicy = () => {
                 </div>
               </div>
               <div className="flex relative">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-yellow-400 inline-flex items-center justify-center text-white relative z-10">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
                   6
                 </div>
                 <div className="flex-grow pl-4">
