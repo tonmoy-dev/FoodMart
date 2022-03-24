@@ -5,7 +5,7 @@ const PaymentPolicy = () => {
   return (
     <div className="mt-6">
       <h1 className="text-center text-black text-4xl font-bold">
-        Privacy Policy
+        Payment Policy
       </h1>
 
       <section className="text-gray-600 body-font">
@@ -149,5 +149,7 @@ const PaymentPolicy = () => {
     </div>
   );
 };
-
+/* https://i.ibb.co/FXc0DHF/pngtree-cartoon-mobile-phone-secure-payment-information-illustration-png-image-1722527-1.jpg
+https://i.ibb.co/GTQQswS/data-protection-2642070-2203261-1.png
+https://i.ibb.co/QN7q82S/pngtree-mobile-phone-pos-machine-mobile-online-payment-png-image-1718053-1.jpg */
 export default PaymentPolicy;
