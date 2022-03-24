@@ -20,6 +20,13 @@ const Cart = ({ createCheckoutSession}) => {
   const dispatch = useDispatch();
   const items = useSelector((state) => state.products.cartProducts);
   
+  // products filter & set quantity
+  const newItem = {};
+  items.forEach(item => {    
+     const product =  newItem[item.title] = newItem[item.title] || {...item, quantity: 0}
+     product.quantity += item.quantity
+  })
+  const cartAllProducts = Object.values(newItem)
    // redux fetch
   useEffect(() => {
      dispatch(fetchCartProducts(user));
@@ -126,7 +133,7 @@ const Cart = ({ createCheckoutSession}) => {
                               </tr>
                             </thead>
                             <tbody>
-                              {items.map((item) => (
+                              {cartAllProducts.map((item) => (
                                 <tr
                                   key={item._id}
                                   className="border-b odd:bg-white even:bg-gray-50"
@@ -146,10 +153,10 @@ const Cart = ({ createCheckoutSession}) => {
                                     $ <span>{item.price}</span>
                                   </td>
                                   <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
-                                    <span>1</span>
+                                    <span>{item.quantity}</span>
                                   </td>
                                   <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
-                                    $ <span>{item.price}</span>
+                                    $ <span>{(item.quantity)* parseInt(item.price)}</span>
                                   </td>
                                   <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
                                     <button onClick={() => handleDelete(item._id)}><ArchiveIcon className="w-5 mt-1 text-red-500 mx-auto" /></button>

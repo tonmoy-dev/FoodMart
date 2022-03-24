@@ -51,7 +51,7 @@ const AllCatagories = () => {
       <div
         id="allCatagories"
         onClick={handleAllCatagories}
-        className="transition primary-bg-color flex flex-row justify-between items-center cursor-pointer w-44 relative text-white px-2 py-2"
+        className="transition primary-bg-color rounded-sm flex flex-row justify-between items-center cursor-pointer w-44 relative text-white px-2 py-2"
       >
         <MenuIcon className="w-4 h-4" />
         <h1 className="text-sm"> All Catagories</h1>
@@ -60,7 +60,7 @@ const AllCatagories = () => {
         />
         <div
           id="catagoriesList"
-          className={`bg-white rounded mt-10 top-0 h-auto py-4 ${openCatagori ? "visible" : "invisible"
+          className={`bg-white rounded-md mt-10 top-0 h-auto py-4 ${openCatagori ? "visible" : "invisible"
             } z-10 shadow-lg  absolute w-full left-0 text-black flex flex-col`}
         >
           

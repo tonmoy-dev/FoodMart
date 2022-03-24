@@ -1,9 +1,9 @@
 import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
 import axios from "axios";
-import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import React, { useEffect, useState } from "react";
 import { FaCartPlus } from 'react-icons/fa';
 import Rating from "react-rating";
@@ -11,14 +11,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
-import Script from 'next/script';
 
 const Product = ({ product }) => {
   const [control, setControl] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.states.user);
   const router = useRouter();
-  
+  const compareItems = useSelector((state) => state.products.compareProducts);
+
   useEffect(() => {
     dispatch(fetchWishlistProducts(user));
     dispatch(fetchCompareProducts(user));
@@ -83,6 +83,12 @@ const Product = ({ product }) => {
       });
     }
   };
+  // handle maximum products for compare list
+  const handleNoCompare = () => {
+    toast.warn('Sorry! Maximum products added.', {
+      position: "bottom-left"
+    });
+  }
   
   // Add to cart a product
   const addToCartHandler = async (title, image, price, description) => {
@@ -98,6 +104,7 @@ const Product = ({ product }) => {
         image: image,
         price: price,
         description: description,
+        quantity: 1,
         email: user.email
       })
       .then((response) => {
@@ -145,9 +152,20 @@ const Product = ({ product }) => {
                 <EyeIcon className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
               </button>
             </Link>
-            <button data-tooltip="+ Add to compare">
+            {
+              (compareItems.length <= 2) && (
+                <button data-tooltip="+ Add to compare">
               <RefreshIcon onClick={() => handleAddCompare(product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details, user.email)} className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
             </button>
+              )
+            }
+            {
+              (compareItems.length >= 3) && (
+                <button data-tooltip="+ Add to compare">
+              <RefreshIcon onClick={handleNoCompare} className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+            </button>
+              )
+            }
           </div>
         </div>
 
