@@ -33,31 +33,31 @@ const PopularProducts = ({ products }) => {
         <div className="grid md:grid-cols-5 grid-cols-3 gap-2">
           <button
             onClick={() => filterHandler("Fruits & Vegetables")}
-            className="border rounded-full text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border rounded-md text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Fruits & Vegetables
           </button>
           <button
             onClick={() => filterHandler("Beverages")}
-            className="border rounded-full text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border rounded-md text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Beverages
           </button>
           <button
             onClick={() => filterHandler("Snacks")}
-            className="border rounded-full text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border rounded-md text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Snacks
           </button>
           <button
             onClick={() => filterHandler("Frozen & Canned")}
-            className="border rounded-full text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border rounded-md text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Frozen & Canned
           </button>
           <button
             onClick={() => filterHandler("Breakfast")}
-            className="border rounded-full text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border rounded-md text-center py-1 md:px-2 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Breakfast
           </button>

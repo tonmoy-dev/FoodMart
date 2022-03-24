@@ -1,5 +1,5 @@
 import {
-    faFacebook, faInstagram, faLinkedin, faTwitter, faYoutube
+    faFacebook, faInstagram, faLinkedin, faTwitter
 } from "@fortawesome/free-brands-svg-icons";
 import {
     faEnvelope,
@@ -43,22 +43,30 @@ const Footer = () => {
                                     </div>
                                     
                                     <div className="flex mt-4">
-                                        <FontAwesomeIcon
-                                            icon={faFacebook}
-                                            className="text-2xl w-5 h-5 text-blue-600 hover:text-orange-500 md:ml-0 ml-2 mr-3"
-                                        />
-                                        <FontAwesomeIcon
+                                        <a className="md:ml-0 ml-2 mr-3" href="https://www.facebook.com/" target="_blank">
+                                            <FontAwesomeIcon
+                                                icon={faFacebook}
+                                                className="text-2xl w-5 h-5 text-blue-600 hover:text-orange-500"
+                                            />
+                                        </a>
+                                        <a className="mr-3" href="https://www.linkedin.com/" target="_blank"> <FontAwesomeIcon
                                             icon={faLinkedin}
-                                            className="text-2xl w-5 h-5 text-gray-600 hover:text-orange-500 mr-3"
+                                            className="text-2xl w-5 h-5 text-gray-600 hover:text-orange-500"
                                         />
-                                        <FontAwesomeIcon
-                                            icon={faTwitter}
-                                            className="text-2xl w-5 h-5 text-blue-400 hover:text-orange-500 mr-3"
-                                        />
-                                        <FontAwesomeIcon
-                                            icon={faInstagram}
-                                            className="text-2xl w-5 h-5 text-red-500 hover:text-orange-500 mr-3"
-                                        />
+                                        </a>
+                                        <a className="mr-3" href="https://twitter.com/" target="_blank">
+                                            <FontAwesomeIcon
+                                                icon={faTwitter}
+                                                className="text-2xl w-5 h-5 text-blue-400 hover:text-orange-500"
+                                            />
+                                        </a>
+                                        <a className="mr-3" href="https://www.instagram.com/" target="_blank">
+                                            <FontAwesomeIcon
+                                                icon={faInstagram}
+                                                className="text-2xl w-5 h-5 text-red-500 hover:text-orange-500"
+                                            />
+                                        </a>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -154,8 +162,8 @@ const Footer = () => {
                                             />
                                             
                                             <a href="mailto:food@exampl.com">
-                                              <span className="block text-sm primary-color font-semibold   hover:underline">foodmart@gmail.com</span>
-                                              </a>
+                                                <span className="block text-sm primary-color font-semibold   hover:underline">foodmart@gmail.com</span>
+                                            </a>
                                         </div>
                                         <div className="flex items-center mt-4">
                                             <FontAwesomeIcon

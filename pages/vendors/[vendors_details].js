@@ -1,16 +1,16 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import axios from "axios";
 import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import {
     FaFacebookSquare,
     FaInstagram,
     FaLinkedin,
-    FaTwitterSquare,
+    FaTwitterSquare
 } from "react-icons/fa";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Product from "../../src/Components/Products/Product/Product";
-import { useEffect, useState } from "react";
-import axios from "axios";
 
 const VendorsDetails = (filteredProducts) => {
     const [vendors, setVendors] = useState([]);
@@ -140,6 +140,8 @@ const VendorsDetails = (filteredProducts) => {
                         ))}
                 </div>
             </div>
+            {/* Toast Notification */}
+            <ToastContainer/> 
         </div>
     );
 };

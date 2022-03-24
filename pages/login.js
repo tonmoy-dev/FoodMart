@@ -50,7 +50,7 @@ const Login = () => {
         <div className="md:w-2/5 w-11/12 mx-auto flex flex-col gap-y-4">
           <div className="text-center">
           <h2 className="md:text-3xl text-2xl font-semibold mb-3">
-            Login In
+            Login
           </h2>
           <p>Please login using account detail bellow.</p>
           </div>

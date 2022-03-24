@@ -1,9 +1,9 @@
+import Link from "next/link";
+import { useRouter } from 'next/router';
 import React from "react";
 import { FaFacebookSquare, FaInstagram, FaLinkedin, FaTwitterSquare } from 'react-icons/fa';
 import { MdKeyboardArrowDown } from 'react-icons/md';
 import i18nConfig from '../../../../../i18n.json';
-import Link from "next/link";
-import { useRouter } from 'next/router'
 
 const TopBar = () => {
     const { locales } = i18nConfig;
@@ -18,10 +18,10 @@ const TopBar = () => {
                 </div>
                 <div className="hidden md:flex text-sm text-white items-center gap-x-2">
                     <div className="flex gap-x-1.5">
-                        <a href=""> <FaFacebookSquare /> </a>
-                        <a href=""> <FaTwitterSquare /> </a>
-                        <a href=""> <FaLinkedin /> </a>
-                        <a href=""> <FaInstagram /> </a>
+                        <a href="https://www.facebook.com/" target="_blank"> <FaFacebookSquare /> </a>
+                        <a href="https://twitter.com/" target="_blank"> <FaTwitterSquare /> </a>
+                        <a href="https://www.linkedin.com/" target="_blank"> <FaLinkedin /> </a>
+                        <a href="https://www.instagram.com/" target="_blank"> <FaInstagram /> </a>
                     </div>
                     {/* language dropdown */}
                     <div className="topbar-dropdown relative inline-block">

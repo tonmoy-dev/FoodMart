@@ -1,6 +1,8 @@
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Product from "../../src/Components/Products/Product/Product";
 
 const SubCategoryDetails = (filteredProduct) => {
@@ -71,6 +73,8 @@ const SubCategoryDetails = (filteredProduct) => {
                         ))}
                 </div>
             </div>
+            {/* Toast Notification */}
+            <ToastContainer/> 
         </div>
     );
 };

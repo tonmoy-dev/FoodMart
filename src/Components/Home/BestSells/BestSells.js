@@ -24,19 +24,19 @@ const BestSells = ({ products }) => {
         <div className="grid grid-cols-3 md:grid-cols-3 gap-2 mb-8">
           <button
             onClick={() => filterHandler("Hot")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Hot
           </button>
           <button
             onClick={() => filterHandler("Sale")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Sale
           </button>
           <button
             onClick={() => filterHandler("New")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             New
           </button>
@@ -48,7 +48,7 @@ const BestSells = ({ products }) => {
           <div
             style={{
               backgroundImage: `url('https://i.ibb.co/SxmdMRx/photo-1524222835726-8e7d453fa83c.jpg')`,
-              height: "26rem",
+              height: "23rem",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}

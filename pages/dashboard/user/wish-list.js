@@ -40,6 +40,7 @@ const WishList = () => {
             image: image,
             price: price,
             description: title,
+            quantity: 1,
             email: user.email
           })
             .then((response) => {
