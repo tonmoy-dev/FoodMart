@@ -1,4 +1,3 @@
-// import MessengerCustomerChat from "react-messenger-customer-chat";
 import { useEffect, useState } from "react";
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
@@ -13,10 +12,11 @@ import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import OfferModal from "../src/Components/OfferModal/OfferModal";
+import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
+   
   const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
     setOpenModal(true);
     setTimeout(() => {
@@ -51,7 +51,10 @@ export default function Home({ reviews, products, blogs }) {
       <Brands></Brands>
       <NewsLetter></NewsLetter>
 
-    
+      {/* Messenger App */}
+      <TawkMessengerReact
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
     </div>
   );
 }

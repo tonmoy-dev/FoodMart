@@ -190,7 +190,7 @@ const AddCoupon = () => {
                                             <div className="col-span-2">
                                                 <div
                                                     id="status"
-                                                    className="bg-white p-4 shadow rounded-lg mt-4"
+                                                    className="bg-white p-4 shadow rounded-md mt-4"
                                                 >
                                                     <div className="code pb-4">
                                                         <h1 className="text-lg font-semibold text-gray-600 mb-4">
@@ -293,7 +293,7 @@ const AddCoupon = () => {
                                             <div className="">
                                                 <div
                                                     id="status"
-                                                    className="bg-white p-4 shadow rounded-lg mt-4"
+                                                    className="bg-white p-4 shadow rounded-md mt-4"
                                                 >
                                                     <h1 className="text-lg font-semibold text-gray-600 mb-4 border-b">
                                                         Status
@@ -336,7 +336,7 @@ const AddCoupon = () => {
                                                 </div>
                                                 <div
                                                     id="schedule"
-                                                    className="bg-white shadow mt-4 p-4 rounded-lg"
+                                                    className="bg-white shadow mt-4 p-4 rounded-md"
                                                 >
                                                     <h1 className="text-lg font-semibold text-gray-600 mb-4 border-b">
                                                         Schedule

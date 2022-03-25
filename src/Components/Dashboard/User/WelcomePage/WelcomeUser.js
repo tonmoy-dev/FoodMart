@@ -124,7 +124,7 @@ const WelcomeUser = () => {
             <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">user</span> dashboard</h1>
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
-                <div className='bg-green-400  rounded-xl'>
+                <div className='bg-green-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total Oders</h1>
@@ -132,7 +132,7 @@ const WelcomeUser = () => {
                         <h1 className='text-4xl text-center '>30</h1>
                     </div>
                 </div>
-                <div className='bg-red-400  rounded-xl'>
+                <div className='bg-red-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total Reviews</h1>
@@ -140,7 +140,7 @@ const WelcomeUser = () => {
                         <h1 className='text-4xl text-center '>25</h1>
                     </div>
                 </div>
-                <div className='bg-orange-400  rounded-xl'>
+                <div className='bg-orange-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total Blogs</h1>
@@ -148,7 +148,7 @@ const WelcomeUser = () => {
                         <h1 className='text-4xl text-center '>20</h1>
                     </div>
                 </div>
-                <div className='bg-pink-400  rounded-xl'>
+                <div className='bg-pink-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>User Ranking</h1>
@@ -173,7 +173,7 @@ const WelcomeUser = () => {
                             <div>
                                 <h1 className='text-xl font-bold text-center  pb-2'>Top products</h1>
                             </div>
-                            <div className="col-span-2 bg-gray-100 rounded-lg border">
+                            <div className="col-span-2 bg-gray-100 rounded-md border">
 
 
                                 {/* Cart is empty */}
@@ -257,7 +257,7 @@ const WelcomeUser = () => {
                             <div>
                                 <h1 className='text-xl font-bold text-center  pb-2'>Top Vendors</h1>
                             </div>
-                            <div className="col-span-2 bg-gray-100 rounded-lg border">
+                            <div className="col-span-2 bg-gray-100 rounded-md border">
 
 
                                 {/* Cart is empty */}

@@ -1,0 +1,9 @@
+{
+  "locales": ["en", "bn"],
+  "defaultLocale": "en",
+  "pages": {
+    "*": ["common"],
+    "/contents/faq": ["faqpage"],
+    "/contents/about-us": ["about"]
+  }
+}

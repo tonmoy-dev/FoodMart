@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@heroicons/react/solid';
+ import { ChevronRightIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
 import { React, useState } from "react";
 import Blog from '../../src/Components/Blogs/Blog';
@@ -94,10 +94,10 @@ const Blogs = ({ blogs }) => {
         </div>
       </div>
       <div className="bg-white py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[1fr,180px] gap-4">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[1fr,180px] gap-4">
           <div className="max-w-2xl mx-auto lg:max-w-none order-last md:order-first">
             {/* blogs */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-4 md:gap-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-4 md:gap-6">
               {/* single blog */}
               {loading
                   ? currentAllBlogs.map((blog) => (
@@ -110,7 +110,7 @@ const Blogs = ({ blogs }) => {
           </div>
           <div className="order-first md:order-last">
             {/* category filter */}
-            <div className="shadow-sm rounded-md ml-0 md:ml-2 p-2 mb-3">
+            <div className="shadow w-full rounded-md ml-0 md:ml-2 p-2 mb-3">
             <h3 className="text-xl font-semibold text-gray-700 mb-3">
               Categories
             </h3>
@@ -127,14 +127,14 @@ const Blogs = ({ blogs }) => {
             </div>
             </div>
             {/* Tags filter */}
-            <div className="bg-white shadow-sm rounded-sm p-4">
+            <div className="bg-white shadow rounded-sm p-4 md:ml-2 w-full md:mt-8">
               <h3 className="text-xl font-semibold text-gray-700 mb-3">
                 Tags
               </h3>
               <div className="flex flex-wrap gap-3">
                 {
                   blogsFilters[0].map(item => (
-                    <button key={item.name} onClick={() => tagFilterHandler(item.name)} className="px-3 py-1 text-sm border border-gray-200 rounded-sm
+                    <button key={item.name} onClick={() => tagFilterHandler(item.name)} className="px-3 py-1 text-sm border bg-gray-200 border-gray-200 rounded-sm
                 hover:bg-green-500 hover:text-white transition">{item.name}</button>
                   ))
                 }

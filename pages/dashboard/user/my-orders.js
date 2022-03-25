@@ -103,11 +103,11 @@ const MyOrders = () => {
                 </ol>
               </nav>
             </div>
-            <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-lg">
+            <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-md">
               <h2 className="text-2xl font-semibold mb-2">My Orders</h2>
               {loading && <p>Please wait</p>}
               {!loading && (
-                <div className="overflow-auto rounded-lg shadow">
+                <div className="overflow-auto rounded-md shadow">
                   <table className="w-full">
                     <thead className="bg-gray-50 border-b-2 border-gray-200">
                       <tr>
@@ -137,7 +137,7 @@ const MyOrders = () => {
                           March 11, 2022
                         </td>
                         <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                          <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                          <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                             Processing
                           </span>
                         </td>
@@ -156,7 +156,7 @@ const MyOrders = () => {
               {/* orders in small screen view */}
 
               {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
-                    <div className="bg-gray-100 py-4 rounded-lg shadow-md">
+                    <div className="bg-gray-100 py-4 rounded-md shadow-md">
                         <div className="flex">
                             <div className="flex items-center border-r border-gray-300">
                                 <Image

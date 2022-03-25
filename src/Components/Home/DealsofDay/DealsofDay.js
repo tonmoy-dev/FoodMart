@@ -97,7 +97,7 @@ const DealsofDay = () => {
               style={{ height: "auto" }}
               id="deals-card"
               key={card.id}
-              className="relative rounded-2xl"
+              className="relative rounded-md"
             >
               <div id="deals-card-image-wrap" className="relative z-2">
                 <div className="deals-card-image relative">
@@ -107,7 +107,7 @@ const DealsofDay = () => {
                     height={600}
                     src={card.img}
                     alt="Avatar"
-                    className="rounded-2xl"
+                    className="rounded-md"
                   />
                 </div>
               </div>
@@ -123,24 +123,24 @@ const DealsofDay = () => {
                   className="absolute w-full left-0 right-0"
                 >
                   <div className="flex flex-row gap-2 justify-center">
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {days} <br /> <span className="text-gray-400">Days</span>
                     </div>
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {hours} <br />{" "}
                       <span className="text-gray-400">Hours</span>
                     </div>
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {min} <br /> <span className="text-gray-400">Mins</span>
                     </div>
-                    <div className="bg-white px-3 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-3 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {sec} <br /> <span className="text-gray-400">Sec</span>
                     </div>
                   </div>
                 </div>
                 <div
                   id="deals-details"
-                  className="bg-white shadow-md rounded-2xl px-4 mt-4"
+                  className="bg-white shadow-md rounded-md px-4 mt-4"
                 >
                   <h4 className="text-base font-semibold pt-2">
                     {card.title.slice(0, 30)}
@@ -234,13 +234,13 @@ const DealsofDay = () => {
                     </li>
                   </ul>
                   <div className="flex items-center  justify-between py-6">
-                    <h4 className="text-lg font-semibold text-green-500">
+                    <h4 className="text-lg font-semibold primary-color">
                       $32.85
                       <sub className="pl-2 text-gray-500">
                         <strike>$32.85</strike>
                       </sub>
                     </h4>
-                    <button className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white">
+                    <button className="primary-color bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white">
                       <FaCartPlus className="w-6 h-6" />
                     </button>
                   </div>

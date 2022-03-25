@@ -102,11 +102,11 @@ const DashVendorMenu = () => {
                     onClick={handleToggle}
                     className="w-8 cursor-pointer lg:hidden"
                 >
-                    <MenuIcon className="text-green-500" />
+                    <MenuIcon className="primary-color" />
                 </div>
                 {/* menu button */}
                 {/* <div className="relative hidden lg:block">
-          <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
+          <SearchIcon className="absolute left-2 top-2 w-6 primary-color" />
           <input
             type="text"
             placeholder="Search for products"
@@ -115,7 +115,7 @@ const DashVendorMenu = () => {
         </div> */}
                 <div className="ml-auto lg:flex hidden items-center">
                     {/* <div>
-            <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-green-400" />
+            <BellIcon className="w-6 cursor-pointer primary-color hover:text-green-400" />
           </div> */}
                     <div className="ml-4 relative">
                         <div
@@ -124,7 +124,7 @@ const DashVendorMenu = () => {
                         >
                             <UserCircleIcon
                                 id="dropdown"
-                                className="h-8 w-8 text-green-500 rounded-full"
+                                className="h-8 w-8 primary-color rounded-full"
                             />
                             <h1 className="font-medium uppercase">{userNow?.name}</h1>
                         </div>
@@ -168,7 +168,7 @@ const DashVendorMenu = () => {
                     } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
             >
                 <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
-                    <h1 className="text-green-500">
+                    <h1 className="primary-color">
                         <Link href="/"><a href="">food<span className="text-orange-400">Mart</span></a></Link>
                     </h1>
                     <XIcon
@@ -208,7 +208,7 @@ const DashVendorMenu = () => {
                     <div className="lg:hidden block">
                         {/* seach box for mobile device */}
                         <div className="relative mx-5 mb-5">
-                            <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
+                            <SearchIcon className="absolute left-2 top-2 w-6 primary-color" />
                             <input
                                 type="text"
                                 className="block pl-11 pr-2 w-full border-none rounded-3xl focus:outline-none focus:ring-green-500 py-2 bg-gray-300 text-base text-dark"
@@ -221,7 +221,7 @@ const DashVendorMenu = () => {
                                 onClick={handleMenu}
                                 className="relative cursor-pointer mr-4"
                             >
-                                <UserCircleIcon className="h-8 w-8 text-green-500 rounded-full" />
+                                <UserCircleIcon className="h-8 w-8 primary-color rounded-full" />
                                 <div
                                     className={`absolute ${isAActive ? "hidden" : ""
                                         } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
@@ -247,7 +247,7 @@ const DashVendorMenu = () => {
                                 Admin
                             </a> */}
                             <div className="ml-auto">
-                                <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-gray-900" />
+                                <BellIcon className="w-6 cursor-pointer primary-color hover:text-gray-900" />
                             </div>
                         </div>
                     </div>

@@ -1,124 +1,185 @@
-import React from 'react';
+import React from "react";
+import { ChevronRightIcon } from '@heroicons/react/solid';
+import Link from 'next/link'; 
 
 const TermsConditions = () => {
-    return (
-        <div className='mt-5'>
-            <h1 className='text-center text-black text-4xl font-bold'>Terms & Conditions</h1>
+  return (
+    <div>
+      <div className="head-banner">
+        <div className="container mx-auto">
+          <div className="banner-inner flex flex-col justify-center items-center">
+            <h1 className="banner-title font-bold text-4xl text-gray-900 mb-4">
+              <span className="">Terms & Conditions</span>
+            </h1>
+            {/* nav */}
+            <nav className="flex" aria-label="Breadcrumb">
+              <ol className="inline-flex items-center space-x-1 md:space-x-3">
+                <li className="inline-flex items-center">
+                  <a
+                    href="#"
+                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  >
+                    <Link href="/">Home</Link>
+                  </a>
+                </li>
+                <li aria-current="page">
+                  <div className="flex items-center">
+                    <ChevronRightIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
+                    Terms & Conditions
+                    </span>
+                  </div>
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
 
-
-            <section className="text-gray-600 body-font">
-  <div className="container px-5 py-24 mx-auto flex flex-wrap">
-    <div className="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
-      <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
-      </div>
-      <div className="flex-shrink-0 w-8 h-8 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-400 text-white relative z-10 title-font font-medium text-sm">1</div>
-      <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        <div>
-         {/* <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-           <svg fill="none" stroke="currentColor" className="w-12 h-12" viewBox="0 0 24 24">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-          </svg> 
-        </div> */}
-        </div>
-        <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-          <h2 className="font-medium title-font text-gray-900 mb-1 text-xl"> Protection Program </h2>
-          <p className="leading-relaxed">Our 100% buyer protection program allows for easy returns only for products not as per description/photo on the website and products which you received in damaged/defective/broken condition..</p>
-        </div>
-        
-
-      </div>
-    </div>
-    <div className="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-      <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
-      </div>
-      <div className="flex-shrink-0 w-8 h-8 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-400 text-white relative z-10 title-font font-medium text-sm">2</div>
-      <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        {/* <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-          <svg fill="none" stroke="currentColor"  className="w-12 h-12" viewBox="0 0 24 24">
-            <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
-          </svg>
-        </div> */}
-
-        <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-          <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">Product delivery System</h2>
-          <p className="leading-relaxed">All products must be returned in their original condition along with the bills and labels & Product After 7 days Of delivery return Can not accepted.You can raise a dispute within 7 days of delivery, in either of the two ways..</p>
-        </div>
-      </div>
-    </div>
-    <div className="flex relative pb-20 sm:items-center md:w-2/3 mx-auto">
-      <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
-      </div>
-      <div className="flex-shrink-0 w-8 h-8 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-400 text-white relative z-10 title-font font-medium text-sm">3</div>
-      <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        {/* <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-          <svg fill="none" stroke="currentColor" className="w-12 h-12" viewBox="0 0 24 24">
-            <circle cx="12" cy="5" r="3"></circle>
-            <path d="M12 22V8M5 12H2a10 10 0 0020 0h-3"></path>
-          </svg>
-        </div> */}
-        <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-          <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">Product order system</h2>
-          <p className="leading-relaxed">By sending an email to support@basket.com with images of broken/defective/damaged products within 7 days of delivery. Please mention your order number in the email..</p>
-        </div>
-      </div>
-    </div>
-    <div className="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
-      <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
-      </div>
-      <div className="flex-shrink-0 w-8 h-8 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-400 text-white relative z-10 title-font font-medium text-sm">4</div>
-      <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        {/* <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-          <svg fill="none" stroke="currentColor" className="w-12 h-12" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div> */}
-        <div className="flex-grow sm:pl-6 mt-6 sm:mt-0">
-          <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">Account create system</h2>
-          <p className="leading-relaxed">Sign into your Mikshaa account if you are a registered customer (Easy method).Reverse pickup orders will initiate refund once the item is picked up by our courier partner..</p>
-        </div>
-      </div>
-    </div>
-    <div className="flex relative pb-10 sm:items-center md:w-2/3 mx-auto">
-      <div className="h-full w-6 absolute inset-0 flex items-center justify-center">
-        <div className="h-full w-1 bg-green-400 pointer-events-none"></div>
-      </div>
-      <div className="flex-shrink-0 w-8 h-8 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-yellow-400 text-white relative z-10 title-font font-medium text-sm">5</div>
-      <div className="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row">
-        {/* <div className="flex-shrink-0 w-24 h-24 bg-indigo-100 text-indigo-500 rounded-full inline-flex items-center justify-center">
-          <svg fill="none" stroke="currentColor" className="w-12 h-12" viewBox="0 0 24 24">
-            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
-            <circle cx="12" cy="7" r="4"></circle>
-          </svg>
-        </div> */}
-        <div className="flex-grow sm:pl-6 mt-6 sm:mt-0 h-full w-6 ">
-          <h2 className="font-medium title-font text-gray-900 mb-1 text-xl">Our Service system</h2>
-          <p className="leading-relaxed">We will refund when your item back from warehouse. The refund amount wii be credited within 3 to 5 working days in your acoount.Customs duty & other international taxes etc. if applicable will have to be borne by the customer according to the laws of the land.
-</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-            {/* <div className='text-left'>
-                <span className='text-3xl font-bold'>.</span><p className=''>.Our 100% buyer protection program allows for easy returns.</p>
-
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto flex flex-wrap">
+          <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className="lg:w-full md:w-1/2 md:pr-10 md:py-6">
+              <div className="flex relative pb-12">
+                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
+                </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  1
+                </div>
+                <div className="flex-grow pl-4 h-full w-full">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    STEP 1
+                  </h2>
+                  <p className="leading-relaxed">
+                    Delivery charge varies with each product. Most of product
+                    FREE delivery in India. Some items may have a shipping cost
+                    depending on the product. .
+                  </p>
+                </div>
+              </div>
+              <div className="flex relative pb-12">
+                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
+                </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  2
+                </div>
+                <div className="flex-grow pl-4 h-full w-full">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    STEP 2
+                  </h2>
+                  <p className="leading-relaxed">
+                    The estimated time of delivery is within 7 working days for
+                    domestic orders and 15-20 working days for international
+                    orders. All orders get shipped within 4 to 5 days from the
+                    our warehouse.
+                  </p>
+                </div>
+              </div>
+              <div className="flex relative pb-12">
+                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-1 pointer-events-none"></div>
+                </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  3
+                </div>
+                <div className="flex-grow pl-4 mx-auto">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    STEP 3
+                  </h2>
+                  <p className="leading-relaxed">
+                    We try to process all deliveries through reputed courier
+                    companies like Bluedart, Aramex, E-come, DTDC, DHL and
+                    Fedex. In some cases, your pincode is not serviceable by
+                    these courier companies, we use Indian Speed Post for those
+                    deliveries. .
+                  </p>
+                </div>
+              </div>
+              <div className="w-full image">
+                      <img
+                          className="w-1/2 h-1/2 mx-auto md:table hidden"
+                          src="https://i.ibb.co/zVYdKvd/Accept-terms-rafiki.png"
+                          alt="Picture of the author"
+                        />
+              </div>
             </div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-            <div><p></p></div>
-        </div> */}
+             {/* right */}
+             <div id="right-part">
+             <div className="w-full image">
+                      <img
+                          className="w-1/2 h-1/2 mx-auto"
+                          src="https://i.ibb.co/sW7PGcQ/Accept-terms-pana.png"
+                          alt="Picture of the author"
+                        />
+              </div>
+            <div className="flex relative pb-12">
+                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
+                </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  4
+                </div>
+                <div className="flex-grow pl-4">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    STEP 4
+                  </h2>
+                  <p className="leading-relaxed">
+                    Basket offers you multiple payment methods. Whatever your
+                    online mode of payment, you can trust assured that Basket
+                    trusted payment gateway partners use secure encryption
+                    technology to keep your transaction details confidential at
+                    all times. .
+                  </p>
+                </div>
+              </div>
+              <div className="flex relative pb-12">
+                <div className="h-full w-10 absolute inset-0 flex items-center justify-center">
+                  <div className="h-full w-1 primary-bg-color pointer-events-none"></div>
+                </div>
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  5
+                </div>
+                <div className="flex-grow pl-4">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    STEP 5
+                  </h2>
+                  <p className="leading-relaxed">
+                    Basket does not collect or store your account information at
+                    all. Your transaction is authorized at multiple points,
+                    first by EBS/CCavenue and subsequently by
+                    Visa/MasterCard/Amex secure directly without any information
+                    passing through us. .
+                  </p>
+                </div>
+              </div>
+              <div className="flex relative">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-500 inline-flex items-center justify-center text-white relative z-10">
+                  6
+                </div>
+                <div className="flex-grow pl-4">
+                  <h2 className="font-medium title-font text-sm text-gray-900 mb-1 tracking-wider">
+                    FINISH
+                  </h2>
+                  <p className="leading-relaxed">
+                    You may use Internet Banking, Debit Card, Credit Card and
+                    Cash on Delivery to make your purchase. We also accept
+                    payments made using Visa, MasterCard, American Express and
+                    Any Club credit/debit cards. .
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      </section>
+      
+    </div>
+  );
 };
 
 export default TermsConditions;

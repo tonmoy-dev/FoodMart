@@ -9,10 +9,10 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 
   return (
     <div className='container py-2 flex justify-center'>
-      <ul className='flex flex-row flex-wrap gap-2'>
+      <ul className='flex flex-row flex-wrap gap-3'>
         {pageNumbers.map(number => (
           <li key={number} className='page-item'>
-            <button className="bg-green-500 text-white border w-8 h-8 rounded-md text-sm md:text-base" onClick={() => paginate(number)}>
+            <button className="primary-bg-color text-white border transition hover:font-semibold hover:border-lime-700 hover:bg-white hover:text-lime-700 w-10 h-10 rounded-md text-sm md:text-base" onClick={() => paginate(number)}>
               {number}
             </button>
           </li>

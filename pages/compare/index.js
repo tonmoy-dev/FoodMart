@@ -1,14 +1,24 @@
 import axios from "axios";
 import Image from "next/image";
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import swal from "sweetalert";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts, fetchCompareProducts } from "../../src/redux/slices/productSlice";
 
 const Compare = () => {
     const [control, setControl] = useState(false);
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const user = useSelector((state) => state.states.user);
+    const dispatch = useDispatch();
+
+    // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
 
     useEffect(() => {
         setControl(true);
@@ -26,15 +36,17 @@ const Compare = () => {
                 title: title,
                 image: image,
                 price: price,
+                description: title,
+                quantity: 1,
+                email:user.email
             })
             .then((response) => {
                 if (response.data.insertedId) {
                     setControl(!control);
-                    swal(
-                        "Wow!",
-                        "Product is added to your cart",
-                        "successfully"
-                    );
+                    dispatch(fetchCartProducts(user));
+                    toast.success('Wow! Added to your cart.', {
+                        position: "bottom-left"
+                      });
                 } else {
                     setControl(false);
                 }
@@ -45,7 +57,10 @@ const Compare = () => {
         axios.delete(`/api/compare?_id=${id}`, {}).then((response) => {
             if (response.data.deletedCount) {
                 setControl(!control);
-                swal("Delete product successfully");
+                dispatch(fetchCompareProducts(user));
+                toast.warn('Removed a product.', {
+                    position: "bottom-left"
+                  });
             } else {
                 setControl(false);
             }
@@ -64,50 +79,50 @@ const Compare = () => {
                     <table className="w-full">
                         
                         <tbody className="flex border rounded p-4 overflow-auto w-full">
-                        {products.length !== 0 && (
-                            <tr className="flex flex-col w-1/4  border">
-                                <td className="p-3 h-32 md:h-48 border-b">
-                                    <p className="text-sm font-semibold text-gray-500">
-                                        Preview
-                                    </p>
-                                </td>
-                                <td className="p-4 border-b">
-                                    <p className="text-sm font-semibold text-gray-500">
-                                        Name
-                                    </p>
-                                </td>
-                                <td className="p-4 border-b">
-                                    <p className="text-sm font-semibold text-gray-500">
-                                        Price
-                                    </p>
-                                </td>
-                                <td className="p-4 border-b">
-                                    <h3 className="text-sm font-semibold text-gray-500">
-                                        Rating
-                                    </h3>
-                                </td>
-                                <td className="h-40 p-4 border-b">
-                                    <h3 className="text-sm font-semibold text-gray-500">
-                                        Description
-                                    </h3>
-                                </td>
-                                <td className="p-3 h-14 border-b">
-                                    <h3 className="text-sm font-semibold text-gray-500">
-                                        Stock status
-                                    </h3>
-                                </td>
-                                <td className="p-4 border-b">
-                                    <h3 className="text-sm font-semibold text-gray-500">
-                                        Buy now
-                                    </h3>
-                                </td>
-                                <td className="p-4 border-b">
-                                    <h3 className="text-sm font-semibold text-gray-500">
-                                        Delete Compare Product
-                                    </h3>
-                                </td>
-                            </tr>
-                             )}
+                            {products.length !== 0 && (
+                                <tr className="flex flex-col w-1/4  border">
+                                    <td className="p-3 h-32 md:h-48 border-b">
+                                        <p className="text-sm font-semibold text-gray-500">
+                                            Preview
+                                        </p>
+                                    </td>
+                                    <td className="p-4 border-b">
+                                        <p className="text-sm font-semibold text-gray-500">
+                                            Name
+                                        </p>
+                                    </td>
+                                    <td className="p-4 border-b">
+                                        <p className="text-sm font-semibold text-gray-500">
+                                            Price
+                                        </p>
+                                    </td>
+                                    <td className="p-4 border-b">
+                                        <h3 className="text-sm font-semibold text-gray-500">
+                                            Rating
+                                        </h3>
+                                    </td>
+                                    <td className="h-40 p-4 border-b">
+                                        <h3 className="text-sm font-semibold text-gray-500">
+                                            Description
+                                        </h3>
+                                    </td>
+                                    <td className="p-3 h-14 border-b">
+                                        <h3 className="text-sm font-semibold text-gray-500">
+                                            Stock status
+                                        </h3>
+                                    </td>
+                                    <td className="p-4 border-b">
+                                        <h3 className="text-sm font-semibold text-gray-500">
+                                            Buy now
+                                        </h3>
+                                    </td>
+                                    <td className="p-4 border-b">
+                                        <h3 className="text-sm font-semibold text-gray-500">
+                                            Delete Compare Product
+                                        </h3>
+                                    </td>
+                                </tr>
+                            )}
                             {products == false && (
                                 <h2 className="text-2xl text-center m-auto py-12">
                                     You have no Compare Products! Please add
@@ -160,7 +175,7 @@ const Compare = () => {
                                             </h3>
                                         </td> */}
                                         <td className="p-4 border-b">
-                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                            <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                 {product_stock}
                                             </span>
                                         </td>
@@ -173,7 +188,7 @@ const Compare = () => {
                                                         product_price
                                                     )
                                                 }
-                                                className="p-2 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                                className="p-2 text-xs font-medium uppercase tracking-wider primary-color bg-green-300 rounded-md bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
                                             >
                                                 Add to cart
                                             </button>
@@ -185,7 +200,7 @@ const Compare = () => {
                                                         product._id
                                                     )
                                                 }
-                                                className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-lg"
+                                                className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-md"
                                             >
                                                 Delete
                                             </button>
@@ -197,6 +212,9 @@ const Compare = () => {
                     </table>
                 </div>
             </div>
+
+            {/* Toast Notification */}
+            <ToastContainer />
         </div>
     );
 };

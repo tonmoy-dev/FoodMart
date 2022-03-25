@@ -24,19 +24,19 @@ const BestSells = ({ products }) => {
         <div className="grid grid-cols-3 md:grid-cols-3 gap-2 mb-8">
           <button
             onClick={() => filterHandler("Hot")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Hot
           </button>
           <button
             onClick={() => filterHandler("Sale")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             Sale
           </button>
           <button
             onClick={() => filterHandler("New")}
-            className="border py-1 rounded-full flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
+            className="border py-1 rounded-md flex items-center justify-center px-6 hover:bg-green-500 hover:text-white cursor-pointer transition"
           >
             New
           </button>
@@ -48,11 +48,11 @@ const BestSells = ({ products }) => {
           <div
             style={{
               backgroundImage: `url('https://i.ibb.co/SxmdMRx/photo-1524222835726-8e7d453fa83c.jpg')`,
-              height: "26rem",
+              height: "23rem",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
-            className="rounded-lg border-1"
+            className="rounded-md border-1"
           >
             <div className="py-10 px-10">
               <p className="text-3xl font-semibold text-gray-600">
@@ -69,7 +69,7 @@ const BestSells = ({ products }) => {
             </div>
             <div className="px-10">
               <Link href="/products/all-products">
-              <a className="bg-green-500 text-white font-bold py-2 px-4 rounded">
+              <a className="primary-bg-color text-white font-bold py-2 px-4 rounded">
                 See more
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
