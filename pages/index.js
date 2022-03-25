@@ -58,7 +58,7 @@ export default function Home({ reviews, products, blogs }) {
     </div>
   );
 }
-/* 
+
 export async function getStaticProps() {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
@@ -72,9 +72,9 @@ export async function getStaticProps() {
   return {
     props: { reviews, products, blogs },
   };
-} */
+}
 
-export const getServerSideProps = async () => {
+/* export const getServerSideProps = async () => {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
 
@@ -87,4 +87,4 @@ export const getServerSideProps = async () => {
   return {
     props: { reviews, products, blogs },
   };
-};
+}; */

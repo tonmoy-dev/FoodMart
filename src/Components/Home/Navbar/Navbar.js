@@ -166,9 +166,9 @@ const Navigation = ()=> {
                                 </div>
 
                                 {/* Right side menu buttons */}
-                                <div className="hidden absolute inset-y-0 right-0 md:flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-x-4">
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-x-4">
                                     {/* Compare button */}
-                                    <div className="text-gray-600 right-navr">
+                                    <div className="text-gray-600 right-nav hidden md:block">
                                         <button
                                             type="button"
                                             className="nav-icon-btn relative cursor-default"
@@ -185,7 +185,7 @@ const Navigation = ()=> {
                                         </Link>
                                     </div>
                                     {/* Wishlist button */}
-                                    <div className="text-gray-600 right-nav">
+                                    <div className="text-gray-600 right-nav hidden md:block">
                                         <button
                                             type="button"
                                             className="nav-icon-btn relative cursor-default"
@@ -202,7 +202,7 @@ const Navigation = ()=> {
                                         </Link>
                                     </div>
                                     {/* Cart button */}
-                                    <div className="text-gray-600 right-nav">
+                                    <div className="text-gray-600 right-nav hidden md:block">
                                         <button
                                             type="button"
                                             className="nav-icon-btn relative cursor-default"
@@ -218,21 +218,20 @@ const Navigation = ()=> {
                                                     Cart
                                                 </a>
                                             </Link>
-                                            {/* <div className="cart-modal rounded-md absolute top-5 right-0 z-50 border-2 shadow-md bg-white w-96 hidden">
-                          <Cart></Cart>
-                        </div> */}
                                         </div>
                                     </div>
-                                    {/* Notification button */}
-                                    {/* <div className="text-gray-600 right-nav">
-                      <button type="button" className="nav-icon-btn relative">
-                        <span className="sr-only">View notifications</span>
-                        <BellIcon className="w-7" aria-hidden="true" />
-                        <span className="text-white font-base text-sm primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4">
-                          1
-                        </span>
-                      </button>
-                    </div> */}
+                                    {/* Cart button small screen*/}
+                                    <div className="text-gray-600 right-nav mr-10 md:mr-0 md:hidden">
+                                        <button
+                                            type="button"
+                                            className="nav-icon-btn relative cursor-default"
+                                        >
+                                            <Link className="w-7 hidden" href="/cart"><a><ShoppingCartIcon className="w-7" /></a></Link>
+                                            <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
+                                            {!loading && cart?.length}
+                                            </span>
+                                        </button>
+                                    </div>
                                 </div>
                                 {/* Profile dropdown */}
                                 <Menu

@@ -173,7 +173,7 @@ const Blogs = ({ blogs }) => {
 };
 export default Blogs;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
     // load all blogs
     const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
     const blogs = await blogs_res.json();
