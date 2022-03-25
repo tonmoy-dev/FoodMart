@@ -175,7 +175,8 @@ const Navigation = ()=> {
                                         >
                                             <RefreshIcon className="w-7" />
                                             <span className="text-white font-base text-xs  primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
-                                            {!loading && compare?.length}
+                                                {!loading && compare?.length}
+                                                {loading && '0'}
                                             </span>
                                         </button>
                                         <Link href="/compare">
@@ -192,7 +193,8 @@ const Navigation = ()=> {
                                         >
                                             <HeartIcon className="w-7" />
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 pt-0.5 left-4">
-                                            {!loading && wish?.length}
+                                                {!loading && wish?.length}
+                                                {loading && '0'}
                                             </span>
                                         </button>
                                         <Link href="/dashboard/user/wish-list">
@@ -209,7 +211,8 @@ const Navigation = ()=> {
                                         >
                                             <ShoppingCartIcon className="w-7" />
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
-                                            {!loading && cart?.length}
+                                                {!loading && cart?.length}
+                                                {loading && '0'}
                                             </span>
                                         </button>
                                         <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
@@ -229,6 +232,7 @@ const Navigation = ()=> {
                                             <Link className="w-7 hidden" href="/cart"><a><ShoppingCartIcon className="w-7" /></a></Link>
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
                                             {!loading && cart?.length}
+                                            {loading && '0'}
                                             </span>
                                         </button>
                                     </div>
