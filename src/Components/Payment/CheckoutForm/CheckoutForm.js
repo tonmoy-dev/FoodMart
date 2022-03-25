@@ -78,7 +78,7 @@ const CheckoutForm = ({ product }) => {
                         },
                     }}
                 />
-                <button className="text-base bg-green-500 text-white py-2 px-3 rounded font-semibold" type="submit" disabled={!stripe}>
+                <button className="text-base primary-bg-color text-white py-2 px-3 rounded font-semibold" type="submit" disabled={!stripe}>
                     Pay ${product.price}
                 </button>
             </form>

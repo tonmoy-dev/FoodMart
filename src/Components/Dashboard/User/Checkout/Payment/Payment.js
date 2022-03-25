@@ -22,7 +22,7 @@ const Payment = () => {
                                         >
                                             <input
                                                 type="radio"
-                                                className="form-radio h-5 w-5 text-green-500"
+                                                className="form-radio h-5 w-5 primary-color"
                                                 name="type"
                                                 id="type1"
                                                 defaultChecked
@@ -50,7 +50,7 @@ const Payment = () => {
                                         >
                                             <input
                                                 type="radio"
-                                                className="form-radio h-5 w-5 text-green-500"
+                                                className="form-radio h-5 w-5 primary-color"
                                                 name="type"
                                                 id="type2"
                                             />
@@ -191,7 +191,7 @@ const Payment = () => {
                                     </div>
                                 </div>
                                 <div className="pt-2">
-                                    <button className="block w-full max-w-xs mx-auto bg-green-500 hover:bg-green-700 focus:bg-green-700 text-white rounded-lg px-3 py-3 font-semibold">
+                                    <button className="block w-full max-w-xs mx-auto primary-bg-color hover:bg-green-700 focus:bg-green-700 text-white rounded-md px-3 py-3 font-semibold">
                                         <i className="mdi mdi-lock-outline mr-1"></i>{" "}
                                         PAY NOW
                                     </button>

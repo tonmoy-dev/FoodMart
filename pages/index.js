@@ -12,12 +12,11 @@ import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import OfferModal from "../src/Components/OfferModal/OfferModal";
-import ManageProduct from "./dashboard/admin/manage-product";
 import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
+   
   const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
     setOpenModal(true);
     setTimeout(() => {
@@ -54,7 +53,6 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
-      <ManageProduct products={products}></ManageProduct>
 
       {/* Messenger App */}
       <TawkMessengerReact

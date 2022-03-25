@@ -1,23 +1,23 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
 export const fetchCartProducts = createAsyncThunk(
-    'product/fetchCartProducts',
+    '/product/fetchCartProducts',
     async (user) => {
-        const response = await fetch(`api/compare?email=${user.email}`)
+        const response = await fetch(`/api/cart?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchCompareProducts = createAsyncThunk(
-    'product/fetchCompareProducts',
+    '/product/fetchCompareProducts',
     async (user) => {
-        const response = await fetch(`api/compare?email=${user.email}`)
+        const response = await fetch(`/api/compare?email=${user.email}`)
             .then(res => res.json())
         return response
     });
 export const fetchWishlistProducts = createAsyncThunk(
-    'product/fetchWishlistProducts',
+    '/product/fetchWishlistProducts',
     async (user) => {
-        const response = await fetch(`api/compare?email=${user.email}`)
+        const response = await fetch(`/api/wishlists?email=${user.email}`)
             .then(res => res.json())
         return response
     });
@@ -28,16 +28,11 @@ const productSlice = createSlice({
         cartProducts: [],
         compareProducts: [],
         wishlistProducts: [],
-        loading: true,
+        loading: false,
+        errorMessage: ""
     
     },
     reducers: {
-        /* addProducts: (state, { payload }) => {
-            state.products.push(payload)
-        },
-        removeProducts: (state, { payload }) => {
-            state.products = state.products.filter(product => product.id !== payload)
-        }, */
         setloading: (state, { payload }) => {
             state.loading = payload;
         },
@@ -49,6 +44,11 @@ const productSlice = createSlice({
             // Add user to the state array
             state.cartProducts = action.payload;
         }),
+        builder.addCase(fetchCartProducts.rejected, (state, action) => {
+            // Add user to the state array
+            // state.cartProducts = action.payload;
+            action.errorMessage = action.error.message || ""
+        }),
         builder.addCase(fetchCompareProducts.fulfilled, (state, action) => {
             // Add user to the state array
             state.compareProducts = action.payload;
@@ -59,7 +59,6 @@ const productSlice = createSlice({
         })
     },
 })
-
 
 export const { setloading, loading } = productSlice.actions;
 

@@ -15,7 +15,7 @@ const Reviews = ({reviews}) => {
     <>
       <section className={reviewStyle.slidecontain}>
         <div className={reviewStyle.heading}>
-          <h6 className="text-green-500 text-xs uppercase">Testimonials</h6>
+          <h6 className="primary-color text-xs uppercase">Testimonials</h6>
           <h2 className="text-black text-3xl my-2">What Clients Say</h2>
         </div>
 

@@ -124,7 +124,7 @@ const WelcomeVendor = () => {
             <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role}</span> dashboard</h1>
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
-                <div className='bg-green-400  rounded-xl'>
+                <div className='bg-green-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
@@ -132,7 +132,7 @@ const WelcomeVendor = () => {
                         <h1 className='text-4xl text-center '>50</h1>
                     </div>
                 </div>
-                <div className='bg-red-400  rounded-xl'>
+                <div className='bg-red-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total sales</h1>
@@ -140,7 +140,7 @@ const WelcomeVendor = () => {
                         <h1 className='text-4xl text-center '>100k</h1>
                     </div>
                 </div>
-                <div className='bg-orange-400  rounded-xl'>
+                <div className='bg-orange-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total revenue (mn)</h1>
@@ -148,7 +148,7 @@ const WelcomeVendor = () => {
                         <h1 className='text-4xl text-center '>100</h1>
                     </div>
                 </div>
-                <div className='bg-pink-400  rounded-xl'>
+                <div className='bg-pink-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total Growth</h1>
@@ -190,7 +190,7 @@ const WelcomeVendor = () => {
                             <div>
                                 <h1 className='text-xl font-bold text-center  pb-2'>Top products</h1>
                             </div>
-                            <div className="col-span-2 bg-gray-100 rounded-lg border">
+                            <div className="col-span-2 bg-gray-100 rounded-md border">
                                 <div>
 
                                     <div className="flex flex-col">
@@ -265,7 +265,7 @@ const WelcomeVendor = () => {
                             <div>
                                 <h1 className='text-xl font-bold text-center  pb-2'>Top Vendors</h1>
                             </div>
-                            <div className="col-span-2 bg-gray-100 rounded-lg border">
+                            <div className="col-span-2 bg-gray-100 rounded-md border">
 
 
                                 {/* Cart is empty */}

@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DotLoader from "react-spinners/DotLoader";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 import StarRating from "../../src/Components/StarRating/StarRating";
@@ -37,6 +39,7 @@ const AllProducts = ({ products }) => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
+
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -84,6 +87,7 @@ const AllProducts = ({ products }) => {
     display: block;
     margin: 0 auto;
     `;  
+    
 
     return (
         <div>
@@ -122,7 +126,7 @@ const AllProducts = ({ products }) => {
             </div>
 
             <div>
-                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-lg flex-row justify-between items-center shadow">
+                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-md flex-row justify-between items-center shadow">
                     <h2 className="text-black">
                         We have found
                         <span className="inline-block mx-1 font-semibold text-green-700">
@@ -155,7 +159,7 @@ const AllProducts = ({ products }) => {
                         
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
-                        <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-2 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Category
@@ -179,7 +183,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by Rating
@@ -196,7 +200,7 @@ const AllProducts = ({ products }) => {
                                                 alt=""
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                                <StarRating initialRating={item.rating}/>
+                                                <StarRating initialRating={item.rating} />
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
@@ -204,7 +208,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by price
@@ -232,30 +236,32 @@ const AllProducts = ({ products }) => {
                 </div>
                 {/* pagination */}
                 {
-                            loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={products.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {
-                            !loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={filterProducts.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {/* pagination */}
+                    loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={products.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {
+                    !loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={filterProducts.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {/* pagination */}
             </div>
             
+            {/* Toast Notification */}
+            <ToastContainer/> 
         </div>
     );
 };

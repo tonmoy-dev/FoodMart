@@ -70,7 +70,7 @@ const Categories = () => {
           </p>
         </div>
         <div className="md:flex justify-center items-center md:mx-8">
-          <div className="relative h-50 md:h-full md:w-1/4 md:mr-5 mb-7 md:mb-0 rounded-lg">
+          <div className="relative h-50 md:h-full md:w-1/4 md:mr-5 mb-7 md:mb-0 rounded-md">
             <div className="md:text-left mx-4 md:mx-0 text-center">
               <Image
                 src="https://i.ibb.co/7pBhLjq/d6db1486aac8e639c817d8a8388f31ba.jpg"
@@ -78,7 +78,7 @@ const Categories = () => {
                 height="700"
                 alt="catagori image"
                 layout="responsive"
-                className="object-cover w-full h-full rounded-lg"
+                className="object-cover w-full h-full rounded-md"
               />
             </div>
           </div>
@@ -87,7 +87,7 @@ const Categories = () => {
               {categoriess.map((category) => (
                 <div
                   key={category.id}
-                  className="relative overflow-hidden w-full h-full rounded-lg"
+                  className="relative overflow-hidden w-full h-full rounded-md"
                 >
                   <div>
                     <Image
@@ -95,7 +95,7 @@ const Categories = () => {
                       alt="Avatar"
                       width="400"
                       height="220"
-                      className="object-cover w-full h-full rounded-lg"
+                      className="object-cover w-full h-full rounded-md"
                     />
                     <p className="absolute overflow-hidden w-full h-full top-0 left-0 flex items-center justify-start pl-8 text-gray-700 catagory-overlay font-semibold md:text-xl text-md">
                       {category.title}

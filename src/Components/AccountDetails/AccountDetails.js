@@ -83,7 +83,7 @@ const AccountDetails = () => {
                             </nav>
                         </div>
                         {/* Account Details */}
-                        <div className="py-10 px-8 md:px-16 mt-6 text-left bg-white shadow-lg  rounded-lg">
+                        <div className="py-10 px-8 md:px-16 mt-6 text-left bg-white shadow-lg  rounded-md">
                             <h3 className="text-3xl font-semibold">About You</h3>
                             <div className="mt-4">
                                 <p className="text-sm font-bold text-gray-600">
@@ -235,7 +235,7 @@ const AccountDetails = () => {
 
                                         <input
                                             type="submit"
-                                            className="px-12 py-3 mt-4 text-white bg-green-500 rounded-lg hover:bg-green-700 w-full md:w-1/4"
+                                            className="px-12 py-3 mt-4 text-white primary-bg-color rounded-md hover:bg-green-700 w-full md:w-1/4"
                                         />
                                     </div>
                                 </form>

@@ -1,5 +1,5 @@
-import { ChevronRightIcon } from "@heroicons/react/solid";
-import Link from "next/link";
+ import { ChevronRightIcon } from '@heroicons/react/solid';
+import Link from 'next/link';
 import { React, useState } from "react";
 import Blog from "../../src/Components/Blogs/Blog";
 import Pagination from "../../src/Components/Pagination/Pagination";
@@ -107,10 +107,10 @@ const Blogs = ({ blogs }) => {
         </div>
       </div>
       <div className="bg-white py-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[1fr,180px] gap-4">
+        <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-[1fr,180px] gap-4">
           <div className="max-w-2xl mx-auto lg:max-w-none order-last md:order-first">
             {/* blogs */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-4 md:gap-y-3">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-3 gap-y-4 md:gap-6">
               {/* single blog */}
               {loading
                 ? 
@@ -153,6 +153,21 @@ const Blogs = ({ blogs }) => {
               >
                 <AiOutlineSearch className="md:h-6 md:w-6 w-5 h-5 primary-color" />
               </button> */}
+            {/* category filter */}
+            <div className="shadow w-full rounded-md ml-0 md:ml-2 p-2 mb-3">
+            <h3 className="text-xl font-semibold text-gray-700 mb-3">
+              Categories
+            </h3>
+            <div className="flex flex-row flex-wrap md:flex-col gap-x-2 gap-y-2">
+              {
+                blogsCategories.map((category => (
+                  <div key={category} onClick={() => categoryFilterHandler(category)} className="w-20 h-16 md:h-auto md:w-auto px-3 py-2 text-sm border border-gray-200 rounded-md
+                  bg-gray-100
+                  hover:bg-green-500 hover:text-white transition flex justify-center md:justify-start items-center cursor-pointer">
+                    <a href="#" className="">{category}</a>
+                  </div>
+                )))
+              }
             </div>
             {/* category filter */}
             <div className="shadow-sm rounded-md ml-0 md:ml-2 mt-3 p-2 mb-3">
@@ -178,19 +193,17 @@ const Blogs = ({ blogs }) => {
               </div>
             </div>
             {/* Tags filter */}
-            <div className="bg-white shadow-sm rounded-sm p-4">
-              <h3 className="text-xl font-semibold text-gray-700 mb-3">Tags</h3>
+            <div className="bg-white shadow rounded-sm p-4 md:ml-2 w-full md:mt-8">
+              <h3 className="text-xl font-semibold text-gray-700 mb-3">
+                Tags
+              </h3>
               <div className="flex flex-wrap gap-3">
-                {blogsFilters[0].map((item) => (
-                  <button
-                    key={item.name}
-                    onClick={() => tagFilterHandler(item.name)}
-                    className="px-3 py-1 text-sm border border-gray-200 rounded-sm
-                hover:bg-green-500 hover:text-white transition"
-                  >
-                    {item.name}
-                  </button>
-                ))}
+                {
+                  blogsFilters[0].map(item => (
+                    <button key={item.name} onClick={() => tagFilterHandler(item.name)} className="px-3 py-1 text-sm border bg-gray-200 border-gray-200 rounded-sm
+                hover:bg-green-500 hover:text-white transition">{item.name}</button>
+                  ))
+                }
               </div>
             </div>
           </div>
@@ -216,6 +229,8 @@ const Blogs = ({ blogs }) => {
         )}
         {/* pagination */}
       </div>
+    </div>
+    </div>
     </div>
   );
 };

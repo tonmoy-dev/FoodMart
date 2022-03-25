@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
       {loading ? (
         <div className="flex flex-col justify-center items-center h-screen loader-body">
           <Preloader></Preloader>
-          <h1 className="text-green-500 font-bold text-lg uppercase">
+          <h1 className="primary-color font-bold text-lg uppercase">
             food<span className="text-orange-500">mart</span>
           </h1>
           <style jsx>

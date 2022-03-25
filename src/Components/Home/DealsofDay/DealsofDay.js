@@ -133,7 +133,7 @@ const DealsofDay = () => {
               style={{ height: "auto" }}
               id="deals-card"
               key={card.id}
-              className="relative rounded-2xl"
+              className="relative rounded-md"
             >
               <div id="deals-card-image-wrap" className="relative z-2">
                 <div className="deals-card-image relative">
@@ -143,7 +143,7 @@ const DealsofDay = () => {
                     height={600}
                     src={card.image}
                     alt="Avatar"
-                    className="rounded-2xl"
+                    className="rounded-md"
                   />
                 </div>
               </div>
@@ -159,24 +159,24 @@ const DealsofDay = () => {
                   className="absolute w-full left-0 right-0"
                 >
                   <div className="flex flex-row gap-2 justify-center">
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {days} <br /> <span className="text-gray-400">Days</span>
                     </div>
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {hours} <br />{" "}
                       <span className="text-gray-400">Hours</span>
                     </div>
-                    <div className="bg-white px-2 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-2 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {min} <br /> <span className="text-gray-400">Mins</span>
                     </div>
-                    <div className="bg-white px-3 shadow-md py-2 text-center text-green-500 font-semibold rounded-lg">
+                    <div className="bg-white px-3 shadow-md py-2 text-center primary-color font-semibold rounded-md">
                       {sec} <br /> <span className="text-gray-400">Sec</span>
                     </div>
                   </div>
                 </div>
                 <div
                   id="deals-details"
-                  className="bg-white shadow-md rounded-2xl px-4 mt-4"
+                  className="bg-white shadow-md rounded-md px-4 mt-4"
                 >
                   <h4 className="text-base font-semibold pt-2">
                     {card.title.slice(0, 30)}

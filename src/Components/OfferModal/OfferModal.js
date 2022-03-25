@@ -68,7 +68,7 @@ const OfferModal = ({ handleModal }) => {
             <input
               name="subscribedemail"
               onBlur={handleInputOnBlur}
-              className="bg-transparent w-1/2 text-lime-600 border focus:border-lime-600 focus:ring-0"
+              className="bg-transparent w-1/2 text-lime-600 border border-gray-400 focus:border-lime-600 focus:ring-0 pl-2"
               type="email"
               required
               placeholder="Type your email here"
