@@ -5,12 +5,12 @@ import Link from "next/link";
 const categoriess = [
   {
     id: 101,
-    title: "Organic",
+    title: "Bread & Bakery",
     pic: "https://i.ibb.co/cw0VpGt/banner-1.png",
   },
   {
     id: 102,
-    title: "Soft Drinks",
+    title: "Baking",
     pic: "https://i.ibb.co/C6MfFd1/banner-2.png",
   },
   {
@@ -20,12 +20,12 @@ const categoriess = [
   },
   {
     id: 104,
-    title: "Fishes",
+    title: "Cooking",
     pic: "https://i.ibb.co/yBCzL0P/banner-4.jpg",
   },
   {
     id: 105,
-    title: "Fruits",
+    title: "Dairy",
     pic: "https://i.ibb.co/DtF2HdL/banner-5.jpg",
   },
   {
@@ -35,7 +35,7 @@ const categoriess = [
   },
   {
     id: 107,
-    title: "Snaks",
+    title: "Snacks",
     pic: "https://i.ibb.co/GWF0G5b/banner-7.jpg",
   },
   {

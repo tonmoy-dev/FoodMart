@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
+import { FiArrowRight } from 'react-icons/fi';
 import Product from "../../Products/Product/Product";
 
 const BestSells = ({ products }) => {
@@ -70,21 +71,8 @@ const BestSells = ({ products }) => {
             <div className="px-10">
               <Link href="/products/all-products">
               <a className="primary-bg-color text-white font-bold py-2 px-4 rounded">
-                See more
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6 pr-2 inline-block"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
+                  See more
+                <FiArrowRight className="h-6 w-6 pr-2 inline-block"/>
               </a>
               </Link>
             </div>

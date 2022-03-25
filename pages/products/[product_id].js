@@ -2,12 +2,16 @@ import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from 'next/router';
+import Script from 'next/script';
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Rating from "react-rating";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
-import Script from 'next/script';
+import { fetchCartProducts, fetchWishlistProducts } from "../../src/redux/slices/productSlice";
 
 const catagorylist = [
   {
@@ -35,12 +39,34 @@ const catagorylist = [
     name: "Frozen & Canned",
     icon: "https://i.ibb.co/k0q3d94/frozen-snacks-src-https-eggyolk-chaldal.webp",
   },
+  {
+    key: 6,
+    name: "Dairy",
+    icon: "https://i.ibb.co/30599Tg/candy-chocolate-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 7,
+    name: "Cooking",
+    icon: "https://i.ibb.co/QkRdZL1/rice-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 8,
+    name: "Baking",
+    icon: "https://i.ibb.co/4SXw3b6/nuts-dried-fruits-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 9,
+    name: "Bread & Bakery",
+    icon: "https://i.ibb.co/wrLqNbx/cakes-src-https-eggyolk-chaldal.webp",
+  },
 ];
 
 
 const SingleProduct = ({ related, product }) => {
+  const dispatch = useDispatch();
   const router = useRouter()
-  console.log(router.pathname, router.query);
+  // console.log(router.pathname, router.query);
+  const user = useSelector((state) => state.states.user);
 
   const [control, setControl] = useState(false);
   const [quantity, setQuantity] = useState(0);
@@ -70,47 +96,62 @@ const SingleProduct = ({ related, product }) => {
     }
     
    }
-  
-
 
   // add to wishlist
   const handleAddWishlist = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
-    
-
-    axios.post("/api/wishlists", { 
-      product_title: product_title,
-      product_price: product_price,
-      user_rating: user_rating,
-      product_stock: product_stock,
-      product_imageUrl: product_imageUrl,
-
-     }).then((response) => {
-
-      if (response.data.insertedId) {
-        setControl(!control);
-        swal("WOW!!! wishlist product add successfully");
-      } else {
-        setControl(false);
-      }
-    });
+    // private routing
+    if (!user?.email) {
+      router.push('/login');
+    }
+    else if (user?.email) {
+      axios.post("/api/wishlists", {
+        product_title: product_title,
+        product_price: product_price,
+        user_rating: user_rating,
+        product_stock: product_stock,
+        product_imageUrl: product_imageUrl,
+        email: user.email
+      }).then((response) => {
+       
+        if (response.data.insertedId) {
+          setControl(true);
+          dispatch(fetchWishlistProducts(user));
+          toast.success('Wow! Added to wishlist.', {
+            position: "bottom-left"
+          });
+        } else {
+          setControl(false);
+        }
+      });
+    }
   };
 
   // Add to cart a product
-  const addToCartHandler = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
-    axios
-      .post("/api/cart", {
-      product_title: product_title,
-      product_price: product_price,
-      user_rating: user_rating,
-      product_stock: product_stock,
-      product_imageUrl: product_imageUrl,
-        
-      })
-      .then((response) => {
-        if (response.data.insertedId) {
-          swal("Wow!", "Product is added to your cart", "success");
-        }
-      });
+  const addToCartHandler = async (product_title, product_price,product_imageUrl) => {
+    // private routing
+    if (!user?.email) {
+      router.push('/login');
+    }
+    else if (user?.email) {
+      axios.post("/api/cart", {
+          title: product_title,
+          price: product_price,
+          image: product_imageUrl,
+          description: product_title,
+          quantity: 1,
+          email: user.email
+        })
+        .then((response) => {
+          if (response.data.insertedId) {
+            setControl(true);
+            dispatch(fetchCartProducts(user));
+            toast.success('Wow! Added to your cart.', {
+              position: "bottom-left"
+            });
+          }
+          setControl(false);
+        });
+    }
   };
 
   const images = [
@@ -151,7 +192,7 @@ const SingleProduct = ({ related, product }) => {
             outline: none;
             background: #fff;
             border: 1px solid #ccc;
-            border-radius: 25px;
+            border-radius: 5px;
           }
 
           .active-tabs {
@@ -177,7 +218,6 @@ const SingleProduct = ({ related, product }) => {
       </style>
       
       <div>
-
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
@@ -238,16 +278,16 @@ const SingleProduct = ({ related, product }) => {
                     <h2 className="text-lg text-gray-700 font-semibold capitalize">
                       size :
                     </h2>
-                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       50gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       75gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       100gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       150gm
                     </button>
                   </div>
@@ -266,18 +306,18 @@ const SingleProduct = ({ related, product }) => {
                     </button>
                   </div>
                   <div className="flex items-center flex-row gap-2 py-6">
-                    <button className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600 rounded-sm">
                       {" "}
                       <HeartIcon
-                        onClick={() => handleAddWishlist(product._id)}
+                        onClick={() => handleAddWishlist(product.product_title, product.product_price,product.user_rating,product.product_stock, product.product_imageUrl)}
                         className="h-6 w-6 text-white" />
                     </button>
                     <button onClick={() =>
                       addToCartHandler(
-                        product._id
+                        product.product_title, product.product_price,product.product_imageUrl
                       )
                     }
-                      className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600">
+                      className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600 rounded-sm">
                       Add to cart
                     </button>
                   </div>
@@ -417,8 +457,8 @@ const SingleProduct = ({ related, product }) => {
                 <div>
                   {
                     catagorylist.map(item => (
-                      <div key={item.key} className="flex flex-row justify-start p-3 align-middle  border border-gray-400 drop-shadow-md rounded my-4  bg-green-100">
-                        <img src="https://i.ibb.co/pz3dsR0/c-milk.png" height="30" width="30" alt=''/>
+                      <div key={item.key} className="flex flex-row justify-start p-3 align-middle border border-gray-200 drop-shadow-md rounded bg-green-50 mb-2">
+                        <img src={item.icon} height="30" width="30" alt=''/>
                         <Link href={`/category/${item.name}`}><a className='px-2 py-2'>{item.name}</a></Link>
                       </div>
                     ))
@@ -434,6 +474,9 @@ const SingleProduct = ({ related, product }) => {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <ToastContainer/> 
     </div>
   );
 };

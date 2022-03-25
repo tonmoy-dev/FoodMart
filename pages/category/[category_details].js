@@ -8,7 +8,7 @@ import Product from "../../src/Components/Products/Product/Product";
 const CategoryDetails = (filteredProducts) => {
     const router = useRouter();
     const categoryName = router.query.category_details;
-    const products = filteredProducts.filteredProducts;
+    const products = filteredProducts.filteredProducts?.slice(0,10);
     return (
         <div>
             <style jsx>
