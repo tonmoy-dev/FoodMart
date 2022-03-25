@@ -131,9 +131,11 @@ const Banner = () => {
                 <p className="text-lg text-gray-500 font-medium">
                   Start from $10
                 </p>
-                <button className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
+                <Link href="/products/all-products">
+                <a className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
-                </button>
+                </a>
+                </Link>
               </div>
             </div>
             <div className="relative flex justify-center items-center">
@@ -146,9 +148,11 @@ const Banner = () => {
                 <p className="text-lg text-gray-500 font-medium">
                   Start from $12
                 </p>
-                <button className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
+                <Link href="/products/all-products">
+                <a className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
-                </button>
+                </a>
+                </Link>
               </div>
             </div>
           </div>

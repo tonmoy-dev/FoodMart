@@ -87,7 +87,7 @@ const DealsofDay = () => {
       <div className="container mx-auto pt-10 px-4 md:px-0">
         <div className="flex md:flex-row  flex-col md:items-center md:justify-between justify-center items-center pb-5">
           <h1 className="md:text-3xl lg:text-3xl text-3xl font-bold">
-            Deals of the day
+            Deals of the week
           </h1>
           <p>Hurry up! limited stocked</p>
         </div>
