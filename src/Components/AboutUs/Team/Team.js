@@ -50,7 +50,7 @@ const Team = ({ t }) => {
       fullname: `${t("anamikaTitle")}`,
       developer: "",
       profileImage:
-        "https://i.ibb.co/Gpfp6bv/istockphoto-1132926013-612x612.jpg",
+        "https://i.ibb.co/C5dJkYC/anu.jpg",
       facebook: "https://www.facebook.com/surovi.susmita",
       Linkedin: "https://www.linkedin.com/in/anamika-sharma-34b1b4227/",
       github: "https://github.com/anamikasharma15",
