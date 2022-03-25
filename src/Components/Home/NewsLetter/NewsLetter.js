@@ -1,36 +1,40 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
-
+import { useForm, ValidationError } from '@formspree/react';
 
 const NewsLetter = () => {
-  const [addEmail, setAddEmail] = useState({});
-  const handleInputOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newAddData = { ...addEmail };
-    newAddData[field] = value;
-    setAddEmail(newAddData);
-  };
+  // const [addEmail, setAddEmail] = useState({});
+  // const handleInputOnBlur = (e) => {
+  //   const field = e.target.name;
+  //   const value = e.target.value;
+  //   const newAddData = { ...addEmail };
+  //   newAddData[field] = value;
+  //   setAddEmail(newAddData);
+  // };
 
-  const handleSubmission = async (e) => {
-    e.preventDefault();
-    const newEmail = { ...addEmail };
-    setAddEmail(newEmail);
+  // const handleSubmission = async (e) => {
+  //   e.preventDefault();
+  //   const newEmail = { ...addEmail };
+  //   setAddEmail(newEmail);
 
-    // post blog data
-    const res = await fetch("/api/emailcollection", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addEmail),
-    });
-    const data = await res.json();
-    if (data.insertedId) {
-      e.target.reset();
-      swal("Good job!", "You subscribed successfully!", "success");
-    }
-  };
+  //   // post blog data
+  //   const res = await fetch("/api/emailcollection", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(addEmail),
+  //   });
+  //   const data = await res.json();
+  //   if (data.insertedId) {
+  //     e.target.reset();
+  //     swal("Good job!", "You subscribed successfully!", "success");
+  //   }
+  // };
+  const [state, handleSubmit] = useForm("xgedkber");
+  if (state.succeeded) {
+    swal("Wow!", "Thanks for subscribing us.", "success");
+  }
   return (
     <div>
       <style jsx>
@@ -61,12 +65,14 @@ const NewsLetter = () => {
             <div className="flex justify-center mt-6">
               <div className="bg-white border rounded-full focus:ring-0">
                 <form
-                  onSubmit={handleSubmission}
+                  // onSubmit={handleSubmission}
+                  onSubmit={handleSubmit}
                   className="flex justify-between flex-row"
                 >
                   <input
                     name="subscribedemail"
-                    onBlur={handleInputOnBlur}
+                    // onBlur={handleInputOnBlur}
+                    id="email"
                     type="email"
                     className="p-2 m-1 text-sm rounded-full text-gray-700 bg-transparent border-0 appearance-none focus:outline-none focus:ring-gray-300"
                     placeholder="Enter your email address"

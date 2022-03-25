@@ -1,37 +1,42 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
 
+import { useForm, ValidationError } from '@formspree/react';
+
 const OfferModal = ({ handleModal }) => {
-  const [addEmail, setAddEmail] = useState({});
+  // const [addEmail, setAddEmail] = useState({});
 
-  const handleInputOnBlur = (e) => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newAddData = { ...addEmail };
-    newAddData[field] = value;
-    setAddEmail(newAddData);
-  };
+  // const handleInputOnBlur = (e) => {
+  //   const field = e.target.name;
+  //   const value = e.target.value;
+  //   const newAddData = { ...addEmail };
+  //   newAddData[field] = value;
+  //   setAddEmail(newAddData);
+  // };
 
-  const handleSubmission = async (e) => {
-    e.preventDefault();
-    const newEmail = { ...addEmail };
-    setAddEmail(newEmail);
+  // const handleSubmission = async (e) => {
+  //   e.preventDefault();
+  //   const newEmail = { ...addEmail };
+  //   setAddEmail(newEmail);
 
-    // post blog data
-    const res = await fetch("/api/emailcollection", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addEmail),
-    });
-    const data = await res.json();
-    if (data.insertedId) {
-      e.target.reset();
-    swal("Good job!", "You subscribed successfully!", "success");
-    }
-  };
-
+  //   // post blog data
+  //   const res = await fetch("/api/emailcollection", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(addEmail),
+  //   });
+  //   const data = await res.json();
+  //   if (data.insertedId) {
+  //     e.target.reset();
+  //   swal("Good job!", "You subscribed successfully!", "success");
+  //   }
+  // };
+  const [state, handleSubmit] = useForm("xgedkber");
+  if (state.succeeded) {
+    swal("Wow!", "Thanks for subscribing us.", "success");
+  }
   return (
     <div className="absolute left-0 right-0 z-50">
       <style>
@@ -64,10 +69,12 @@ const OfferModal = ({ handleModal }) => {
             Join over 1,000 people who get free and fresh content delivered
             automatically each time we publish.
           </p>
-          <form onSubmit={handleSubmission} className="py-4 flex flex-row">
+          <form
+            // onSubmit={handleSubmission}
+            onSubmit={handleSubmit}
+            className="py-4 flex flex-row">
             <input
               name="subscribedemail"
-              onBlur={handleInputOnBlur}
               className="bg-transparent w-1/2 text-lime-600 border border-gray-400 focus:border-lime-600 focus:ring-0 pl-2"
               type="email"
               required
