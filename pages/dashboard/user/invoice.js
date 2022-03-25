@@ -3,6 +3,8 @@ import Image from "next/image";
 import React from "react";
 import Logo from "../../../public/logo2.png";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const Invoice = () => {
     return (
@@ -23,8 +25,10 @@ const Invoice = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
-
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+                <DashUserMenu />
 
 
         {/* main content */}

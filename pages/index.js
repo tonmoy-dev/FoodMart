@@ -1,4 +1,3 @@
-// import MessengerCustomerChat from "react-messenger-customer-chat";
 import { useEffect, useState } from "react";
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
@@ -13,6 +12,7 @@ import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import OfferModal from "../src/Components/OfferModal/OfferModal";
+import ManageProduct from "./dashboard/admin/manage-product";
 import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
@@ -45,7 +45,7 @@ export default function Home({ reviews, products, blogs }) {
       )}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
-      <DealsofDay></DealsofDay>
+      <DealsofDay products={products}></DealsofDay>
       <BestSells products={products}></BestSells>
       <Categories></Categories>
       <ProductOffer></ProductOffer>
@@ -54,8 +54,12 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
+      <ManageProduct products={products}></ManageProduct>
 
-    
+      {/* Messenger App */}
+      <TawkMessengerReact
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
     </div>
   );
 }

@@ -75,7 +75,6 @@ const newArr = [...new Set(arr)];
 
   return (
     <>
-      <div className=""></div>
       <div className="py-12 bg-gray-100">
         <div className="container mx-auto px-4 grid md:grid-cols-3 grid-cols-1 gap-3">
           {/* Main content  */}
@@ -209,11 +208,12 @@ const newArr = [...new Set(arr)];
 
 
 
-              <div className="flex justify-between items-center mt-10 gap-4 px-8">
+              <div className="px-8 my-4 grid md:grid-cols-2 grid-cols-1 gap-2" >
               <div>
                 <label>Name</label>
               <input
-                  className={singlePage.formcontrol}
+                  // className={singlePage.formcontrol}
+                  className="rounded-lg w-full"
                   name="name"
                   id="user_name"
                   placeholder="Your Name"
@@ -225,7 +225,8 @@ const newArr = [...new Set(arr)];
               <div>
                 <label>Email</label>
               <input
-                  className={singlePage.formcontrol}
+                  // className={singlePage.formcontrol}
+                  className="rounded-lg w-full"
                   name="name"
                   id="user_name"
                   placeholder="Your Email"
@@ -234,14 +235,15 @@ const newArr = [...new Set(arr)];
                   onBlur={handleInputOnBlur}
                 ></input>
               </div>
+
               </div>
 
               <div className="px-8">
                 <button
                   type="submit"
-                  className="cursor-pointer px-8 py-2 mt-3 text-xl font-semibold text-white bg-green-500"
+                  className="cursor-pointer px-8 py-2 mt-3 text-lg font-semibold rounded-lg text-white bg-green-500"
                 >
-                  Post Comment
+                  Comment
                 </button>
               </div>
             </form>
@@ -251,9 +253,8 @@ const newArr = [...new Set(arr)];
               <h2 className="px-4 text-1xl font-extralight mt-4">{popularComments.length}  COMMENTS</h2>
                 {popularComments?.map((user) => (
                   
-                <div key={user.name} >
+                <div className="px-4" key={user.name} >
                   <div  className="flex justify-center items-center gap-3">
-                  
                   <div className="rounded-full h-10 w-10">
                       <Image
                         src="https://i.ibb.co/kQ1T9TN/d737946d153beb56555ed95ab0af1ee1-key-west-vacations-couple-photography.jpg"
@@ -261,11 +262,9 @@ const newArr = [...new Set(arr)];
                         className="rounded-full object-cover"
                         width={80}
                         height={80}
-                      // className="bg-green-400"
-                      // layout='responsive'
                       />
                     </div>
-                    <div  className=" flex w-full border-2 p-5 mt-2 rounded-sm hover:shadow-md">
+                    <div  className=" flex w-full border p-5 mt-2 rounded-sm hover:shadow-md">
                    <div>
                    <p className="text-sm font-extralight pt-2 ">
                       {user.name}
@@ -287,10 +286,10 @@ const newArr = [...new Set(arr)];
 
          
           {/* left side category */}
-          <div className="w-full mt-3">
-          <div className="py-6">
+          <div className="w-full">
+          <div className="pb-6">
             <div className="bg-white shadow-sm rounded-sm p-4">
-              <input className="rounded w-full " type="text" placeholder="Search Blog"/>
+              <input className="rounded w-full" type="text" placeholder="Search Blog"/>
             </div>
           </div>
             <div className="bg-white shadow-sm rounded-sm p-4">
@@ -308,8 +307,6 @@ const newArr = [...new Set(arr)];
                 )))
               }
               </div>
-
-
             </div>
 
             {/* Recent post */}

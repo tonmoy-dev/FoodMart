@@ -4,7 +4,6 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/flowbite/**/*.js"
   ],
   theme: {
     extend: {
@@ -13,12 +12,12 @@ module.exports = {
             spacing: "margin, padding",
             width: "width",
         },
+        
     },
     minHeight: {
         "1/2": "50%",
     },
 },
 plugins: [
-  require('flowbite/plugin')
 ]
 }

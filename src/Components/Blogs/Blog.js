@@ -55,21 +55,21 @@ const Blog = ({blog}) => {
                         </div>
                     </div>
                 </div>
-                <div className="p-5 h-64 grid content-between">
+                <div className="p-5 h-52 md:h-60 grid content-between">
                     <div>
                         <h3 className="text-xl font-semibold text-gray-900 inset-0 mb-3">
                             {blog?.title.slice(0, 20)}..
                             <a href={blog?.href}>
                             </a>
                         </h3>
-                        <p className="text-base mb-3 text-gray-500">{blog?.description.slice(0, 170)}..</p>
+                        <p className="text-sm md:text-base mb-3 text-gray-500">{blog?.description.slice(0, 130)}..</p>
                         <Link href={`/blogs/${encodeURIComponent(blog._id)}`}>
                             <a className="text-green-500 font-semibold flex items-center">
                                 <span>Learn More</span> <ArrowRightIcon className="ml-1 w-4" />
                             </a>
                         </Link>
                     </div>
-                    <div className="flex align-items justify-between w-full pt-4">
+                    <div className="flex align-items justify-between w-full pt-1">
                         <div className="py-1 flex items-center gap-x-1">
                         <Rating
                             initialRating={blog?.user_rating}

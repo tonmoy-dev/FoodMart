@@ -7,9 +7,18 @@ import {
     XIcon,
 } from "@heroicons/react/solid";
 import Link from "next/link";
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import useFirebase from "../../../src/Authenticaion/hooks/useFirebase";
 
 const DashVendorMenu = () => {
+
+
+
+
+
+
     const [isActive, setActive] = useState("false");
     const [isAActive, setAActive] = useState("false");
 
@@ -21,53 +30,50 @@ const DashVendorMenu = () => {
         setAActive(!isAActive);
     };
 
-    const MenuList = [
+
+
+    const user = useSelector((state) => state.states.user);
+    const { logOut } = useFirebase();
+    const [control, setControl] = useState(false);
+    const [loading, setLoading] = useState(true);
+
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        setControl(true);
+        axios.get("/api/users").then(response => {
+            setUsers(response.data);
+            setLoading(false);
+        });
+    }, [control, user?.email]);
+
+
+    const email = user?.email;
+    const userNow = users.filter(user => user.email === email)[0]
+    
+
+
+
+
+
+
+
+
+
+    const vendorMenu = [
+
         {
-            menuId: 2,
-            menuName: "Coupon List",
-            pageLink: "/dashboard/admin/coupons-list",
-        },
-        {
-            menuId: 3,
-            menuName: "Catagory List",
-            pageLink: "/dashboard/admin/category-list",
-        },
-        {
-            menuId: 4,
+            menuId: 1,
             menuName: "Add Product",
             pageLink: "/dashboard/admin/add-product",
         },
-        {
-            menuId: 5,
-            menuName: "Add Coupon",
-            pageLink: "/dashboard/admin/add-coupon",
-        },
-        {
-            menuId: 6,
-            menuName: "Add Blog",
-            pageLink: "/dashboard/user/add-blog",
-        },
-        {
-            menuId: 7,
-            menuName: "Add Review",
-            pageLink: "/dashboard/user/add-review",
-        },
-        {
-            menuId: 8,
-            menuName: "My Order",
-            pageLink: "/dashboard/user/my-orders",
-        },
-        {
-            menuId: 9,
-            menuName: "Order Details",
-            pageLink: "/dashboard/admin/order-details",
-        },
-        {
-            menuId: 10,
-            menuName: "Account Details",
-            pageLink: "/dashboard/user/account-details",
-        },
+
+
+
+
+
     ];
+
 
     return (
         <div>
@@ -88,7 +94,7 @@ const DashVendorMenu = () => {
             {/* top bar */}
             <div
                 id="top-bar"
-                className="h-20 bg-white shadow-sm pr-8 lg:pl-80 pl-8 fixed w-full top-0 left-0 flex items-center"
+                className="h-20 z-10 bg-white shadow-sm pr-8 lg:pl-80 pl-8 fixed w-full top-0 left-0 flex items-center"
             >
                 {/* menu button */}
                 <div
@@ -99,18 +105,18 @@ const DashVendorMenu = () => {
                     <MenuIcon className="text-green-500" />
                 </div>
                 {/* menu button */}
-                <div className="relative hidden lg:block">
-                    <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
-                    <input
-                        type="text"
-                        placeholder="Search for products"
-                        className="block pl-11 pr-2 w-72 border-none rounded-3xl focus:ring-gray-400 focus:outline-none py-2 bg-gray-100 text-base text-gray-600"
-                    />
-                </div>
+                {/* <div className="relative hidden lg:block">
+          <SearchIcon className="absolute left-2 top-2 w-6 text-green-500" />
+          <input
+            type="text"
+            placeholder="Search for products"
+            className="block pl-11 pr-2 w-72 border-none rounded-3xl focus:ring-gray-400 focus:outline-none py-2 bg-gray-100 text-base text-gray-600"
+          />
+        </div> */}
                 <div className="ml-auto lg:flex hidden items-center">
-                    <div>
-                        <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-green-400" />
-                    </div>
+                    {/* <div>
+            <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-green-400" />
+          </div> */}
                     <div className="ml-4 relative">
                         <div
                             onClick={handleToggle}
@@ -120,7 +126,7 @@ const DashVendorMenu = () => {
                                 id="dropdown"
                                 className="h-8 w-8 text-green-500 rounded-full"
                             />
-                            <h1 className="font-medium uppercase">anik nath</h1>
+                            <h1 className="font-medium uppercase">{userNow?.name}</h1>
                         </div>
                         <div
                             id="dropdown_settings"
@@ -144,6 +150,7 @@ const DashVendorMenu = () => {
                             </a>
                             <div className="border-t border-gray-100"></div>
                             <a
+                                onClick={logOut}
                                 href="#"
                                 className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
                             >
@@ -179,7 +186,7 @@ const DashVendorMenu = () => {
                                 Home
                             </a>
                         </Link>
-                        {MenuList.map((menu) => (
+                        {vendorMenu?.map((menu) => (
                             <div key={menu.menuId}>
                                 <Link href={`${menu.pageLink}`}>
                                     <a className="flex items-center my-1 px-6 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
@@ -236,9 +243,9 @@ const DashVendorMenu = () => {
                                     </a>
                                 </div>
                             </div>
-                            <a href="#" className="text-dark text-md capitalize">
-                                admin
-                            </a>
+                            {/* <a href="#" className="text-dark text-md capitalize">
+                                Admin
+                            </a> */}
                             <div className="ml-auto">
                                 <BellIcon className="w-6 cursor-pointer text-green-500 hover:text-gray-900" />
                             </div>

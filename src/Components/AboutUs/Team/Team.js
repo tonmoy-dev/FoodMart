@@ -7,7 +7,7 @@ const Team = () => {
       memberId: 1,
       fullname: "Tonmoy Roy",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
@@ -16,7 +16,7 @@ const Team = () => {
       memberId: 2,
       fullname: "Anik Deb Nath",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
@@ -25,7 +25,7 @@ const Team = () => {
       memberId: 3,
       fullname: "Apu Kumar Debnath",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
@@ -34,7 +34,7 @@ const Team = () => {
       memberId: 4,
       fullname: "Showrav Das",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
@@ -43,7 +43,7 @@ const Team = () => {
       memberId: 5,
       fullname: "Anamika Sharma",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/Gpfp6bv/istockphoto-1132926013-612x612.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
@@ -52,12 +52,14 @@ const Team = () => {
       memberId: 6,
       fullname: "Avishek Devnath",
       developer: "",
-      profileImage: "",
+      profileImage: "https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg",
       facebook: "",
       Linkedin: "",
       github: "",
     },
   ];
+  /* https://i.ibb.co/Gpfp6bv/istockphoto-1132926013-612x612.jpg
+https://i.ibb.co/0CK1Bmj/istockphoto-1132926013-612x6112.jpg */
   return (
     <div className="mt-10 mx-4 md:mx-0 lg:mx-0">
       <section className="bg-white">
@@ -77,10 +79,10 @@ const Team = () => {
                 className="flex pt-4 flex-col items-center rounded-t-full shadow-xl border-t-2 border-gray-100"
               >
                 <Image
-                  src="https://i.ibb.co/jDmp4Qz/istockphoto-1200677760-612x612-removebg-preview.png"
+                  src={team.profileImage}
                   alt="Picture of the author"
-                  width={320}
-                  height={320}
+                  width={300}
+                  height={300}
                   priority
                   className="rounded-full"
                 />

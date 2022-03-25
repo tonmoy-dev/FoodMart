@@ -37,7 +37,6 @@ const AllProducts = ({ products }) => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
-    
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -49,6 +48,7 @@ const AllProducts = ({ products }) => {
 
     // category wise filter
     const filterHandler = (categoryName) => {
+        setCurrentPage(1);
         setControl(true);
         const newProducts = products.filter(
             (product) => product.product_category == categoryName
@@ -59,6 +59,7 @@ const AllProducts = ({ products }) => {
     };
     // Rating wise filter
     const ratingFilterHandler = (rating) => {
+        setCurrentPage(1);
         setControl(true);
         const newRatedProducts = products.filter(
             (product) => product.user_rating == rating
@@ -69,6 +70,7 @@ const AllProducts = ({ products }) => {
     };
     // Price wise filter
     const priceFilterHandler = (minPrice, maxPrice) => {
+        setCurrentPage(1);
         setControl(true);
         const newPricedProducts = products.filter(
             (product) => (parseInt(product.product_price) > minPrice) && (parseInt(product.product_price) < maxPrice));
@@ -271,7 +273,8 @@ export default AllProducts;
   } */
 export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
-    const products = await res.json();
+    const allProducts = await res.json();
+    const products = allProducts.slice(0, 60);
     return {
         props: { products },
     };

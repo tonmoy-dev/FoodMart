@@ -65,7 +65,7 @@ const DropdownNavMenu = () => {
                                         href="#"
                                         className="text-gray-500 hover:text-green-500"
                                     >
-                                        Fresh Vegetables
+                                        Candy &amp; Chocolate
                                     </a>
                                 </div>
                                 <div>

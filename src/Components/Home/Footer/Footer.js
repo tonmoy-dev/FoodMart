@@ -147,28 +147,26 @@ const Footer = () => {
                                         <div className="flex items-center mt-4">
                                             <FontAwesomeIcon
                                                 icon={faPhoneVolume}
-                                                className="text-xl text-gray-500 hover:text-orange-500 mr-3"
+                                                className="text-xl w-4 h-4 text-gray-500 hover:text-orange-500 mr-3"
                                             />
-                                            <span className="block text-sm text-black   hover:underline">
+                                            <span className="block text-sm text-black hover:underline">
                                                 +1 235 7859 2525
                                             </span>
                                         </div>
-                                        <div className="flex items-center mt-2">
+                                        <div className="flex items-center mt-4">
                                             <FontAwesomeIcon
                                                 icon={faEnvelope}
-                                                className="text-xl text-gray-500 hover:text-orange-500 mr-3"
+                                                className="text-xl w-4 h-4 text-gray-500 hover:text-orange-500 mr-3"
                                             />
                                             
                                             <a href="mailto:food@exampl.com">
                                               <span className="block text-sm text-green-500 font-semibold   hover:underline">foodmart@gmail.com</span>
                                               </a>
-                                                
-                                            
                                         </div>
-                                        <div className="flex items-center mt-2">
+                                        <div className="flex items-center mt-4">
                                             <FontAwesomeIcon
                                                 icon={faLocationDot}
-                                                className="text-xl text-gray-500 hover:text-orange-500 mr-3"
+                                                className="text-xl w-5 h-5 text-gray-500 hover:text-orange-500 mr-3"
                                             />
                                             <span className="block text-sm text-green-500 font-semibold   hover:underline">
                                                 33-Dhanmondi, Dhaka, Bangladesh
@@ -178,24 +176,15 @@ const Footer = () => {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="flex flex-row items-center my-8">
-              <div className="border-b-0 border-green-700 opacity-20 w-3/6 mr-4"></div>
-              <div className="flex flex-row gap-2">
-                <div className="text-right">
-                  <Image src={card} alt="" width={500} height={50} />
-                </div>
-              </div>
-              <div className="border-b-0 border-green-700 opacity-20 w-3/6 ml-4"></div>
-            </div> */}
                     </div>
                 </div>
                 <div>
-                    <div className="flex md:flex-row flex-col justify-between items-center px-6 primary-bg-color border-t-2 py-4">
+                    <div className="flex md:flex-row flex-col justify-between items-center px-6 primary-bg-color border-t-2 py-3">
                         <div className="flex md:flex-row flex-col">
-                            <p className="text-center text-sm text-white">
-                                Copyright© FoodMart 2022 - All rights reserved
+                            <p className="text-center font-semibold text-xs text-white">
+                                Copyright © FoodMart 2022 - All rights reserved
                             </p>
-                            <h3 className="text-center text-sm text-white font-semibold md:pl-3 mb-4 md:mb-0">
+                            <h3 className="text-center text-xs text-white font-semibold md:pl-3 mb-4 md:mb-0">
                                 <span className="pr-2">||</span> Powered by{" "}
                                 <span className="text-white">
                                     FoodMart Team
@@ -204,9 +193,10 @@ const Footer = () => {
                         </div>
                         <Image
                             src={card}
-                            alt="payment image"
-                            width={400}
-                            height={35}
+                            alt="payment type image"
+                            width={280}
+                            height={22}
+                            className="payment-image"
                         />
                     </div>
                 </div>
