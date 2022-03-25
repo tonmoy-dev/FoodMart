@@ -94,7 +94,7 @@ const AllVendors = ({ vendors }) => {
 
 export default AllVendors;
 
-/* export async function getStaticProps() {
+export async function getStaticProps() {
   const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/vendors`);
   const vendors = await res.json();
   return {
@@ -102,9 +102,9 @@ export default AllVendors;
       vendors,
     },
   };
-} */
+}
 
-export const getServerSideProps = async () => {
+/* export const getServerSideProps = async () => {
   const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/vendors`);
   const vendors = await res.json();
   return {
@@ -113,3 +113,4 @@ export const getServerSideProps = async () => {
     },
   };
 };
+ */
