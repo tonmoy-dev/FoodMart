@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 import React, { Fragment, useEffect, useState } from "react";
 import { FaRegUser, FaSearch } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import logo from "../../../../public/logo2.png";
+import logo from "../../../../public/Logo-7.png";
 import helplinePic from "../../../assets/images/navbar/helpline.png";
 import useFirebase from "../../../Authenticaion/hooks/useFirebase";
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";

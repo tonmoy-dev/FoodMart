@@ -2,9 +2,14 @@ import axios from "axios";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts} from "../../../redux/slices/productSlice";
 
 const DealsofDay = () => {
+  const [control, setControl] = useState(false);
+  const dispatch = useDispatch();
   const [days, setDays] = useState("00");
   const [hours, setHours] = useState("00");
   const [min, setMin] = useState("00");
@@ -55,12 +60,18 @@ const DealsofDay = () => {
         image: image,
         price: price,
         description: description,
-        email: user.email
+        email: user.email,
+        quantity:1
       })
       .then((response) => {
         console.log(response)
         if (response.data.insertedId) {
-          swal("Wow!", "Product is added to your cart", "success");
+          setControl(true);
+          dispatch(fetchCartProducts(user));
+          toast.success('Wow! Added to your cart.', {
+            position: "bottom-left"
+          });
+          setControl(false)
         }
       });
   };
