@@ -10,7 +10,7 @@ const DeliverySteps = () => {
     <div>
       <div className="container delivery-steps mx-auto pb-16">
         <div className="grid mx-2 lg:mx-0 md:mx-0 bg-red-00 grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="block rounded-lg bg-white border max-w-sm text-center">
+          <div className="block rounded-md bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image
                 width={50}
@@ -18,7 +18,7 @@ const DeliverySteps = () => {
                 src={shipping}
                 alt="shipping"
               ></Image>
-              <h5 className="text-green-500 text-lg font-medium mb-2 rounded- ">
+              <h5 className="primary-color text-lg font-medium mb-2 rounded- ">
                 Free Shipping
               </h5>
               <p className="text-gray-700 text-sm mb-4">
@@ -26,10 +26,10 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg bg-white border max-w-sm text-center">
+          <div className="block  rounded-md bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={choose} alt="pay"></Image>
-              <h5 className="text-green-500 text-lg font-medium mb-2">
+              <h5 className="primary-color text-lg font-medium mb-2">
                Choose your food
               </h5>
               <p className="text-gray-700 text-base mb-4">
@@ -37,10 +37,10 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg bg-white border max-w-sm text-center">
+          <div className="block  rounded-md bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={pay} alt="pay"></Image>
-              <h5 className="text-green-500 text-lg font-medium mb-2">
+              <h5 className="primary-color text-lg font-medium mb-2">
                 Pay your bill
               </h5>
               <p className="text-gray-700 text-base mb-4">
@@ -48,10 +48,10 @@ const DeliverySteps = () => {
               </p>
             </div>
           </div>
-          <div className="block  rounded-lg bg-white border max-w-sm text-center">
+          <div className="block  rounded-md bg-white border max-w-sm text-center">
             <div className="p-6">
               <Image width={50} height={50} src={moneback} alt="pay"></Image>
-              <h5 className="text-green-500 text-lg font-medium mb-2">
+              <h5 className="primary-color text-lg font-medium mb-2">
                Money back 100%
               </h5>
               <p className="text-gray-700 text-sm mb-4">

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import swal from "sweetalert";
 
+
 const NewsLetter = () => {
   const [addEmail, setAddEmail] = useState({});
   const handleInputOnBlur = (e) => {

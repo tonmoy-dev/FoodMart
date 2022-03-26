@@ -3,11 +3,12 @@ import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
-import swal from "sweetalert";
+import { useRouter } from 'next/router';
 import React, { useEffect, useState } from "react";
-import DashAdminMenu from "../DashMenu/DashAdminMenu";
-import { useSelector } from "react-redux";
-import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts, fetchWishlistProducts } from "../../../src/redux/slices/productSlice";
 import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const WishList = () => {
@@ -15,6 +16,13 @@ const WishList = () => {
     const [loading, setLoading] = useState(true);
     const [control, setControl] = useState(false);
     const user = useSelector((state) => state.states.user);
+    const dispatch = useDispatch();
+
+    // private routing
+    const router = useRouter();
+    if (!user?.email) {
+        router.push('/login');
+    }
 
     useEffect(() => {
         setControl(true);
@@ -23,20 +31,25 @@ const WishList = () => {
             setWishlists(response.data);
             setLoading(false);
         });
-    }, [control, user.email]);
+    }, [control]);
 
     // Add to cart a product
     const addToCartHandler = async (title, image, price) => {
-        axios
-            .post("/api/cart", {
-                title: title,
-                image: image,
-                price: price,
-            })
+        axios.post("/api/cart", {
+            title: title,
+            image: image,
+            price: price,
+            description: title,
+            quantity: 1,
+            email: user.email
+          })
             .then((response) => {
                 if (response.data.insertedId) {
                     setControl(!control);
-                    swal("Wow!", "Product is added to your cart", "success");
+                    dispatch(fetchCartProducts(user));
+                    toast.success('Wow! Added to your cart.', {
+                        position: "bottom-left"
+                      });
                 } else {
                     setControl(false);
                 }
@@ -47,7 +60,10 @@ const WishList = () => {
         axios.delete(`/api/wishlists?product_id=${id}`, {}).then((response) => {
             if (response.data.deletedCount) {
                 setControl(!control);
-                swal("Oh!", "You removed a product from your cart", "success");
+                dispatch(fetchWishlistProducts(user));
+                toast.warn('Removed a product.', {
+                    position: "bottom-left"
+                  });
             } else {
                 setControl(false);
             }
@@ -139,58 +155,52 @@ const WishList = () => {
                                 </ol>
                             </nav>
                         </div>
-                        <div className="md:p-10 bg-white md:shadow-lg  md:rounded-lg">
+                        <div className="md:p-10 bg-white md:shadow-lg  md:rounded-md">
                             <h2 className="text-2xl font-semibold">
                                 Your Wishlist
                             </h2>
                             {loading && <p>Please wait</p>}
                             {/* wishlist table */}
                             {!loading && (
-                                <div className="mt-6 overflow-auto rounded-lg shadow hidden md:block">
+                                <div className="mt-6 overflow-auto rounded-md shadow hidden md:block">
                                     <table className="w-full">
-                                        { wishlists.length !== 0 &&
-                                        <thead className="bg-gray-50 border-b-2 border-gray-200">
-                                            <tr>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-left"
-                                                >
-                                                    <p className="">Select</p>
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    colSpan="2"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    <p>Product</p>
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Price
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Stock Status
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Action
-                                                </th>
-                                                <th
-                                                    scope="col"
-                                                    className="p-6 text-sm font-semibold tracking-wide text-center"
-                                                >
-                                                    Manage
-                                                </th>
-                                            </tr>
-                                        </thead>}
-                                            { wishlists.length == 0 && (<div className="flex justify-center"><h3 className="text-2xl text-gray-600 m-auto py-10">You have no Wishlist product. Please add product in Wishlist.</h3></div>)}
+                                        {wishlists.length !== 0 &&
+                                            <thead className="bg-gray-50 border-b-2 border-gray-200">
+                                                <tr>
+                                                    <th
+                                                        scope="col"
+                                                        colSpan="2"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        <p>Product</p>
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Price
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Stock Status
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Action
+                                                    </th>
+                                                    <th
+                                                        scope="col"
+                                                        className="p-6 text-sm font-semibold tracking-wide text-center"
+                                                    >
+                                                        Manage
+                                                    </th>
+                                                </tr>
+                                            </thead>}
+                                        {wishlists.length == 0 && (<div className="flex justify-center"><h3 className="text-2xl text-gray-600 m-auto py-10">You have no Wishlist product. Please add product in Wishlist.</h3></div>)}
                                         <tbody className="divide-y divide-gray-200">
                                             {wishlists.map((wish) => {
                                                 const {
@@ -203,12 +213,6 @@ const WishList = () => {
                                                 } = wish;
                                                 return (
                                                     <tr key={_id}>
-                                                        <td className="p-4 whitespace-nowrap">
-                                                            <input
-                                                                type="checkbox"
-                                                                className="ml-4"
-                                                            />
-                                                        </td>
                                                         <td className="py-4 whitespace-nowrap">
                                                             <p className="w-36"></p>
                                                             <Image
@@ -264,7 +268,7 @@ const WishList = () => {
                                                             </h3>
                                                         </td>
                                                         <td className="p-4 whitespace-nowrap text-center">
-                                                            <span className="p-1.5 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                                            <span className="p-1.5 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                                 {product_stock}{" "}
                                                                 In Stock
                                                             </span>
@@ -278,7 +282,7 @@ const WishList = () => {
                                                                         product_price
                                                                     )
                                                                 }
-                                                                className="p-2 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                                                className="p-2 text-xs font-medium uppercase tracking-wider primary-color bg-green-300 rounded-md bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
                                                             >
                                                                 Add to cart
                                                             </button>
@@ -319,7 +323,7 @@ const WishList = () => {
                                         return (
                                             <div
                                                 key={_id}
-                                                className="my-4 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-lg space-x-2 space-y-2"
+                                                className="my-4 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-md space-x-2 space-y-2"
                                             >
                                                 <div className="flex">
                                                     <div className="flex px-2 border-r border-gray-300">
@@ -374,7 +378,7 @@ const WishList = () => {
                                                             </div>
                                                         </div>
                                                         <div className="py-2 text-center">
-                                                            <span className="p-1.5 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                                            <span className="p-1.5 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                                 {product_stock}{" "}
                                                                 In Stock
                                                             </span>
@@ -387,7 +391,7 @@ const WishList = () => {
                                                         <div className="flex justify-between items-center  text-sm pt-2">
                                                             <div className="text-center">
                                                                 <a href="#">
-                                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                                         <TrashIcon
                                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                                             aria-hidden="true"
@@ -405,7 +409,7 @@ const WishList = () => {
                                                                             product_price
                                                                         )
                                                                     }
-                                                                    className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-300 rounded-lg bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                                                    className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-300 rounded-md bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
                                                                 >
                                                                     Add to cart
                                                                 </button>
@@ -422,6 +426,8 @@ const WishList = () => {
                     </div>
                 </div>
             </div>
+            {/* Toast Notification */}
+            <ToastContainer />
         </>
     );
 };

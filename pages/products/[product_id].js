@@ -1,13 +1,73 @@
 import { HeartIcon } from "@heroicons/react/solid";
 import axios from "axios";
+import Link from "next/link";
+import { useRouter } from 'next/router';
+import Script from 'next/script';
 import React, { useState } from "react";
 import ImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
+import Rating from "react-rating";
+import { useDispatch, useSelector } from "react-redux";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import RelatedProducts from "../../src/Components/Products/RelatedProducts/RelatedProducts";
-import Category from "../../src/Components/Products/SideBar/Category/Category";
+import { fetchCartProducts, fetchWishlistProducts } from "../../src/redux/slices/productSlice";
+
+const catagorylist = [
+  {
+    key: 1,
+    name: "Fruits & Vegetables",
+    icon: "https://i.ibb.co/ZVJF7xP/cat7-25x25-crop-center.jpg",
+  },
+  {
+    key: 2,
+    name: "Snacks",
+    icon: "https://i.ibb.co/BG2y3sV/noodles-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 3,
+    name: "Beverages",
+    icon: "https://i.ibb.co/BftdYCG/juice-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 4,
+    name: "Breakfast",
+    icon: "https://i.ibb.co/txMh3MW/local-breakfast-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 5,
+    name: "Frozen & Canned",
+    icon: "https://i.ibb.co/k0q3d94/frozen-snacks-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 6,
+    name: "Dairy",
+    icon: "https://i.ibb.co/30599Tg/candy-chocolate-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 7,
+    name: "Cooking",
+    icon: "https://i.ibb.co/QkRdZL1/rice-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 8,
+    name: "Baking",
+    icon: "https://i.ibb.co/4SXw3b6/nuts-dried-fruits-src-https-eggyolk-chaldal.webp",
+  },
+  {
+    key: 9,
+    name: "Bread & Bakery",
+    icon: "https://i.ibb.co/wrLqNbx/cakes-src-https-eggyolk-chaldal.webp",
+  },
+];
 
 
 const SingleProduct = ({ related, product }) => {
+  const dispatch = useDispatch();
+  const router = useRouter()
+  // console.log(router.pathname, router.query);
+  const user = useSelector((state) => state.states.user);
+
   const [control, setControl] = useState(false);
   const [quantity, setQuantity] = useState(0);
 
@@ -36,76 +96,91 @@ const SingleProduct = ({ related, product }) => {
     }
     
    }
-  
-
 
   // add to wishlist
   const handleAddWishlist = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
-    
-
-    axios.post("/api/wishlists", { 
-      product_title: product_title,
-      product_price: product_price,
-      user_rating: user_rating,
-      product_stock: product_stock,
-      product_imageUrl: product_imageUrl,
-
-     }).then((response) => {
-
-      if (response.data.insertedId) {
-        setControl(!control);
-        swal("WOW!!! wishlist product add successfully");
-      } else {
-        setControl(false);
-      }
-    });
+    // private routing
+    if (!user?.email) {
+      router.push('/login');
+    }
+    else if (user?.email) {
+      axios.post("/api/wishlists", {
+        product_title: product_title,
+        product_price: product_price,
+        user_rating: user_rating,
+        product_stock: product_stock,
+        product_imageUrl: product_imageUrl,
+        email: user.email
+      }).then((response) => {
+       
+        if (response.data.insertedId) {
+          setControl(true);
+          dispatch(fetchWishlistProducts(user));
+          toast.success('Wow! Added to wishlist.', {
+            position: "bottom-left"
+          });
+        } else {
+          setControl(false);
+        }
+      });
+    }
   };
 
   // Add to cart a product
-  const addToCartHandler = async (product_title,product_price,user_rating, product_stock, product_imageUrl) => {
-    axios
-      .post("/api/cart", {
-      product_title: product_title,
-      product_price: product_price,
-      user_rating: user_rating,
-      product_stock: product_stock,
-      product_imageUrl: product_imageUrl,
-        
-      })
-      .then((response) => {
-        if (response.data.insertedId) {
-          swal("Wow!", "Product is added to your cart", "success");
-        }
-      });
+  const addToCartHandler = async (product_title, product_price,product_imageUrl) => {
+    // private routing
+    if (!user?.email) {
+      router.push('/login');
+    }
+    else if (user?.email) {
+      axios.post("/api/cart", {
+          title: product_title,
+          price: product_price,
+          image: product_imageUrl,
+          description: product_title,
+          quantity: 1,
+          email: user.email
+        })
+        .then((response) => {
+          if (response.data.insertedId) {
+            setControl(true);
+            dispatch(fetchCartProducts(user));
+            toast.success('Wow! Added to your cart.', {
+              position: "bottom-left"
+            });
+          }
+          setControl(false);
+        });
+    }
   };
 
   const images = [
     {
       original:`${product.product_imageUrl}`,
-      thumbnail:
-        "https://i.ibb.co/28dHMTv/25-525c2823-683a-445e-b187-6fe7ca3f5a8e-159x202.jpg",
+      thumbnail:`${product.product_imageUrl}`,
+    },
+    {
+      original:`${product.product_category_img}`,
+      thumbnail:`${product.product_category_img}`,
     },
     {
       original:`${product.product_imageUrl}`,
       thumbnail:`${product.product_imageUrl}`,
     },
     {
+      original:`${product.product_category_img}`,
+      thumbnail:`${product.product_category_img}`,
+    },
+     {
       original:`${product.product_imageUrl}`,
       thumbnail:`${product.product_imageUrl}`,
-    },
-    {
-      original:`${product.product_imageUrl}`,
-      thumbnail:`${product.product_imageUrl}`,
-    },
-    {
-      original:`${product.product_imageUrl}`,
-      thumbnail:`${product.product_imageUrl}`,
-    },
+    }
     
   ];
 
   return (
     <div >
+       <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
       <style jsx>
         {`
           .tabs {
@@ -117,7 +192,7 @@ const SingleProduct = ({ related, product }) => {
             outline: none;
             background: #fff;
             border: 1px solid #ccc;
-            border-radius: 25px;
+            border-radius: 5px;
           }
 
           .active-tabs {
@@ -142,7 +217,7 @@ const SingleProduct = ({ related, product }) => {
         `}
       </style>
       
-      <div  >
+      <div>
         <div className="container mx-auto py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 md:gap-x-4">
             <div className="col-span-2">
@@ -160,15 +235,21 @@ const SingleProduct = ({ related, product }) => {
                   />
                 </div>
                 <div id="productDetails" className="lg:px-0 md:px-0 px-4">
-                  <h2 className="text-2xl text-green-500 font-semibold">
+                  <h2 className="text-2xl primary-color font-semibold">
                     {product.product_title}
                   </h2>
-                  <div id="rating" className="py-2">
-                    *****{" "}
-                    <span className="text-gray-500">
-                      ({product.rating_count} reviews)
-                    </span>
+
+                  <div id="rating" className="flex items-center my-2">
+                  <Rating
+                    initialRating={product.user_rating}
+                    emptySymbol="far fa-star text-yellow-400"
+                    fullSymbol="fas fa-star text-yellow-400"
+                    readonly />
+                  <span className=" text-blue-800 text-xs font-semibold mr-2  py-0.5 rounded dark:bg-white dark:text-black ml-1">
+                    ({product.user_rating})
+                  </span>
                   </div>
+
                   <h2 className="text-lg pt-4 font-semibold text-gray-700">
                     Availability :
                     <span className="text-sm text-orange-500">
@@ -177,12 +258,12 @@ const SingleProduct = ({ related, product }) => {
                     </span>
                   </h2>
                   <div id="price">
-                    <h2 className="text-2xl font-bold text-green-500 py-4">
+                    <h2 className="text-2xl font-bold primary-color py-4">
                       $ <span>{product.product_price}</span>
                     </h2>
                   </div>
                   <div id="details">
-                    <p className="text-justify text-base">
+                    <p className="text-justify text-base pr-1">
                       Hurry up! only{" "}
                       <span className="text-orange-500 font-semibold">
                         {product.product_stock}
@@ -197,16 +278,16 @@ const SingleProduct = ({ related, product }) => {
                     <h2 className="text-lg text-gray-700 font-semibold capitalize">
                       size :
                     </h2>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       50gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       75gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       100gm
                     </button>
-                    <button className="bg-white  py-2 px-1 text-sm text-green-500 hover:bg-green-500 hover:text-white rounded">
+                    <button className="bg-white  py-2 px-1 text-sm primary-color hover:bg-green-500 hover:text-white rounded cursor-default">
                       150gm
                     </button>
                   </div>
@@ -217,42 +298,33 @@ const SingleProduct = ({ related, product }) => {
                     <button id="minus" onClick={handleDecrement} className="minus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       -
                     </button>
-                     {/* <div id='quantityCount' className="quantityCount border shadow bg-white px-4 py-1">
-                    <input type='text'  ></input>
-                    </div>  */}
-                     <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div> 
+                 
+                    <div className="form-control text-center  border shadow bg-white px-4 py-1">{quantity}</div>
                     
                     <button id="plus" onClick={handleIncrement} className="plus border hover:bg-green-500 hover:text-white bg-white shadow px-4 py-1">
                       +
                     </button>
                   </div>
                   <div className="flex items-center flex-row gap-2 py-6">
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600 rounded-sm">
                       {" "}
                       <HeartIcon
-                       onClick={() => handleAddWishlist(product._id)}
-                      className="h-6 w-6 text-white" />
+                        onClick={() => handleAddWishlist(product.product_title, product.product_price,product.user_rating,product.product_stock, product.product_imageUrl)}
+                        className="h-6 w-6 text-white" />
                     </button>
-                    <button  onClick={() =>
-                        addToCartHandler(
-                          product._id
-                          // product_title,
-                          // product_imageUrl,
-                          // product_price,
-                          // produc_Details
-                        )
-                      }
-                     className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
+                    <button onClick={() =>
+                      addToCartHandler(
+                        product.product_title, product.product_price,product.product_imageUrl
+                      )
+                    }
+                      className="primary-bg-color text-white font-base px-2 py-1 hover:bg-green-600 rounded-sm">
                       Add to cart
-                    </button>
-                    <button className="bg-green-500 text-white font-base px-2 py-1 hover:bg-green-600">
-                      Buy now
                     </button>
                   </div>
                 </div>
               </div>
               <div
-                className="py-10 px-4 shadow border rounded-lg mt-4 mx-4 md:mx-0"
+                className="py-10 px-4 shadow border rounded-md mt-4 mx-4 md:mx-0"
                 id="alldetails"
               >
                 <div className="flex lg:flex-row flex-row text-sm gap-4 mb-4">
@@ -378,8 +450,21 @@ const SingleProduct = ({ related, product }) => {
             </div>
 
             <div id="catagory" className="md:pl-12 ">
-              <div className="shadow rounded-lg p-4 mx-4 md:mx-0">
-                <Category></Category>
+              <div className="shadow rounded-md p-4 mx-4 md:mx-0">
+                <div>
+                  <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-xl">Category</h1>
+                </div>
+                <div>
+                  {
+                    catagorylist.map(item => (
+                      <div key={item.key} className="flex flex-row justify-start p-3 align-middle border border-gray-200 drop-shadow-md rounded bg-green-50 mb-2">
+                        <img src={item.icon} height="30" width="30" alt=''/>
+                        <Link href={`/category/${item.name}`}><a className='px-2 py-2'>{item.name}</a></Link>
+                      </div>
+                    ))
+                  }
+                  
+                </div>
               </div>
             </div>
           </div>
@@ -389,13 +474,14 @@ const SingleProduct = ({ related, product }) => {
           </div>
         </div>
       </div>
+
+      {/* Toast Notification */}
+      <ToastContainer/> 
     </div>
   );
 };
 
 export default SingleProduct;
-
-
 
 export async function getServerSideProps(context) {
   const data = await fetch(`${process.env.MY_APP_DOMAIN}/api/products/productDetails?product_id=${context.query.product_id}`);

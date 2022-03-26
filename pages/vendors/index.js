@@ -62,7 +62,7 @@ const AllVendors = ({ vendors }) => {
               />
               <button
                 type="submit"
-                className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-lg bg-white"
+                className="absolute right-0 top-0 bottom-0 mr-2 my-1 rounded-md bg-white"
               >
                 <AiOutlineSearch className="md:h-6 md:w-6 w-5 h-5 primary-color" />
               </button>
@@ -103,3 +103,14 @@ export async function getStaticProps() {
     },
   };
 }
+
+/* export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/vendors`);
+  const vendors = await res.json();
+  return {
+    props: {
+      vendors,
+    },
+  };
+};
+ */

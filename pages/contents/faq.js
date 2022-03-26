@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import Image from "next/image";
 import React from "react";
 import {
@@ -10,20 +11,21 @@ import {
 import "react-accessible-accordion/dist/fancy-example.css";
 
 const Faq = () => {
+const { t } = useTranslation('faqpage');
+
   return (
     <div>
-      <div className="container pt-5">
-        <div className="bg-white dark:bg-gray-900 w-100">
-          <div className="px-10 py-10 mx-auto">
-            <h1 className="text-4xl text-center font-bold text-gray-800 dark:text-white">
-              Frequently{" "}
-              <span className="text-green-600">asked questions..</span>
+      <div className="container pt-5 mx-auto">
+        <div className="bg-white w-100">
+          <div className="px-4 md:px-0 py-10 mx-auto">
+            <h1 className="text-4xl text-center font-bold text-gray-800"> 
+              <span className="text-gray-600">{t('title')}</span>
             </h1>
 
-            <hr className="my-6 border-gray-400 dark:border-gray-700" />
+            <hr className="my-6 border-gray-400" />
 
             <div className="flex flex-col md:flex-row space-x-4">
-              <div className="">
+              <div className="md:w-1/2 w-full">
                 <Image
                   className=""
                   src="https://i.ibb.co/CPMfDrx/FAQs.gif"
@@ -33,13 +35,13 @@ const Faq = () => {
                   priority
                 />
               </div>
-              <div className="">
+              <div className="md:w-1/2 w-full">
                 <Accordion preExpanded={["a"]} allowZeroExpanded>
                   <AccordionItem uuid="a">
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibold text-green-500">
-                          What is FoodMart Services?
+                        <span className="text-xl font-semibold primary-color">
+                          {t("question1")}
                         </span>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -47,13 +49,8 @@ const Faq = () => {
                       <div className="flex mt-8">
                         <span className="border border-green-500"></span>
 
-                        <p className="max-w-3xl  text-gray-500 dark:text-gray-400 bg-green-100 p-10">
-                          You can use your physical Starbucks Card or your
-                          Starbucks India mobile app to purchase any item at all
-                          participating Starbucks stores in India. For example-
-                          food, beverage, retail coffees, Ready to Drink, Ready
-                          to Eat merchandise etc. The value in your Starbucks
-                          Card cannot be exchanged for cash.
+                        <p className="max-w-3xl  text-gray-500 bg-green-100 p-10">
+                        {t("answer1")}
                         </p>
                       </div>
                     </AccordionItemPanel>
@@ -63,8 +60,8 @@ const Faq = () => {
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
-                          How to buy products at a time ?
+                        <span className="text-xl font-semibol primary-color">
+                        {t("question2")}
                         </span>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -72,11 +69,8 @@ const Faq = () => {
                       <div className="flex mt-8 ">
                         <span className="border border-green-500"></span>
 
-                        <p className="max-w-3xl  text-gray-500 dark:text-gray-400 bg-green-100 p-10">
-                          Physical Starbucks Cards are available in at all
-                          Starbucks stores in India or download Starbucks India
-                          mobile app and add a Starbucks e-card onto your
-                          registered Starbucks India account.
+                        <p className="max-w-3xl  text-gray-500 bg-green-100 p-10">
+                        {t("answer2")}
                         </p>
                       </div>
                     </AccordionItemPanel>
@@ -86,8 +80,8 @@ const Faq = () => {
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
-                          Refund policy for customar ?
+                        <span className="text-xl font-semibol primary-color">
+                        {t("question3")}
                         </span>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -95,11 +89,8 @@ const Faq = () => {
                       <div className="flex mt-8">
                         <span className="border border-green-500"></span>
 
-                        <p className="max-w-3xl px-4 text-gray-500 dark:text-gray-400 bg-green-100 p-10">
-                          Starbucks Cards are available in at all Starbucks
-                          stores in India or download Starbucks India mobile app
-                          and add a Starbucks e-card onto your registered
-                          Starbucks India account.
+                        <p className="max-w-3xl px-4 text-gray-500  bg-green-100 p-10">
+                        {t("answer3")}
                         </p>
                       </div>
                     </AccordionItemPanel>
@@ -109,9 +100,9 @@ const Faq = () => {
                   <AccordionItem>
                     <AccordionItemHeading>
                       <AccordionItemButton>
-                        <span className="text-xl font-semibol text-green-500">
+                        <span className="text-xl font-semibol primary-color">
                           {" "}
-                          Exchange policy for a customar?
+                          {t("question4")}
                         </span>
                       </AccordionItemButton>
                     </AccordionItemHeading>
@@ -119,11 +110,8 @@ const Faq = () => {
                       <div className="flex mt-8 md:mx-10">
                         <span className="border border-green-500"></span>
 
-                        <p className="max-w-3xl px-4 text-gray-500 dark:text-gray-400 bg-green-100 p-10">
-                          Starbucks Cards are available in at all Starbucks
-                          stores in India or download Starbucks India mobile app
-                          and add a Starbucks e-card onto your registered
-                          Starbucks India account.
+                        <p className="max-w-3xl px-4 text-gray-500 bg-green-100 p-10">
+                        {t("answer4")}
                         </p>
                       </div>
                     </AccordionItemPanel>

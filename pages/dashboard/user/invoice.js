@@ -116,7 +116,7 @@ const Invoice = () => {
                                         <li className="p-2 border-l-2 border-green-200">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="w-6 h-6 text-green-500"
+                                                className="w-6 h-6 primary-color"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -136,7 +136,7 @@ const Invoice = () => {
                                         <li className="p-2 border-l-2 border-green-200">
                                             <svg
                                                 xmlns="http://www.w3.org/2000/svg"
-                                                className="w-6 h-6 text-green-500"
+                                                className="w-6 h-6 primary-color"
                                                 fill="none"
                                                 viewBox="0 0 24 24"
                                                 stroke="currentColor"
@@ -162,7 +162,7 @@ const Invoice = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className="w-full h-0.5 bg-green-500"></div>
+                            <div className="w-full h-0.5 primary-bg-color"></div>
                             <div className="flex justify-between p-4">
                                 <div>
                                     <h6 className="font-bold">
@@ -335,7 +335,7 @@ const Invoice = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="w-full h-0.5 bg-green-500"></div>
+                            <div className="w-full h-0.5 primary-bg-color"></div>
 
                             <div className="p-4">
                                 <div className="pb-4 flex items-center justify-center">

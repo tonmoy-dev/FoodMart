@@ -15,7 +15,7 @@ const VendorCard = ({vendor}) => {
         <div
                 vendor={vendor}
                 key={vendor.name}
-                className="mx-auto bg-white rounded-lg  border-gray-200 border shadow"
+                className="mx-auto bg-white rounded-md  border-gray-200 border shadow"
               >
                 <div className="relative">
                   <a href="#">
@@ -44,7 +44,6 @@ const VendorCard = ({vendor}) => {
                       </h5>
                     </a>
                   </div>
-
                   <div className="flex items-center">
                     <StarIcon className="h-5 w-5 text-yellow-300" />
                     <StarIcon className="h-5 w-5 text-yellow-300" />
@@ -52,7 +51,6 @@ const VendorCard = ({vendor}) => {
                     <StarIcon className="h-5 w-5 text-yellow-300" />
                     <StarIcon className="h-5 w-5 text-yellow-300" />
                   </div>
-
                   <div className="flex items-center justify-between">
                     <LocationMarkerIcon className="mr-2 h-5 w-5 primary-color" />
                     <p className="my-2 w-full text-gray-500 ">
@@ -65,7 +63,6 @@ const VendorCard = ({vendor}) => {
                       Call Us: {vendor.contact}
                     </p>
                   </div>
-
                   <div className="flex justify-between items-center">
                     <div className="">
                       <p className="flex items-center py-2 primary-color rounded-md">
@@ -75,7 +72,7 @@ const VendorCard = ({vendor}) => {
                         </span>
                       </p>
                     </div>
-                    <Link href="/vendors/vendor-profile">
+                    <Link href={`/vendors/${vendor.name}`}>
                     <a
                       className="inline-flex items-center p-2 text-sm font-medium text-center primary-bg-color shadow rounded-full hover:bg-green-700 focus:ring-4 focus:ring-blue-300 "
                     >

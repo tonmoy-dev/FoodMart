@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import DotLoader from "react-spinners/DotLoader";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Pagination from "../../src/Components/Pagination/Pagination";
 import Product from "../../src/Components/Products/Product/Product";
 import StarRating from "../../src/Components/StarRating/StarRating";
@@ -12,9 +14,13 @@ import StarRating from "../../src/Components/StarRating/StarRating";
 const productsFilters = [
     // category
     [
-        { name: "Snacks", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { name: "Breakfast", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
-        { name: "Beverages", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
+        { name: "Snacks", icon: "https://i.ibb.co/BG2y3sV/noodles-src-https-eggyolk-chaldal.webp"},
+        { name: "Breakfast", icon: "https://i.ibb.co/ZVJF7xP/cat7-25x25-crop-center.jpg"},
+        { name: "Beverages", icon: "https://i.ibb.co/BftdYCG/juice-src-https-eggyolk-chaldal.webp"},
+        { name: "Dairy", icon: "https://i.ibb.co/30599Tg/candy-chocolate-src-https-eggyolk-chaldal.webp",},
+        { name: "Cooking", icon: "https://i.ibb.co/QkRdZL1/rice-src-https-eggyolk-chaldal.webp",},
+        { name: "Baking", icon: "https://i.ibb.co/4SXw3b6/nuts-dried-fruits-src-https-eggyolk-chaldal.webp",},
+        { name: "Bread & Bakery", icon: "https://i.ibb.co/wrLqNbx/cakes-src-https-eggyolk-chaldal.webp",},
     ],
     // rating
     [
@@ -37,11 +43,12 @@ const AllProducts = ({ products }) => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
-    
+    const allProducts = products.slice(0, 50);
+
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentAllProducts = products?.slice(indexOfFirstPost, indexOfLastPost);
+    const currentAllProducts = allProducts?.slice(indexOfFirstPost, indexOfLastPost);
     const currentProducts = filterProducts?.slice(indexOfFirstPost, indexOfLastPost);
     
     // Change page
@@ -85,6 +92,7 @@ const AllProducts = ({ products }) => {
     display: block;
     margin: 0 auto;
     `;  
+    
 
     return (
         <div>
@@ -123,7 +131,7 @@ const AllProducts = ({ products }) => {
             </div>
 
             <div>
-                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-lg flex-row justify-between items-center shadow">
+                <div className="flex p-2 mx-8 mb-2 mt-8 rounded-md flex-row justify-between items-center shadow">
                     <h2 className="text-black">
                         We have found
                         <span className="inline-block mx-1 font-semibold text-green-700">
@@ -156,7 +164,7 @@ const AllProducts = ({ products }) => {
                         
                     </div>
                     <div className="px-4 mt-2 order-first md:order-last">
-                        <div className="w-full mt-2 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-2 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Category
@@ -165,7 +173,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[0].map(item => (
-                                        <div key={item.name} onClick={() => filterHandler(item.name)} className="flex flex-row justify-start p-3 align-middle  border border-gray-400 drop-shadow-md rounded bg-green-100 cursor-pointer">
+                                        <div key={item.name} onClick={() => filterHandler(item.name)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded bg-green-50 cursor-pointer">
                                             <Image
                                                 src={item.icon}
                                                 height="30"
@@ -180,7 +188,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by Rating
@@ -189,7 +197,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[1].map(item => (
-                                        <div key={item.rating} onClick={() => ratingFilterHandler(item.rating)} className="flex flex-row justify-start p-3 align-middle  border border-gray-300 drop-shadow-md rounded  bg-orange-100 cursor-pointer">
+                                        <div key={item.rating} onClick={() => ratingFilterHandler(item.rating)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded  bg-orange-50 cursor-pointer">
                                             <Image
                                                 src="https://i.ibb.co/pz3dsR0/c-milk.png"
                                                 height="30"
@@ -197,7 +205,7 @@ const AllProducts = ({ products }) => {
                                                 alt=""
                                             ></Image>
                                             <div className="flex items-center gap-1 px-2 py-2 text-xs md:text-base ">
-                                                <StarRating initialRating={item.rating}/>
+                                                <StarRating initialRating={item.rating} />
                                                 <p className="hidden md:block font-medium text-gray-700">({item.rating})</p>
                                             </div>
                                         </div>
@@ -205,7 +213,7 @@ const AllProducts = ({ products }) => {
                                 }
                             </div>
                         </div>
-                        <div className="w-full mt-6 shadow rounded-lg px-4 pb-2 sidebar-style">
+                        <div className="w-full mt-6 shadow rounded-md px-4 pb-2 sidebar-style">
                             <div>
                                 <h1 className="mb-2 border-b-2 py-2 inline-block border-green-500 font-semibold text-md md:text-xl">
                                     Find by price
@@ -214,7 +222,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[2].map(item => (
-                                        <div key={item.index} onClick={() => priceFilterHandler(item.minPrice, item.maxPrice)} className="flex flex-row justify-start p-3 align-middle  border border-gray-300 drop-shadow-md rounded bg-blue-100 cursor-pointer">
+                                        <div key={item.index} onClick={() => priceFilterHandler(item.minPrice, item.maxPrice)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded bg-blue-50 cursor-pointer">
                                             <Image
                                                 src={item.icon}
                                                 height="30"
@@ -233,37 +241,39 @@ const AllProducts = ({ products }) => {
                 </div>
                 {/* pagination */}
                 {
-                            loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={products.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {
-                            !loading && (
-                                <div className="container mt-2">
-                                    <Pagination
-                                        postsPerPage={postsPerPage}
-                                        totalPosts={filterProducts.length}
-                                        paginate={paginate}
-                                    />
-                                </div>
-                            )
-                        }
-                        {/* pagination */}
+                    loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={allProducts.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {
+                    !loading && (
+                        <div className="container mt-2">
+                            <Pagination
+                                postsPerPage={postsPerPage}
+                                totalPosts={filterProducts.length}
+                                paginate={paginate}
+                            />
+                        </div>
+                    )
+                }
+                {/* pagination */}
             </div>
             
+            {/* Toast Notification */}
+            <ToastContainer/> 
         </div>
     );
 };
 
 export default AllProducts;
 
-/* export async function getStaticProps() {
+export async function getStaticProps() {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
     const products = await res.json();
     return {
@@ -271,11 +281,12 @@ export default AllProducts;
         products,
       },
     }
-  } */
-export const getServerSideProps = async () => {
+}
+  
+/* export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
     const products = await res.json();
     return {
         props: { products },
     };
-};
+}; */
