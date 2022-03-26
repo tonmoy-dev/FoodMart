@@ -123,7 +123,7 @@ const WelcomeVendor = () => {
         <div>
             <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role}</span> dashboard</h1>
             {/* Simple data */}
-            <div className='grid gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
+            <div className='grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
                 <div className='bg-green-400  rounded-md'>
                     <div className='p-2 flex flex-col justify-center py-5 text-white  '>
                         {/* Title */}
@@ -163,7 +163,7 @@ const WelcomeVendor = () => {
 
             <div className="grid grid-cols-1 justify-center items-center">
 
-                <div className="py-10 ">
+                <div className="py-10">
                     <h1 className="chart-heading text-center text-xl font-bold">Sales and Profit graph</h1>
                     <ResponsiveContainer width="100%" aspect={3}>
                         <LineChart data={pdata} width={500} height={300} margin={{ top: 5, right: 300, left: 20, bottom: 5 }}>
@@ -184,7 +184,7 @@ const WelcomeVendor = () => {
 
 
             <div className='py-5'>
-                <div className="flex flex-warp justify-around">
+                <div className="flex flex-warp justify-around md:flex-row flex-col">
                     <div>
                         <div className="" >
                             <div>
