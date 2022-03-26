@@ -10,7 +10,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
-import logo from "../../../../public/logo2.png";
+import logo from "../../../../public/Logo-7.png";
 import card from "../../../assets/payment.png";
 
 const Footer = () => {
@@ -43,24 +43,24 @@ const Footer = () => {
                                     </div>
                                     
                                     <div className="flex mt-4">
-                                        <a className="md:ml-0 ml-2 mr-3" href="https://www.facebook.com/" target="_blank">
+                                        <a className="md:ml-0 ml-2 mr-3" href="https://www.facebook.com/" rel="noreferrer" target="_blank">
                                             <FontAwesomeIcon
                                                 icon={faFacebook}
                                                 className="text-2xl w-5 h-5 text-blue-600 hover:text-orange-500"
                                             />
                                         </a>
-                                        <a className="mr-3" href="https://www.linkedin.com/" target="_blank"> <FontAwesomeIcon
+                                        <a className="mr-3" href="https://www.linkedin.com/" rel="noreferrer" target="_blank"> <FontAwesomeIcon
                                             icon={faLinkedin}
                                             className="text-2xl w-5 h-5 text-gray-600 hover:text-orange-500"
                                         />
                                         </a>
-                                        <a className="mr-3" href="https://twitter.com/" target="_blank">
+                                        <a className="mr-3" href="https://twitter.com/" rel="noreferrer" target="_blank">
                                             <FontAwesomeIcon
                                                 icon={faTwitter}
                                                 className="text-2xl w-5 h-5 text-blue-400 hover:text-orange-500"
                                             />
                                         </a>
-                                        <a className="mr-3" href="https://www.instagram.com/" target="_blank">
+                                        <a className="mr-3" href="https://www.instagram.com/" rel="noreferrer" target="_blank">
                                             <FontAwesomeIcon
                                                 icon={faInstagram}
                                                 className="text-2xl w-5 h-5 text-red-500 hover:text-orange-500"

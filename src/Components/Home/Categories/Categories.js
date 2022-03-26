@@ -5,48 +5,48 @@ import Link from "next/link";
 const categoriess = [
   {
     id: 101,
-    title: "Organic",
-    pic: "https://i.ibb.co/cw0VpGt/banner-1.png",
+    title: "Bread & Bakery",
+    pic: "https://i.ibb.co/jbg96VS/bread-bakery.jpg",
   },
   {
     id: 102,
-    title: "Soft Drinks",
-    pic: "https://i.ibb.co/C6MfFd1/banner-2.png",
+    title: "Baking",
+    pic: "https://i.ibb.co/zR2cpk5/baking.jpg",
   },
   {
     id: 103,
     title: "Fruits & Vegetables",
-    pic: "https://i.ibb.co/Phpf5Tq/banner-3.png",
+    pic: "https://i.ibb.co/3vmKZFY/fruites-vegetables.jpg",
   },
   {
     id: 104,
-    title: "Fishes",
-    pic: "https://i.ibb.co/yBCzL0P/banner-4.jpg",
+    title: "Cooking",
+    pic: "https://i.ibb.co/wWjJmNC/cooking.jpg",
   },
   {
     id: 105,
-    title: "Fruits",
-    pic: "https://i.ibb.co/DtF2HdL/banner-5.jpg",
+    title: "Dairy",
+    pic: "https://i.ibb.co/4wqP4fv/dairy.jpg",
   },
   {
     id: 106,
     title: "Frozen & Canned",
-    pic: "https://i.ibb.co/jf6gb5Y/banner-6.jpg",
+    pic: "https://i.ibb.co/Gs8k0Fn/frozen-canned.jpg",
   },
   {
     id: 107,
-    title: "Snaks",
-    pic: "https://i.ibb.co/GWF0G5b/banner-7.jpg",
+    title: "Snacks",
+    pic: "https://i.ibb.co/7Y9kd6q/snaks.jpg",
   },
   {
     id: 108,
     title: "Breverages",
-    pic: "https://i.ibb.co/0CfmJjL/banner-8.jpg",
+    pic: "https://i.ibb.co/gw8K13x/beveages.jpg",
   },
   {
     id: 109,
     title: "Breakfasts",
-    pic: "https://i.ibb.co/FmpgH9q/banner-9.jpg",
+    pic: "https://i.ibb.co/R7ZtDVN/breakfast.jpg",
   },
 ];
 const Categories = () => {
@@ -97,7 +97,7 @@ const Categories = () => {
                       height="220"
                       className="object-cover w-full h-full rounded-md"
                     />
-                    <p className="absolute overflow-hidden w-full h-full top-0 left-0 flex items-center justify-start pl-8 text-gray-700 catagory-overlay font-semibold md:text-xl text-md">
+                    <p className="absolute overflow-hidden h-full top-0 left-0 flex items-center justify-start pl-8 text-gray-700 catagory-overlay font-semibold md:text-base text-md w-full">
                       {category.title}
                     </p>
                   </div>

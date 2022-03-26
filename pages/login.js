@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import useFirebase from "../src/Authenticaion/hooks/useFirebase";
 
 const Login = () => {
-  const { signWithEmailPass, googleSign, logOut } = useFirebase();
+  const { signWithEmailPass, googleSign, logOut, handleFacebookSignIn } = useFirebase();
   const [showPass, setShowPass] = React.useState(false);
 
   const emailLoginErrorMsg= useSelector((state) => state.states.emailPassLoginError);
@@ -119,6 +119,7 @@ const Login = () => {
           </form>
           <p className="text-center text-xl font-semibold">Or</p>
           <GoogleButton className="mx-auto pr-12" style={{width:'100%'}} label='Sign in with Google' type="dark" onClick={googleSign} />
+          <button onClick={handleFacebookSignIn} className="bg-blue-900 py-4 text-white"> Facebook </button>
           <p className="text-gray-400 py-3 font-semibold text-center">
             Don&apos;t have account?
             <Link passHref href="register">

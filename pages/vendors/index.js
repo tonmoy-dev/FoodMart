@@ -103,3 +103,14 @@ export async function getStaticProps() {
     },
   };
 }
+
+/* export const getServerSideProps = async () => {
+  const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/vendors`);
+  const vendors = await res.json();
+  return {
+    props: {
+      vendors,
+    },
+  };
+};
+ */

@@ -37,14 +37,11 @@ export default function Home({ reviews, products, blogs }) {
             background: rgba(0, 0, 0, 0.5);
           }`}
           </style>
-          <TawkMessengerReact
-                propertyId="62377205a34c2456412bf6c3"
-                widgetId="1fuk9aqlq"/>
         </div>
       )}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
-      <DealsofDay products={products}></DealsofDay>
+      <DealsofDay></DealsofDay>
       <BestSells products={products}></BestSells>
       <Categories></Categories>
       <ProductOffer></ProductOffer>
@@ -76,3 +73,15 @@ export async function getStaticProps() {
     props: { reviews, products, blogs },
   };
 }
+
+/* export const getServerSideProps = async () => {
+  const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
+  const reviews = await reviews_res.json();
+  const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
+  const products = await products_res.json();
+  const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
+  const blogs = await blogs_res.json();
+  return {
+    props: { reviews, products, blogs },
+  };
+}; */

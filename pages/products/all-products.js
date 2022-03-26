@@ -14,9 +14,13 @@ import StarRating from "../../src/Components/StarRating/StarRating";
 const productsFilters = [
     // category
     [
-        { name: "Snacks", icon: "https://i.ibb.co/pz3dsR0/c-milk.png"},
-        { name: "Breakfast", icon: "https://i.ibb.co/JcBmCJM/c-clothing.png"},
-        { name: "Beverages", icon: "https://i.ibb.co/wW1ypYC/c-pets.png"},
+        { name: "Snacks", icon: "https://i.ibb.co/BG2y3sV/noodles-src-https-eggyolk-chaldal.webp"},
+        { name: "Breakfast", icon: "https://i.ibb.co/ZVJF7xP/cat7-25x25-crop-center.jpg"},
+        { name: "Beverages", icon: "https://i.ibb.co/BftdYCG/juice-src-https-eggyolk-chaldal.webp"},
+        { name: "Dairy", icon: "https://i.ibb.co/30599Tg/candy-chocolate-src-https-eggyolk-chaldal.webp",},
+        { name: "Cooking", icon: "https://i.ibb.co/QkRdZL1/rice-src-https-eggyolk-chaldal.webp",},
+        { name: "Baking", icon: "https://i.ibb.co/4SXw3b6/nuts-dried-fruits-src-https-eggyolk-chaldal.webp",},
+        { name: "Bread & Bakery", icon: "https://i.ibb.co/wrLqNbx/cakes-src-https-eggyolk-chaldal.webp",},
     ],
     // rating
     [
@@ -39,11 +43,12 @@ const AllProducts = ({ products }) => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const [postsPerPage] = useState(12);
+    const allProducts = products.slice(0, 50);
 
     // Get current posts
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
-    const currentAllProducts = products?.slice(indexOfFirstPost, indexOfLastPost);
+    const currentAllProducts = allProducts?.slice(indexOfFirstPost, indexOfLastPost);
     const currentProducts = filterProducts?.slice(indexOfFirstPost, indexOfLastPost);
     
     // Change page
@@ -168,7 +173,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[0].map(item => (
-                                        <div key={item.name} onClick={() => filterHandler(item.name)} className="flex flex-row justify-start p-3 align-middle  border border-gray-400 drop-shadow-md rounded bg-green-100 cursor-pointer">
+                                        <div key={item.name} onClick={() => filterHandler(item.name)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded bg-green-50 cursor-pointer">
                                             <Image
                                                 src={item.icon}
                                                 height="30"
@@ -192,7 +197,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[1].map(item => (
-                                        <div key={item.rating} onClick={() => ratingFilterHandler(item.rating)} className="flex flex-row justify-start p-3 align-middle  border border-gray-300 drop-shadow-md rounded  bg-orange-100 cursor-pointer">
+                                        <div key={item.rating} onClick={() => ratingFilterHandler(item.rating)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded  bg-orange-50 cursor-pointer">
                                             <Image
                                                 src="https://i.ibb.co/pz3dsR0/c-milk.png"
                                                 height="30"
@@ -217,7 +222,7 @@ const AllProducts = ({ products }) => {
                             <div className="flex flex-row md:flex-col flex-wrap gap-2">
                                 {
                                     productsFilters[2].map(item => (
-                                        <div key={item.index} onClick={() => priceFilterHandler(item.minPrice, item.maxPrice)} className="flex flex-row justify-start p-3 align-middle  border border-gray-300 drop-shadow-md rounded bg-blue-100 cursor-pointer">
+                                        <div key={item.index} onClick={() => priceFilterHandler(item.minPrice, item.maxPrice)} className="flex flex-row justify-start p-3 align-middle  border border-gray-200 drop-shadow-md rounded bg-blue-50 cursor-pointer">
                                             <Image
                                                 src={item.icon}
                                                 height="30"
@@ -240,7 +245,7 @@ const AllProducts = ({ products }) => {
                         <div className="container mt-2">
                             <Pagination
                                 postsPerPage={postsPerPage}
-                                totalPosts={products.length}
+                                totalPosts={allProducts.length}
                                 paginate={paginate}
                             />
                         </div>
@@ -268,7 +273,7 @@ const AllProducts = ({ products }) => {
 
 export default AllProducts;
 
-/* export async function getStaticProps() {
+export async function getStaticProps() {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`)
     const products = await res.json();
     return {
@@ -276,12 +281,12 @@ export default AllProducts;
         products,
       },
     }
-  } */
-export const getServerSideProps = async () => {
+}
+  
+/* export const getServerSideProps = async () => {
     const res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
-    const allProducts = await res.json();
-    const products = allProducts.slice(0, 60);
+    const products = await res.json();
     return {
         props: { products },
     };
-};
+}; */
