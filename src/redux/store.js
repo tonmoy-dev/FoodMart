@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './slices/cartSlice';
+import productSlice from './slices/productSlice';
 import stateContainer from "./slices/stateSlice";
 
 export const store = configureStore({
     reducer: {
     states: stateContainer,
-    cartProducts:cartReducer
+    products: productSlice
   },
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware({ serializableCheck: false }),

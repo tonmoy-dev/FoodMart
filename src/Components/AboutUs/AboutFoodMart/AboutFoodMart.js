@@ -1,9 +1,10 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { ChevronRightIcon } from "@heroicons/react/solid";
 import Link from "next/link";
 
-const AboutFoodMart = () => {
+const AboutFoodMart = ({t}) => {
+  const [openMore, setOpenMore] = useState(false);
   return (
     <div className="mx-4 md:mx-0 lg:mx-0">
       <div className="head-banner">
@@ -42,11 +43,9 @@ const AboutFoodMart = () => {
       <div className="pb-4">
         <section className="text-gray-600 body-font">
           <div className="container mx-auto flex gap-6 px-2 py-10 md:flex-row flex-col items-center">
-            <div className="w-full my-8 md:mb-0 shadow rounded-lg">
+            <div className="w-full my-8 md:mb-0 shadow rounded-md">
               <Image
                 src="https://i.ibb.co/vcDgZqn/vegist-image.png"
-                // src="https://i.ibb.co/QYM19LC/cover-Capture.png"
-                // src="https://i.ibb.co/mySfxJB/moc2.png"
                 alt="Picture of the author"
                 width={600}
                 height={350}
@@ -55,28 +54,38 @@ const AboutFoodMart = () => {
               />
             </div>
             <div className="lg:flex-grow w-full flex flex-col md:items-start md:text-left items-center text-center">
-              <h1 className="sm:text-4xl text-3xl mb-4 font-bold text-green-500">
-                What We Provide?
+              <h1 className="sm:text-3xl text-3xl mb-4 font-bold primary-color">
+               {t("title")}
               </h1>
               <p className="mb-8 leading-relaxed text-justify">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate id est laborum.
+              {t("details1")}
                 <br />
-                Ius ferri velit sanctus cu, sed at soleat accusata. Dictas
-                prompta et Ut placerat legendos interpre.Donec vitae sapien ut
-                libero venenatis faucibus. Nullam quis ante Etiam sit amet orci
-                eget. Quis commodo odio aenean sed adipiscing. Turpis massa
-                tincidunt dui ut ornare lectus. Auctor elit sed vulputate mi sit
-                amet. Commodo consequat.
+                {t("details2")}
+                <br /><br />
+                {openMore ? (
+                  <span className="">
+                    {t("detailsreadmore")}
+                  </span>
+                ) : (
+                  ""
+                )}
               </p>
               <div className="flex  mx-0 justify-center">
-                <button className="inline-flex text-white bg-green-500 py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg">
-                  Get Booking
-                </button>
-                {/* <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Get Booking</button> */}
+                {!openMore ? (
+                  <button
+                    onClick={() => setOpenMore(true)}
+                    className="inline-flex text-white primary-bg-color py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    {t("readMore")}
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => setOpenMore(false)}
+                    className="inline-flex text-white primary-bg-color py-2 px-6 border-0 focus:outline-none hover:bg-green-600 rounded text-lg"
+                  >
+                    {t("readLess")}
+                  </button>
+                )}
               </div>
             </div>
           </div>

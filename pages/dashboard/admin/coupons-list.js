@@ -2,6 +2,8 @@ import { SearchIcon, TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const CouponsList = ({ coupons }) => {
     const handleCouponDelete = (id) => {
@@ -23,10 +25,12 @@ const CouponsList = ({ coupons }) => {
           }
         `}
             </style>
-            <div id="dashboard-container" className="h-full bg-gray-100">
+            <div id="dashboard-container" className="">
                 {/* top bar */}
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
                 <DashAdminMenu />
-
 
 
                 {/* main content */}
@@ -97,17 +101,17 @@ const CouponsList = ({ coupons }) => {
                                 </ol>
                             </nav>
                         </div>
-                        <div className="md:p-10 bg-white md:shadow-lg  rounded-lg">
+                        <div className="md:p-10 bg-white md:shadow-lg  rounded-md">
                             <h2 className="text-2xl font-semibold py-4">
                                 Your Coupons List
                             </h2>
                             {/* Couponslist table */}
-                            <div className="mt-6 overflow-auto rounded-lg shadow hidden md:block">
+                            <div className="mt-6 overflow-auto rounded-md shadow hidden md:block">
                                 {/* search bar */}
                                 <div className="w-full sm:block items-center md:flex grow py-3 px-15">
                                     <div className="w-full relative mx-auto text-gray-600">
                                         <input
-                                            className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none focus:border-green-500"
+                                            className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-md text-sm focus:outline-none focus:border-green-500"
                                             type="search"
                                             name="search"
                                             placeholder="Search coupon"
@@ -206,7 +210,7 @@ const CouponsList = ({ coupons }) => {
                                                         <p>{discount}</p>
                                                     </td>
                                                     <td className="p-4 whitespace-nowrap">
-                                                        <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
+                                                        <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-md bg-opacity-50">
                                                             {status}
                                                         </span>
                                                     </td>
@@ -218,7 +222,7 @@ const CouponsList = ({ coupons }) => {
                                                     </td>
                                                     <td className="p-4 whitespace-nowrap">
                                                         <div className="flex justify-center items-center">
-                                                            <button onClick={() => handleCouponDelete(_id)} className="bg-red-200 bg-opacity-50 rounded-lg">
+                                                            <button onClick={() => handleCouponDelete(_id)} className="bg-red-200 bg-opacity-50 rounded-md">
                                                                 <TrashIcon
                                                                     className="h-6 w-6 text-red-500 "
                                                                     aria-hidden="true"
@@ -234,7 +238,7 @@ const CouponsList = ({ coupons }) => {
                             </div>
                             {/* Coupons grid view - mobile */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-lg">
+                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-md">
                                     <div className="px-4">
                                         <div className="text-left text-gray-600">
                                             <span className="font-semibold text-gray-600 pr-2">
@@ -258,7 +262,7 @@ const CouponsList = ({ coupons }) => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Discount:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-yellow-500 bg-yellow-200 rounded-lg bg-opacity-50">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-yellow-500 bg-yellow-200 rounded-md bg-opacity-50">
                                                     25%
                                                 </span>
                                             </div>
@@ -284,7 +288,7 @@ const CouponsList = ({ coupons }) => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Status:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50 border border-green-200">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50 border border-green-200">
                                                     Active
                                                 </span>
                                             </div>
@@ -293,7 +297,7 @@ const CouponsList = ({ coupons }) => {
                                                     Action:{" "}
                                                 </span>
                                                 <a href="#">
-                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                         <TrashIcon
                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                             aria-hidden="true"
@@ -305,7 +309,7 @@ const CouponsList = ({ coupons }) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-2 bg-yellow-100 bg-opacity-40 shadow-lg py-6 rounded-lg">
+                                <div className="my-2 bg-yellow-100 bg-opacity-40 shadow-lg py-6 rounded-md">
                                     <div className="px-4">
                                         <div className="text-left text-gray-600">
                                             <span className="font-semibold text-gray-600 pr-2">
@@ -329,7 +333,7 @@ const CouponsList = ({ coupons }) => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Discount:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-yellow-500 bg-yellow-200 rounded-lg bg-opacity-50">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-yellow-500 bg-yellow-200 rounded-md bg-opacity-50">
                                                     20%
                                                 </span>
                                             </div>
@@ -355,7 +359,7 @@ const CouponsList = ({ coupons }) => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Status:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50 border border-blue-200">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-md bg-opacity-50 border border-blue-200">
                                                     Finish
                                                 </span>
                                             </div>
@@ -364,7 +368,7 @@ const CouponsList = ({ coupons }) => {
                                                     Action:{" "}
                                                 </span>
                                                 <a href="#">
-                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                         <TrashIcon
                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                             aria-hidden="true"

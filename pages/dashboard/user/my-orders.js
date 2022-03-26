@@ -5,6 +5,8 @@ import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const MyOrders = () => {
   const [loading, setLoading] = useState(true);
@@ -18,7 +20,6 @@ const MyOrders = () => {
       setLoading(false);
     });
   }, [user.email]);
-  console.log(items);
   // console.log(items[0].email)
   return (
     <>
@@ -37,9 +38,11 @@ const MyOrders = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
+        {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+        {userNow?.role === 'vendor' && <DashVendorMenu />}
+        {userNow?.role === 'user' && <DashUserMenu />} */}
 
-
+        <DashUserMenu />
         <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
           <div className="py-16 mx-5 md:mx-20">
             <h2 className=" text-black font-semibold text-4xl pb-2">My Orders</h2>
@@ -101,11 +104,11 @@ const MyOrders = () => {
                 </ol>
               </nav>
             </div>
-            <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-lg">
+            <div className="md:p-10 mt-6 bg-white md:shadow-lg md:rounded-md">
               <h2 className="text-2xl font-semibold mb-2">My Orders</h2>
               {loading && <p>Please wait</p>}
               {!loading && (
-                <div className="overflow-auto rounded-lg shadow">
+                <div className="overflow-auto rounded-md shadow">
                   <table className="w-full">
                     <thead className="bg-gray-50 border-b-2 border-gray-200">
                       <tr>
@@ -135,7 +138,7 @@ const MyOrders = () => {
                           March 11, 2022
                         </td>
                         <td className="p-6 text-sm text-gray-500 whitespace-nowrap">
-                          <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                          <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                             Processing
                           </span>
                         </td>
@@ -154,7 +157,7 @@ const MyOrders = () => {
               {/* orders in small screen view */}
 
               {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:hidden">
-                    <div className="bg-gray-100 py-4 rounded-lg shadow-md">
+                    <div className="bg-gray-100 py-4 rounded-md shadow-md">
                         <div className="flex">
                             <div className="flex items-center border-r border-gray-300">
                                 <Image

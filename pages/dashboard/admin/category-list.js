@@ -2,6 +2,8 @@ import { SearchIcon, TrashIcon } from "@heroicons/react/outline";
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const CategoryList = () => {
     return (
@@ -20,11 +22,13 @@ const CategoryList = () => {
           }
         `}
             </style>
-            <div id="dashboard-container" className="h-full bg-gray-100">
+            <div id="dashboard-container" className="">
                 {/* top bar */}
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+
                 <DashAdminMenu />
-
-
 
                 {/* main content */}
                 <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
@@ -92,15 +96,15 @@ const CategoryList = () => {
                                 </ol>
                             </nav>
                         </div>
-                        <div className="p-5 md:p-10 h-screen bg-white shadow-lg  rounded-lg">
+                        <div className="p-5 md:p-10 h-screen bg-white shadow-lg  rounded-md">
                             <h2 className="text-2xl font-semibold">Your Category List</h2>
                             {/* Categorylist table */}
-                            <div className="mt-6 overflow-auto rounded-lg shadow hidden md:block">
+                            <div className="mt-6 overflow-auto rounded-md shadow hidden md:block">
                                 {/* search bar */}
                                 <div className="w-full sm:block items-center md:flex grow py-3 px-5">
                                     <div className="w-full relative mx-auto text-gray-600">
                                         <input
-                                            className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                                            className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-md text-sm focus:outline-none"
                                             type="search"
                                             name="search"
                                             placeholder="Search category"
@@ -163,7 +167,7 @@ const CategoryList = () => {
                                                 <p>10</p>
                                             </td>
                                             <td className="p-4 whitespace-nowrap text-center">
-                                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-lg bg-opacity-50">
+                                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-orange-500 bg-orange-200 rounded-md bg-opacity-50">
                                                     Hidden
                                                 </span>
                                             </td>
@@ -187,7 +191,7 @@ const CategoryList = () => {
                                                 <p>10</p>
                                             </td>
                                             <td className="p-4 whitespace-nowrap text-center">
-                                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-500 bg-green-200 rounded-lg bg-opacity-50">
+                                                <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                     Visible
                                                 </span>
                                             </td>
@@ -205,7 +209,7 @@ const CategoryList = () => {
                             </div>
                             {/* Category grid view - mobile */}
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-lg space-x-2 space-y-2">
+                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-md space-x-2 space-y-2">
                                     <div className="flex">
                                         <div className="px-4">
                                             <div className="text-sm text-gray-600">
@@ -221,7 +225,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Item:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-md bg-opacity-50">
                                                     15
                                                 </span>
                                             </div>
@@ -229,7 +233,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Visibility:{" "}
                                                 </span>
-                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 border  border-green-200 rounded-lg bg-opacity-50">
+                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 border  border-green-200 rounded-md bg-opacity-50">
                                                     Visible
                                                 </span>
                                             </div>
@@ -239,7 +243,7 @@ const CategoryList = () => {
                                                     Action:{" "}
                                                 </span>
                                                 <a href="#">
-                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                         <TrashIcon
                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                             aria-hidden="true"
@@ -251,7 +255,7 @@ const CategoryList = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-2 bg-yellow-100 bg-opacity-40 shadow-lg py-6 rounded-lg space-x-2 space-y-2">
+                                <div className="my-2 bg-yellow-100 bg-opacity-40 shadow-lg py-6 rounded-md space-x-2 space-y-2">
                                     <div className="flex">
                                         <div className="px-4">
                                             <div className="text-sm text-gray-600">
@@ -267,7 +271,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Item:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-md bg-opacity-50">
                                                     15
                                                 </span>
                                             </div>
@@ -275,7 +279,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Visibility:{" "}
                                                 </span>
-                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 border  border-green-200 rounded-lg bg-opacity-50">
+                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 border  border-green-200 rounded-md bg-opacity-50">
                                                     Visible
                                                 </span>
                                             </div>
@@ -285,7 +289,7 @@ const CategoryList = () => {
                                                     Action:{" "}
                                                 </span>
                                                 <a href="#">
-                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                         <TrashIcon
                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                             aria-hidden="true"
@@ -297,7 +301,7 @@ const CategoryList = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-lg space-x-2 space-y-2">
+                                <div className="my-2 bg-indigo-100 bg-opacity-50 shadow-lg py-6 rounded-md space-x-2 space-y-2">
                                     <div className="flex">
                                         <div className="px-4">
                                             <div className="text-sm text-gray-600">
@@ -313,7 +317,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Item:{" "}
                                                 </span>
-                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-lg bg-opacity-50">
+                                                <span className="py-1.5 px-2 text-xs  font-medium uppercase tracking-wider text-blue-500 bg-blue-200 rounded-md bg-opacity-50">
                                                     15
                                                 </span>
                                             </div>
@@ -321,7 +325,7 @@ const CategoryList = () => {
                                                 <span className="font-semibold text-gray-600 pr-2">
                                                     Visibility:{" "}
                                                 </span>
-                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider text-green-500 bg-green-200 border  border-green-200 rounded-lg bg-opacity-50">
+                                                <span className="p-1.5 text-xs  font-medium uppercase tracking-wider primary-color bg-green-200 border  border-green-200 rounded-md bg-opacity-50">
                                                     Visible
                                                 </span>
                                             </div>
@@ -331,7 +335,7 @@ const CategoryList = () => {
                                                     Action:{" "}
                                                 </span>
                                                 <a href="#">
-                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-lg border border-red-200 bg-opacity-50">
+                                                    <span className="px-1.5 py-1.5 text-xs font-medium uppercase tracking-wider text-red-500 bg-red-200 rounded-md border border-red-200 bg-opacity-50">
                                                         <TrashIcon
                                                             className="h-4 w-4 text-red-500 inline-block mr-1 mb-1"
                                                             aria-hidden="true"

@@ -102,7 +102,7 @@ const VendorShop = () => {
             <div className=" pb-5">
                 <h1 className="text-3xl text-center font-semibold mb-4">Nature Food Store</h1>
                 <div className="w-3/4 md:w-1/3 relative mx-auto text-gray-600 mb-10">
-                    <input className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-lg text-sm focus:outline-none"
+                    <input className="border-2 border-gray-300 bg-white h-10 w-full px-5 pr-16 rounded-md text-sm focus:outline-none"
                         type="search" name="search" placeholder="Search in this store" />
                     <button type="submit" className="absolute right-0 top-0 mt-3 mr-4">
                         <AiOutlineSearch className="h-5 w-5" />
@@ -111,7 +111,7 @@ const VendorShop = () => {
 
             </div>
             <div className="flex gap-x-6 flex-col md:flex-row">
-                <div className="flex flex-col items-center gap-y-2 bg-green-100 rounded-lg p-6 w-full md:w-2/6">
+                <div className="flex flex-col items-center gap-y-2 bg-green-100 rounded-md p-6 w-full md:w-2/6">
                     <Image
                         src="https://i.ibb.co/PtzJCPp/vendor-2.png"
                         alt="Picture of the author"
@@ -131,7 +131,7 @@ const VendorShop = () => {
                     <p className="font-normal text-gray-500 ">
                         <PhoneIcon className="inline-block mb-2 mr-2 h-5 w-5 text-orange-500" />
                         Call Us: (+91) - 540-025-124553</p>
-                    <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-blue-300 ">
+                    <a href="#" className="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-orange-600 rounded-md hover:bg-orange-700 focus:ring-4 focus:ring-blue-300 ">
                         Contact Us
                         <ArrowSmRightIcon className="h-5 w-5 text-white" />
                     </a>
@@ -144,7 +144,7 @@ const VendorShop = () => {
                                 const { _id, product_badge, product_title, product_category, product_imageUrl, vendor_name, user_rating, product_price } = product;
                                 return (<div key={_id}>
 
-                                    <div className=" max-w-sm bg-white border-gray-300 border rounded-lg hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
+                                    <div className=" max-w-sm bg-white border-gray-300 border rounded-md hover:drop-shadow-lg dark:bg-white-800 dark:border-gray-300">
                                         <span className="inline-block px-2 py-1  bg-red-500 text-white rounded-full font-semibold uppercase tracking-wide text-xs">{product_badge}</span>
                                         <a href="./">
                                             <Image className="p-8 rounded-t-lg" src={product_imageUrl} alt="product image" height="250" width="250" />
@@ -191,10 +191,10 @@ const VendorShop = () => {
                                             <div className="flex justify-between items-center">
 
                                                 <div className="flex justify-between items-center">
-                                                    <span className="text-xl font-bold text-green-500 dark:text-dark">${product_price}</span>
+                                                    <span className="text-xl font-bold primary-color dark:text-dark">${product_price}</span>
                                                     {/* <span className="text-base line-through font-bold text-slate-400 hover:text-sky-400 pl-2">$35.50</span> */}
                                                 </div>
-                                                <a href="#" className="text-green-600 bg-green-200 hover:bg-green-500 focus:ring-4 focus:ring-green-600 font-medium rounded-lg text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white">Add to cart</a>
+                                                <a href="#" className="text-green-600 bg-green-200 hover:bg-green-500 focus:ring-4 focus:ring-green-600 font-medium rounded-md text-sm px-2 py-1.5 text-center dark:bg-green-200 dark:hover:bg-green-500 dark:focus:ring-green-600 hover:text-white">Add to cart</a>
                                             </div>
                                         </div>
                                     </div>
@@ -212,3 +212,4 @@ const VendorShop = () => {
 };
 
 export default VendorShop;
+

@@ -38,8 +38,8 @@ const allbrand = [
 ];
 const Brands = () => {
     return (
-        <div className="py-16">
-            <div className="py-10 banner">
+        <div className="py-10 mb-2">
+            <div className="banner">
                 <style jsx>{`
                     .swiper-pagination-bullet-active {
                         background-color: red !important;

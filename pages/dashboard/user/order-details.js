@@ -6,6 +6,8 @@ import {
 import Image from "next/image";
 import React from "react";
 import DashAdminMenu from "../DashMenu/DashAdminMenu";
+import DashUserMenu from "../DashMenu/DashUserMenu";
+import DashVendorMenu from "../DashMenu/DashVendorMenu";
 
 const OrderDetails = () => {
     const fakeCart = [
@@ -42,8 +44,10 @@ const OrderDetails = () => {
       </style>
       <div id="dashboard-container" className="h-screen bg-gray-100">
         {/* top bar */}
-        <DashAdminMenu />
-
+                {/* {userNow?.role === 'admin' && <DashAdminMenu />}
+                {userNow?.role === 'vendor' && <DashVendorMenu />}
+                {userNow?.role === 'user' && <DashUserMenu />} */}
+                <DashUserMenu />
 
 
         {/* main content */}
@@ -270,7 +274,7 @@ const OrderDetails = () => {
                                                                     <td></td>
                                                                     <td></td>
                                                                     <td className="py-4 gap-y-2 px-6 text-sm text-gray-900 whitespace-nowrap">
-                                                                        <p className="text-green-500 text-base font-semibold">
+                                                                        <p className="primary-color text-base font-semibold">
                                                                             ${" "}
                                                                             <span>
                                                                                 1155.00
@@ -289,7 +293,7 @@ const OrderDetails = () => {
                                 <div id="right-part">
                                     <div
                                         id="Customer"
-                                        className="bg-white p-4 shadow rounded-lg"
+                                        className="bg-white p-4 shadow rounded-md"
                                     >
                                         <div className="flex justify-between items-center flex-row border-b mb-4">
                                             <h1 className="text-lg font-semibold text-gray-700">
@@ -306,7 +310,7 @@ const OrderDetails = () => {
                                     </div>
                                     <div
                                         id="contact-person"
-                                        className="bg-white my-4 p-4 shadow rounded-lg"
+                                        className="bg-white my-4 p-4 shadow rounded-md"
                                     >
                                         <div className="flex justify-between items-center flex-row border-b mb-4">
                                             <h1 className="text-lg font-semibold text-gray-700">
@@ -329,7 +333,7 @@ const OrderDetails = () => {
                                     </div>
                                     <div
                                         id="shipping-address"
-                                        className="bg-white my-4 p-4 shadow rounded-lg"
+                                        className="bg-white my-4 p-4 shadow rounded-md"
                                     >
                                         <div className="flex justify-between items-center flex-row border-b mb-4">
                                             <h1 className="text-lg font-semibold text-gray-700">
@@ -347,7 +351,7 @@ const OrderDetails = () => {
                                     </div>
                                     <div
                                         id="billing-address"
-                                        className="bg-white my-4 p-4 shadow rounded-lg"
+                                        className="bg-white my-4 p-4 shadow rounded-md"
                                     >
                                         <div className="flex justify-between items-center flex-row border-b mb-4">
                                             <h1 className="text-lg font-semibold text-gray-700">

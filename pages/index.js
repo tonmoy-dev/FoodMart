@@ -1,4 +1,3 @@
-// import MessengerCustomerChat from "react-messenger-customer-chat";
 import { useEffect, useState } from "react";
 import Banner from "../src/Components/Home/Banner/Banner";
 import BestSells from "../src/Components/Home/BestSells/BestSells";
@@ -12,11 +11,12 @@ import PopularProducts from "../src/Components/Home/PopularProducts/PopularProdu
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import OfferModal from "../src/Components/OfferModal/OfferModal";
+// import OfferModal from "../src/Components/OfferModal/OfferModal";
+import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
+   
   const [openModal, setOpenModal] = useState(false);
-
   useEffect(() => {
     setOpenModal(true);
     setTimeout(() => {
@@ -29,7 +29,7 @@ export default function Home({ reviews, products, blogs }) {
 
   return (
     <div className="">
-      {!openModal && (
+      {/* {!openModal && (
         <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
           <OfferModal handleModal={handleModal}></OfferModal>
           <style>
@@ -38,7 +38,7 @@ export default function Home({ reviews, products, blogs }) {
           }`}
           </style>
         </div>
-      )}
+      )} */}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
@@ -50,15 +50,16 @@ export default function Home({ reviews, products, blogs }) {
       <Blogs blogs={blogs}></Blogs>
       <Brands></Brands>
       <NewsLetter></NewsLetter>
-      {/* <MessengerCustomerChat
-        pageId="100697865102030"
-        appId="361045412549261"
-      /> */}
+
+      {/* Messenger App */}
+      <TawkMessengerReact
+                propertyId="62377205a34c2456412bf6c3"
+                widgetId="1fuk9aqlq"/>
     </div>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
 
@@ -72,3 +73,18 @@ export async function getServerSideProps() {
     props: { reviews, products, blogs },
   };
 }
+
+/* export const getServerSideProps = async () => {
+  const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
+  const reviews = await reviews_res.json();
+
+  const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
+  const products = await products_res.json();
+
+  const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
+  const blogs = await blogs_res.json();
+
+  return {
+    props: { reviews, products, blogs },
+  };
+}; */

@@ -34,7 +34,6 @@ const Products = ({ products }) => {
 
   const handleAddCompare = async (id) => {
     const compareProduct = products.filter((product) => product._id === id);
-    console.log(compareProduct[0]);
     const { product_title, product_price, user_rating, produc_Details, product_stock, product_imageUrl } = compareProduct[0];
 
     axios.post("/api/compare", {
@@ -75,7 +74,7 @@ const Products = ({ products }) => {
 
   return (
     <div className="py-5">
-      <div className="flex p-2 mx-4 mb-2 rounded-lg flex-row justify-between items-center shadow">
+      <div className="flex p-2 mx-4 mb-2 rounded-md flex-row justify-between items-center shadow">
         <h2 className="text-green-700 text-lg">
           <span className="font-semibold">{AllProducts.length} </span> Products{" "}
         </h2>
@@ -126,19 +125,19 @@ const Products = ({ products }) => {
 
           return (
             <div key={_id} className="">
-              <div className="product-card bg-white relative border-gray-200 border rounded-lg hover:drop-shadow-lg">
+              <div className="product-card bg-white relative border-gray-200 border rounded-md hover:drop-shadow-lg">
                 <div className="z-50 w-full absolute left-0 right-0 bottom-60">
                   <div className="product-card-overlay transition flex justify-center items-center h-full gap-3">
                     <HeartIcon
                       onClick={() => handleAddWishlist(_id)}
-                      className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white"
+                      className="w-8 h-6 primary-bg-color hover:bg-green-600 hover:text-white rounded text-white"
                     />
                     <Link href={`/products/${_id}`}>
                       <a>
-                        <EyeIcon className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                        <EyeIcon className="w-8 h-6 primary-bg-color hover:bg-green-600 hover:text-white rounded text-white" />
                       </a>
                     </Link>
-                    <RefreshIcon onClick={() => handleAddCompare(_id)} className="w-8 h-6 bg-green-500 hover:bg-green-600 hover:text-white rounded text-white" />
+                    <RefreshIcon onClick={() => handleAddCompare(_id)} className="w-8 h-6 primary-bg-color hover:bg-green-600 hover:text-white rounded text-white" />
                   </div>
                 </div>
 
@@ -155,7 +154,7 @@ const Products = ({ products }) => {
                     {product_badge}
                   </span>
                 )}
-                <a>
+                <div>
                   {" "}
                   <Image
                     className="p-8 rounded-t-lg"
@@ -165,7 +164,7 @@ const Products = ({ products }) => {
                     width="200"
                     layout="responsive"
                   />
-                </a>
+                </div>
                 <div className="px-2 pb-5 pt-2">
                   <span className="text-xs font-bold text-slate-400 hover:text-sky-400 ">
                     {product_category}
@@ -287,7 +286,7 @@ const Products = ({ products }) => {
                           produc_Details
                         )
                       }
-                      className="text-green-500 bg-green-100 hover:bg-green-500 focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
+                      className="primary-color bg-green-100 hover:primary-bg-color focus:ring-0 font-medium rounded text-sm px-2 py-1.5 text-center hover:text-white"
                     >
                       Add
                     </a>

@@ -46,7 +46,7 @@ const Register = () => {
 
   
 return (
-  <>
+  <div className="px-4">
     <Head>
       <link
         rel="stylesheet"
@@ -56,21 +56,21 @@ return (
         referrerPolicy="no-referrer"
       />
     </Head>
-    <div className="flex justify-center m-10 sm:mx-auto md:flex-row flex-col w-5/6">
-      <div className="md:w-3/6">
+    <div className="flex my-12 md:mx-auto md:flex-row flex-col container shadow-md md:bg-white">
+      <div className="md:w-full md:table hidden bg-gray-50">
         <Image
-          src="https://i.ibb.co/9YxD538/122154446-104392108127200-4918932120265177979-n.jpg"
-          height="600"
+          src="https://i.ibb.co/QMvbNTq/Mobile-login-amico.png"
+          height="700"
           width="700"
           alt="register image"
         />
       </div>
-      <div className="md:w-2/5 w-11/12 mx-auto my-5 p-3 flex flex-col gap-y-4">
+      <div className="md:w-full py-2 md:py-0 border md:border-0 px-8 w-full mx-auto flex flex-col gap-y-4 md:border-l">
         <div className="mx-auto text-center">
         <h2 className="md:text-3xl text-2xl font-semibold mb-3">
           Create your account
         </h2>
-        <p className="text-xl">Please Register using account detail bellow.</p>
+        <p className="text-">Please Register by using your account</p>
         </div>
         {/* register-form */}
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -122,15 +122,15 @@ return (
             />
           </div>
 
-          <div className="flex py-3">
+          <div className="flex py-3 my-2">
             <input id="remember" type="checkbox" className="w-4 h-4 rounded mt-1" />
-            <label htmlFor="remember" className="text-gray-400 font-semibold pl-2">
+            <label htmlFor="remember" className="text-gray-400 pl-2">
               Accept Term and Conditions
             </label>
           </div>
           <button
             type="submit"
-            className="w-full h-14 py-4 font-bold rounded-md bg-green-700 text-white"
+            className="w-full h-14 py-4 font-bold rounded-md primary-bg-color text-white"
           >
             Register
           </button>
@@ -146,7 +146,7 @@ return (
         </div>
       </div>
     </div>
-  </>
+  </div>
 )
 }
 

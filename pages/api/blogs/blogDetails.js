@@ -25,4 +25,4 @@ export default async function handler(req, res) {
     
 }
 
-// http://localhost:3000/api/blogs/blogDetails?blog_id=621dbede75a97ab73c172d17
+// https://food-mart-web.vercel.app/api/blogs/blogDetails?blog_id=621dbede75a97ab73c172d17

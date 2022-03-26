@@ -32,10 +32,10 @@ input[type="search"]:focus::-webkit-search-cancel-button {
   Global colors
   ............. */
 .primary-color {
-  color: #06623b;
+  color: #4b8106;
 }
 .primary-bg-color {
-  background-color: #06623b;
+  background-color: #4b8106;
 }
 /* ...............
   Top Bar & Navbar
@@ -263,7 +263,7 @@ input[type="search"]:focus::-webkit-search-cancel-button {
 }
 /* page banner style */
 .head-banner {
-  background: url("https://i.ibb.co/3hv0fp9/Head-banner.jpg");
+  background: url("https://i.ibb.co/NKR0HHT/Head-banner-1.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

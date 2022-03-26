@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 
 const CheckoutForm = ({ product }) => {
     const { price } = product;
-    console.log(price)
     const stripe = useStripe();
     const elements = useElements();
 
@@ -55,7 +54,7 @@ const CheckoutForm = ({ product }) => {
         }
         else {
             setError('');
-            console.log(paymentMethod);
+            // console.log(paymentMethod);
         }
 
         
@@ -79,7 +78,7 @@ const CheckoutForm = ({ product }) => {
                         },
                     }}
                 />
-                <button className="text-base bg-green-500 text-white py-2 px-3 rounded font-semibold" type="submit" disabled={!stripe}>
+                <button className="text-base primary-bg-color text-white py-2 px-3 rounded font-semibold" type="submit" disabled={!stripe}>
                     Pay ${product.price}
                 </button>
             </form>

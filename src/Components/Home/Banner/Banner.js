@@ -56,7 +56,7 @@ const Banner = () => {
                   alt="slider1"
                 ></Image>
                 <div className="absolute left-6">
-                  <p className="lg:text-lg text-md text-green-500">
+                  <p className="lg:text-lg text-md primary-color">
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
@@ -64,7 +64,7 @@ const Banner = () => {
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-md text-md capitalize primary-color font-medium">
                         Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
@@ -78,7 +78,7 @@ const Banner = () => {
                   alt="slider2"
                 ></Image>
                 <div className="absolute left-6">
-                  <p className="lg:text-lg text-md text-green-500">
+                  <p className="lg:text-lg text-md primary-color">
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
@@ -86,7 +86,7 @@ const Banner = () => {
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-md text-md capitalize primary-color font-medium">
                         Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
@@ -100,7 +100,7 @@ const Banner = () => {
                   alt="slider3"
                 ></Image>
                 <div className="absolute left-6">
-                  <p className="lg:text-lg text-md text-green-500">
+                  <p className="lg:text-lg text-md primary-color">
                     Top Selling!
                   </p>
                   <p className="lg:text-4xl text-2xl text-gray-500 font-semibold py-3">
@@ -108,7 +108,7 @@ const Banner = () => {
                   </p>
                   <div className="mt-2">
                     <Link href="/products/all-products">
-                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-lg text-md capitalize text-green-500 font-medium">
+                      <a className="flex items-center gap-1 py-1 lg:py-2 md:py-2 rounded-md text-md capitalize primary-color font-medium">
                         Shop now <ArrowRightIcon className="w-4 mt-1" />
                       </a>
                     </Link>
@@ -131,9 +131,11 @@ const Banner = () => {
                 <p className="text-lg text-gray-500 font-medium">
                   Start from $10
                 </p>
-                <button className="mt-2 text-sm capitalize text-green-500 hover:text-green-600 font-medium flex flex-row items-center gap-1">
+                <Link href="/products/all-products">
+                <a className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
-                </button>
+                </a>
+                </Link>
               </div>
             </div>
             <div className="relative flex justify-center items-center">
@@ -146,9 +148,11 @@ const Banner = () => {
                 <p className="text-lg text-gray-500 font-medium">
                   Start from $12
                 </p>
-                <button className="mt-2 text-sm capitalize text-green-500 hover:text-green-600 font-medium flex flex-row items-center gap-1">
+                <Link href="/products/all-products">
+                <a className="mt-2 text-sm capitalize primary-color hover:text-green-600 font-medium flex flex-row items-center gap-1">
                   Shop now <ArrowRightIcon className="w-4" />
-                </button>
+                </a>
+                </Link>
               </div>
             </div>
           </div>

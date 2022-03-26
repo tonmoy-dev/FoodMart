@@ -19,7 +19,7 @@ const CheckoutProductList = ({ products }) => {
                 <div>
                     <div></div>
                     <div className="w-full min-h-screen pb-5 pt-16">
-                        <div className="w-full mx-auto rounded-lg bg-white shadow-lg p-5">
+                        <div className="w-full mx-auto rounded-md bg-white shadow-lg p-5">
                             <h1 className="my-2 font-bold text-center text-xl text-gray-700 uppercase ">
                                 Product List
                             </h1>
