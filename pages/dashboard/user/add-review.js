@@ -1,15 +1,11 @@
 import { ChevronRightIcon, HomeIcon } from "@heroicons/react/solid";
 import axios from "axios";
-import ReactStars from "react-rating-stars-component";
-import swal from "sweetalert";
-import addreviewStyle from "../../../src/styles/AddReview.module.css";
-import DashAdminMenu from "../DashMenu/DashAdminMenu";
 import { useRouter } from "next/router";
-import BlogMarkdown from "../../../src/Components/Blogs/BlogMarkdown";
-import DashVendorMenu from "../DashMenu/DashVendorMenu";
-import DashUserMenu from "../DashMenu/DashUserMenu";
 import React, { useEffect, useState } from "react";
+import ReactStars from "react-rating-stars-component";
 import { useSelector } from "react-redux";
+import swal from "sweetalert";
+import DashUserMenu from "../DashMenu/DashUserMenu";
 
 const AddReview = () => {
   const [control, setControl] = useState(false);

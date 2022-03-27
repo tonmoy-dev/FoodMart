@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
+  createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -15,6 +15,8 @@ import InitializeFirebase from "../firebase.init";
 
 InitializeFirebase();
 const googleProvider = new GoogleAuthProvider();
+const facebookProvider = new FacebookAuthProvider();
+
 const auth = getAuth();
 
 const useFirebase = () => {
@@ -97,6 +99,24 @@ const useFirebase = () => {
       });
   };
 
+  const handleFacebookSignIn = () =>{
+    signInWithPopup(auth, facebookProvider)
+
+    .then((result) => {
+      console.log(result)
+      const user = result.user;
+      console.log(user)
+  
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+    })
+    .catch((error) => {
+      // Handle Errors here
+      console.log(error)
+    });
+
+  }
+
       // Observe user state
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -143,6 +163,7 @@ const useFirebase = () => {
     logOut,
     signWithEmailPass,
     registerWithEmailPass,
+    handleFacebookSignIn
   };
 };
 

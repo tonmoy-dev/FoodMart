@@ -77,13 +77,10 @@ export async function getStaticProps() {
 /* export const getServerSideProps = async () => {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
-
   const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
   const products = await products_res.json();
-
   const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
   const blogs = await blogs_res.json();
-
   return {
     props: { reviews, products, blogs },
   };

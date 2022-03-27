@@ -17,36 +17,36 @@ const RelatedBlog = () => {
   }, []);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 p-4">
        {
                 relatedBlogs.map((rBlog) => (
-                  <div key={rBlog._Id} className="bg-white p-3 shadow-lg rounded-sm">
+                  <div key={rBlog._Id} className="bg-white  shadow-lg rounded-lg">
                   <a href="#" className="overflow-hidden block flex justify-center items-center">
                     <Image
                       src={rBlog.thumbnail}
-                      className="w-full h-60 object-cover transform hover:scale-110 transition duration-500"
+                      className="rounded-t-lg w-full h-60 object-cover transform hover:scale-110 transition duration-500"
                       alt=""
-                      width={300}
+                      width={500}
                       height={300}
                     />
                   </a>
                   <div className="mt-3">
                     <a href="#">
-                      <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition">
+                      <h2 className="block text-xl font-semibold text-gray-700 hover:text-green-500 transition p-3">
                         
                         <Link href={`/blogs/${encodeURIComponent(rBlog._id)}`}>
                         {rBlog.title}
                   </Link>
                       </h2>
                     </a>
-                    <div className="mt-2 flex space-x-3">
+                    <div className="mt-2 flex space-x-3 p-3">
                       <div className="flex text-gray-400 text-sm items-center">
                         <span className="mr-2 text-xs">
                           <i className="far fa-user"></i>
                         </span>
                         Blogging Tips
                       </div>
-                      <div className="flex text-gray-400 text-sm items-center">
+                      <div className="flex text-gray-400 text-sm   items-center">
                         <span className="mr-2 text-xs">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"

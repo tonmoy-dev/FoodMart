@@ -1,12 +1,21 @@
+import axios from "axios";
 import Image from "next/image";
+import React, { useEffect, useRef, useState } from "react";
 import { FaCartPlus } from "react-icons/fa";
-import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { fetchCartProducts} from "../../../redux/slices/productSlice";
 
 const DealsofDay = () => {
+  const [control, setControl] = useState(false);
+  const dispatch = useDispatch();
   const [days, setDays] = useState("00");
   const [hours, setHours] = useState("00");
   const [min, setMin] = useState("00");
   const [sec, setSec] = useState("00");
+  const user = useSelector((state) => state.states.user);
+  
 
   let intervel = useRef();
 
@@ -44,6 +53,29 @@ const DealsofDay = () => {
     };
   });
 
+
+  const addToCartHandler = async (title, image, price, description) => {
+    axios.post("/api/cart", {
+        title: title,
+        image: image,
+        price: price,
+        description: description,
+        email: user.email,
+        quantity:1
+      })
+      .then((response) => {
+        console.log(response)
+        if (response.data.insertedId) {
+          setControl(true);
+          dispatch(fetchCartProducts(user));
+          toast.success('Wow! Added to your cart.', {
+            position: "bottom-left"
+          });
+          setControl(false)
+        }
+      });
+  };
+
   const fakeArr = [
     {
       id: "1",
@@ -52,7 +84,9 @@ const DealsofDay = () => {
       hours: "02",
       mins: "42",
       sec: "12",
-      img: "https://i.ibb.co/nbYmKw9/4-600x379.jpg",
+      price:"32",
+      description:"Diploma Instant Full Cream Milk Powder provides all the cooking benefits of fresh full cream milk in a convenient powdered form.No need to refrigerate and it’s simple and easy to use – just add water for instant milk.A useful flavour enhancer for soups, creamy sauces, curries or desserts.",
+      image: "https://i.ibb.co/nbYmKw9/4-600x379.jpg",
     },
     {
       id: "21",
@@ -61,7 +95,9 @@ const DealsofDay = () => {
       hours: "02",
       mins: "42",
       sec: "12",
-      img: "https://i.ibb.co/HrLJfR1/10.jpg",
+      price:"35",
+      description:"Diploma Instant Full Cream Milk Powder provides all the cooking benefits of fresh full cream milk in a convenient powdered form.No need to refrigerate and it’s simple and easy to use – just add water for instant milk.A useful flavour enhancer for soups, creamy sauces, curries or desserts.",
+      image: "https://i.ibb.co/HrLJfR1/10.jpg",
     },
     {
       id: "13",
@@ -70,7 +106,9 @@ const DealsofDay = () => {
       hours: "02",
       mins: "42",
       sec: "12",
-      img: "https://i.ibb.co/cTsQ8zG/banner-7.png",
+      price:"22",
+      description:"Diploma Instant Full Cream Milk Powder provides all the cooking benefits of fresh full cream milk in a convenient powdered form.No need to refrigerate and it’s simple and easy to use – just add water for instant milk.A useful flavour enhancer for soups, creamy sauces, curries or desserts.",
+      image: "https://i.ibb.co/cTsQ8zG/banner-7.png",
     },
     {
       id: "15",
@@ -79,9 +117,18 @@ const DealsofDay = () => {
       hours: "02",
       mins: "42",
       sec: "12",
-      img: "https://i.ibb.co/nfp2zV0/7blog.jpg",
+      price:"42",
+      description:"Diploma Instant Full Cream Milk Powder provides all the cooking benefits of fresh full cream milk in a convenient powdered form.No need to refrigerate and it’s simple and easy to use – just add water for instant milk.A useful flavour enhancer for soups, creamy sauces, curries or desserts.",
+      image: "https://i.ibb.co/nfp2zV0/7blog.jpg",
     },
   ];
+
+  const {
+    title,
+    image,
+    description,
+    price
+  } = fakeArr;
   return (
     <div>
       <div className="container mx-auto pt-10 px-4 md:px-0">
@@ -105,7 +152,7 @@ const DealsofDay = () => {
                     layout="responsive"
                     width={700}
                     height={600}
-                    src={card.img}
+                    src={card.image}
                     alt="Avatar"
                     className="rounded-md"
                   />
@@ -153,7 +200,7 @@ const DealsofDay = () => {
                         data-prefix="fas"
                         data-icon="star"
                         className="w-4 text-yellow-300 mr-1"
-                        role="img"
+                        role="image"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                       >
@@ -170,7 +217,7 @@ const DealsofDay = () => {
                         data-prefix="fas"
                         data-icon="star"
                         className="w-4 text-yellow-300 mr-1"
-                        role="img"
+                        role="image"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                       >
@@ -187,7 +234,7 @@ const DealsofDay = () => {
                         data-prefix="fas"
                         data-icon="star"
                         className="w-4 text-yellow-300 mr-1"
-                        role="img"
+                        role="image"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                       >
@@ -204,7 +251,7 @@ const DealsofDay = () => {
                         data-prefix="fas"
                         data-icon="star"
                         className="w-4 text-yellow-300 mr-1"
-                        role="img"
+                        role="image"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                       >
@@ -222,7 +269,7 @@ const DealsofDay = () => {
                         data-prefix="far"
                         data-icon="star"
                         className="w-4 text-yellow-300"
-                        role="img"
+                        role="image"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 576 512"
                       >
@@ -234,15 +281,26 @@ const DealsofDay = () => {
                     </li>
                   </ul>
                   <div className="flex items-center  justify-between py-6">
-                    <h4 className="text-lg font-semibold primary-color">
-                      $32.85
+                    <h4 className="text-lg font-semibold text-green-500">
+                      {card.price}
                       <sub className="pl-2 text-gray-500">
                         <strike>$32.85</strike>
                       </sub>
                     </h4>
-                    <button className="primary-color bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white">
-                      <FaCartPlus className="w-6 h-6" />
-                    </button>
+                    <a
+            href="#"
+            onClick={() =>
+              addToCartHandler(
+                card.title,
+                card.image,
+                card.price,
+                card.description
+              )
+            }
+            className="text-green-500 bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
+          >
+            <FaCartPlus className="w-6 h-6"/>
+          </a>
                   </div>
                 </div>
               </div>
