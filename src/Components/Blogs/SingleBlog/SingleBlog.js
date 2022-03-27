@@ -129,22 +129,23 @@ const SingleBlog = ({ blog }) => {
                             </div>
                         </div>
 
-                        <div className="mt-4">
+                        <div className="mt-4 px-4">
                             <Image
                                 src={blog.thumbnail}
-                                className="object-cover transform hover:scale-110 transition duration-500"
+                                className="object-cover transform hover:scale-110 transition duration-500 rounded-md"
                                 alt=""
-                                width={800}
-                                height={500}
+                                width={400}
+                                height={200}
                                 layout="responsive"
                             />
                         </div>
 
                         <div>
-                            <h3 className="text-2xl font-semibold p-4 text-justify">
+                            <h3 className="text-2xl font-semibold px-4 pt-10 text-justify">
                                 Lets learn more about {blog.title}
                             </h3>
-                            <p className="text-gray-600 leading-5 text-sm p-4 text-justify">
+                            <p className="text-gray-600 text-sm p-4
+                            text-justify">
                                 {blog.description}
                             </p>
                         </div>

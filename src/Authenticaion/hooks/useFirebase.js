@@ -103,6 +103,7 @@ const useFirebase = () => {
     signInWithPopup(auth, facebookProvider)
 
     .then((result) => {
+      console.log(result)
       const user = result.user;
       console.log(user)
   
@@ -110,10 +111,8 @@ const useFirebase = () => {
       const accessToken = credential.accessToken;
     })
     .catch((error) => {
-      // Handle Errors here.
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      const email = error.email;
+      // Handle Errors here
+      console.log(error)
     });
 
   }
