@@ -15,7 +15,7 @@ import { useRouter } from "next/router";
 
 const DashVendorMenu = () => {
   const router = useRouter();
-  const path = router.asPath;
+  // const path = router.asPath;
   const [isActive, setActive] = useState("false");
   const [isAActive, setAActive] = useState("false");
 

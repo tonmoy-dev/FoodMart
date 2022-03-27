@@ -39,7 +39,7 @@ const AddProduct = () => {
     user_rating: "",
     produc_Details: "",
   });
-  console.log(addProduct);
+  // console.log(addProduct);
 
   // take image data
   const [product_imageUrl, setProductImageUrl] = useState();
@@ -111,7 +111,7 @@ const AddProduct = () => {
         .post("https://api.cloudinary.com/v1_1/foodmartshop/image/upload", data)
         .then(({ data }) => {
           setProductImageUrl(data.url.toString());
-          console.log(data.url.toString());
+          // console.log(data.url.toString());
         })
         .catch((err) => {
           console.log(err);
@@ -153,7 +153,7 @@ const AddProduct = () => {
   const email = user?.email;
 
   const userNow = users.filter((user) => user?.email === email)[0];
-  console.log(userNow?.role);
+  // console.log(userNow?.role);
   let role = userNow?.role;
 
   const override = css`
@@ -225,20 +225,6 @@ const AddProduct = () => {
                               className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
                             >
                               Dashboard
-                            </a>
-                          </div>
-                        </li>
-                        <li>
-                          <div className="flex items-center">
-                            <ChevronRightIcon
-                              className="h-5 w-5 text-gray-400"
-                              aria-hidden="true"
-                            />
-                            <a
-                              href="#"
-                              className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                            >
-                              Admin
                             </a>
                           </div>
                         </li>
@@ -503,7 +489,7 @@ const AddProduct = () => {
                             id="product_badge"
                             onBlur={(e) => handleChange(e)}
                           >
-                              <option value="choose" selected disabled>Choose a badge</option>
+                              <option defaultValue="choose" disabled>Choose a badge</option>
                                 <option value="New">New</option>
                                 <option value="Sale">Sale</option>
                                 <option value="Hot">Hot</option>

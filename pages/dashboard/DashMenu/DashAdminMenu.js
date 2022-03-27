@@ -11,8 +11,10 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useFirebase from "../../../src/Authenticaion/hooks/useFirebase";
+import { useRouter } from "next/router";
 
 const DashAdminMenu = () => {
+  const router = useRouter();
   const [isActive, setActive] = useState("false");
   const [isAActive, setAActive] = useState("false");
   const user = useSelector((state) => state.states.user);
@@ -24,30 +26,23 @@ const DashAdminMenu = () => {
   useEffect(() => {
     setLoading(true);
     setControl(true);
-    axios.get("/api/users").then(response => {
+    axios.get("/api/users").then((response) => {
       setUsers(response.data);
       setLoading(false);
     });
   }, [control, user?.email]);
 
-
   // console.log(user.displayName);
   // console.log(user.email);
-  const email = user?.email
+  const email = user?.email;
 
-
-  const userNow = users.filter(user => user.email === email)[0]
+  const userNow = users.filter((user) => user.email === email)[0];
   console.log(userNow);
-
-
 
   // top products
 
   // const topVendors = users?.slice(0, 5);
   // console.log(topVendors);
-
-
-
 
   const handleToggle = () => {
     setActive(!isActive);
@@ -78,12 +73,7 @@ const DashAdminMenu = () => {
       menuName: "Add Coupon",
       pageLink: "/dashboard/admin/add-coupon",
     },
-
   ];
-
-
-
-
 
   return (
     <div>
@@ -140,8 +130,9 @@ const DashAdminMenu = () => {
             </div>
             <div
               id="dropdown_settings"
-              className={`absolute ${isActive ? "hidden" : ""
-                } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
+              className={`absolute ${
+                isActive ? "hidden" : ""
+              } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
             >
               <div className="px-4 py-2 text-xs text-gray-400">
                 Manage Account
@@ -174,12 +165,17 @@ const DashAdminMenu = () => {
       {/* side bar */}
       <div
         id="side-bar"
-        className={`${isActive ? "hidden md:block" : "active"
-          } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
+        className={`${
+          isActive ? "hidden md:block" : "active"
+        } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
       >
         <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
           <h1 className="primary-color">
-            <Link href="/"><a href="">food<span className="text-orange-400">Mart</span></a></Link>
+            <Link href="/">
+              <a href="">
+                food<span className="text-orange-400">Mart</span>
+              </a>
+            </Link>
           </h1>
           <XIcon
             onClick={handleToggle}
@@ -191,7 +187,11 @@ const DashAdminMenu = () => {
           <div className="py-5">
             <Link href="/dashboard/dashboard">
               <a
-                className="flex items-center my-1 px-6 py-3 text-white hover:text-white border-l-4 border-transparent transition border-orange-500 primary-bg-color"
+                className={`flex items-center my-1 px-6 py-3 hover:text-white border-l-4 border-transparent transition ${
+                  router.asPath == "/dashboard/dashboard"
+                    ? "primary-bg-color border-orange-500 text-white"
+                    : "text-black"
+                } hover:border-orange-500 hover:bg-lime-700`}
               >
                 Home
               </a>
@@ -199,7 +199,13 @@ const DashAdminMenu = () => {
             {adminMenu?.map((menu) => (
               <div key={menu.menuId}>
                 <Link href={`${menu.pageLink}`}>
-                  <a className="flex items-center my-1 px-6 py-3 hover:text-white border-l-4 hover:border-orange-500 hover:bg-green-500">
+                  <a
+                    className={`flex items-center my-1 px-6 py-3  hover:text-white border-l-4 hover:border-orange-500 ${
+                      router.asPath == menu.pageLink
+                        ? "primary-bg-color border-orange-500 text-white "
+                        : "text-black"
+                    } hover:bg-lime-700`}
+                  >
                     {menu.menuName}
                   </a>
                 </Link>
@@ -233,8 +239,9 @@ const DashAdminMenu = () => {
               >
                 <UserCircleIcon className="h-8 w-8 primary-color rounded-full" />
                 <div
-                  className={`absolute ${isAActive ? "hidden" : ""
-                    } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
+                  className={`absolute ${
+                    isAActive ? "hidden" : ""
+                  } ml-10 rounded shadow-lg w-48 bottom-0 bg-white`}
                 >
                   <div className="px-4 py-2 text-xs text-gray-400">
                     Manage Account

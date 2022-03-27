@@ -71,9 +71,13 @@ const Dashboard = () => {
           <div>
             <div id="dashboard-container" className="">
             <DashVendorMenu />
+            {/* <DashAdminMenu /> */}
+            {/* <DashUserMenu /> */}
             </div>
             <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
             <WelcomeVendor />
+            {/* <WelcomeAdmin /> */}
+            {/* <WelcomeUser /> */}
               </div>
           </div>
 
