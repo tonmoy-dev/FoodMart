@@ -74,7 +74,7 @@ const Dashboard = () => {
             {/* <DashAdminMenu /> */}
             {/* <DashUserMenu /> */}
             </div>
-            <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
+            <div id="main-content" className="pt-20 pr-8 pl-8 lg:pl-80 bg-gray-100">
             <WelcomeVendor />
             {/* <WelcomeAdmin /> */}
             {/* <WelcomeUser /> */}

@@ -120,12 +120,12 @@ const WelcomeVendor = () => {
 
 
     return (
-        <div>
-            <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role}</span> dashboard</h1>
+        <div className='bg-gray-100 py-2'>
+            {/* <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role}</span> dashboard</h1> */}
             {/* Simple data */}
-            <div className='grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center '>
+            <div className='grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center mt-4'>
                 <div className='bg-green-400  rounded-md'>
-                    <div className='p-2 flex flex-col justify-center py-5 text-white  '>
+                    <div className='p-2 flex flex-col justify-center py-5 text-white '>
                         {/* Title */}
                         <h1 className='text-xl font-bold text-center  pb-2'>Total products</h1>
                         {/* total products */}

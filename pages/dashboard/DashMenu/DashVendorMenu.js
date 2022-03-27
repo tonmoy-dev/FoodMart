@@ -12,7 +12,15 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import useFirebase from "../../../src/Authenticaion/hooks/useFirebase";
 import { useRouter } from "next/router";
+import {
+  FaToggleOn,
+  FaHome,
+  FaPlusSquare,
+  FaUserCircle,
+  FaElementor,
+} from "react-icons/fa";
 
+// BiToggleRight
 const DashVendorMenu = () => {
   const router = useRouter();
   // const path = router.asPath;
@@ -50,6 +58,13 @@ const DashVendorMenu = () => {
       menuId: 1,
       menuName: "Add Product",
       pageLink: "/dashboard/admin/add-product",
+      icons: <FaPlusSquare />,
+    },
+    {
+      menuId: 2,
+      menuName: "Your Profile",
+      pageLink: "/dashboard/admin/user-profile",
+      icons: <FaUserCircle />,
     },
   ];
 
@@ -82,60 +97,26 @@ const DashVendorMenu = () => {
         >
           <MenuIcon className="primary-color" />
         </div>
-        {/* menu button */}
-        {/* <div className="relative hidden lg:block">
-          <SearchIcon className="absolute left-2 top-2 w-6 primary-color" />
-          <input
-            type="text"
-            placeholder="Search for products"
-            className="block pl-11 pr-2 w-72 border-none rounded-3xl focus:ring-gray-400 focus:outline-none py-2 bg-gray-100 text-base text-gray-600"
-          />
-        </div> */}
+        {/* toggole button for sidebar */}
+        <div className="mr-4 hidden lg:table border rounded">
+          <FaToggleOn className="w-6 cursor-pointer primary-color hover:text-green-600" />
+        </div>
+        <div className="relative hidden lg:flex flex-col">
+          <h1 className="font-semibold text-lg">Analytics</h1>
+          <h1 className="text-sm">
+            Welcome Back <span className="capitalize">{userNow?.role}</span> !
+          </h1>
+        </div>
         <div className="ml-auto lg:flex hidden items-center">
-          {/* <div>
-            <BellIcon className="w-6 cursor-pointer primary-color hover:text-green-400" />
-          </div> */}
-          <div className="ml-4 relative">
-            <div
-              onClick={handleToggle}
-              className="cursor-pointer flex items-center gap-1"
-            >
-              <UserCircleIcon
-                id="dropdown"
-                className="h-8 w-8 primary-color rounded-full"
+          <div className="ml-4 relative flex  items-center flex-row gap-4">
+            <div className="w-8 h-8 rounded-full border">
+              <img
+                className="rounded-full"
+                src={user?.photoURL}
+                alt="profile image"
               />
-              <h1 className="font-medium uppercase">{userNow?.name}</h1>
             </div>
-            <div
-              id="dropdown_settings"
-              className={`absolute ${
-                isActive ? "hidden" : ""
-              } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
-            >
-              <div className="px-4 py-2 text-xs text-gray-400">
-                Manage Account
-              </div>
-              <a
-                href="#"
-                className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
-              >
-                Profile
-              </a>
-              <a
-                href="#"
-                className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
-              >
-                Settings
-              </a>
-              <div className="border-t border-gray-100"></div>
-              <a
-                onClick={logOut}
-                href="#"
-                className="block px-4 text-sm leading-5 py-2 text-gray-700 hover:bg-gray-100 transition"
-              >
-                Logout
-              </a>
-            </div>
+            <h1 className="font-medium uppercase">{userNow?.name}</h1>
           </div>
         </div>
       </div>
@@ -147,8 +128,9 @@ const DashVendorMenu = () => {
           isActive ? "hidden md:block" : "active"
         } fixed flex flex-col left-0 top-0 w-72 h-full bg-gray-200 shadow-sm z-10 transition-all`}
       >
-        <div className="relative text-dark font-bold text-xl uppercase text-center py-6 bg-gray-200 border-b-4 border-white">
-          <h1 className="primary-color">
+        <div className="relative text-dark font-bold text-xl uppercase text-left py-6 bg-gray-200 border-b-4 border-white">
+          <h1 className="primary-color ml-6 flex items-center gap-4">
+            <FaElementor />
             <Link href="/">
               <a href="">
                 food<span className="text-orange-400">Mart</span>
@@ -165,26 +147,26 @@ const DashVendorMenu = () => {
           <div className="py-5">
             <Link href="/dashboard/dashboard">
               <a
-                className={`flex items-center my-1 px-6 py-3 hover:text-white border-l-4 border-transparent transition ${
+                className={`flex gap-4 items-center my-1 px-6 py-3 hover:text-white border-l-4 border-transparent transition ${
                   router.asPath == "/dashboard/dashboard"
                     ? "primary-bg-color border-orange-500 text-white"
                     : "text-black"
                 } hover:border-orange-500 hover:bg-lime-700`}
               >
-                Home
+                <FaHome /> <span>Home</span>
               </a>
             </Link>
             {vendorMenu?.map((menu) => (
               <div key={menu.menuId}>
                 <Link href={`${menu.pageLink}`}>
                   <a
-                    className={`flex items-center my-1 px-6 py-3  hover:text-white border-l-4 hover:border-orange-500 ${
+                    className={`flex gap-4 items-center my-1 px-6 py-3  hover:text-white border-l-4 hover:border-orange-500 ${
                       router.asPath == menu.pageLink
                         ? "primary-bg-color border-orange-500 text-white "
                         : "text-black"
                     } hover:bg-lime-700`}
                   >
-                    {menu.menuName}
+                    {menu.icons} <span>{menu.menuName}</span>
                   </a>
                 </Link>
               </div>
@@ -192,10 +174,10 @@ const DashVendorMenu = () => {
 
             {/* for mobile device */}
             <a
-              href="#"
-              className="flex lg:hidden items-center my-1 px-4 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-green-500"
+              onClick={logOut}
+              className="flex gap-4 items-center my-1 px-6 py-3 text-dark hover:text-white border-l-4 border-transparent transition hover:border-orange-500 hover:bg-lime-700 cursor-pointer"
             >
-              <LogoutIcon className="w-5 mr-3" />
+              <LogoutIcon className="w-5" />
               Logout
             </a>
           </div>
