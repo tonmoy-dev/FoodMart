@@ -113,7 +113,7 @@ const DashVendorMenu = () => {
               } z-50 mt-4 rounded shadow-lg w-48 right-0 py-1 bg-white`}
             >
               <div className="px-4 py-2 text-xs text-gray-400">
-                Manage Account
+                Manage Accoun
               </div>
               <a
                 href="#"
