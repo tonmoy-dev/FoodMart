@@ -1,33 +1,19 @@
 import axios from "axios";
 import Image from "next/image";
-import { useRouter } from 'next/router';
-import React, { useEffect, useState } from "react";
+// import { useRouter } from 'next/router';
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchCartProducts, fetchCompareProducts } from "../../src/redux/slices/productSlice";
+import { removeCompareItem } from "../../src/redux/slices/compareSlice";
+import { fetchCartProducts } from "../../src/redux/slices/productSlice";
 
 const Compare = () => {
     const [control, setControl] = useState(false);
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const user = useSelector((state) => state.states.user);
+    const compareItems = useSelector((state) => state.compareList.compareList);
     const dispatch = useDispatch();
 
-    // private routing
-    const router = useRouter();
-    if (!user?.email) {
-        router.push('/login');
-    }
-
-    useEffect(() => {
-        setControl(true);
-        setLoading(true);
-        axios.get(`/api/compare?email=${user.email}`).then((response) => {
-            setProducts(response.data);
-            setLoading(false);
-        });
-    }, [control, products]);
 
     // Add to cart a product
     const addToCartHandler = async (title, image, price) => {
@@ -53,23 +39,9 @@ const Compare = () => {
             });
     };
 
-    const handleDeleteProduct = async (id) => {
-        axios.delete(`/api/compare?_id=${id}`, {}).then((response) => {
-            if (response.data.deletedCount) {
-                setControl(!control);
-                dispatch(fetchCompareProducts(user));
-                toast.warn('Removed a product.', {
-                    position: "bottom-left"
-                  });
-            } else {
-                setControl(false);
-            }
-        });
-    };
-
     return (
         <div div className="py-16 mx-5 md:mx-20">
-            <h2 className=" text-black font-semibold text-3xl text-center pb-2">
+            <h2 className="pb-2 text-3xl font-semibold text-center text-black ">
                 Products Compare
             </h2>
 
@@ -78,10 +50,10 @@ const Compare = () => {
                 <div className="pt-10 overflow-auto">
                     <table className="w-full">
                         
-                        <tbody className="flex border rounded p-4 overflow-auto w-full">
-                            {products.length !== 0 && (
-                                <tr className="flex flex-col w-1/4  border">
-                                    <td className="p-3 h-32 md:h-48 border-b">
+                        <tbody className="flex w-full p-4 overflow-auto border rounded">
+                            {compareItems.length !== 0 && (
+                                <tr className="flex flex-col w-1/4 border">
+                                    <td className="h-32 p-3 border-b md:h-48">
                                         <p className="text-sm font-semibold text-gray-500">
                                             Preview
                                         </p>
@@ -106,7 +78,7 @@ const Compare = () => {
                                             Description
                                         </h3>
                                     </td>
-                                    <td className="p-3 h-14 border-b">
+                                    <td className="p-3 border-b h-14">
                                         <h3 className="text-sm font-semibold text-gray-500">
                                             Stock status
                                         </h3>
@@ -123,13 +95,13 @@ const Compare = () => {
                                     </td>
                                 </tr>
                             )}
-                            {products == false && (
-                                <h2 className="text-2xl text-center m-auto py-12">
+                            {compareItems == false && (
+                                <h2 className="py-12 m-auto text-2xl text-center">
                                     You have no Compare Products! Please add
                                     Products.
                                 </h2>
                             )}
-                            {products?.slice(0, 3).map((product) => {
+                            {compareItems.map((product) => {
                                 const {
                                     _id,
                                     product_imageUrl,
@@ -143,9 +115,9 @@ const Compare = () => {
                                 return (
                                     <tr
                                         key={_id}
-                                        className="flex flex-col w-1/4  border"
+                                        className="flex flex-col w-1/4 border"
                                     >
-                                        <td className="flex justify-center items-center h-32 md:h-48 border-b">
+                                        <td className="flex items-center justify-center h-32 border-b md:h-48">
                                             <Image
                                                 src={product_imageUrl}
                                                 alt="product image"
@@ -169,11 +141,6 @@ const Compare = () => {
                                                 {user_rating}
                                             </h3>
                                         </td>
-                                        {/* <td className="h-40 p-4 border-b overflow-scroll">
-                                            <h3 className="text-sm font-semibold text-gray-500">
-                                                {produc_Details.slice(0, 180)}
-                                            </h3>
-                                        </td> */}
                                         <td className="p-4 border-b">
                                             <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                 {product_stock}
@@ -188,19 +155,15 @@ const Compare = () => {
                                                         product_price
                                                     )
                                                 }
-                                                className="p-2 text-xs font-medium uppercase tracking-wider primary-color bg-green-300 rounded-md bg-opacity-50 border border-green-300 hover:bg-opacity-80 hover:text-green-600"
+                                                className="p-2 text-xs font-medium tracking-wider uppercase bg-green-300 bg-opacity-50 border border-green-300 rounded-md primary-color hover:bg-opacity-80 hover:text-green-600"
                                             >
                                                 Add to cart
                                             </button>
                                         </td>
                                         <td className="p-4 border-b">
                                             <button
-                                                onClick={() =>
-                                                    handleDeleteProduct(
-                                                        product._id
-                                                    )
-                                                }
-                                                className="text-sm font-semibold text-red-400 bg-red-200 bg-opacity-60 px-2 py-1 rounded-md"
+                                                onClick={() => dispatch(removeCompareItem(_id))}
+                                                className="px-2 py-1 text-sm font-semibold text-red-400 bg-red-200 rounded-md bg-opacity-60"
                                             >
                                                 Delete
                                             </button>
