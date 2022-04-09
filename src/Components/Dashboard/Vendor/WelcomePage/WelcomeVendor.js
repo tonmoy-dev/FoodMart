@@ -120,7 +120,7 @@ const WelcomeVendor = () => {
 
 
     return (
-        <div className='bg-gray-100 py-2'>
+        <div className='bg-gray-100 py-4 mt-20'>
             {/* <h1 className="text-center text-3xl font-bold py-5">Welcome to <span className="">{userNow?.role}</span> dashboard</h1> */}
             {/* Simple data */}
             <div className='grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 justify-center items-center mt-4'>
