@@ -12,7 +12,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchCartProducts, loading, setloading } from "../../redux/slices/productSlice";
+import { fetchCartProducts, loading, setloading, setTotalPrice } from "../../redux/slices/productSlice";
 
 const Cart = ({ createCheckoutSession}) => {
   const [color, setColor] = useState("green");
@@ -41,6 +41,7 @@ const Cart = ({ createCheckoutSession}) => {
           position: "bottom-left"
         });
         dispatch(fetchCartProducts(user));
+        dispatch(setTotalPrice(items))
       }
     });
     dispatch(setloading(false));

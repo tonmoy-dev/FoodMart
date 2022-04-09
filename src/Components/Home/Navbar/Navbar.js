@@ -17,6 +17,7 @@ import logo from "../../../../public/Logo-7.png";
 import helplinePic from "../../../assets/images/navbar/helpline.png";
 import useFirebase from "../../../Authenticaion/hooks/useFirebase";
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
+import Cart from "../../Cart/Cart";
 import NavSearchProduct from "../../navSearchproduct/NavSearchProduct";
 // import Cart from "../../Cart/Cart";
 import AllCatagories from "./AllCatagories/AllCatagories";
@@ -46,9 +47,9 @@ const Navigation = ()=> {
 
     // redux fetch
     const dispatch = useDispatch();
-    const wish = useSelector((state) => state.products.wishlistProducts);
+    const wishlist = useSelector((state) => state.wishlists.wishlists);
+    const compareList = useSelector((state) => state.compareList.compareList);
     const cart = useSelector((state) => state.products.cartProducts);
-    const compare = useSelector((state) => state.products.compareProducts);
 
     useEffect(() => {
         dispatch(fetchWishlistProducts(user));
@@ -75,26 +76,26 @@ const Navigation = ()=> {
                 }
             `}</style>
             <TopBar />
-            <Disclosure as="nav" className="bg-white relative pt-1">
+            <Disclosure as="nav" className="relative pt-1 bg-white">
                 {({ open }) => (
                     <>
                         {/* Horizontal Navigation Bar */}
-                        <div className="relative max-w-8xl mx-auto px-2 sm:px-6 lg:px-8">
+                        <div className="relative px-2 mx-auto max-w-8xl sm:px-6 lg:px-8">
                             <div className="relative flex items-center justify-between h-20 border-b border-gray-200">
                                 <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                                     {/* Mobile hamburger menu button*/}
-                                    <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-Black">
+                                    <Disclosure.Button className="inline-flex items-center justify-center p-2 text-gray-500 rounded-md hover:text-Black">
                                         <span className="sr-only">
                                             Open main menu
                                         </span>
                                         {open ? (
                                             <XIcon
-                                                className="block h-6 w-6"
+                                                className="block w-6 h-6"
                                                 aria-hidden="true"
                                             />
                                         ) : (
                                             <MenuIcon
-                                                className="block h-6 w-6"
+                                                className="block w-6 h-6"
                                                 aria-hidden="true"
                                             />
                                         )}
@@ -102,13 +103,13 @@ const Navigation = ()=> {
                                 </div>
 
                                 {/* Large Screen NavBar */}
-                                <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                                <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
                                     {/* Logo */}
-                                    <div className="flex-shrink-0 ml-10 md:ml-0 flex items-center">
+                                    <div className="flex items-center flex-shrink-0 ml-10 md:ml-0">
                                         <Image
                                             width="190px"
                                             height="60px"
-                                            className="block lg:hidden h-8 w-auto"
+                                            className="block w-auto h-8 lg:hidden"
                                             src={logo}
                                             alt="FoodMart"
                                         />
@@ -116,9 +117,9 @@ const Navigation = ()=> {
                                     {/* search bar */}
                                     <div className="hidden w-full z-50 sm:block pt-3.5 sm:ml-6 justify-center md:flex2 sm:pr-6 grow">
                                         <div className="relative">
-                                            <div className="w-full ml-5 z-50 relative mx-auto text-gray-600">
+                                            <div className="relative z-50 w-full mx-auto ml-5 text-gray-600">
                                                 <input
-                                                    className="border-2 border-gray-100 bg-white h-9 w-full px-5 pr-12 rounded-md text-sm "
+                                                    className="w-full px-5 pr-12 text-sm bg-white border-2 border-gray-100 rounded-md h-9 "
                                                     type="search"
                                                     name="search"
                                                     onChange={(event) => {
@@ -131,12 +132,12 @@ const Navigation = ()=> {
                                                 />
                                                 <button
                                                     type="submit"
-                                                    className="absolute right-0 top-0 primary-bg-color p-3 rounded-r text-white"
+                                                    className="absolute top-0 right-0 p-3 text-white rounded-r primary-bg-color"
                                                 >
-                                                    <FaSearch className="h-3 w-3" />
+                                                    <FaSearch className="w-3 h-3" />
                                                 </button>
                                             </div>
-                                            <div className="absolute w-full z-50 ml-5 overflow-y-visible mx-auto text-gray-600 bg-white shadow rounded-md">
+                                            <div className="absolute z-50 w-full mx-auto ml-5 overflow-y-visible text-gray-600 bg-white rounded-md shadow">
                                                 {products
                                                     .filter((product) => {
                                                         if (searchItem == "") {
@@ -168,46 +169,46 @@ const Navigation = ()=> {
                                 {/* Right side menu buttons */}
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-x-4">
                                     {/* Compare button */}
-                                    <div className="text-gray-600 right-nav hidden md:block">
+                                    <div className="hidden text-gray-600 right-nav md:block">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative cursor-default"
+                                            className="relative cursor-default nav-icon-btn"
                                         >
                                             <RefreshIcon className="w-7" />
                                             <span className="text-white font-base text-xs  primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
-                                                {!loading && compare?.length}
+                                                {!loading && compareList?.length}
                                                 {loading && '0'}
                                             </span>
                                         </button>
-                                        <Link href="/compare">
+                                        <Link href="/compare-list">
                                             <a className="text-sm font-medium">
                                                 Compare
                                             </a>
                                         </Link>
                                     </div>
                                     {/* Wishlist button */}
-                                    <div className="text-gray-600 right-nav hidden md:block">
+                                    <div className="hidden text-gray-600 right-nav md:block">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative cursor-default"
+                                            className="relative cursor-default nav-icon-btn"
                                         >
                                             <HeartIcon className="w-7" />
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 pt-0.5 left-4">
-                                                {!loading && wish?.length}
+                                                {!loading && wishlist?.length}
                                                 {loading && '0'}
                                             </span>
                                         </button>
-                                        <Link href="/dashboard/user/wish-list">
+                                        <Link href="/wish-list">
                                             <a className="text-sm font-semibold text-gray-600">
                                                 Wishlist
                                             </a>
                                         </Link>
                                     </div>
                                     {/* Cart button */}
-                                    <div className="text-gray-600 right-nav hidden md:block">
+                                    <div className="hidden text-gray-600 right-nav md:block">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative cursor-default"
+                                            className="relative cursor-default nav-icon-btn"
                                         >
                                             <ShoppingCartIcon className="w-7" />
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
@@ -215,21 +216,24 @@ const Navigation = ()=> {
                                                 {loading && '0'}
                                             </span>
                                         </button>
-                                        <div className="cart-modal-button relative text-sm inline font-semibold text-gray-600">
-                                            <Link href="/cart">
+                                        <div className="relative inline text-sm font-semibold text-gray-600 cursor-pointer cart-modal-button">
+                                            {/* <Link href="/cart"> */}
                                                 <a className="text-sm font-semibold text-gray-600">
                                                     Cart
                                                 </a>
-                                            </Link>
+                                            {/* </Link> */}
+                                            <div className="absolute z-50 hidden bg-white border-2 rounded-md shadow-sm cart-modal top-5 -right-2 w-96">
+                                                    <Cart></Cart>
+                                                </div>
                                         </div>
                                     </div>
                                     {/* Cart button small screen*/}
-                                    <div className="text-gray-600 right-nav mr-10 md:mr-0 md:hidden">
+                                    <div className="mr-10 text-gray-600 right-nav md:mr-0 md:hidden">
                                         <button
                                             type="button"
-                                            className="nav-icon-btn relative cursor-default"
+                                            className="relative cursor-default nav-icon-btn"
                                         >
-                                            <Link className="w-7 hidden" href="/cart"><a><ShoppingCartIcon className="w-7" /></a></Link>
+                                            <Link className="hidden w-7" href="/cart"><a><ShoppingCartIcon className="w-7" /></a></Link>
                                             <span className="text-white font-base text-xs primary-bg-color w-5 h-5 rounded-full absolute -top-1 left-4 pt-0.5 ">
                                             {!loading && cart?.length}
                                             {loading && '0'}
@@ -242,11 +246,11 @@ const Navigation = ()=> {
                                     as="div"
                                     className="relative z-50 ml-0 md:ml-3"
                                 >
-                                    <div className="flex items-center text-sm gap-x-1 rounded-md border p-1">
+                                    <div className="flex items-center p-1 text-sm border rounded-md gap-x-1">
                                         <Menu.Button className="">
-                                            <FaRegUser className="h-7 w-7 bg-gray-200 hover:bg-gray-300 p-1 rounded-md" />
+                                            <FaRegUser className="p-1 bg-gray-200 rounded-md h-7 w-7 hover:bg-gray-300" />
                                         </Menu.Button>
-                                        <div className="md:flex gap-x-1 font-medium hidden">
+                                        <div className="hidden font-medium md:flex gap-x-1">
                                             <Link href="/register">
                                                 <a className="text-gray-600">
                                                     Register
@@ -269,7 +273,7 @@ const Navigation = ()=> {
                                         leaveFrom="transform opacity-100 scale-100"
                                         leaveTo="transform opacity-0 scale-95"
                                     >
-                                        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        <Menu.Items className="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                                             <Menu.Item>
                                                 {user?.email ? (
                                                     <p className="block px-4 py-2 text-sm text-gray-700">
@@ -341,8 +345,8 @@ const Navigation = ()=> {
                         </div>
 
                         {/* Small screen navigation / Hamburger Navigation Menu */}
-                        <Disclosure.Panel className="absolute top-16 left-0 z-40 w-full">
-                            <div className="px-3 py-4 space-y-1 text-center shadow-lg mx-2 rounded-md bg-white">
+                        <Disclosure.Panel className="absolute left-0 z-40 w-full top-16">
+                            <div className="px-3 py-4 mx-2 space-y-1 text-center bg-white rounded-md shadow-lg">
                                 {navigation.map((item) => (
                                     <Disclosure.Button
                                         key={item.name}
@@ -367,11 +371,11 @@ const Navigation = ()=> {
                 )}
             </Disclosure>
             {/* Large Screen second bar */}
-            <div className="sticky top-0 z-30 bg-white py-2 hidden md:block max-w-8xl mx-auto px-2 sm:px-6 lg:px-8 shadow-sm transition-all">
+            <div className="sticky top-0 z-30 hidden px-2 py-2 mx-auto transition-all bg-white shadow-sm md:block max-w-8xl sm:px-6 lg:px-8">
                 <div className="relative flex items-center h-10">
                     {/* catagoies button */}
                     <AllCatagories></AllCatagories>
-                    <div className="hidden sm:block sm:ml-6 justify-center items-center md:flex grow">
+                    <div className="items-center justify-center hidden sm:block sm:ml-6 md:flex grow">
                         {/* Large Screen Navigation */}
                         <div className="flex space-x-4">
                             {navigation.map((item) => (
@@ -393,10 +397,11 @@ const Navigation = ()=> {
                             ))}
                         </div>
 
-                        {/* Dropdown Navigation Menu*/}
+                        {/* Dropdown Navigation Mega Menu*/}
                         <DropdownNavMenu></DropdownNavMenu>
                     </div>
-                    <div className="flex items-center gap-x-3 text-sm text-gray-500 font-medium">
+                    {/* Helpline */}
+                    <div className="flex items-center text-sm font-medium text-gray-500 gap-x-3">
                         <Image
                             src={helplinePic}
                             alt="Picture of the author"

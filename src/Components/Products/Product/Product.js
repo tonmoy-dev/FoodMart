@@ -10,14 +10,16 @@ import Rating from "react-rating";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addToCompareList } from "../../../redux/slices/compareSlice";
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
+import { addToWishlist } from "../../../redux/slices/wishlistSlice";
 
 const Product = ({ product }) => {
   const [control, setControl] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.states.user);
   const router = useRouter();
-  const compareItems = useSelector((state) => state.products.compareProducts);
+  const compareItems = useSelector((state) => state.compareList.compareList);
 
   useEffect(() => {
     dispatch(fetchWishlistProducts(user));
@@ -26,63 +28,6 @@ const Product = ({ product }) => {
     dispatch(setloading(false));
   }, [dispatch, control]);
 
-  // add to wishlists
-  const handleAddWishlist = async (product_title, product_price, user_rating, product_stock, product_imageUrl, email) => {
-    // private routing
-    if (!user?.email) {
-        router.push('/login');
-    }
-    else if (user?.email) {
-      axios.post("/api/wishlists", { 
-        product_title: product_title,
-        product_price: product_price,
-        user_rating: user_rating,
-        product_stock: product_stock,
-        product_imageUrl: product_imageUrl,
-        email:email
-       }).then((response) => {
-  
-        if (response.data.insertedId) {
-          setControl(true);
-          dispatch(fetchWishlistProducts(user));
-          toast.success('Wow! Added to wishlist.', {
-            position: "bottom-left"
-          });
-        } else {
-          setControl(false);
-        }
-      });
-    }
-    
-  };
-
-  // add to compare lists
-  const handleAddCompare = async (product_title,product_price,user_rating,product_stock,product_imageUrl,produc_Details,email) => {
-    // private routing
-    if (!user?.email) {
-      router.push('/login');
-    }
-    else if (user?.email) { 
-      axios.post("/api/compare", {
-        product_title: product_title,
-        product_price: product_price,
-        user_rating: user_rating,
-        product_stock: product_stock,
-        product_imageUrl: product_imageUrl,
-        produc_Details: produc_Details,
-        email:email  
-      }).then((response) => {
-        if (response.data.insertedId) {
-          setControl(true);
-          dispatch(fetchCompareProducts(user));
-          toast.success('Wow! Added to compare list.', {
-            position: "bottom-left"
-          });
-        }
-        setControl(false);
-      });
-    }
-  };
   // handle maximum products for compare list
   const handleNoCompare = () => {
     toast.warn('Sorry! Maximum products added.', {
@@ -118,7 +63,6 @@ const Product = ({ product }) => {
         setControl(false);
       });
     }
-    
   };
   const {
     _id,
@@ -138,47 +82,49 @@ const Product = ({ product }) => {
   
         <Script src="https://kit.fontawesome.com/0368de2544.js" crossorigin="anonymous"></Script>
 
-      <div className="product-card bg-white relative border-gray-200 border rounded-md hover:drop-shadow-lg p-3">
-        <div className="z-50 absolute left-0 right-0 top-40">
-          <div className="product-card-overlay transition flex justify-center items-center h-full gap-2 text-gray-500 md:text-gray-600 bg-white w-3/5 py-3 md:py-2 mx-auto rounded-full shadow-lg relative">
+      <div className="relative p-3 bg-white border border-gray-200 rounded-md product-card hover:drop-shadow-lg">
+        <div className="absolute left-0 right-0 z-50 top-40">
+          <div className="relative flex items-center justify-center w-3/5 h-full gap-2 py-3 mx-auto text-gray-500 transition bg-white rounded-full shadow-lg product-card-overlay md:text-gray-600 md:py-2">
             <button data-tooltip="+ Add to wishlist">
               <HeartIcon
-                onClick={() => handleAddWishlist(product_title, product_price, user_rating, product_stock, product_imageUrl, user.email)}
-                className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white relative"
+                onClick={()=> dispatch(addToWishlist(product))}
+                className="relative p-1 rounded-full w-9 md:w-7 hover:bg-green-600 hover:text-white"
               />
             </button>
             <Link href={`/products/${_id}`}>
               <button data-tooltip="Quick view">
-                <EyeIcon className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+                <EyeIcon className="p-1 rounded-full w-9 md:w-7 hover:bg-green-600 hover:text-white" />
               </button>
             </Link>
             {
               (compareItems.length <= 2) && (
                 <button data-tooltip="+ Add to compare">
-              <RefreshIcon onClick={() => handleAddCompare(product_title, product_price, user_rating, product_stock, product_imageUrl, produc_Details, user.email)} className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+                  <RefreshIcon
+                    onClick={()=> dispatch(addToCompareList(product))}
+                    className="p-1 rounded-full w-9 md:w-7 hover:bg-green-600 hover:text-white" />
             </button>
               )
             }
             {
               (compareItems.length >= 3) && (
                 <button data-tooltip="+ Add to compare">
-              <RefreshIcon onClick={handleNoCompare} className="w-9 md:w-7 p-1 rounded-full hover:bg-green-600 hover:text-white" />
+              <RefreshIcon onClick={handleNoCompare} className="p-1 rounded-full w-9 md:w-7 hover:bg-green-600 hover:text-white" />
             </button>
               )
             }
           </div>
         </div>
 
-        <span className="absolute left-0 top-0 z-10 px-2 py-1  bg-red-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+        <span className="absolute top-0 left-0 z-10 px-2 py-1 mt-2 text-xs font-semibold tracking-wide text-white uppercase bg-red-500 rounded-full rounded-l-none">
           {product_badge}
         </span>
         {product_badge == "Sale" && (
-          <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-pink-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+          <span className="absolute top-0 left-0 z-10 px-2 py-1 mt-2 text-xs font-semibold tracking-wide text-white uppercase bg-pink-500 rounded-full rounded-l-none">
             {product_badge}
           </span>
         )}
         {product_badge == "New" && (
-          <span className="absolute top-0 left-0 z-10 px-2 py-1  bg-blue-500 text-white rounded-l-none mt-2 rounded-full font-semibold uppercase tracking-wide text-xs">
+          <span className="absolute top-0 left-0 z-10 px-2 py-1 mt-2 text-xs font-semibold tracking-wide text-white uppercase bg-blue-500 rounded-full rounded-l-none">
             {product_badge}
           </span>
         )}
@@ -196,7 +142,7 @@ const Product = ({ product }) => {
             {product_category}
           </span>
           <a href="./">
-            <h3 className="text-md font-semibold tracking-tight text-gray-900">
+            <h3 className="font-semibold tracking-tight text-gray-900 text-md">
               {product_title.slice(0, 20)}..
             </h3>
           </a>
@@ -211,12 +157,12 @@ const Product = ({ product }) => {
             </span>
           </div>
 
-          <div className=" mb-2 text-xs font-semibold">
+          <div className="mb-2 text-xs font-semibold ">
             <span>By </span>
             <span className="text-green-600">{vendor_name}</span>
           </div>
-          <div className="flex justify-between items-center">
-            <div className="flex justify-between items-center">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between">
               <span className="text-xl font-bold text-dark">
                 ${product_price}
               </span>
@@ -231,7 +177,7 @@ const Product = ({ product }) => {
                   produc_Details
                 )
               }
-              className="primary-color bg-white shadow  rounded-full hover:bg-green-500 focus:ring-0 p-3 border-2 hover:text-white"
+              className="p-3 bg-white border-2 rounded-full shadow primary-color hover:bg-green-500 focus:ring-0 hover:text-white"
             >
               <FaCartPlus className="w-6 h-6" />
             </a>

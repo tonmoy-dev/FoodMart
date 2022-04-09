@@ -70,10 +70,14 @@ const Dashboard = () => {
         user?.email && (
           <div>
             <div id="dashboard-container" className="">
-            <DashUserMenu />
+            <DashVendorMenu />
+            {/* <DashAdminMenu /> */}
+            {/* <DashUserMenu /> */}
             </div>
-            <div id="main-content" className="pt-24 pr-8 pl-8 lg:pl-80">
-            <WelcomeUser />
+            <div id="main-content" className="pt-20 pr-8 pl-8 lg:pl-80 bg-gray-100">
+            <WelcomeVendor />
+            {/* <WelcomeAdmin /> */}
+            {/* <WelcomeUser /> */}
               </div>
           </div>
 

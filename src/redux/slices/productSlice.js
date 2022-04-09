@@ -29,6 +29,7 @@ const productSlice = createSlice({
         compareProducts: [],
         wishlistProducts: [],
         loading: false,
+        totalPrice: 0,
         errorMessage: ""
     
     },
@@ -36,6 +37,7 @@ const productSlice = createSlice({
         setloading: (state, { payload }) => {
             state.loading = payload;
         },
+
     },
 
     extraReducers: (builder) => {

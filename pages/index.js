@@ -11,7 +11,7 @@ import PopularProducts from "../src/Components/Home/PopularProducts/PopularProdu
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import OfferModal from "../src/Components/OfferModal/OfferModal";
+// import OfferModal from "../src/Components/OfferModal/OfferModal";
 import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
@@ -21,7 +21,7 @@ export default function Home({ reviews, products, blogs }) {
     setOpenModal(true);
     setTimeout(() => {
       setOpenModal(false);
-    }, 3000);
+    }, 1000);
   }, []);
   const handleModal = () => {
     setOpenModal(true);
@@ -29,7 +29,7 @@ export default function Home({ reviews, products, blogs }) {
 
   return (
     <div className="">
-      {!openModal && (
+      {/* {!openModal && (
         <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
           <OfferModal handleModal={handleModal}></OfferModal>
           <style>
@@ -38,7 +38,7 @@ export default function Home({ reviews, products, blogs }) {
           }`}
           </style>
         </div>
-      )}
+      )} */}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
@@ -77,13 +77,10 @@ export async function getStaticProps() {
 /* export const getServerSideProps = async () => {
   const reviews_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/reviews`);
   const reviews = await reviews_res.json();
-
   const products_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/products`);
   const products = await products_res.json();
-
   const blogs_res = await fetch(`${process.env.MY_APP_DOMAIN}/api/blogs`);
   const blogs = await blogs_res.json();
-
   return {
     props: { reviews, products, blogs },
   };

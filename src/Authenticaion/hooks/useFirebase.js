@@ -1,6 +1,6 @@
 import axios from "axios";
 import {
-  createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
+  createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from "firebase/auth";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
@@ -14,12 +14,12 @@ import {
 import InitializeFirebase from "../firebase.init";
 
 InitializeFirebase();
-const googleProvider = new GoogleAuthProvider();
-const auth = getAuth();
 
 const useFirebase = () => {
   const dispatch = useDispatch();
   const router = useRouter();
+  const auth = getAuth();
+  const googleProvider = new GoogleAuthProvider();
 
   // google-sign-in-method
   const googleSign = () => {
@@ -27,9 +27,11 @@ const useFirebase = () => {
     signInWithPopup(auth, googleProvider)
       .then((result) => {
         const user = result.user;
+        const email = user.email;
+        localStorage.setItem('userEmail', `${email}`);
+        dispatch(setUser(user));
         saveUser(user, "PUT");
         router.push("/");
-        dispatch(setUser(user));
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -97,23 +99,36 @@ const useFirebase = () => {
       });
   };
 
+  const handleFacebookSignIn = () =>{
+    signInWithPopup(auth, facebookProvider)
+
+    .then((result) => {
+      console.log(result)
+      const user = result.user;
+      console.log(user)
+  
+      const credential = FacebookAuthProvider.credentialFromResult(result);
+      const accessToken = credential.accessToken;
+    })
+    .catch((error) => {
+      // Handle Errors here
+      console.log(error)
+    });
+
+  }
+
       // Observe user state
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
-      dispatch(setUser(user));
       if (user) {
         dispatch(setUser(user));
-        // getIdToken(user)
-        //     .then(idToken => {
-        //         dispatch(setIdToken(idToken));
-        //     })
       } else {
         dispatch(setUser({}));
       }
       dispatch(setIsLoading(false));
     });
     return () => unsubscribed;
-  }, [dispatch]);
+  }, [dispatch, auth]);
 
   // save user information
   const saveUser = (user, method) => {
@@ -143,6 +158,7 @@ const useFirebase = () => {
     logOut,
     signWithEmailPass,
     registerWithEmailPass,
+    handleFacebookSignIn
   };
 };
 
