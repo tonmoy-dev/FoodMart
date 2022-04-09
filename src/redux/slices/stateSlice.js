@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const counterSlice = createSlice({
   name: "counter",
   initialState: {
-    user:{},
+    user: {},
     isLoading: false,
     registerError: "",
     googleLoginError: "",
@@ -30,6 +30,7 @@ export const counterSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const {
+  setUserEmail,
   setUser,
   setIsLoading,
   setRegisterError,

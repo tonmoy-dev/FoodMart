@@ -58,6 +58,7 @@
     "react-spinners": "^0.11.0",
     "react-toastify": "^8.2.0",
     "recharts": "^2.1.9",
+    "redux-persist": "^6.0.0",
     "slick-carousel": "^1.8.1",
     "stripe": "^8.203.0",
     "sweetalert": "^2.1.2",
