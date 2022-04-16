@@ -1,5 +1,4 @@
 import { EyeIcon, HeartIcon, RefreshIcon } from "@heroicons/react/outline";
-import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/router';
@@ -10,6 +9,7 @@ import Rating from "react-rating";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { addToCart } from "../../../redux/slices/cartSlice";
 import { addToCompareList } from "../../../redux/slices/compareSlice";
 import { fetchCartProducts, fetchCompareProducts, fetchWishlistProducts, setloading } from "../../../redux/slices/productSlice";
 import { addToWishlist } from "../../../redux/slices/wishlistSlice";
@@ -36,33 +36,17 @@ const Product = ({ product }) => {
   }
   
   // Add to cart a product
-  const addToCartHandler = async (title, image, price, description) => {
-    dispatch(setloading(true));
-    
-    // private routing
-    if (!user?.email) {
-      router.push('/login');
+  const addToCartHandler = async (id, title, image, price, description) => {
+    const cartItem = {
+      _id: id,
+      title: title,
+      image: image,
+      price: price,
+      description: description,
+      quantity: 1,
+      email: user.email
     }
-    else if (user?.email) {
-      axios.post("/api/cart", {
-        title: title,
-        image: image,
-        price: price,
-        description: description,
-        quantity: 1,
-        email: user.email
-      })
-      .then((response) => {
-        if (response.data.insertedId) {
-          setControl(true);
-          dispatch(fetchCartProducts(user));
-          toast.success('Wow! Added to your cart.', {
-            position: "bottom-left"
-          });
-        }
-        setControl(false);
-      });
-    }
+    dispatch(addToCart(cartItem));
   };
   const {
     _id,
@@ -171,6 +155,7 @@ const Product = ({ product }) => {
               href="#"
               onClick={() =>
                 addToCartHandler(
+                  _id,
                   product_title,
                   product_imageUrl,
                   product_price,

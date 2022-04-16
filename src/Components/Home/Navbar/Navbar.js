@@ -1,10 +1,10 @@
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import {
-  HeartIcon,
-  MenuIcon,
-  RefreshIcon,
-  ShoppingCartIcon,
-  XIcon
+    HeartIcon,
+    MenuIcon,
+    RefreshIcon,
+    ShoppingCartIcon,
+    XIcon
 } from "@heroicons/react/outline";
 import axios from "axios";
 import Image from "next/image";
@@ -49,7 +49,7 @@ const Navigation = ()=> {
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlists.wishlists);
     const compareList = useSelector((state) => state.compareList.compareList);
-    const cart = useSelector((state) => state.products.cartProducts);
+    const cart = useSelector((state) => state.cartItems.cart);
 
     useEffect(() => {
         dispatch(fetchWishlistProducts(user));
