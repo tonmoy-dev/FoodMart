@@ -10,15 +10,16 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import { fetchCartProducts, loading, setloading, setTotalPrice } from "../../redux/slices/productSlice";
+import { removeCartItem } from "../../redux/slices/cartSlice";
+import { fetchCartProducts, loading, setloading } from "../../redux/slices/productSlice";
 
 const Cart = ({ createCheckoutSession}) => {
   const [color, setColor] = useState("green");
   const user = useSelector((state) => state.states.user);
   const dispatch = useDispatch();
-  const items = useSelector((state) => state.products.cartProducts);
+  const items = useSelector((state) => state.cartItems.cart);
   
   // products filter & set quantity
   const newItem = {};
@@ -32,21 +33,7 @@ const Cart = ({ createCheckoutSession}) => {
      dispatch(fetchCartProducts(user));
      dispatch(setloading(false));
   }, [dispatch, loading]);
-
-  const handleDelete = async (id) => {
-    axios.delete(`/api/cart?product_id=${id}`, {
-    }).then(response => {
-      if (response.data.deletedCount) {
-        toast.warn('Removed a product.', {
-          position: "bottom-left"
-        });
-        dispatch(fetchCartProducts(user));
-        dispatch(setTotalPrice(items))
-      }
-    });
-    dispatch(setloading(false));
-  };
-
+  
   // send items to the orders
   const handleAddOrders = async (items,total,email) => {
     axios.post("/api/orders", {
@@ -70,10 +57,10 @@ const Cart = ({ createCheckoutSession}) => {
 
   return (
     <div>
-      <div className="container mx-auto py-4">
+      <div className="container py-4 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-[1fr,550px] gap-3">
-          <div className="bg-gray-100 rounded-md border">
-            <h1 className="text-2xl text-center font-semibold py-4">
+          <div className="bg-gray-100 border rounded-md">
+            <h1 className="py-4 text-2xl font-semibold text-center">
               Shopping Cart
             </h1>
             <hr />
@@ -85,8 +72,8 @@ const Cart = ({ createCheckoutSession}) => {
             {/* Cart is empty */}
             {
               !loading && (items.length === 0)  && (
-                <div className="py-10 px-5">
-                  <h2 className="text-2xl text-center m-auto py-12">
+                <div className="px-5 py-10">
+                  <h2 className="py-12 m-auto text-2xl text-center">
                                     You have no Compare Products! Please add
                                     Products.
                   </h2>
@@ -112,25 +99,25 @@ const Cart = ({ createCheckoutSession}) => {
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
+                                  className="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Unit Price
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
+                                  className="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Quantity
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
+                                  className="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Total
                                 </th>
                                 <th
                                   scope="col"
-                                  className="py-3 px-6 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
+                                  className="px-6 py-3 text-xs font-medium tracking-wider text-center text-gray-700 uppercase "
                                 >
                                   Remove
                                 </th>
@@ -142,7 +129,7 @@ const Cart = ({ createCheckoutSession}) => {
                                   key={item._id}
                                   className="border-b odd:bg-white even:bg-gray-50"
                                 >
-                                  <td className="flex flex-row gap-2 items-center py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
+                                  <td className="flex flex-row items-center gap-2 px-6 py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
                                     <div className="border">
                                       <Image
                                         width={80}
@@ -153,17 +140,17 @@ const Cart = ({ createCheckoutSession}) => {
                                     </div>
                                     <h1>{item.title.slice(0,10)}..</h1>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                  <td className="px-6 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
                                     $ <span>{item.price}</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                  <td className="px-6 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
                                     <span>{item.quantity}</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
+                                  <td className="px-6 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
                                     $ <span>{(item.quantity)* parseInt(item.price)}</span>
                                   </td>
-                                  <td className="py-4 px-6 text-sm text-gray-500 whitespace-nowrap text-center">
-                                    <button onClick={() => handleDelete(item._id)}><ArchiveIcon className="w-5 mt-1 text-red-500 mx-auto" /></button>
+                                  <td className="px-6 py-4 text-sm text-center text-gray-500 whitespace-nowrap">
+                                    <button onClick={() => dispatch(removeCartItem(item._id))}><ArchiveIcon className="w-5 mx-auto mt-1 text-red-500" /></button>
                                   </td>
                                 </tr>
                               ))}
@@ -176,14 +163,14 @@ const Cart = ({ createCheckoutSession}) => {
             </div>
              )
             }
-                <div className="flex flex-row justify-between items-center py-4 px-4">
-                  <button className="primary-bg-color flex flex-row gap-1 items-center hover:bg-green-600 text-white px-2 py-2 rounded">
+                <div className="flex flex-row items-center justify-between px-4 py-4">
+                  <button className="flex flex-row items-center gap-1 px-2 py-2 text-white rounded primary-bg-color hover:bg-green-600">
                     <ArrowLeftIcon className="w-4" />
                     <Link href="/products/all-products">
                       <a>Continue Shopping</a>
                     </Link>
                   </button>
-                  <button className="primary-bg-color flex flex-row gap-1 items-center  hover:bg-green-600 text-white px-2 py-2 rounded">
+                  <button className="flex flex-row items-center gap-1 px-2 py-2 text-white rounded primary-bg-color hover:bg-green-600">
                 {" "}
                     <RefreshIcon className="w-4 " />
                     <Link href="/products/all-products">
@@ -193,8 +180,8 @@ const Cart = ({ createCheckoutSession}) => {
                 </div>
             
           </div>
-          <div className="bg-gray-100 px-4 rounded-md border">
-            <h1 className="text-2xl text-center font-semibold py-4">
+          <div className="px-4 bg-gray-100 border rounded-md">
+            <h1 className="py-4 text-2xl font-semibold text-center">
               Order Summery
             </h1>
             <hr />
@@ -219,11 +206,11 @@ const Cart = ({ createCheckoutSession}) => {
                 <h2 className="text-lg font-semibold">Coupon Code</h2>
                 <div className="flex flex-row items-center py-4">
                   <input
-                    className="bg-white border focus:border-green-600 w-full outline-none py-2 px-4"
+                    className="w-full px-4 py-2 bg-white border outline-none focus:border-green-600"
                     type="text"
                     placeholder="Give coupon code"
                   />
-                  <button className="primary-bg-color flex flex-row items-center gap-2 hover:bg-green-600 text-white font-semibold py-2 px-4">
+                  <button className="flex flex-row items-center gap-2 px-4 py-2 font-semibold text-white primary-bg-color hover:bg-green-600">
                     <ClipboardIcon className="w-4" /> Apply
                   </button>
                 </div>
@@ -238,11 +225,11 @@ const Cart = ({ createCheckoutSession}) => {
               <div className="py-4 mb-2">
                 {
                   items.length === 0 ? (
-                    <button disabled className="primary-bg-color flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button disabled className="flex flex-row items-center justify-center w-full gap-2 px-4 py-2 font-semibold text-white primary-bg-color hover:bg-green-600">
                   Proceed To Checkout
                     </button>
                   ) : (
-                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(items,totalPrice,user.email)]} role="link" type="submit" className="primary-bg-color flex flex-row gap-2 justify-center items-center w-full hover:bg-green-600 text-white font-semibold py-2 px-4">
+                    <button onClick={()=>[createCheckoutSession(),handleAddOrders(items,totalPrice,user.email)]} role="link" type="submit" className="flex flex-row items-center justify-center w-full gap-2 px-4 py-2 font-semibold text-white primary-bg-color hover:bg-green-600">
                   Proceed To Checkout
                   <LogoutIcon className="w-4" />
                       </button>

@@ -49,7 +49,7 @@ const Navigation = ()=> {
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlists.wishlists);
     const compareList = useSelector((state) => state.compareList.compareList);
-    const cart = useSelector((state) => state.products.cartProducts);
+    const cart = useSelector((state) => state.cartItems.cart);
 
     useEffect(() => {
         dispatch(fetchWishlistProducts(user));
