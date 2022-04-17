@@ -45,20 +45,20 @@ const Compare = () => {
                 Products Compare
             </h2>
 
-            <div className="">
+            <div className="w-full">
                 {/* wishlist table */}
                 <div className="pt-10 overflow-auto">
                     <table className="w-full">
                         
-                        <tbody className="flex w-full p-4 overflow-auto border rounded">
+                        <tbody className="flex justify-center w-full py-2 overflow-auto rounded">
                             {compareItems.length !== 0 && (
-                                <tr className="flex flex-col w-1/4 border">
-                                    <td className="h-32 p-3 border-b md:h-48">
+                                <tr className="flex flex-col border w-28 md:w-36">
+                                    <td className="p-3 border-b h-28 md:h-40">
                                         <p className="text-sm font-semibold text-gray-500">
                                             Preview
                                         </p>
                                     </td>
-                                    <td className="p-4 border-b">
+                                    <td className="h-24 p-4 border-b md:h-12">
                                         <p className="text-sm font-semibold text-gray-500">
                                             Name
                                         </p>
@@ -73,7 +73,7 @@ const Compare = () => {
                                             Rating
                                         </h3>
                                     </td>
-                                    <td className="h-40 p-4 border-b">
+                                    <td className="p-4 border-b h-36">
                                         <h3 className="text-sm font-semibold text-gray-500">
                                             Description
                                         </h3>
@@ -83,7 +83,7 @@ const Compare = () => {
                                             Stock status
                                         </h3>
                                     </td>
-                                    <td className="p-4 border-b">
+                                    <td className="h-16 p-4 border-b">
                                         <h3 className="text-sm font-semibold text-gray-500">
                                             Buy now
                                         </h3>
@@ -96,7 +96,7 @@ const Compare = () => {
                                 </tr>
                             )}
                             {compareItems == false && (
-                                <h2 className="py-12 m-auto text-2xl text-center">
+                                <h2 className="py-12 m-auto text-2xl text-center text-gray-400">
                                     You have no Compare Products! Please add
                                     Products.
                                 </h2>
@@ -115,18 +115,18 @@ const Compare = () => {
                                 return (
                                     <tr
                                         key={_id}
-                                        className="flex flex-col w-1/4 border"
+                                        className="flex flex-col text-center border w-36 md:w-1/4"
                                     >
-                                        <td className="flex items-center justify-center h-32 border-b md:h-48">
+                                        <td className="flex items-center justify-center border-b h-28 md:h-40">
                                             <Image
                                                 src={product_imageUrl}
                                                 alt="product image"
                                                 className="object-cover"
-                                                width="175px"
-                                                height="140px"
+                                                width="105px"
+                                                height="100px"
                                             />
                                         </td>
-                                        <td className="p-4 border-b">
+                                        <td className="h-24 p-4 border-b md:h-12">
                                             <p className="text-sm font-semibold text-gray-500">
                                                 {product_title}
                                             </p>
@@ -141,12 +141,17 @@ const Compare = () => {
                                                 {user_rating}
                                             </h3>
                                         </td>
+                                        <td className="p-4 overflow-scroll border-b h-36">
+                                            <h3 className="text-xs font-semibold text-gray-500 md:sm">
+                                                {produc_Details.slice(0, 180)}
+                                            </h3>
+                                        </td>
                                         <td className="p-4 border-b">
                                             <span className="p-1.5 text-xs font-medium uppercase tracking-wider primary-color bg-green-200 rounded-md bg-opacity-50">
                                                 {product_stock}
                                             </span>
                                         </td>
-                                        <td className="p-4 border-b">
+                                        <td className="h-16 p-4 border-b">
                                             <button
                                                 onClick={() =>
                                                     addToCartHandler(
@@ -155,7 +160,7 @@ const Compare = () => {
                                                         product_price
                                                     )
                                                 }
-                                                className="p-2 text-xs font-medium tracking-wider uppercase bg-green-300 bg-opacity-50 border border-green-300 rounded-md primary-color hover:bg-opacity-80 hover:text-green-600"
+                                                className="p-2 text-xs font-semibold tracking-wider uppercase bg-green-300 bg-opacity-50 border border-green-300 rounded-md primary-color hover:bg-opacity-80 hover:text-green-600"
                                             >
                                                 Add to cart
                                             </button>
