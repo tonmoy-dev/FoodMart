@@ -1,8 +1,7 @@
 import { TrashIcon } from "@heroicons/react/outline";
-import { ChevronRightIcon, HomeIcon, StarIcon } from "@heroicons/react/solid";
+import { StarIcon } from "@heroicons/react/solid";
 import axios from "axios";
 import Image from "next/image";
-import Link from "next/link";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast, ToastContainer } from "react-toastify";
@@ -55,69 +54,8 @@ const WishLists = () => {
                 `}
             </style>
             <div className="py-16 mx-5 md:mx-20">
-                <h2 className="pb-2 text-4xl font-semibold text-black ">
-                    Wishlist
-                </h2>
-                {/* breadcrumb */}
-                <div className="pb-10">
-                    <nav className="flex" aria-label="Breadcrumb">
-                        <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                            <li className="inline-flex items-center">
-                                <a
-                                    href="#"
-                                    className="inline-flex items-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                                >
-                                    <HomeIcon
-                                        className="w-4 h-4 mr-2 text-gray-700"
-                                        aria-hidden="true"
-                                    />
-                                    <Link href="/">Home</Link>
-                                </a>
-                            </li>
-                            <li>
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="w-5 h-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <a
-                                        href="#"
-                                        className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                                    >
-                                        Dashboard
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="w-5 h-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <a
-                                        href="#"
-                                        className="ml-1 text-sm font-medium text-gray-700 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white"
-                                    >
-                                        User
-                                    </a>
-                                </div>
-                            </li>
-                            <li aria-current="page">
-                                <div className="flex items-center">
-                                    <ChevronRightIcon
-                                        className="w-5 h-5 text-gray-400"
-                                        aria-hidden="true"
-                                    />
-                                    <span className="ml-1 text-sm font-medium text-gray-400 md:ml-2 dark:text-gray-500">
-                                        Wishlist
-                                    </span>
-                                </div>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
                 <div className="bg-white md:p-10 md:shadow-lg md:rounded-md">
-                    <h2 className="text-2xl font-semibold">
+                    <h2 className="pb-2 text-3xl font-semibold text-black">
                         Your Wishlist
                     </h2>
                     {/* wishlist table */}
@@ -247,14 +185,16 @@ const WishLists = () => {
                                                     Add to cart
                                                 </button>
                                             </td>
-                                            <td className="p-4 whitespace-nowrap ">
-                                                <button className="flex items-center justify-center">
+                                            <td className="p-4 whitespace-nowrap">
+                                                <div className="flex items-center justify-center">
+                                                <button>
                                                     <TrashIcon
                                                         onClick={() => dispatch(removeItem(_id))}
                                                         className="w-6 h-6 text-red-500 "
                                                         aria-hidden="true"
                                                     />
                                                 </button>
+                                                </div>
                                             </td>
                                         </tr>
                                     );
