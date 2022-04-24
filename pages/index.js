@@ -11,7 +11,7 @@ import PopularProducts from "../src/Components/Home/PopularProducts/PopularProdu
 import ProductOffer from "../src/Components/Home/ProductOffer/ProductOffer";
 import Reviews from "../src/Components/Home/Reviews/Reviews";
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-// import OfferModal from "../src/Components/OfferModal/OfferModal";
+import OfferModal from "../src/Components/OfferModal/OfferModal";
 import TawkMessengerReact from '/node_modules/@tawk.to/tawk-messenger-react';
 
 export default function Home({ reviews, products, blogs }) {
@@ -29,8 +29,8 @@ export default function Home({ reviews, products, blogs }) {
 
   return (
     <div className="">
-      {/* {!openModal && (
-        <div className="fixed transition top-0 modal-overlay h-screen w-full z-50">
+      {!openModal && (
+        <div className="fixed top-0 z-50 w-full h-screen transition modal-overlay">
           <OfferModal handleModal={handleModal}></OfferModal>
           <style>
             {`.modal-overlay{
@@ -38,7 +38,7 @@ export default function Home({ reviews, products, blogs }) {
           }`}
           </style>
         </div>
-      )} */}
+      )}
       <Banner></Banner>
       <PopularProducts products={products}></PopularProducts>
       <DealsofDay></DealsofDay>
