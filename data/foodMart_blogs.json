@@ -1,0 +1,22 @@
+[
+    {
+        "blog_title":"The Intermediate Guide to Healthy Food",
+        "blog_category":"Side Dish",
+        "blog_imageUrl":"https://i.ibb.co/H7zBvkT/blog-1.png"
+    },
+    {
+        "blog_title":"Summer Quinoa Salad Jars with Lemon Dill",
+        "blog_category":"Soups and Stews",
+        "blog_imageUrl":"https://i.ibb.co/pWMLcdT/blog-2.png"
+    },
+    {
+        "blog_title":"Sticky Ginger Rice Bowls with Pickled",
+        "blog_category":"Salad",
+        "blog_imageUrl":"https://i.ibb.co/727kjK8/blog-10.png"
+    },
+    {
+        "blog_title":"Beans & Greens Tacos with Aji Verde",
+        "blog_category":"Vegan",
+        "blog_imageUrl":"https://i.ibb.co/wRgXbYf/blog-6.png"
+    }
+]
