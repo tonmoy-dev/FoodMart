@@ -47,9 +47,10 @@ const Cart = () => {
                                         </div>
                                     </div>
                                     <div className="flex justify-center w-3/12 text-black">
-                                        <span className="">-</span>
-                                        <input type="text" className="w-8 h-6 px-2 mx-2 bg-gray-100 border rounded focus:outline-none" value={item.quantity} />
-                                        <span className="">+</span>
+                                        <span>{item.quantity}</span> 
+                                        {/* <span className="">-</span> */}
+                                        {/* <input readOnly type="text" className="w-8 h-6 px-2 mx-2 bg-gray-100 border rounded focus:outline-none" value={item.quantity} /> */}
+                                        {/* <span className="">+</span> */}
                                     </div>
                                     <p className="w-2/12 text-sm font-semibold text-center">${item.price}</p>
                                     <button className="w-1/12">
